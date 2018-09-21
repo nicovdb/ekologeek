@@ -1,6 +1,6 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light ">
   <%= link_to root_path, class:"navbar-brand" do %>
-    <%= inline_svg "home", width: 30 %>
+    <%= inline_svg "home", width: 30, class:"text-light-gray" %>
   <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -42,11 +42,11 @@
         </div>
       </li>
       <li class="nav-item">
-        <%= link_to "S'inscrire", "/inscription", class:"nav-link" %>
+        <%= link_to "S'inscrire", "/inscription", class:"nav-link text-light-gray" %>
       </li>
       <li class="nav-item">
         <%= link_to destroy_user_session_path, method: :delete, class:"nav-link" do %>
-          <%= t(".sign_out", default: "Log out") %> <%= inline_svg "sign-out", width: 30, class:"ml-2" %>
+          <%= t(".sign_out", default: "Log out") %> <%= inline_svg "sign-out", width: 30, class:"ml-2 text-body-bg" %>
         <% end %>
       </li>
     </ul>
