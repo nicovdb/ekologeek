@@ -46,7 +46,7 @@
       </li>
       <li class="nav-item">
         <%= link_to destroy_user_session_path, method: :delete, class:"nav-link" do %>
-          <%= t(".sign_out", default: "Log out") %>
+          <%= t(".sign_out", default: "Log out") %><%= inline_svg "sign-out", width: 30, class:"ml-2" %>
         <% end %>
       </li>
     </ul>
