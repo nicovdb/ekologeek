@@ -1,5 +1,54 @@
-
-<%= link_to destroy_user_session_path, method: :delete do %>
-  <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-<% end %>
-        
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light ">
+  <%= link_to root_path, class:"navbar-brand" do %>
+    <%= inline_svg "home", width: 30 %>
+  <% end %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Comment
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to "Les objectifs du défit", "/comment", class:"dropdown-item", id:"comment1"%>
+          <%= link_to "Les structures éligibles", "/comment", class:"dropdown-item", id:"comment2"%>
+          <%= link_to "Les déchets concernés", "/comment", class:"dropdown-item", id:"comment3"%>
+          <%= link_to "Comment ça se passe ?", "/comment", class:"dropdown-item", id:"comment4"%>
+          <%= link_to "Planning ?", "/comment", class:"dropdown-item", id:"comment5"%>
+          <%= link_to "Combien ça coûte ?", "/comment", class:"dropdown-item", id:"comment6"%>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Pourquoi
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to "1", "/pourquoi", class:"dropdown-item", id:"pourquoi1"%>
+          <%= link_to "2", "/pourquoi", class:"dropdown-item", id:"pourquoi2"%>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Soutenir
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to "Pourquoi nous soutenir ?", "/soutenir", class:"dropdown-item", id:"soutenir1"%>
+          <%= link_to "Mécénat", "/soutenir", class:"dropdown-item", id:"soutenir2"%>
+          <%= link_to "Don", "/soutenir", class:"dropdown-item", id:"soutenir3"%>
+          <%= link_to "Partager", "/soutenir", class:"dropdown-item", id:"soutenir4"%>
+          <%= link_to "Témoigner", "/soutenir", class:"dropdown-item", id:"soutenir5"%>
+        </div>
+      </li>
+      <li class="nav-item">
+        <%= link_to "S'inscrire", "/s'inscrire", class:"nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to destroy_user_session_path, method: :delete, class:"nav-link" do %>
+          <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>
