@@ -1,0 +1,27 @@
+<footer>
+  <div class=" footer d-flex-colum flex-lg-row align-items-center p-3">
+    
+    <div class="mx-3">
+      <%= inline_svg "logo", width: 100 %>
+    </div>
+
+    <div class="footer-content flex-grow-1 text-center">
+      <p>bla bla bla</p>
+    </div>
+
+    <div class="">
+      <div class="d-flex justify-content-around">
+        <%= link_to ENV["INSTAGRAM_EKOLOGEEK"], class:"footer-link mx-3", target:"_blank" do %>
+        <%= inline_svg "instagram", width:"30" %>
+        <% end %>
+        <%= link_to ENV["FACEBOOK_EKOLOGEEK"],class:"footer-link mx-3", target:"_blank" do %>
+        <%= inline_svg "facebook", width:"30" %>
+        <% end %>
+        <%= link_to ENV["YOUTUBE_EKOLOGEEK"],class:"footer-link mx-3", target:"_blank" do %>
+        <%= inline_svg "youtube", width:"30" %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</footer>
