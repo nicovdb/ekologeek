@@ -13,8 +13,25 @@
       margin: 0;
    }
 
-   .card-body {
+   .card-height {
     height: 500px;
+   }
+
+   .card-img-top {
+    height: 220px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+
+    h4 {
+      color: white;
+    }
+   }
+
+   .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
    }
 
    .card:first-of-type {
