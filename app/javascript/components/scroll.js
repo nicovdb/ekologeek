@@ -6,14 +6,14 @@ $(document).ready(function() {
   //you know the position.
   $(window).scroll(function () {
 
-    if ($(window).scrollTop() > 110) {
+    if ($(window).scrollTop() > 118) {
       var nav = document.getElementById("nav_bar")
       nav.classList.add('fixed-top');
       var navBarLogo = document.getElementById("nav_logo")
       navBarLogo.classList.remove('navbar-logo');
     }
 
-    if ($(window).scrollTop() < 111) {
+    if ($(window).scrollTop() < 119) {
       var nav = document.getElementById("nav_bar")
       nav.classList.remove('fixed-top');
       var navBarLogo = document.getElementById("nav_logo")
