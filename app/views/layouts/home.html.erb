@@ -9,8 +9,10 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
   <body>
-    <%= render 'shared/navbar' %>
+    <%= render 'shared/navbar_secondary' %>
+    <%= render 'shared/navbar_primary' %>
     <%= render 'shared/flashes' %>
+    <%= render 'shared/carousel' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
