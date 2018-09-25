@@ -6,17 +6,19 @@ $(document).ready(function() {
   //you know the position.
   $(window).scroll(function () {
 
-    if ($(window).scrollTop() > 110) {
-      var nav = document.getElementById("nav_bar")
-      nav.classList.add('fixed-top');
-      var navBarLogo = document.getElementById("nav_logo")
+    if ($(window).scrollTop() > 118) {
+      var nav = document.getElementById("nav_bar");
+      nav.classList.add('fixed-top', 'animatedMenu');
+      var navBarLogo = document.getElementById("nav_logo");
       navBarLogo.classList.remove('navbar-logo');
+      var hintBorder = document.getElementById("hint-border");
+      nav.classList.add('hint-border-primary');
     }
 
-    if ($(window).scrollTop() < 111) {
-      var nav = document.getElementById("nav_bar")
-      nav.classList.remove('fixed-top');
-      var navBarLogo = document.getElementById("nav_logo")
+    if ($(window).scrollTop() < 119) {
+      var nav = document.getElementById("nav_bar");
+      nav.classList.remove('fixed-top', 'animatedMenu');
+      var navBarLogo = document.getElementById("nav_logo");
       navBarLogo.classList.add('navbar-logo');
     }
   });

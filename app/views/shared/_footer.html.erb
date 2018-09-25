@@ -1,0 +1,36 @@
+<footer>
+  <div class="hint-border-primary"></div>
+  <div class=" footer d-flex flex-column flex-lg-row align-items-center p-3">
+
+    <div class="mx-3 my-3">
+      <%= inline_svg "logo", width: 100 %>
+    </div>
+
+    <div class="footer-content flex-grow-1 text-center">
+      <div class=" d-flex justify-content-center">
+        <%= link_to "Plan du site", root_path, class:"mr-2" %>
+        -
+        <%= link_to "Politique de confidentialité", root_path,class:"ml-2" %>
+      </div>
+      <div class="d-flex justify-content-center">
+        ©<%= Time.now.year %>
+        - Association Ekolo[geek]
+      </div>
+    </div>
+
+    <div class="my-4">
+      <div class="d-flex justify-content-around">
+        <%= link_to ENV["INSTAGRAM_EKOLOGEEK"], class:"footer-link mx-3", target:"_blank" do %>
+        <%= inline_svg "instagram", width:"30" %>
+        <% end %>
+        <%= link_to ENV["FACEBOOK_EKOLOGEEK"],class:"footer-link mx-3", target:"_blank" do %>
+        <%= inline_svg "facebook", width:"30" %>
+        <% end %>
+        <%= link_to ENV["YOUTUBE_EKOLOGEEK"],class:"footer-link mx-3", target:"_blank" do %>
+        <%= inline_svg "youtube", width:"30" %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</footer>
