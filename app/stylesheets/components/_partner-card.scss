@@ -1,0 +1,25 @@
+.partenaires {
+  a {
+    color: black;
+  }
+
+  a:hover {
+    color: black;
+    text-decoration: none;
+  }
+
+  .card-img-top {
+    height: 100px;
+    object-fit: scale-down;
+
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  .card {
+    min-height: 100%;
+  }
+}
+

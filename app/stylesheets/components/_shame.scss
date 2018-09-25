@@ -6,9 +6,25 @@
   background: $light-gray;
 
 }
+
 .title {
   width: 100%;
   text-align: center;
+}
+
+.image-team {
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
+}
+
+.para-0 {
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 }
 
 .header {
