@@ -1,25 +1,74 @@
 .navbar {
   width: 100%;
-  background-color: $blue !important;
   z-index: 10;
+  transition: height 0.3s ease-out;
+  -webkit-transition: height 0.3s ease-out;
+  height: 50px;
   .nav-link {
-    color: $light-gray !important;
+    color: $light-gray;
+  }
+  .home-nav-link {
+    color: $light-gray;
   }
   .logo-nav {
     background-image: image("logo.png");
+  }
+  .navbar-toggler[data-toggle="collapse"] {
+    color: white;
+  }
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  @media (max-width: $mobile) {
+    height: auto;
+  }
+}
+
+#nav_bar {
+  background-color: $primary;
+
+  &.animatedMenu{
+    background-color: white;
+    height: 150px;
+    box-shadow: 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -7px rgba(0,0,0,0.2);
+    justify-content: space-around !important;
+    .nav-link {
+      color: $primary;
+    }
+    .navbar-brand svg {
+      width: 100px;
+      margin: 0;
+    }
+    .navbar-logo {
+      margin: 0;
+    }
+    ul {
+      align-items: center;
+      justify-content: end;
+    }
+    .home-nav-link svg {
+      color: $primary;
+      width: 30px;
+    }
+    .navbar-toggler[data-toggle="collapse"] {
+      color: $primary;
+    }
+    @media (max-width: $mobile) {
+      height: auto;
+    }
   }
 }
 
 .navbar-secondary {
   background: white;
   width: 100%;
-  height: 120px;
+  height: 100%;
 }
 
 .navbar-logo {
   display: none;
 }
-// 
+//
 // #nav_logo {
 //   background-color: white !important;
 // }

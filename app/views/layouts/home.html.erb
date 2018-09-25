@@ -11,12 +11,12 @@
   <body>
     <%= render 'shared/navbar_secondary' %>
     <div class="d-flex flex-column">
-      <%= render 'shared/navbar_primary' %>
       <%= render 'shared/flashes' %>
+      <%= render 'shared/hint-border' %>
+      <%= render 'shared/navbar_primary' %>
       <%= render 'shared/carousel' %>
-      <div class="flex-grow-1">
-        <%= yield %>
-      </div>
+      <%= yield %>
+      <%= render 'shared/hint-border' %>
       <%= render 'shared/footer' %>
     </div>
     <%= javascript_include_tag 'application' %>

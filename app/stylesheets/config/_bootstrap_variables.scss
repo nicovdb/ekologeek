@@ -6,15 +6,22 @@
 // General style
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
-$body-bg:                 $light-gray;
 
 // Colors
-$gray-base:       $gray;
-$brand-primary:   $blue;
-$brand-success:   $green;
-$brand-info:      $yellow;
-$brand-danger:    $red;
-$brand-warning:   $orange;
+$primary:   $blue;
+$secondary:   $green;
+$info:      $yellow;
+$danger:    $red;
+$warning:   $orange;
+
+$theme-colors: (
+  "primary": $blue,
+  "secondary": $secondary,
+  "danger": $red,
+  "canceled": $orange,
+  "pending": $black,
+  "finished": $light-gray,
+);
 
 
 // Buttons & inputs' radius
