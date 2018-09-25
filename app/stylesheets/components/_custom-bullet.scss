@@ -1,0 +1,12 @@
+.bullet-custom li {
+  list-style: none;
+}
+.bullet-custom li:before {
+  content: "◉";
+  color: $primary;
+  padding-right: 5px;
+}
+
+.bullet-secondary li:before {
+  color: $secondary;
+}

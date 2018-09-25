@@ -6,8 +6,21 @@
   background: $light-gray;
 
 }
-
 .title {
   width: 100%;
   text-align: center;
+}
+
+.header {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.list {
+  list-style: none;
+}
+
+.text {
+  text-align: justify;
+  text-align-last: left;
 }
