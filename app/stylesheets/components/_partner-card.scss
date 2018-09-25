@@ -9,11 +9,17 @@
   }
 
   .card-img-top {
-    object-fit: contain;
+    height: 100px;
+    object-fit: scale-down;
+
   }
 
   h3 {
     text-align: center;
+  }
+
+  .card {
+    min-height: 100%;
   }
 }
 
