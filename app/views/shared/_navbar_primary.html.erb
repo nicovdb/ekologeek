@@ -19,12 +19,12 @@
           Comment
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <%= link_to "Les objectifs du défi", "/comment", class:"dropdown-item", id:"comment1"%>
-          <%= link_to "Les structures éligibles", "/comment", class:"dropdown-item", id:"comment2"%>
-          <%= link_to "Les déchets concernés", "/comment", class:"dropdown-item", id:"comment3"%>
-          <%= link_to "Comment ça se passe ?", "/comment", class:"dropdown-item", id:"comment4"%>
-          <%= link_to "Planning", "/comment", class:"dropdown-item", id:"comment5"%>
-          <%= link_to "Combien ça coûte ?", "/comment", class:"dropdown-item", id:"comment6"%>
+          <%= link_to "Les objectifs du défi", comment_path(anchor: "comment1"), class:"dropdown-item"%>
+          <%= link_to "Les structures éligibles", comment_path(anchor: "comment2"), class:"dropdown-item" %>
+          <%= link_to "Les déchets concernés", comment_path(anchor: "comment3"), class:"dropdown-item" %>
+          <%= link_to "Comment ça se passe ?", comment_path(anchor: "comment4"), class:"dropdown-item" %>
+          <%= link_to "Planning", comment_path(anchor: "comment5"), class:"dropdown-item" %>
+          <%= link_to "Combien ça coûte ?", comment_path(anchor: "comment6"), class:"dropdown-item" %>
         </div>
       </li>
       <li class="nav-item m-2 dropdown">
