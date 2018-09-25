@@ -15,7 +15,7 @@ $(document).ready(function() {
       nav.classList.add('hint-border-primary');
     }
 
-    if ($(window).scrollTop() < 119) {
+    if ($(window).scrollTop() < 1) {
       var nav = document.getElementById("nav_bar");
       nav.classList.remove('fixed-top', 'animatedMenu');
       var navBarLogo = document.getElementById("nav_logo");
