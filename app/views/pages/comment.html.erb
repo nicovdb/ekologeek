@@ -1,88 +1,127 @@
 <div class="wrapper">
   <div class="container mt-5">
-    <h1>Comment</h1>
-    <div class="sous-menu">
+    <h1 class="header text-primary mb-5">Comment</h1>
+    <div>
       <h2>Les objectifs du Défi</h2>
-      <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+       <p class="text">Le Défi consiste en l'accompagnement structurel et individuel des établissements participants dans l’étude et la mise en place de solutions techniques (poubelles, affichages, équipement ZD), organisationnelles et comportementales (procédures, missions, partenariats…) pour réduire leurs déchets.</p>
+      <ul class="list my-3 bullet-custom">
+        <h5 class="mb-3 mt-5">Objectifs principaux :</h5>
+        <li class="my-2 ml-lg-4">
+          Réduire la production de déchets et les impacts environnementaux associés
+        </li>
+        <li class="my-2 ml-lg-4">
+          Augmenter la valorisation matière, organique voire énergétique des déchets produits
+        </li>
+        <li class="my-2 ml-lg-4">
+          Intéresser et mobiliser les professionnels à prévenir et gérer leurs déchets
+        </li>
+        <li class="my-2 ml-lg-4">
+          Valoriser publiquement les démarches exemplaires des établissements participants
+        </li>
       </ul>
-      <p>
-        Le Défi consiste en l'accompagnement structurel et individuel des établissements participants dans l’étude et la mise en place de solutions techniques (poubelles, affichages, équipement ZD), organisationnelles et comportementales (procédures, missions, partenariats…) pour réduire leurs déchets.
 
-        ◦ Objectifs principaux :
-        ▪ Réduire la production de déchets et les impacts environnementaux associés
-        ▪ Augmenter la valorisation matière, organique voire énergétique des déchets produits
-        ▪ Intéresser et mobiliser les professionnels à prévenir et gérer leurs déchets
-        ▪ Valoriser publiquement les démarches exemplaires des établissements participants
-
-        ◦ Objectifs secondaires :
-        ▪ Réduire les coûts de gestion des déchets
-        ▪ Donner une nouvelle représentation psycho-sociologique positive du sujet des déchets
-        ▪ Développer le lien social
-        ▪ Développer la culture d’établissement autour des déchets
-        ▪ Développer des synergies en écologie industrielle entre les participants du défi et hors-défi.
-        ▪ Valoriser les acteurs locaux de la filière des déchets
-      </p>
+      <ul class="list my-5 bullet-custom bullet-secondary">
+        <h5 class="mb-3">Objectifs secondaires :</h5>
+        <li class="my-2 ml-lg-4">
+          Réduire les coûts de gestion des déchets
+        </li>
+        <li class="my-2 ml-lg-4">
+          Donner une nouvelle représentation psycho-sociologique positive du sujet des déchets
+        </li>
+        <li class="my-2 ml-lg-4">
+          Développer le lien social
+        </li>
+        <li class="my-2 ml-lg-4">
+          Développer la culture d’établissement autour des déchets
+        </li>
+        <li class="my-2 ml-lg-4">
+          Développer des synergies en écologie industrielle entre les participants du défi et hors-défi.
+        </li>
+        <li class="my-2 ml-lg-4">
+          Valoriser les acteurs locaux de la filière des déchets
+        </li>
+      </ul>
     </div>
-    <div class="sous-menu ">
-      <h2>Les structures éligibles</h2>
-      <p>
-        Tout professionnel souhaitant travailler sur ses déchets de fonctionnement est le bienvenu : public ou privé, quelque soit son activité ou sa taille.
-        Pour ce premier Défi, les structures participantes doivent résider dans le territoire de Bordeaux Métropole.
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="d-flex flex-column justify-content-center align-items-center h-100">
+          <%= image_tag "square-desk", width: 300 %>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="sous-menu ">
+          <h2>Les structures éligibles</h2>
+          <p class="text">
+            Tout professionnel souhaitant travailler sur ses déchets de fonctionnement est le bienvenu : public ou privé, quelque soit son activité ou sa taille.
+            Pour ce premier Défi, les structures participantes doivent résider dans le territoire de Bordeaux Métropole.
 
-        L'objectif est d'étendre le Défi à de nouveaux territoires. Vous aimeriez participer mais n'êtes pas dans la zone géographique concernée ? - lien vers accueillir
-      </p>
-    </div>
+            L'objectif est d'étendre le Défi à de nouveaux territoires. Vous aimeriez participer mais n'êtes pas dans la zone géographique concernée ? - lien vers accueillir
+          </p>
+        </div>
 
-    <div class="sous-menu">
-      <h2>Les déchets concernés</h2>
-      <p>
-        Emballages (bouteilles, cannettes etc), fournitures de bureau (papiers, stylos etc), matériel informatique (ordinateurs, téléphones etc), vaisselle (gobelets de café, verre en plastique pour la fontaine à eau etc), biodéchets (marc de café etc), mobilier, mégots, ampoules, piles, cartouches d'encre, produits d'entretien, cartons, palettes...
-      </p>
-    </div>
+        <div class="mt-5">
+          <h2>Les déchets concernés</h2>
+          <p class="text">
+            Emballages (bouteilles, cannettes etc), fournitures de bureau (papiers, stylos etc), matériel informatique (ordinateurs, téléphones etc), vaisselle (gobelets de café, verre en plastique pour la fontaine à eau etc), biodéchets (marc de café etc), mobilier, mégots, ampoules, piles, cartouches d'encre, produits d'entretien, cartons, palettes...
+          </p>
+        </div>
+      </div>
 
-    <div class="sous-menu">
+      </div>
+
+    <div class="mt-5">
       <h2>Comment ça se passe ?</h2>
-      <p>
+
         Collecte de données
-        Sur une durée de 6 mois, les structures devront mesurer régulièrement leur production de déchets et évaluer leurs comportement, en remplissant des formulaires sur ce site (espace participant). Elles pourront ainsi visualiser leur progression et leur classement par rapport aux autres.
+        <p>Sur une durée de 6 mois, les structures devront mesurer régulièrement leur production de déchets et évaluer leurs comportement, en remplissant des formulaires sur ce site (espace participant). Elles pourront ainsi visualiser leur progression et leur classement par rapport aux autres.</p>
+        <ul class="list my-3 bullet-custom">
+          <h5 class="mb-3 mt-5">Activités collectives</h5>
+          <li class="my-2 ml-lg-4">
+            Ateliers-formations échanges (enjeux-problématiques, causes-conséquences, acteurs de la filière, réglementation, solutions globales, locales et individuelles, avancement dans le défi…)
+          </li>
+          <li class="my-2 ml-lg-4">
+            Rencontres et visites d’acteurs sur site (installations techniques de prévention et gestion des déchets, établissements exemplaires…) et retours d'expériences hors-site de pairs.
+          </li>
+          <li class="my-2 ml-lg-4">
+            Ateliers pratiques (outils de communication-sensibilisation, fabrication de produits…)
+          </li>
+          <li class="my-2 ml-lg-4">
+            Serious game pour adultes sur les déchets (jeu de société, grand jeu, animation ludique…)
+          </li>
+          <li class="my-2 ml-lg-4">
+            Durant le défi, des "sous-défis" facultatifs sont proposés aux établissements afin de leur offrir une autre forme de stimulation pour agir concrètement en interne sur les déchets
+          </li>
+        </ul>
+        <h5 class="mb-3 mt-5">Accompagnement individuel</h5>
+        <p>Un suivi régulier sera effectué avec chaque structure pour évaluer sa progression dans la démarche et l'accompagner dans la mise en place des actions : revue des données collectées, échanges par mail et téléphone.</p>
 
-
-        Activités collectives
-            • Ateliers-formations échanges (enjeux-problématiques, causes-conséquences, acteurs de la filière, réglementation, solutions globales, locales et individuelles, avancement dans le défi…)
-
-            • Rencontres et visites d’acteurs sur site (installations techniques de prévention et gestion des déchets, établissements exemplaires…) et retours d'expériences hors-site de pairs.
-
-            • Ateliers pratiques (outils de communication-sensibilisation, fabrication de produits…)
-
-            • Serious game pour adultes sur les déchets (jeu de société, grand jeu, animation ludique…)
-
-            • Durant le défi, des « sous-défis » facultatifs sont proposés aux établissements afin de leur offrir une autre forme de stimulation pour agir concrètement en interne sur les déchets
-
-        Accompagnement individuel
-        Un suivi régulier sera effectué avec chaque structure pour évaluer sa progression dans la démarche et l'accompagner dans la mise en place des actions : revue des données collectées, échanges par mail et téléphone.
-
-        Documents
+        <h5 class="mb-3 mt-5">Documents</h5>
         Charte, règlement... - liens pour télécharger des documents à créer
-      </p>
     </div>
 
-    <div class="sous-menu">
-      <h2>Planning</h2>
-      <p>Schéma à importer</p>
+    <div>
+      <h5 class="mb-3 mt-5">Planning</h5>
+      <div class="d-flex justify-content-center align-items-center my-5">
+        <%= image_tag "timeline", style:"width: 100%", class:"px-lg-5" %>
+      </div>
+      <%= link_to "télécharger", root_path %>
     </div>
 
-    <div class="sous-menu">
-      <h2>Combien ça coûte ?</h2>
-      <p>
-        La participation au Défi comprend un prix forfaitaire de 150€, plus un tarif qui dépend de la taille de votre établissement : 10€ par salarié.e.
-        Exemples :
-            • mon organisation comprend 10 employés, la participation au Défi sera de 150+10x10 = 250€
-            • mon organisation comprend 100 employés, la participation au Défi sera de 150+10x100 = 1150€
-      </p>
+    <div>
+      <h5 class="mb-3 mt-5">Combien ça coûte ?</h5>
+      <p>La participation au Défi comprend un prix forfaitaire de 150€, plus un tarif qui dépend de la taille de votre établissement : 10€ par salarié.e.</p>
+      <ul class="list my-3 bullet-custom  bullet-secondary">
+        <h5 class="mb-3 mt-5">Exemples :</h5>
+        <li class="my-2 ml-lg-4">
+          mon organisation comprend 10 employés, la participation au Défi sera de 150+10x10 = 250€
+        </li>
+        <li class="my-2 ml-lg-4">
+          Augmenter la valorisation matière, organique voire énergétique des déchets produits
+        </li>
+        <li class="my-2 ml-lg-4 mb-5">
+          mon organisation comprend 100 employés, la participation au Défi sera de 150+10x100 = 1150€
+        </li>
+      </ul>
     </div>
   </div>
 </div>
