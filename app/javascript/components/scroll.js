@@ -16,9 +16,9 @@ $(document).ready(function() {
     }
 
     if ($(window).scrollTop() < 119) {
-      var nav = document.getElementById("nav_bar")
+      var nav = document.getElementById("nav_bar");
       nav.classList.remove('fixed-top', 'animatedMenu');
-      var navBarLogo = document.getElementById("nav_logo")
+      var navBarLogo = document.getElementById("nav_logo");
       navBarLogo.classList.add('navbar-logo');
     }
   });

@@ -15,6 +15,12 @@
 
    .card-height {
     height: 500px;
+    min-width: 300px;
+   }
+
+   .card-height-small {
+    height: 300px;
+    min-width: 300px;
    }
 
    .card-img-top {
@@ -25,6 +31,19 @@
 
     h4 {
       color: white;
+      text-align: center;
+    }
+   }
+
+  .card-img {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+
+    h4 {
+      color: white;
+      text-align: center;
     }
    }
 
