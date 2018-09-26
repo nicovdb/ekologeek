@@ -25,6 +25,36 @@
   font-weight: bold;
 }
 
+.header-padding-pourquoi {
+  padding-top: 80px;
+  padding-bottom: 50px;
+  @media (max-width: $tablet) {
+    padding-top: 50px;
+    padding-bottom: 20px;
+  }
+}
+//
+.header-padding-comment {
+  padding-top: 50px;
+  @media (max-width: $tablet) {
+    padding-top: 50px;
+  }
+}
+//
+.header-padding-comment-image {
+    @media (max-width: $tablet) {
+      padding-top: 0;
+      padding-bottom: 30px;
+  }
+}
+
+.padding {
+  padding-bottom: 50px;
+  @media (max-width: $tablet) {
+    padding-top: 0;
+  }
+}
+
 .list {
   list-style: none;
 }
