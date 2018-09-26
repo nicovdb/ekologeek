@@ -7,13 +7,23 @@
       <p class="text">
         Le concept d’Ekolo[geek] est né de la volonté de rendre l’information sur la protection de l’environnement simple et attractive pour le grand public, en proposant des moyens concrets d’action. Depuis plus de 10 ans l'association sensibilise et mobilise le jeune, grand public aux éco-gestes (eau, énergie, déchets, consommation responsable). Nous sommes actifs sur le web mais nos principales actions ont lieu sur le terrain. En effet, nous participons à plus d'une quarantaine d'événements par an, ainsi qu'à des temps périscolaires. L'association compte 2 salariés, 1 service civique, et une quarantaine de bénévoles.
       </p>
-      <p class="text">
-        Depuis 2016, nous accompagnons également des professionnels dans leur démarche d'éco-responsabilité interne. Par exemple, depuis 2016 nous accompagnons la mairie du Bouscat pour améliorer le développement de leur Programme d'Eco-Responsabilité interne. En 2017, nous avons accompagné des « agents référents » sur le thème de l’économie circulaire avec cinq ateliers-formations et la visite d'une ressourcerie. En 2018, nous poursuivons l'accompagnement auprès de 3 référent·e·s techniques au niveau de changements de comportements sur l'énergie et les déchets.
-      </p>
 
-      <p class="text">
-        Depuis fin 2016, nous sommes missionnés par Enedis Aquitaine-Nord pour étudier l’impact sur leurs clients qui ont été accompagnés par les Volontaires de la Transition Energétique (VTE). Il s’agit de mesurer l’évolution des consommations d’électricité suite à cet accompagnement et d’étudier comment les familles apprennent à mieux maîtriser leur compteur électrique et les fonctionnalités associées, disponibles sur l’espace client d’Enedis.
-      </p>
+      <div class="row">
+        <div class="col-lg-6">
+          <p class="text">
+            Depuis 2016, nous accompagnons également des professionnels dans leur démarche d'éco-responsabilité interne. Par exemple, depuis 2016 nous accompagnons la mairie du Bouscat pour améliorer le développement de leur Programme d'Eco-Responsabilité interne. En 2017, nous avons accompagné des « agents référents » sur le thème de l’économie circulaire avec cinq ateliers-formations et la visite d'une ressourcerie. En 2018, nous poursuivons l'accompagnement auprès de 3 référent·e·s techniques au niveau de changements de comportements sur l'énergie et les déchets.
+          </p>
+
+          <p class="text">
+            Depuis fin 2016, nous sommes missionnés par Enedis Aquitaine-Nord pour étudier l’impact sur leurs clients qui ont été accompagnés par les Volontaires de la Transition Energétique (VTE). Il s’agit de mesurer l’évolution des consommations d’électricité suite à cet accompagnement et d’étudier comment les familles apprennent à mieux maîtriser leur compteur électrique et les fonctionnalités associées, disponibles sur l’espace client d’Enedis.
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <div class="d-flex flex-column justify-content-center align-items-center h-100 illustration mb-5">
+            <%= image_tag "ekologeek-stand" %>
+          </div>
+        </div>
+      </div>
       <p class="text">
         Le concept d’Ekolo[geek] est né de la volonté de rendre l’information sur la protection de l’environnement simple et attractive pour le grand public, en proposant des moyens concrets d’action. Depuis plus de 10 ans l'association sensibilise et mobilise le jeune, grand public aux éco-gestes (eau, énergie, déchets, consommation responsable). Nous sommes actifs sur le web mais nos principales actions ont lieu sur le terrain. En effet, nous participons à plus d'une quarantaine d'événements par an, ainsi qu'à des temps périscolaires. L'association compte 2 salariés, 1 service civique, et une quarantaine de bénévoles.
       </p>
@@ -26,19 +36,19 @@
       </p>
 
       <div class="row">
-        <div class="col-12 col-md-6">
-          <div class="image-team">
-            <%= image_tag("equipe.jpg") %>
+        <div class="col-12 col-lg-6">
+          <div class="d-flex flex-column justify-content-center align-items-center h-100 illustration">
+            <%= image_tag "equipe.jpg" %>
           </div>
         </div>
 
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-lg-6">
           <div class="h-100 p-2 d-flex flex-column justify-content-center align-items-center para-0">
             <p>Association loi 1901 reconnue d'intérêt général</p>
             <p>Maison de la Nature et de l'Environnement</p>
             <p> 3 rue de Tauzia 33800 BORDEAUX</p>
             <p>
-              <%= link_to "www.ekologeek.com"  %>
+              <%= link_to( "www.ekologeek.com", "https://www.ekologeek.com", target: :blank) %>
             </p>
           </div>
         </div>
@@ -52,9 +62,9 @@
       </p>
 
       <div class="row">
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-4 mb-3">
           <%= link_to "https://www.cebx.fr/", target: :blank do %>
-            <div class="card club">
+            <div class="card">
               <img class="card-img-top" src="<%= image_path("entreprises") %>">
               <div class="card-body">
                 <p class="card-text text">
@@ -65,9 +75,9 @@
           <% end %>
         </div>
 
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-4 mb-3">
           <%= link_to "http://www.bordeaux-metropole.fr/", target: :blank do %>
-            <div class="card metropole">
+            <div class="card">
               <img class="card-img-top" src="<%= image_path("metropole") %>">
               <div class="card-body">
                 <p class="card-text text">
@@ -78,9 +88,9 @@
           <% end %>
         </div>
 
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-4 mb-3">
           <%= link_to "https://www.ademe.fr/", target: :blank do %>
-            <div class="card ademe">
+            <div class="card">
               <img class="card-img-top" src="<%= image_path("ademe") %>">
               <div class="card-body">
                 <p class="card-text text">
@@ -92,7 +102,7 @@
         </div>
       </div>
       <div class="call-action">
-        <%= link_to "Vous aussi, soutenez le projet !", '/soutenir', class:"btn btn-secondary m-5" %>
+        <%= link_to "Vous aussi, soutenez le projet !", '/soutenir', class:"btn btn-secondary" %>
       </div>
 
     </div>

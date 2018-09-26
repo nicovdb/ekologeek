@@ -6,7 +6,7 @@
     .card-img-top {
       height: 100px;
       object-fit: scale-down;
-      margin-top: 15px;
+      padding: 15px 10px 0 10px;
     }
   }
 
@@ -26,6 +26,7 @@
       color: white;
       font-weight: bold;
       font-size: 20px;
+      margin: 40px 0;
 
       &:hover {
         color: white;

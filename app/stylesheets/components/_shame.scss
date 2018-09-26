@@ -12,14 +12,6 @@
   text-align: center;
 }
 
-.image-team {
-  width: 100%;
-
-  img {
-    width: 100%;
-  }
-}
-
 .para-0 {
   p {
     margin-top: 0;
@@ -40,4 +32,14 @@
 .text {
   text-align: justify;
   text-align-last: left;
+}
+
+.illustration {
+  img {
+    width: 400px;
+
+    @media (max-width: $mobile) {
+      width: 300px;
+    }
+  }
 }
