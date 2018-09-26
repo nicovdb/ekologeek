@@ -1,4 +1,15 @@
 .partenaires {
+
+  .card {
+    min-height: 100%;
+
+    .card-img-top {
+      height: 100px;
+      object-fit: scale-down;
+      padding: 15px 10px 0 10px;
+    }
+  }
+
   a {
     color: black;
   }
@@ -8,18 +19,20 @@
     text-decoration: none;
   }
 
-  .card-img-top {
-    height: 100px;
-    object-fit: scale-down;
-
-  }
-
-  h3 {
+  .call-action {
     text-align: center;
+
+    .btn {
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      margin: 40px 0;
+
+      &:hover {
+        color: white;
+      }
+    }
   }
 
-  .card {
-    min-height: 100%;
-  }
 }
 
