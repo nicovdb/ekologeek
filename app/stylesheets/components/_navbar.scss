@@ -4,6 +4,8 @@
   transition: height 0.3s ease-out;
   -webkit-transition: height 0.3s ease-out;
   height: 50px;
+  position: absolute;
+  top: 40px;
   .nav-link {
     color: $light-gray;
   }
@@ -26,6 +28,7 @@
 
 #nav_bar {
   background-color: $primary;
+  z-index: 10;
 
   &.animatedMenu{
     background-color: white;
