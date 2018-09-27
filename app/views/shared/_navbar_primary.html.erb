@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-lg justify-content-end" id="nav_bar">
+<nav class="navbar navbar-expand-lg justify-content-end position-fixed" id="nav_bar">
   <div class="navbar-logo align-items-center justify-content-center" id="nav_logo">
     <%= link_to root_path, class:"navbar-brand" do %>
-      <%= inline_svg "logo", width:50 %>
+      <%= inline_svg "logo", width:50, id:"logo" %>
     <% end %>
   </div>
   <button class="navbar-toggler justify-content-end ml-2" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span><%=inline_svg "bars-solid", class:"navbar-toggler-icon"%></span>
+    <span><%=inline_svg "bars-solid", class:"navbar-toggler-icon text-white"%></span>
   </button>
   <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
     <ul class="navbar-nav mr-5">
@@ -19,12 +19,12 @@
           comment
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <%= link_to "Les objectifs du défi", comment_path(anchor: "comment1"), class:"dropdown-item"%>
-          <%= link_to "Les structures éligibles", comment_path(anchor: "comment2"), class:"dropdown-item" %>
-          <%= link_to "Les déchets concernés", comment_path(anchor: "comment2"), class:"dropdown-item" %>
-          <%= link_to "Comment ça se passe ?", comment_path(anchor: "comment4"), class:"dropdown-item" %>
-          <%= link_to "Planning", comment_path(anchor: "comment5"), class:"dropdown-item" %>
-          <%= link_to "Combien ça coûte ?", comment_path(anchor: "comment6"), class:"dropdown-item" %>
+          <%= link_to "Les objectifs du défi", comment_path(anchor: "comment1"), class:"dropdown-item text-primary"%>
+          <%= link_to "Les structures éligibles", comment_path(anchor: "comment2"), class:"dropdown-item text-primary" %>
+          <%= link_to "Les déchets concernés", comment_path(anchor: "comment2"), class:"dropdown-item text-primary" %>
+          <%= link_to "Comment ça se passe ?", comment_path(anchor: "comment4"), class:"dropdown-item text-primary" %>
+          <%= link_to "Planning", comment_path(anchor: "comment5"), class:"dropdown-item text-primary" %>
+          <%= link_to "Combien ça coûte ?", comment_path(anchor: "comment6"), class:"dropdown-item text-primary" %>
         </div>
       </li>
       <li class="nav-item m-2 dropdown">
@@ -32,8 +32,8 @@
           Pourquoi
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <%= link_to "Pourquoi réduire ses déchets ?", pourquoi_path(anchor: "pourquoi1"), class:"dropdown-item"%>
-          <%= link_to "Pourquoi mon entreprise ?", pourquoi_path(anchor: "pourquoi2"), class:"dropdown-item"%>
+          <%= link_to "Pourquoi réduire ses déchets ?", pourquoi_path(anchor: "pourquoi1"), class:"dropdown-item text-primary"%>
+          <%= link_to "Pourquoi mon entreprise ?", pourquoi_path(anchor: "pourquoi2"), class:"dropdown-item text-primary"%>
         </div>
       </li>
       <li class="nav-item m-2 dropdown">
@@ -41,11 +41,11 @@
           Soutenir
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <%= link_to "Pourquoi nous soutenir ?", "/soutenir", class:"dropdown-item", id:"soutenir1"%>
-          <%= link_to "Mécénat", "/soutenir", class:"dropdown-item", id:"soutenir2"%>
-          <%= link_to "Don", "/soutenir", class:"dropdown-item", id:"soutenir3"%>
-          <%= link_to "Partager", "/soutenir", class:"dropdown-item", id:"soutenir4"%>
-          <%= link_to "Témoigner", "/soutenir", class:"dropdown-item", id:"soutenir5"%>
+          <%= link_to "Pourquoi nous soutenir ?", "/soutenir", class:"dropdown-item text-primary", id:"soutenir1"%>
+          <%= link_to "Mécénat", "/soutenir", class:"dropdown-item text-primary", id:"soutenir2"%>
+          <%= link_to "Don", "/soutenir", class:"dropdown-item text-primary", id:"soutenir3"%>
+          <%= link_to "Partager", "/soutenir", class:"dropdown-item text-primary", id:"soutenir4"%>
+          <%= link_to "Témoigner", "/soutenir", class:"dropdown-item text-primary", id:"soutenir5"%>
         </div>
       </li>
       <li class="nav-item m-2">

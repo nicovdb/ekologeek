@@ -3,16 +3,16 @@
   <div class=" footer d-flex flex-column flex-lg-row align-items-center p-3">
 
     <div class="mx-3 my-3">
-      <%= inline_svg "logo", width: 100 %>
+      <%= inline_svg "logo", width: 100, id:"logo-footer" %>
     </div>
 
     <div class="footer-content flex-grow-1 text-center">
-      <div class=" d-flex justify-content-center">
+      <div class=" d-flex justify-content-center text-white">
         <%= link_to "Plan du site", root_path, class:"mr-2" %>
         -
         <%= link_to "Politique de confidentialité", root_path,class:"ml-2" %>
       </div>
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center text-white">
         ©<%= Time.now.year %>
         - Association Ekolo[geek]
       </div>

@@ -4,7 +4,20 @@
 
 .wrapper {
   background: $light-gray;
-
+  position: relative;
+  top: 360px;
+  @media only screen
+  and (max-width: $mobile)
+  and (max-width: $tablet) {
+    position: relative;
+    top: 120px;
+  }
+  @media only screen
+  and (min-width: $tablet)
+  and (min-width: $tablet) {
+    position: relative;
+    top: 360px;
+  }
 }
 
 .title {
@@ -67,7 +80,6 @@
 .illustration {
   img {
     width: 400px;
-
     @media (max-width: $mobile) {
       width: 300px;
     }
@@ -80,3 +92,8 @@
   display: inline-block;
   padding: 5px 10px;
 }
+
+ body {
+   position: relative;
+ }
+
