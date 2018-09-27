@@ -8,24 +8,25 @@
       backface-visibility: hidden;
       transition: transform 300ms;
       transition-timing-function: linear;
-      width: 100%;
-      height: 100%;
-      margin: 0;
+      min-height: 100%;
    }
 
    .card-size {
-    height: 500px;
+    height: 400px;
     min-width: 300px;
+    // max-width: 400px;
+    // margin: auto;
    }
 
    .card-size-small {
     height: 300px;
     min-width: 300px;
+    // max-width: 400px;
+    // margin: auto;
    }
 
    .card-img-top {
     height: 220px;
-    width: 100%;
     background-size: cover;
     background-position: center;
 
@@ -76,7 +77,6 @@
 
    .fact {
     font-size: 20px;
-    padding: 50px;
     text-align: center;
    }
 
