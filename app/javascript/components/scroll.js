@@ -6,7 +6,7 @@ $(document).ready(function() {
   //you know the position.
   $(window).scroll(function () {
 
-    if ($(window).scrollTop() > 118) {
+    if ($(window).scrollTop() > 350) {
       var nav = document.getElementById("nav_bar");
       nav.classList.add('fixed-top', 'animatedMenu');
       var navBarLogo = document.getElementById("nav_logo");

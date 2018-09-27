@@ -1,9 +1,10 @@
 .navbar {
   width: 100%;
-  z-index: 10;
+  z-index: 9;
   transition: height 0.3s ease-out;
   -webkit-transition: height 0.3s ease-out;
-  height: 50px;
+  position: absolute;
+  top: 70px;
   .nav-link {
     color: $light-gray;
   }
@@ -19,6 +20,9 @@
   .dropdown:hover .dropdown-menu {
     display: block;
   }
+  a .dropdown-item:active {
+    font-weight: bold;
+  }
   @media (max-width: $desktop) {
     height: auto;
   }
@@ -33,28 +37,35 @@
 
 #nav_bar {
   background-color: $primary;
+  z-index: 12;
 
   &.animatedMenu{
-    background-color: white;
+    background-color: $primary;
     height: 150px;
     box-shadow: 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -7px rgba(0,0,0,0.2);
     justify-content: space-around !important;
+    position: absolute;
+    top: 0;
     .nav-link {
-      color: $primary;
+      color: white;
     }
-    .navbar-brand svg {
+    #logo {
       width: 100px;
       margin: 0;
+      background: white;
+      padding: 5px;
+
     }
     .navbar-logo {
       margin: 0;
+
     }
     ul {
       align-items: center;
       justify-content: end;
     }
     .home-nav-link svg {
-      color: $primary;
+      color: white;
       width: 30px;
     }
     .navbar-toggler[data-toggle="collapse"] {
@@ -67,20 +78,20 @@
 }
 
 .navbar-secondary {
-  background: white;
-  width: 100%;
-  height: 100%;
+  background: transparent;
+  position: sticky;
+  top: 0;
+  z-index: 11;
    svg {
+     width: 100px;
+     padding: 10px;
+     margin: 5px;
+     background: white;
     @media (max-width: $tablet) {
       width: 100px;
     }
   }
 }
-
 .navbar-logo {
   display: none;
 }
-//
-// #nav_logo {
-//   background-color: white !important;
-// }

@@ -10,15 +10,10 @@
   </head>
   <body>
     <%= render 'shared/navbar_secondary' %>
-    <div class="d-flex flex-column">
-      <%= render 'shared/flashes' %>
-      <%= render 'shared/hint-border' %>
-      <%= render 'shared/navbar_primary' %>
-      <%= render 'shared/carousel' %>
+    <%= render 'shared/navbar_primary' %>
+    <%= render 'shared/carousel' %>
+    <%= render 'shared/flashes' %>
       <%= yield %>
-      <%= render 'shared/hint-border' %>
-      <%= render 'shared/footer' %>
-    </div>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
