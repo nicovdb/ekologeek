@@ -22,6 +22,13 @@
   @media (max-width: $desktop) {
     height: auto;
   }
+  ul li > a {
+    .nav-link[data-toggle="dropdown"] {
+      @media(max-width: $tablet) {
+        display: block;
+      }
+    }
+  }
 }
 
 #nav_bar {
