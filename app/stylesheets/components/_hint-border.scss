@@ -1,5 +1,0 @@
-@each $color, $value in $theme-colors {
-  .hint-border-#{$color} {
-    border-top: 6px solid $value;
-  }
-}
