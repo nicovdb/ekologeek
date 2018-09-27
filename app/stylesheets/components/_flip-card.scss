@@ -14,26 +14,17 @@
    .card-size {
     height: 400px;
     min-width: 300px;
-    // max-width: 400px;
-    // margin: auto;
    }
 
    .card-size-small {
     height: 300px;
     min-width: 300px;
-    // max-width: 400px;
-    // margin: auto;
    }
 
    .card-img-top {
     height: 220px;
     background-size: cover;
     background-position: center;
-
-    h3 {
-      color: white;
-      text-align: center;
-    }
    }
 
   .card-img {
@@ -41,11 +32,6 @@
     width: 100%;
     background-size: cover;
     background-position: center;
-
-    h3 {
-      color: white;
-      text-align: center;
-    }
    }
 
    .card-body {
@@ -56,6 +42,12 @@
 
    .card:first-of-type {
       tranform: rotateY(0deg);
+      .card-title {
+        width: 100%;
+        background-color: $secondary;
+        color: white;
+        text-align: center;
+      }
    }
 
    .card:last-of-type {
@@ -64,6 +56,9 @@
       position: absolute;
       top: 0;
       display: flex;
+      .card-title {
+        color: $secondary;
+      }
    }
 
    &:hover {
@@ -78,6 +73,9 @@
    .fact {
     font-size: 20px;
     text-align: center;
+    strong {
+      color: $primary;
+    }
    }
 
 }
