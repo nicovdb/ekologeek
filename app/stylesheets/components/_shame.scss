@@ -4,8 +4,6 @@
 
 .wrapper {
   background: $light-gray;
-  position: relative;
-  top: 360px;
   @media only screen
   and (max-width: $mobile)
   and (max-width: $tablet) {
@@ -96,4 +94,3 @@
  body {
    position: relative;
  }
-

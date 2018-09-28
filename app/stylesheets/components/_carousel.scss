@@ -2,14 +2,20 @@
   position: absolute;
   top: 0;
   .carousel-inner {
-    height: 500px;
+    height: 600px;
     .carousel-item {
       object-position: center !important;
       max-height: 500px;
       max-width: 100%;
+      a {
+        background-position: center;
+      }
     }
     @media (max-height: $tablet) {
         height: 100%;
     }
   }
 }
+  .text-slide {
+    display: inline-block;
+  }
