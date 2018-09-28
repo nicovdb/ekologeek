@@ -1,24 +1,29 @@
 <footer>
   <div class="hint-border-primary"></div>
-  <div class=" footer d-flex flex-column flex-lg-row align-items-center p-3">
+  <div class=" footer d-flex flex-column flex-lg-row align-items-center p-3 text-white">
 
-    <div class="mx-3 my-3">
-      <%= inline_svg "logo", width: 100, id:"logo-footer" %>
-    </div>
+    <%= link_to "/partenaires" do %>
+      <div class="d-flex flex-column justify-content-center align-items-center mx-3 my-3 ekolo-margin">
+        <div>Qui sommes nous ?</div>
+        <div>
+          <%= image_tag "ekologeek", width: 100, id:"logo-footer" %>
+        </div>
+      </div>
+    <% end %>
 
     <div class="footer-content flex-grow-1 text-center">
-      <div class=" d-flex justify-content-center text-white">
+      <div class=" d-flex justify-content-center">
         <%= link_to "Plan du site", root_path, class:"mr-2" %>
         -
         <%= link_to "Politique de confidentialité", root_path,class:"ml-2" %>
       </div>
-      <div class="d-flex justify-content-center text-white">
+      <div class="d-flex justify-content-center">
         ©<%= Time.now.year %>
         - Association Ekolo[geek]
       </div>
     </div>
 
-    <div class="my-4">
+    <div class="my-4 social-links">
       <div class="d-flex justify-content-around">
         <%= link_to ENV["INSTAGRAM_EKOLOGEEK"], class:"footer-link mx-3", target:"_blank" do %>
           <%= inline_svg "instagram", width:"30" %>
