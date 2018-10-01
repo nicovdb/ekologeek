@@ -1,15 +1,17 @@
 <div class="wrapper">
   <div class="container">
+    <div id="soutenir1"></div>
     <h1 class="header text-primary my-5 pt-5 text-center">Soutenir</h1>
     <p>Le projet étant porté par une association, il a <b>besoin de vous</b> pour être mis en œuvre ! </p>
     <div class="mecenat">
-      <h2 class="mb-3">Mécenat</h2>
+      <h2 class="mb-3 green-bg">Mécenat</h2>
+      <div id="soutenir2"></div>
       <p class="text">
         En vous engageant à nos côtés par votre <b>soutien</b>, votre entreprise sera <b>associée à la démarche d'exemplarité et d'innovation</b> de ce projet en matière de réduction des déchets, et bénéficiera d'une <b>réduction fiscale</b> de 60% de votre don sur votre impôt sur les sociétés. Vous pouvez aussi choisir un <b>soutien en nature</b> (prêt ou achat de matériel, fournitures etc...) <b>ou en compétences</b>. Pour en savoir plus sur vos avantages à nous soutenir, et mieux connaître nos besoins, consultez le <b>dossier de mécénat</b>.
       </p>
-      <h2 class="mb-3">Don</h2>
+      <h2 class="mb-3 green-bg">Don</h2>
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-6 padding">
           <div class="d-flex justify-content-center">
             <%= image_tag "Don", width:300, height: 300 %>
           </div>
@@ -18,16 +20,17 @@
           <p>
             Les particuliers peuvent également soutenir le projet, à travers le don. <b>Chaque contribution est importante</b>, quelque soit le montant.
           </p>
-          <%= link_to "Nous soutenir", "https://www.helloasso.com/associations/ekolo-geek/formulaires/1", class:"btn btn-secondary text-white", target:"_blank" %>
+          <%= link_to "Nous soutenir", "https://www.helloasso.com/associations/ekolo-geek/formulaires/1", class:"btn btn-primary text-white mb-5", target:"_blank" %>
         </div>
       </div>
     </div>
     <div>
-      <h2 class="mb-3">Partage</h2>
+      <div id="soutenir3"></div>
+      <h2 class="mb-3 green-bg">Partage</h2>
       <p class="text">
         <b>Faîtes connaître le Défi</b> ! Dans vos différents réseaux personnels et professionnels, vos outils de communication etc. Voici des liens et outils que vous pouvez utiliser.
       </p>
-      <ul class="list mb-5 bullet-custom">
+      <ul class="list mb-3 bullet-custom">
         <li class="my-2 ml-lg-4">
           Dossier de mécénat
         </li>
@@ -43,11 +46,12 @@
       </p>
     </div>
     <div class="padding">
-      <h2 class="mb-3">Témoignage</h2>
+      <div id="soutenir4"></div>
+      <h2 class="mb-3 green-bg">Témoignage</h2>
       <p>Vous êtes un professionnel.le <b>déjà engagé.e</b> dans une démarche de réduction des déchets ? Vous avez mis en place plusieurs gestes dans votre structure ? Vous êtes une <b>entreprise éco exemplaire</b> ?
       <b>Partagez votre expérience ! Mettez en valeur</b> votre entreprise et vos employés ! Votre témoignage sera inspirant pour d'autres, qui bénéficieront de votre retour d'expérience et voudront s'engager également.
       </p>
-      <%= link_to "Contact", root_path, class:"btn btn-secondary" %>
+      <%= link_to "Contact", root_path, class:"btn btn-primary text-white" %>
     </div>
   </div>
   <%= render 'shared/footer' %>
