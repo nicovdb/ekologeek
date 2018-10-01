@@ -3,11 +3,10 @@
   <div class="container">
     <h1 class="header text-primary my-5 text-center pt-5">S'inscrire</h1>
     <div class="row">
-      <div class="col-lg-6">
-        <p> Votre structure est située dans Bordeaux Métropole ? Vous pourrez vous inscrire début décembre.</p>
-        <p>D'ici là vous pouvez agir de votre côté ! Voici des exemples de gestes que vous pouvez mettre en place :</p>
-        <h5 class="my-4 ml-3">Objectifs principaux :</h5>
-        <ul class="list mb-5 bullet-custom">
+      <div class="col-lg-6 text d-flex flex-column justify-content-center">
+        <p> Votre structure est située dans Bordeaux Métropole ? Vous pourrez <b>vous inscrire début décembre</b>.</p>
+        <p>D'ici là vous pouvez <b>agir de votre côté</b> ! Voici des exemples de gestes que vous pouvez mettre en place :</p>
+        <ul class="list bullet-custom">
           <li class="my-2 ml-lg-4">
             Le <%= link_to "guide", "https://www.zerowastefrance.org/wp-content/uploads/2018/07/zd-au-bureau-zwf.pdf", target:"_blank" %>, du zéro déchet au bureau, créé par Zero Waste
           </li>
@@ -23,11 +22,9 @@
       </div>
     </div>
 
-    <h5>Pour rester informé, laissez votre adresse mail</h5>
-
-    <p>Votre structure n'est pas située sur Bordeaux Métropole ? <b>Vous pouvez organiser un défi sur votre territoire</b> ! Ekolo[geek] vous accompagne et vous fournit les outils pour que vous le fassiez vous-même!</p>
+    <p class="text">Votre structure n'est pas située sur Bordeaux Métropole ? <b>Vous pouvez organiser un défi sur votre territoire</b> ! Ekolo[geek] vous accompagne et vous fournit les outils pour que vous le fassiez vous-même!</p>
     <div class="padding">
-      <%= link_to "contact", root_path, class:"btn btn-secondary text-white"%>
+      <%= link_to "Contact", root_path, class:"btn btn-secondary text-white"%>
     </div>
   </div>
   <%= render 'shared/footer' %>
