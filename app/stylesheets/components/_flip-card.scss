@@ -44,7 +44,7 @@
       tranform: rotateY(0deg);
       .card-title {
         width: 100%;
-        background-color: $secondary;
+        // background-color: $secondary;
         color: white;
         text-align: center;
       }
@@ -61,21 +61,41 @@
       }
    }
 
-   &:hover {
-      .card:first-of-type  {
-         transform: rotateY(-180deg);
-      }
-      .card:last-of-type {
-         transform: rotateY(0deg);
-      }
-   }
-
-   .fact {
-    font-size: 20px;
-    text-align: center;
-    strong {
-      color: $primary;
+  &:hover {
+    .card:first-of-type  {
+       transform: rotateY(-180deg);
     }
-   }
+    .card:last-of-type {
+       transform: rotateY(0deg);
+    }
+  }
 
+  .fact {
+    p {
+      text-align: center;
+      margin: 0;
+    }
+    .citation {
+      font-size: 20px;
+      strong {
+        color: $primary;
+      }
+    }
+    .source {
+      font-size: 15px;
+      margin-top: 10px;
+    }
+  }
+
+  .text {
+    p {
+      margin-bottom: 0;
+    }
+    ul {
+      padding: 0 0 0 10px;
+      margin: 0;
+      font-size: 14px;
+    }
+  }
 }
+
