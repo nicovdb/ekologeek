@@ -3,53 +3,40 @@
   <div class="container mt-5 mb-5">
     <h1 class="header text-primary mb-5 text-center pt-5">Comment</h1>
     <div class="header-padding-comment" >
-      <h2 class="green-bg">Les objectifs du Défi</h2>
-      <p class="text">Le Défi consiste en l'<b>accompagnement structurel et individuel</b> des établissements participants dans <b>l’étude et la mise en place de solutions</b> techniques (poubelles, affichages, équipement ZD), organisationnelles et comportementales (procédures, missions, partenariats…) pour réduire leurs déchets.</p>
       <div class="row">
         <div class="col-lg-6">
-            <h5 class="my-4 ml-3">Objectifs principaux :</h5>
-            <ul class="list mb-5 bullet-custom">
-              <li class="my-2 ml-lg-4">
-                Réduire la production de déchets et les impacts environnementaux associés
-              </li>
-              <li class="my-2 ml-lg-4">
-                Augmenter la valorisation matière, organique voire énergétique des déchets produits
-              </li>
-              <li class="my-2 ml-lg-4">
-                Intéresser et mobiliser les professionnels à prévenir et gérer leurs déchets
-              </li>
-              <li class="my-2 ml-lg-4">
-                Valoriser publiquement les démarches exemplaires des établissements participants
-              </li>
-            </ul>
-            <div id="comment2"></div>
-            <h5 class="my-4 ml-3">Objectifs secondaires :</h5>
-            <ul class="list mb-5 bullet-custom bullet-secondary">
-              <li class="my-2 ml-lg-4">
-                Réduire les coûts de gestion des déchets
-              </li>
-              <li class="my-2 ml-lg-4">
-                Donner une nouvelle représentation psycho-sociologique positive du sujet des déchets
-              </li>
-              <li class="my-2 ml-lg-4">
-                Développer le lien social
-              </li>
-              <li class="my-2 ml-lg-4">
-                Développer la culture d’établissement autour des déchets
-              </li>
-              <li class="my-2 ml-lg-4">
-                Développer des synergies en écologie industrielle entre les participants du défi et hors-défi.
-              </li>
-              <li class="my-2 ml-lg-4">
-                Valoriser les acteurs locaux de la filière des déchets
-              </li>
-            </ul>
+          <h2 class="green-bg">Les objectifs du Défi</h2>
+          <p class="text">Le Défi consiste en l'<b>accompagnement structurel et individuel</b> des établissements participants dans <b>l’étude et la mise en place de solutions</b> techniques, organisationnelles et comportementales pour réduire leurs déchets.</p>
+          <ul class="list mb-5 bullet-custom">
+            <li class="my-2 ml-lg-4">
+              <strong>Réduire la production de déchets de fonctionnement de 10%</strong>
+            </li>
+            <li class="my-2 ml-lg-4">
+              <strong>Mettre en place au moins 5 actions réalisées par la majorité des employés</strong>
+            </li>
+            <li class="my-2 ml-lg-4">
+              Réduire les coûts de gestion des déchets
+            </li>
+            <li class="my-2 ml-lg-4">
+              Développer la culture d’établissement autour des déchets
+            </li>
+            <li class="my-2 ml-lg-4">
+              Augmenter la valorisation matière, organique voire énergétique des déchets produits
+            </li>
+            <li class="my-2 ml-lg-4">
+              Valoriser publiquement les démarches exemplaires des établissements participants
+            </li>
+            <li class="my-2 ml-lg-4">
+              Donner une nouvelle représentation positive des déchets comme ressources
+            </li>
+          </ul>
+          <div id="comment2"></div>
+        </div>
+        <div class="col-lg-6">
+          <div class="d-flex flex-column justify-content-center align-items-center h-100">
+            <%= image_tag "objectifs.jpg", width: 400, class:"header-padding-comment-image" %>
           </div>
-          <div class="col-lg-6">
-            <div class="d-flex flex-column justify-content-center align-items-center h-100">
-              <%= image_tag "objectifs.jpg", width: 400, class:"header-padding-comment-image" %>
-            </div>
-          </div>
+        </div>
       </div>
     </div>
     <div class="row">
@@ -59,14 +46,13 @@
         </div>
       </div>
       <div class="col-lg-6">
-        <div>
-          <h2 class="green-bg" >Les structures éligibles</h2>
-          <p class="text">
-            Tout professionnel souhaitant travailler sur ses déchets de fonctionnement est le bienvenu : <b>public ou privé</b>, quelque soit son activité ou sa taille.
-            Pour ce premier Défi, les structures participantes doivent résider dans <b>le territoire de Bordeaux Métropole</b>.
-
-            L'objectif est d'étendre le Défi à de nouveaux territoires. Vous aimeriez participer mais n'êtes pas dans la zone géographique concernée ? - lien vers accueillir
-          </p>
+        <h2 class="green-bg" >Les structures éligibles</h2>
+        <div class="text">
+          <p class="m-0">Tout professionnel souhaitant travailler sur ses déchets de fonctionnement est le bienvenu : <b>public ou privé</b>, quelque soit son activité ou sa taille.
+          Pour ce premier Défi, les structures participantes doivent résider dans <b>le territoire de Bordeaux Métropole</b>.</p>
+          <p class="m-0">L'objectif est d'étendre le Défi à de nouveaux territoires.</p>
+          <p class="m-0">Vous aimeriez participer mais n'êtes pas dans la zone géographique concernée ? </p>
+          <p class="m-0"><%= link_to "Contactez nous", root_path, class:"btn btn-primary text-white mt-1" %></p>
         </div>
 
         <div id="comment4"></div>
@@ -80,9 +66,9 @@
       </div>
     <div class="mt-5">
       <h2 class="green-bg">Comment ça se passe ?</h2>
-      <p>Collecte de données</p>
+      <h5 class="mb-3 mt-5">Collecte de données</h5>
       <p>Sur une durée de 6 mois, les structures devront <b>mesurer</b> régulièrement leur <b>production de déchets</b> et évaluer leurs <b>comportement</b>, en remplissant des formulaires sur ce site (espace participant). Elles pourront ainsi visualiser leur <b>progression</b> et leur <b>classement</b> par rapport aux autres.</p>
-      <h5 class="my-4 ml-3">Activités collectives</h5>
+      <h5 class="mb-3 mt-5">Activités collectives</h5>
       <ul class="list mb-5 bullet-custom">
         <li class="my-2 ml-lg-4">
           <b>Ateliers-formations échanges</b> (enjeux-problématiques, causes-conséquences, acteurs de la filière, réglementation, solutions globales, locales et individuelles, avancement dans le défi…)
@@ -122,9 +108,6 @@
       <ul class="list mb-5 bullet-custom  bullet-secondary">
         <li class="my-2 ml-lg-4">
           mon organisation comprend 10 employés, la participation au Défi sera de 150+10x10 = 250€
-        </li>
-        <li class="my-2 ml-lg-4">
-          Augmenter la valorisation matière, organique voire énergétique des déchets produits
         </li>
         <li class="my-2 ml-lg-4 mb-5 padding">
           mon organisation comprend 100 employés, la participation au Défi sera de 150+10x100 = 1150€
