@@ -3,21 +3,30 @@
     <div class="carousel-item active">
       <%= image_tag "gestion", class:"d-block w-100", alt:"First slide" %>
       <div class="carousel-caption">
-        <h5 class="bg-secondary text-slide p-lg-2">Mieux gérer ses déchets de fonctionnement</h5>
+        <%= link_to "/pourquoi", class:"btn btn-secondary text-white" do %>
+        <h5>Chaque salarié·e de bureau produit en moyenne 140 kg de déchets par an</h5>
+        <p class="mb-0">Et vous ?</p>
+        <% end %>
       </div>
     </div>
     <div class="carousel-item">
       <%= image_tag "mecenat", class:"d-block w-100", alt:"Second slide" %>
       <div class="carousel-caption">
         <div class="d-md-block">
-          <h5 class="bg-primary text-slide p-lg-2">Mécéner le Défi ZD des pros</h5>
+          <%= link_to "/comment", class:"btn btn-secondary text-white" do %>
+            <h5>Relevez le Défi ! </h5>
+            <p class="mb-0">Réduisez vos déchets de 10%</p>
+          <% end %>
         </div>
       </div>
     </div>
     <div class="carousel-item">
       <%= image_tag "mobilisation", class:"d-block w-100", alt:"Third slide" %>
       <div class="carousel-caption d-md-block">
-        <h5 class="bg-secondary text-slide p-lg-2">Mobiliser le collectif</h5>
+        <%= link_to "/soutenir", class:"btn btn-secondary text-white" do %>
+          <h5>Le Défi a besoin de vous !</h5>
+          <p class="mb-0">Soutenez le projet</p>
+        <% end %>
       </div>
     </div>
   </div>
