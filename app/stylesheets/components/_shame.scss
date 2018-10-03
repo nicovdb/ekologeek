@@ -59,6 +59,12 @@
   }
 }
 
+.comment-picture {
+  @media (max-width: $tablet) {
+    width: 80%;
+  }
+}
+
 .padding {
   padding-bottom: 50px;
   @media (max-width: $tablet) {
