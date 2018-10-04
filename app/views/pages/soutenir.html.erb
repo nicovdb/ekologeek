@@ -8,7 +8,7 @@
       <div id="soutenir2"></div>
       <div class="text">
         <p class="mb-0">En vous engageant à nos côtés par votre <b>soutien</b>, votre entreprise sera <b>associée à la démarche d'exemplarité et d'innovation</b> de ce projet en matière de réduction des déchets, et bénéficiera d'une <b>réduction fiscale</b> de 60% de votre don sur votre impôt sur les sociétés. Vous pouvez aussi choisir un <b>soutien en nature</b> (prêt ou achat de matériel, fournitures etc...) <b>ou en compétences</b>.</p>
-        <p>Pour en savoir plus sur vos avantages à nous soutenir, et mieux connaître nos besoins, consultez le <b>dossier de mécénat</b> ==> mettre un lien.</p>
+        <p>Pour en savoir plus sur vos avantages à nous soutenir, et mieux connaître nos besoins, consultez le <%= link_to "dossier de mécenat", dossier_de_mecenat_path %>.</p>
       </div>
       <h2 class="mb-3 green-bg">Don</h2>
       <div class="row">
@@ -33,18 +33,15 @@
       </p>
       <ul class="list mb-3 bullet-custom">
         <li class="my-2 ml-lg-4">
-          Dossier de mécénat
+          <%= link_to "Dossier de mécenat", dossier_de_mecenat_path %>
         </li>
         <li class="my-2 ml-lg-4">
-          Charte Graphique
+          <%= link_to "Charte graphique", charte_graphique_path %>
         </li>
         <li class="my-2 ml-lg-4">
-          Logo
+          <%= link_to "Logo", logo_RVB_path %>
         </li>
       </ul>
-      <p class="text">
-        Ces docs sont sur le drive. D'autres supports seront ajoutés en novembre.Pour la présentation vous pouvez vous inspirez de <%= link_to "ça", "https://docs.google.com/spreadsheets/d/1QC1h-YlOMGTor4QFJ8QrR3RTvzQ83j9UpqG8uc5D9IA/edit#gid=0", target:"_blank"%>. ==> utiliser leurs docs
-      </p>
     </div>
     <div class="padding">
       <div id="soutenir4"></div>
