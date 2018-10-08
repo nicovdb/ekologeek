@@ -46,14 +46,6 @@
         </div>
       </div>
       <div class="col-lg-6">
-        <h2 class="green-bg" >Les structures éligibles</h2>
-        <div class="text">
-          <p class="mb-2">Tout professionnel souhaitant travailler sur ses déchets de fonctionnement est le bienvenu : <b>public ou privé</b>, quelque soit son activité ou sa taille.
-          Pour ce premier Défi, les structures participantes doivent résider dans <b>le territoire de Bordeaux Métropole</b>.</p>
-          <p class="m-0">L'objectif est d'étendre le Défi à de nouveaux territoires.</p>
-          <p class="m-0">Vous aimeriez participer mais n'êtes pas dans la zone géographique concernée ? </p>
-          <p class="mt-1 mb-0"><%= link_to "Contactez nous !", root_path, class:"btn btn-primary text-white mt-1" %></p>
-        </div>
 
         <div id="comment4"></div>
         <div class="mt-5">
@@ -61,6 +53,23 @@
           <p class="text">
             Emballages (bouteilles, cannettes etc), fournitures de bureau (papiers, stylos etc), matériel informatique (ordinateurs, téléphones etc), vaisselle (gobelets de café, verre en plastique pour la fontaine à eau etc), biodéchets (marc de café etc), mobilier, mégots, ampoules, piles, cartouches d'encre, produits d'entretien, cartons, palettes...
           </p>
+        </div>
+        <h2 class="green-bg" >Les structures éligibles</h2>
+        <div class="text">
+          <p class="mb-2">Tout professionnel souhaitant travailler sur ses déchets de fonctionnement est le bienvenu : <b>public ou privé</b>, quelque soit son activité ou sa taille.
+          Pour ce premier Défi, les structures participantes doivent résider dans <b>le territoire de Bordeaux Métropole</b>.</p>
+          <p class="m-0">L'objectif est d'étendre le Défi à de nouveaux territoires.</p>
+          <p class="m-0">Vous aimeriez participer mais n'êtes pas dans la zone géographique concernée ? </p>
+          <p>
+            <a class="btn btn-primary text-white mt-2" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+              Contactez nous !
+            </a>
+          </p>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+              <%= render "contact-form" %>
+            </div>
+          </div>
         </div>
       </div>
       </div>
@@ -89,9 +98,6 @@
       <div id="comment5"></div>
       <h5 class="mb-2 mt-3">Accompagnement individuel</h5>
       <p>Un suivi régulier sera effectué avec chaque structure pour évaluer sa progression dans la démarche et l'accompagner dans la mise en place des actions : revue des données collectées, échanges par mail et téléphone.</p>
-
-      <h5 class="mb-2 mt-3">Documents</h5>
-      Charte, règlement... - liens pour télécharger des documents à créer
     </div>
     <div id="comment6"></div>
     <div >
