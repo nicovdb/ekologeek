@@ -1,0 +1,38 @@
+
+<div class="wrapper">
+  <div class="container mt-5">
+    <h1 class="header text-primary  text-center pt-5">Plan du site</h1>
+    <ul class="bullet-custom bullet-secondary">
+      <h5 class="mt-4 green-bg">Site</h5>
+      <li><%= link_to "Accueil", root_path %></li>
+      <li><%= link_to "Pourquoi", pourquoi_path %></li>
+      <li><%= link_to "Comment", comment_path %></li>
+      <li><%= link_to "Inscription", inscription_path %></li>
+      <li><%= link_to "Partenaires", partenaires_path %></li>
+      <h5 class="mt-4 green-bg">Liens de téléchargement</h5>
+      <li><%= link_to "Dossier de mécénat", dossier_de_mecenat_path %></li>
+      <li><%= link_to "Charte graphique", charte_graphique_path %></li>
+      <li><%= link_to "Logo", logo_RVB_path %></li>
+      <h5 class="mt-4 green-bg">Les guides</h5>
+      <li><%= link_to "Zéro déchet au bureau", "https://www.zerowastefrance.org/wp-content/uploads/2018/07/zd-au-bureau-zwf.pdf", target: "_blank" %></li>
+      <li><%= link_to "Etre éco-responsable", "https://www.ademe.fr/sites/default/files/assets/documents/guide-pratique-ecoresponsable-au-bureau.pdf", target: "_blank" %></li>
+      <h5 class="mt-4 green-bg">Réseaux</h5>
+      <li>
+        <%= link_to ENV["INSTAGRAM_EKOLOGEEK"], class:"footer-link mx-3", target:"_blank" do %>
+          <%= inline_svg "instagram.svg", width:"30" %>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to ENV["FACEBOOK_EKOLOGEEK"],class:"footer-link mx-3", target:"_blank" do %>
+          <%= inline_svg "facebook.svg", width:"30" %>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to ENV["YOUTUBE_EKOLOGEEK"],class:"footer-link mx-3", target:"_blank" do %>
+          <%= inline_svg "youtube.svg", width:"30" %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+  <%= render 'shared/footer' %>
+</div>
