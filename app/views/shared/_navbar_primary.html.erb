@@ -1,17 +1,17 @@
 <nav class="navbar navbar-expand-lg justify-content-end position-fixed" id="nav_bar">
   <div class="navbar-logo align-items-center justify-content-center" id="nav_logo">
     <%= link_to root_path, class:"navbar-brand" do %>
-      <%= inline_svg "logo", width:50, id:"logo" %>
+      <%= inline_svg "logo.svg", width:50, id:"logo" %>
     <% end %>
   </div>
   <button class="navbar-toggler justify-content-end ml-2" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span><%=inline_svg "bars-solid", class:"navbar-toggler-icon text-white"%></span>
+    <span><%=inline_svg "bars-solid.svg", class:"navbar-toggler-icon text-white"%></span>
   </button>
   <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
     <ul class="navbar-nav mr-5">
       <li class="nav-item m-2">
         <%= link_to root_path, class:"navbar-brand home-nav-link" do %>
-          <%= inline_svg "Accueil", width: 30 %>
+          <%= inline_svg "Accueil.svg", width: 30 %>
         <% end %>
       </li>
       <li class="nav-item m-2 dropdown">
@@ -50,11 +50,6 @@
           <%= link_to "Témoignage", soutenir_path(anchor: "soutenir4"), class:"dropdown-item text-primary" %>
         </div>
       </li>
-      <!-- <li class="nav-item">
-        <%= link_to destroy_user_session_path, method: :delete, class:"nav-link" do %>
-          <%= t(".sign_out", default: "Log out") %> <%= inline_svg "sign-out", width: 30, class:"ml-2 text-body-bg" %>
-        <% end %>
-      </li> -->
     </ul>
   </div>
 </nav>
