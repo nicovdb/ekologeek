@@ -4,9 +4,9 @@
 
     <%= link_to "/partenaires" do %>
       <div class="d-flex flex-column justify-content-center align-items-center mx-3 my-3 ekolo-margin">
-        <div>Qui sommes nous ?</div>
+        <div>Qui sommes-nous ?</div>
         <div>
-          <%= image_tag "ekologeek.png", width: 100, id:"logo-footer" %>
+          <%= image_tag "ekologeek.png", width: 129, id:"logo-footer" %>
         </div>
       </div>
     <% end %>
@@ -19,7 +19,8 @@
       </div>
       <div class="d-flex justify-content-center">
         ©<%= Time.now.year %>
-        - Association Ekolo[geek]
+        -
+        <%= link_to "Association Ekolo[geek]", partenaires_path, class:"ml-1"%>
       </div>
     </div>
 

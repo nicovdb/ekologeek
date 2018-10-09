@@ -15,7 +15,8 @@
     color: white;
   }
   a:hover {
-    color: $secondary;
+    color: #00576b;
+    text-decoration: none;
   }
 
   @media (max-width: $desktop) {
