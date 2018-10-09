@@ -34,11 +34,12 @@
 .header {
   text-transform: uppercase;
   font-weight: bold;
+  font-size: 43px;
 }
 
 .header-padding-pourquoi {
-  padding-top: 80px;
-  padding-bottom: 50px;
+  padding-top: 50px;
+  padding-bottom: 25px;
   @media (max-width: $tablet) {
     padding-top: 50px;
     padding-bottom: 20px;
@@ -94,7 +95,8 @@
   background-color: $secondary;
   color: white;
   display: inline-block;
-  padding: 5px 10px;
+  padding: 5px 18px;
+  margin-bottom: 0;
 }
 
 body {
