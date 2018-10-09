@@ -1,0 +1,44 @@
+<div class="navbar-secondary">
+  <div class="navbar-container navbar-secondary-container" id="kebab-source">
+    <%= link_to cares_path, class: "navbar-link text-light #{navbar_current('cares')}" do %>
+      Demandes en cours
+      <div class="badge badge-danger">
+        <%= Care.pending.count %>
+      </div>
+    <% end %>
+
+    <%= link_to my_cares_path, class: "navbar-link text-light #{navbar_current('my/cares')}" do %>
+      Mes demandes
+      <div class="badge badge-primary">
+        <%= current_user.cares.pending.count %>
+      </div>
+    <% end %>
+
+    <%= link_to my_responses_path, class: "navbar-link text-light #{navbar_current('my/responses')}" do %>
+      Mes réponses
+      <div class="badge badge-tertiary">
+        <%= current_user.responses.pending.count %>
+      </div>
+    <% end %>
+
+    <%= link_to my_children_path, class: "navbar-link text-light #{navbar_current('my/children')}" do %>
+      Mes enfants
+      <div class="badge badge-secondary">
+        <%= current_user.children.count %>
+      </div>
+    <% end %>
+
+    <% if params[:controller] == 'users' %>
+      <%= link_to edit_user_registration_path, class: "navbar-link text-light d-lg-none #{navbar_current('users')}" do %>
+        Mon profil
+      <% end %>
+    <% end %>
+    <%= inline_svg('kebab.svg', class: "d-lg-none", id: "kebab-toggler") %>
+
+    <div class="navbar-link">
+      <%= link_to "J'ai besoin d'une garde", new_my_care_path, class: "btn btn-primary btn-block d-lg-none p-2 my-3" %>
+    </div>
+
+  </div>
+  <div id="kebab-menu" class="kebab"></div>
+</div>

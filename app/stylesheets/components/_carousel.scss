@@ -11,9 +11,13 @@
         background-position: center;
       }
     }
-    @media (max-height: $tablet) {
+    @media (max-height: $mobile) {
         height: 100%;
     }
+    @media (max-height: $mobile) {
+        height: 50%;
+    }
+
   }
 }
   .text-slide {

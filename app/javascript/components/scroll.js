@@ -11,8 +11,8 @@ $(document).ready(function() {
       nav.classList.add('fixed-top', 'animatedMenu');
       var navBarLogo = document.getElementById("nav_logo");
       navBarLogo.classList.remove('navbar-logo');
-      var hintBorder = document.getElementById("hint-border");
-      nav.classList.add('hint-border-primary');
+      var logoSecondary = document.getElementById("logo-navbar-secondary")
+      logoSecondary.classList.add('d-none')
     }
 
     if ($(window).scrollTop() < 1) {
@@ -20,6 +20,8 @@ $(document).ready(function() {
       nav.classList.remove('fixed-top', 'animatedMenu');
       var navBarLogo = document.getElementById("nav_logo");
       navBarLogo.classList.add('navbar-logo');
+      var logoSecondary = document.getElementById("logo-navbar-secondary")
+      logoSecondary.classList.remove('d-none')
     }
   });
 });

@@ -1,5 +1,6 @@
 .navbar {
   width: 100%;
+  height: 45px;
   z-index: 9;
   transition: height 0.3s ease-out;
   -webkit-transition: height 0.3s ease-out;
@@ -9,12 +10,26 @@
     color: $light-gray;
     font-weight: bold;
   }
+  ul li.bold-link {
+    font-size: 1.2rem;
+  }
+
+  .navbar-collapse {
+    background: $primary;
+    height: 45px;
+    @media (max-width: $tablet) {
+      height: auto;
+    }
+  }
+  .home {
+    margin-top: 18px;
+  }
   .home-nav-link {
     color: $light-gray;
     font-size: 15px;
   }
   .logo-nav {
-    background-image: image("logo.png");
+    background-image: image("logo.jpg");
   }
   .navbar-toggler[data-toggle="collapse"] {
     color: white;
@@ -26,6 +41,7 @@
     font-weight: bold;
   }
   .logo-nav-secondary {
+    width: 100px;
     @media (max-width: $desktop) {
       height: 40px;
     }
@@ -44,7 +60,6 @@
 
 #nav_bar {
   background-color: $primary;
-  z-index: 12;
 
   &.animatedMenu{
     background-color: $primary;
@@ -56,6 +71,10 @@
     .nav-link {
       color: white;
     }
+    .home {
+      margin-top: 5px;
+    }
+
     #logo {
       width: 100px;
       margin: 0;
@@ -85,9 +104,9 @@
 }
 
 .navbar-secondary {
-  background: transparent;
   position: sticky;
-  top: 0;
+  top: 76px;
+  left: 30px;
   z-index: 11;
    svg {
      width: 100px;
@@ -98,7 +117,26 @@
       width: 50px;
     }
   }
+  @media (max-width: $tablet) {
+    position: sticky;
+    top: 47px;
+    left: 10px;
+  }
+  .logo-nav-secondary {
+    width: 100px;
+  }
 }
 .navbar-logo {
   display: none;
+}
+#contact-link {
+  z-index: 9;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  @media (max-width: $tablet) {
+    position: fixed;
+    top: 0;
+    right: 10px;
+  }
 }
