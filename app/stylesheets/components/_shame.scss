@@ -2,6 +2,10 @@
   background: $light-gray;
 }
 
+.bg-white {
+  background: white !important;
+}
+
 .wrapper {
   background: $light-gray;
   @media only screen
@@ -105,4 +109,12 @@ body {
 
 .center {
   text-align: center;
+}
+
+.no-margin {
+  margin-bottom: 0;
+}
+
+.bold {
+  font-weight: bold;
 }
