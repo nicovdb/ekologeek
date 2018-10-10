@@ -17,9 +17,20 @@
     @media (max-height: $mobile) {
         height: 50%;
     }
-
+  }
+  h5 {
+    font-size: 1.6rem;
+    margin: 0;
+  }
+  p {
+    font-size: 1.2rem;
   }
 }
   .text-slide {
     display: inline-block;
+  }
+
+  .box {
+    box-shadow: 3px 3px 15px rgba(0,0,0,0.5);
+    padding: 5px 10px;
   }
