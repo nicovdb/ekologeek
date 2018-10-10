@@ -1,4 +1,8 @@
 .responsive-btn {
   white-space: normal !important;
-  word-wrap: break-word;  
+  word-wrap: break-word;
+}
+
+.btn {
+  border-radius: calc(0.25rem - 1px);
 }
