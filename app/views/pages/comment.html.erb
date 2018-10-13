@@ -48,29 +48,6 @@
       <div class="col-lg-6">
 
         <div id="comment4"></div>
-        <div>
-          <h2 class="green-bg mb-4 mt-5" >Les déchets concernés</h2>
-          <ul class="list mb-0 bullet-custom">
-            <li class="my-2">
-              Emballages (bouteilles, cannettes etc)
-            </li>
-            <li class="my-2">
-              Fournitures de bureau (papiers, stylos etc)
-            </li>
-            <li class="my-2">
-              Matériel informatique (ordinateurs, téléphones etc)
-            </li>
-            <li class="my-2">
-              Vaisselle (gobelets de café, verre en plastique pour la fontaine à eau etc)
-            </li>
-            <li class="my-2">
-              Biodéchets (marc de café etc)
-            </li>
-            <li class="my-2">
-              mobilier, mégots, ampoules, piles, cartouches d'encre, produits d'entretien, cartons, palettes...
-            </li>
-          </ul>
-        </div>
         <h2 class="green-bg mb-4 mt-5" >Les structures éligibles</h2>
         <div class="text">
           <p class="mb-2">Tout professionnel souhaitant travailler sur ses déchets de fonctionnement est le bienvenu : <b>public ou privé</b>, quelque soit son activité ou sa taille.
@@ -78,18 +55,42 @@
           <p class="m-0">L'objectif est d'étendre le Défi à de nouveaux territoires.</p>
           <p class="m-0">Vous aimeriez participer mais n'êtes pas dans la zone géographique concernée ? </p>
           <p class="d-flex justify-content-center mt-3">
-            <a class="btn btn-primary text-white" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-              <b>Contactez-nous !</b>
-            </a>
+            <%= link_to "Contactez-nous !", contact_path, class:"btn btn-primary text-white bold"  %>
           </p>
-          <div class="collapse" id="collapseExample">
-            <div class="card card-body">
-              <%= render "contact-form" %>
-            </div>
-          </div>
         </div>
       </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <h2 class="green-bg mb-4 mt-5" >Les déchets concernés</h2>
+        <ul class="list mb-0 bullet-custom">
+          <li class="my-2">
+            Emballages (bouteilles, cannettes etc)
+          </li>
+          <li class="my-2">
+            Fournitures de bureau (papiers, stylos etc)
+          </li>
+          <li class="my-2">
+            Matériel informatique (ordinateurs, téléphones etc)
+          </li>
+          <li class="my-2">
+            Vaisselle (gobelets de café, verre en plastique pour la fontaine à eau etc)
+          </li>
+          <li class="my-2">
+            Biodéchets (marc de café etc)
+          </li>
+          <li class="my-2">
+            mobilier, mégots, ampoules, piles, cartouches d'encre, produits d'entretien, cartons, palettes...
+          </li>
+        </ul>
       </div>
+      <div class="col-lg-6">
+        <div class="d-flex flex-column justify-content-center align-items-center h-100">
+          <%= image_tag "dechets.gif", width: 350, class:"header-padding-comment-image comment-picture pt-5" %>
+        </div>
+      </div>
+    </div>
     <div>
       <h2 class="green-bg mt-5 mb-4">Comment ça se passe ?</h2>
       <h5 class="mb-2">Collecte de données</h5>

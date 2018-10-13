@@ -71,22 +71,7 @@
     }
   }
 
-  .fact {
-    p {
-      text-align: center;
-      margin: 0;
-    }
-    .citation {
-      font-size: 20px;
-      strong {
-        color: $primary;
-      }
-    }
-    .source {
-      font-size: 15px;
-      margin-top: 10px;
-    }
-  }
+
 
   .text {
     p {
@@ -100,3 +85,19 @@
   }
 }
 
+.fact {
+  p {
+    text-align: center;
+    margin: 0;
+  }
+  .citation {
+    font-size: 20px;
+    strong {
+      color: $primary;
+    }
+  }
+  .source {
+    font-size: 15px;
+    margin-top: 10px;
+  }
+}
