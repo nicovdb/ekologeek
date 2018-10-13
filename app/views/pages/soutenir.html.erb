@@ -24,15 +24,8 @@
             </p>
           </div>
           <p class="d-flex justify-content-center mt-4 mb-0">
-            <a class="btn btn-primary text-white" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-              <b>Contactez-nous !</b>
-            </a>
+            <%= link_to "Contactez-nous !", contact_path, class:"btn btn-primary text-white bold" %>
           </p>
-          <div class="collapse" id="collapseExample">
-            <div class="card card-body mb-4">
-              <%= render "contact-form" %>
-            </div>
-          </div>
         </div>
       </div>
 

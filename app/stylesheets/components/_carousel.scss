@@ -21,9 +21,15 @@
   h5 {
     font-size: 1.6rem;
     margin: 0;
+    @media (max-width: $mobile) {
+      font-size: 1.2rem;
+    }
   }
   p {
     font-size: 1.2rem;
+    @media (max-width: $mobile) {
+      font-size: 0.9rem;
+    }
   }
 }
   .text-slide {
