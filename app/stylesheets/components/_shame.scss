@@ -118,3 +118,30 @@ body {
 .bold {
   font-weight: bold;
 }
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 3px solid $secondary;
+  margin: auto;
+  padding: 0;
+  width: 250px;
+}
+
+.blue b {
+  color: $primary;
+}
+
+.citation-small {
+  font-size: 16px;
+}
+
+.img-home {
+  object-fit: cover;
+  height: 112px;
+}
+
+.newsletter p {
+  font-size: 13px;
+}

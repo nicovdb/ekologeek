@@ -1,41 +1,76 @@
 <div class="wrapper">
-  <div class="container bg-white px-5 my-5">
-    <p class="my-5">un truc visuel avec quelques arguments clés cliquables (lien vers l'ancrage dans la page concernée)</p>
-    <h2>Objectif: réduire vos déchets de fonctionnement de 10%</h2>
-    <h5 class="my-4 ml-3">Comment :</h5>
-    <ul class="list mb-5 bullet-custom">
-      <li class="my-2">
-        Un suivi de vos données
-      </li>
-      <li class="my-2">
-        Des rencontres collectives
-      </li>
-      <li class="my-2">
-        Un suivi individuel
-      </li>
-    </ul>
-    <h5 class="my-4 ml-3">Pourquoi :</h5>
-    <ul class="list mb-5 bullet-custom bullet-primary">
-      <li class="my-2">
-        cohésion, projet d'équipe
-      </li>
-      <li class="my-2">
-        ex: mobiliser son équipe autour d’un projet commun, qui contribuera au mieux-vivre dans les locaux.
-      </li>
-      <li class="my-2">
-        économies, actions faciles, peu d'investissements
-      </li>
-      <li class="my-2">
-        ex: peu d'investissements et sont rapides à mettre en place. Une meilleure gestion, alliée à une démarche de réduction, permet de diminuer le coût global des déchets.
-      </li>
-      <li class="my-2">
-        image externe: engagement DD RSE
-      </li>
-      <li class="my-2">
-        ex: Mettre en valeur votre engagement environnemental et vos actions dans une démarche zéro déchet vous donne un réel avantage concurrentiel.
-      </li>
-    </ul>
+  <div class="container bg-white px-5 my-5 blue">
+    <h2 class="my-5 pt-5 text-center"><b>Objectif:</b> réduire vos déchets de fonctionnement de 10%</h2>
+
+    <div class="row">
+      <div class="col-12 col-sm-4 mb-4">
+        <div class="card">
+          <img class="card-img-top img-home" src="<%= image_path("home1.png") %>">
+          <div class="card-body">
+            <div class="card-text fact">
+              <p class="citation-small"> <b>Réduisez</b> vos <b>impacts environnementaux</b> en réduisant vos déchets à la source</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-4 mb-4">
+        <div class="card">
+          <img class="card-img-top img-home" src="<%= image_path("home2.png") %>">
+          <div class="card-body">
+            <div class="card-text fact">
+              <p class="citation-small"> <b>Mobilisez</b> votre équipe autour d’un <b>projet commun</b> pour favoriser sa <b>cohésion</b></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-4 mb-4">
+        <div class="card">
+          <img class="card-img-top img-home " src="<%= image_path("home3.jpg") %>">
+          <div class="card-body">
+            <div class="card-text fact">
+              <p class="citation-small"> <b>Réalisez</b> des <b>économies</b> financières avec des actions concrètes et faciles à réaliser</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="mb-5 mt-4 text-center">Un accompagnement <b>collectif</b> et <b>personnalisé</b> sur 6 mois</h2>
+
+    <hr/>
+
+    <div class="newsletter">
       <%= render "newsletter"  %>
+      <p class="text-center m-0">Votre adresse de messagerie est uniquement utilisée pour vous envoyer les lettres d'information du Défi Zéro Déchet des Pro.</p>
+      <p class="text-center mb-5">Vous pouvez à tout moment utiliser le lien de désabonnement intégré dans la newsletter. <%= link_to "En savoir plus sur la gestion de vos données et vos droits", root_path  %></p>
+    </div>
+
+    <hr/>
+
+    <h2 class="my-5 header text-primary text-center">PARTENAIRES</h2>
+    <div class="row d-flex text-align-center justify-content-center pb-5">
+      <div class="col-12 col-sm-4 col-lg-2 text-center mb-4">
+        <%= image_tag "ADEME.png", height: 150 %>
+      </div>
+      <div class="col-12 col-sm-4 col-lg-2 text-center mb-4">
+        <%= image_tag "metropole.svg", height: 150 %>
+      </div>
+      <div class="col-12 col-sm-4 col-lg-2 text-center mb-4">
+        <%= image_tag "territoire-ZDZG.svg", height: 150 %>
+      </div>
+      <div class="col-12 col-sm-4 col-lg-2 text-center mb-4 d-flex align-items-center justify-content-center">
+        <%= image_tag "lea-nature.png", width: 130 %>
+      </div>
+      <div class="col-12 col-sm-4 col-lg-2 text-center mb-4">
+        <%= image_tag "club-entreprises.svg", height: 150 %>
+      </div>
+    </div>
+
+
+
+
+
   </div>
   <%= render 'shared/footer' %>
 </div>
+
