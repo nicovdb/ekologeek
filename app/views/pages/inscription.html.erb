@@ -27,15 +27,8 @@
       <p class="text mb-0">Votre structure n'est pas située sur Bordeaux Métropole ? <b>Vous pouvez organiser un défi sur votre territoire</b> ! Ekolo[geek] vous accompagne et vous fournit les outils pour que vous le fassiez vous-même!</p>
 
       <p class="d-flex justify-content-center mt-4 pb-5">
-        <a class="btn btn-primary text-white" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-          <b>Contactez-nous !</b>
-        </a>
+        <%= link_to "Contactez-nous !", contact_path, class:"btn btn-primary text-white bold" %>
       </p>
-      <div class="collapse" id="collapseExample">
-        <div class="card card-body mb-4">
-          <%= render "contact-form" %>
-        </div>
-      </div>
 
     </div>
   </div>
