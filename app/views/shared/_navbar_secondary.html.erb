@@ -1,7 +1,6 @@
-<span >
-  <%= link_to  "Contact", contact_path, id:"contact-link", class:"btn btn-secondary"%>
-</span>
 
 <span class="navbar-secondary" id="logo-navbar-secondary">
-  <%= image_tag 'logo.jpg', class:"logo-nav-secondary" %>
+  <%= link_to root_path do %>
+    <%= image_tag 'logo.jpg', class:"logo-nav-secondary" %>
+  <% end %>
 </span>

@@ -8,13 +8,13 @@
     <span><%=inline_svg "bars-solid.svg", class:"navbar-toggler-icon text-white"%></span>
   </button>
   <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
-    <ul class="navbar-nav mr-5">
+    <ul class="navbar-nav">
       <li class="nav-item">
-        <%= link_to root_path, class:"navbar-brand home-nav-link" do %>
+        <%= link_to root_path, class:"navbar-brand home-nav-link ml-3 m-lg-none" do %>
           <%= inline_svg "Accueil.svg", width: 20, class:"home" %>
         <% end %>
       </li>
-      <li class="nav-item m-2 dropdown bold-link">
+      <li class="nav-item m-3 dropdown bold-link">
         <a class="nav-link dropdown-toggle" href="/pourquoi" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
           POURQUOI
         </a>
@@ -23,7 +23,7 @@
           <%= link_to "Participer au Défi Zéro Déchet des pro", pourquoi_path(anchor: "pourquoi2"), class:"dropdown-item text-primary"%>
         </div>
       </li>
-      <li class="nav-item m-2 dropdown bold-link">
+      <li class="nav-item m-3 dropdown bold-link">
         <a class="nav-link dropdown-toggle" href="/comment" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
           COMMENT
         </a>
@@ -36,10 +36,10 @@
           <%= link_to "Combien ça coûte ?", comment_path(anchor: "comment6"), class:"dropdown-item text-primary" %>
         </div>
       </li>
-      <li class="nav-item m-2 bold-link">
+      <li class="nav-item m-3 bold-link">
         <%= link_to "S'INSCRIRE", "/inscription", class:"nav-link text-light-gray" %>
       </li>
-      <li class="nav-item m-2 dropdown bold-link">
+      <li class="nav-item m-3 dropdown bold-link">
         <a class="nav-link dropdown-toggle" href="/soutenir" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
           SOUTENIR
         </a>
@@ -49,6 +49,9 @@
           <%= link_to "Donner", soutenir_path(anchor: "soutenir2"), class:"dropdown-item text-primary" %>
           <%= link_to "Partager / communiquer", soutenir_path(anchor: "soutenir3"), class:"dropdown-item text-primary" %>
         </div>
+      </li>
+      <li class="nav-item m-3 bold-link">
+        <%= link_to  "Contact", contact_path, class:"nav-link text-light-gray pl-lg-3 position borderus pl-lg-5"%>
       </li>
     </ul>
   </div>
