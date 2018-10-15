@@ -17,3 +17,12 @@
   max-width: 800px;
   margin: auto;
 }
+
+.container-padding {
+  padding: 0 48px !important;
+
+  @media (max-width: $mobile) {
+    padding: 0 25px !important;
+  }
+
+}
