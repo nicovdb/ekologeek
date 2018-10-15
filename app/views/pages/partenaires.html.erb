@@ -2,7 +2,7 @@
   <div class="container">
     <div class="container-ekologeek bg-white px-5 my-5">
       <h2 class="header text-primary text-center pt-5 mt-5">Ekolo[geek]</h2>
-      <h4 class="mb-4 text-center">Le Défi Zéro Déchet pour les Professionnels est porté par l'association Ekolo[geek]</h4>
+      <h4 class="mb-5 text-center">Le Défi Zéro Déchet des Pro est porté par l'<%= link_to "association Ekolo[geek]", "http://www.ekologeek.com", target: :blank  %></h4>
 
       <div class="row">
         <div class="col-lg-6">
@@ -15,7 +15,7 @@
             <p class="mb-0">Depuis plus de 10 ans, notre association
             <strong>sensibilise et mobilise</strong> le jeune, grand public et les professionnels aux <strong>éco-gestes</strong> (déchets, eau, énergie, consommation responsable) sur le web et sur le terrain.</p>
             <p class="mb-0">Avec notre stand animé, nous participons à
-            plus d'une <strong>quarantaine d'événements par an</strong>, ainsi qu'à des temps périscolaires (TAP). L'association compte 2 salariés, 1 volontaire en Service
+            plus d'une <strong>quarantaine d'événements par an</strong>, ainsi qu'à des temps périscolaires (TAP). L'association compte 2 salarié.e.s, 1 volontaire en Service
             Civique et une quarantaine de bénévoles.</p>
           </div>
         </div>
@@ -25,10 +25,10 @@
         <div class="col-lg-6 d-flex align-items-center pt-3">
           <div class="text">
             <p class="mb-0">
-              Depuis 2016, nous accompagnons également des <strong>professionnels dans leur démarche d'éco-responsabilité</strong> interne. Par exemple, à la <strong>mairie du Bouscat</strong>  nous avons accompagné  des « agents référents » sur le thème de l’économie circulaire, avec en 2017 cinq ateliers-formations et la visite d'une ressourcerie, et en 2018 nous continuons sur le thème des changements de comportements sur l'énergie et les déchets.
+              Depuis 2016, nous accompagnons également des <strong>professionnels dans leur démarche d'éco-responsabilité</strong> interne. Par exemple, à la <strong><%= link_to "mairie du Bouscat", "http://www.bouscat.fr/", target: :blank %></strong>  nous avons accompagné  des « agents référents » sur le thème de l’économie circulaire, avec en 2017 cinq ateliers-formations, la visite d'une ressourcerie, et en 2018 nous continuons sur le thème des changements de comportements sur l'énergie et les déchets.
             </p>
             <p>
-              Depuis fin 2016, nous sommes <strong>missionnés par Enedis</strong> Aquitaine-Nord pour <strong>étudier l’impact sur leurs clients</strong> qui ont été accompagnés par les Volontaires de la Transition Energétique (VTE).
+              En 2016-2017, nous avons été <strong>missionnés par <%= link_to "Enedis", "https://www.enedis.fr/", target: :blank %></strong> Aquitaine-Nord pour <strong>étudier l’impact de la consommation d’énergie sur certain·e·s de leur client·e·s </strong> qui ont été accompagnés par les Volontaires de la Transition Energétique (VTE) d'<%= link_to "Unis-Cité", "https://www.uniscite.fr/", target: :blank  %>.
             </p>
           </div>
         </div>
@@ -41,7 +41,7 @@
 
       <div class="h-100 p-3 d-flex flex-column justify-content-center align-items-center para-0">
         <p><strong>Association loi 1901 reconnue d'intérêt général</strong></p>
-        <p>Maison de la Nature et de l'Environnement</p>
+        <p>Maison de la Nature et de l'Environnement de Bordeaux-Aquitaine</p>
         <p> 3 rue de Tauzia 33800 BORDEAUX</p>
         <p>
           <%= link_to "https://www.ekologeek.com", target: :blank do %>
@@ -51,9 +51,9 @@
       </div>
 
       <div class="partenaires">
-        <h2 class="header text-primary text-center mt-5">Les partenaires</h2>
+        <h2 class="header text-primary text-center mt-5">Partenaires</h2>
         <h4 class="mb-4 text-center">
-          Ce projet ne pourrait être mis en œuvre sans le soutien de nos partenaires :
+          Ce projet peut se développer grâce au soutien de nos partenaires :
         </h4>
 
         <div class="row">
@@ -73,7 +73,10 @@
           <div class="col-12 col-md-4 mb-3">
             <%= link_to "http://www.bordeaux-metropole.fr/", target: :blank do %>
               <div class="card">
-                <img class="card-img-top" src="<%= image_path("metropole.svg") %>">
+                <div class="card-img-top d-flex space-around">
+                  <img class="img-fit" src="<%= image_path("metropole.svg") %>">
+                  <img class="img-fit" src="<%= image_path("territoire-ZDZG.svg") %>">
+                </div>
                 <div class="card-body">
                   <p class="card-text text">
                     Premier partenaire financier, <strong> Bordeaux Métropole </strong> nous soutient à travers l'appel à projet zéro déchet, en tant que Territoire Zéro Déchet Zéro Gaspillage.
@@ -89,7 +92,7 @@
                 <img class="card-img-top" src="<%= image_path("ADEME.png") %>">
                 <div class="card-body">
                   <p class="card-text text">
-                    Important partenaire financier, l' <strong>ADEME</strong> soutient le Défi qui est complémentaire de ses propres outils.
+                    Important partenaire financier, l' <strong>ADEME</strong> soutient le Défi Zéro Déchet des pro qui est complémentaire de ses propres outils.
                   </p>
                 </div>
               </div>
