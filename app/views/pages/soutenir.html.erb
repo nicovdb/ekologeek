@@ -14,7 +14,20 @@
             <p class="mb-0">Pour en savoir plus sur vos avantages à nous soutenir, et mieux connaître nos besoins, consultez le <%= link_to "dossier de mécénat", dossier_de_mecenat_path %>.</p>
           </div>
         </div>
+        <div class="col-lg-6 px-4">
+          <h2 class="mt-5 mb-4 green-bg">Donner</h2>
+          <div class="d-flex flex-column justify-content-center align-items-center">
+            <%= image_tag "Don.jpg", width:200, height: 200 %>
+            <p class="text pt-2">
+              Les particuliers peuvent également soutenir le projet, à travers le don. <b>Chaque contribution est importante</b>, quelque soit le montant.
+            </p>
+            <%= link_to "Nous soutenir", "https://www.helloasso.com/associations/ekolo-geek/formulaires/1", class:"btn btn-primary text-white bold", target:"_blank" %>
+          </div>
+        </div>
 
+      </div>
+
+      <div class="row">
         <div class="col-lg-6 px-4">
           <div>
             <div id="soutenir4"></div>
@@ -27,20 +40,7 @@
             <%= link_to "Contactez-nous !", contact_path, class:"btn btn-primary text-white bold" %>
           </p>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-6 px-4">
-          <h2 class="mt-5 mb-4 green-bg">Donner</h2>
-          <div class="d-flex flex-column justify-content-center align-items-center">
-            <%= image_tag "Don.jpg", width:200, height: 200 %>
-            <p class="text pt-2">
-              Les particuliers peuvent également soutenir le projet, à travers le don. <b>Chaque contribution est importante</b>, quelque soit le montant.
-            </p>
-            <%= link_to "Nous soutenir", "https://www.helloasso.com/associations/ekolo-geek/formulaires/1", class:"btn btn-primary text-white mb-4 bold", target:"_blank" %>
-          </div>
-        </div>
-        <div class="col-lg-6 px-4">
+        <div class="col-lg-6 px-4 mb-4">
           <div id="soutenir3"></div>
           <h2 class="mt-5 mb-4 green-bg">Partager / communiquer</h2>
           <div class="d-flex flex-column justify-content-center">
