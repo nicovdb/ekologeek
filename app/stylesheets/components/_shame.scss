@@ -145,3 +145,16 @@ hr {
 .newsletter p {
   font-size: 13px;
 }
+
+.img-fit {
+  object-fit: scale-down;
+  height: 100px;
+}
+
+.space-around {
+  justify-content: space-around
+}
+
+.smaller-font {
+  font-size: 16px !important;
+}
