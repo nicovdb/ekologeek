@@ -8,7 +8,8 @@
       <li><%= link_to "Pourquoi", pourquoi_path %></li>
       <li><%= link_to "Comment", comment_path %></li>
       <li><%= link_to "Inscription", inscription_path %></li>
-      <li><%= link_to "Partenaires", partenaires_path %></li>
+      <li><%= link_to "Soutenir", soutenir_path %></li>
+      <li><%= link_to "Qui sommes-nous", partenaires_path %></li>
       <h5 class="mt-4 green-bg">Liens de téléchargement</h5>
       <li><%= link_to "Dossier de mécénat", dossier_de_mecenat_path %></li>
       <li><%= link_to "Charte graphique", charte_graphique_path %></li>
@@ -18,17 +19,17 @@
       <li><%= link_to "Etre éco-responsable", "https://www.ademe.fr/sites/default/files/assets/documents/guide-pratique-ecoresponsable-au-bureau.pdf", target: "_blank" %></li>
       <h5 class="mt-4 green-bg">Réseaux</h5>
       <li>
-        <%= link_to ENV["INSTAGRAM_EKOLOGEEK"], class:"footer-link mx-3", target:"_blank" do %>
+        <%= link_to "https://www.instagram.com/ekologeek/", class:"footer-link mx-3", target:"_blank" do %>
           <%= inline_svg "instagram.svg", width:"30" %>
         <% end %>
       </li>
       <li>
-        <%= link_to ENV["FACEBOOK_EKOLOGEEK"],class:"footer-link mx-3", target:"_blank" do %>
+        <%= link_to "https://www.facebook.com/ekologeek/",class:"footer-link mx-3", target:"_blank" do %>
           <%= inline_svg "facebook.svg", width:"30" %>
         <% end %>
       </li>
       <li>
-        <%= link_to ENV["YOUTUBE_EKOLOGEEK"],class:"footer-link mx-3", target:"_blank" do %>
+        <%= link_to "https://www.youtube.com/user/ekologeek/",class:"footer-link mx-3", target:"_blank" do %>
           <%= inline_svg "youtube.svg", width:"30" %>
         <% end %>
       </li>

@@ -1,37 +1,44 @@
 <div class="wrapper">
   <div class="container bg-white container-padding my-5 blue">
-    <h2 class="my-5 pt-5 text-center"><b>Objectif:</b> réduire vos déchets de fonctionnement de 10%</h2>
+    <h2 class="mt-5 pt-5 text-center">Ekolo[geek] lance le <b>1er Défi Zéro Déchet des pro !</b></h2>
+    <h2 class="mb-5 text-center"><b>Objectif:</b> réduire vos déchets de fonctionnement de 10%</h2>
 
     <div class="row">
       <div class="col-12 col-sm-4 mb-4">
-        <div class="card">
-          <img class="card-img-top img-home" src="<%= image_path("home1.png") %>">
-          <div class="card-body">
-            <div class="card-text fact">
-              <p class="citation-small"> <b>Réduisez</b> vos <b>impacts environnementaux</b> en réduisant vos déchets à la source</p>
+        <%= link_to "pourquoi", class:"text-decoration-none" do %>
+          <div class="card">
+            <img class="card-img-top img-home" src="<%= image_path("home1.png") %>">
+            <div class="card-body">
+              <div class="card-text fact">
+                <p class="citation-small"> <b>Réduisez</b> vos <b>impacts environnementaux</b> en réduisant vos déchets à la source</p>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       </div>
       <div class="col-12 col-sm-4 mb-4">
-        <div class="card">
-          <img class="card-img-top img-home" src="<%= image_path("home2.png") %>">
-          <div class="card-body">
-            <div class="card-text fact">
-              <p class="citation-small"> <b>Mobilisez</b> votre équipe autour d’un <b>projet commun</b> pour favoriser sa <b>cohésion</b></p>
+        <%= link_to "pourquoi", class:"text-decoration-none" do %>
+          <div class="card">
+            <img class="card-img-top img-home" src="<%= image_path("home2.png") %>">
+            <div class="card-body">
+              <div class="card-text fact">
+                <p class="citation-small"> <b>Mobilisez</b> votre équipe autour d’un <b>projet commun</b> pour favoriser sa <b>cohésion</b></p>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       </div>
       <div class="col-12 col-sm-4 mb-4">
-        <div class="card">
-          <img class="card-img-top img-home " src="<%= image_path("home3.jpg") %>">
-          <div class="card-body">
-            <div class="card-text fact">
-              <p class="citation-small"> <b>Réalisez</b> des <b>économies</b> financières avec des actions concrètes et faciles à réaliser</p>
+        <%= link_to "pourquoi", class:"text-decoration-none" do %>
+          <div class="card">
+            <img class="card-img-top img-home " src="<%= image_path("home3.jpg") %>">
+            <div class="card-body">
+              <div class="card-text fact">
+                <p class="citation-small"> <b>Réalisez</b> des <b>économies</b> financières avec des actions concrètes et faciles à réaliser</p>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
 
@@ -50,19 +57,29 @@
     <h2 class="my-5 header text-primary text-center">PARTENAIRES</h2>
     <div class="row d-flex text-align-center justify-content-center pb-5">
       <div class="col-12 col-sm-4 col-lg-2 text-center mb-4">
-        <%= image_tag "ADEME.png", height: 150 %>
+        <%= link_to "https://www.ademe.fr/", target: :blank do %>
+          <%= image_tag "ADEME.png", height: 150 %>
+        <% end %>
       </div>
       <div class="col-12 col-sm-4 col-lg-2 text-center mb-4">
-        <%= image_tag "metropole.svg", height: 150 %>
+        <%= link_to "http://www.bordeaux-metropole.fr/", target: :blank do %>
+          <%= image_tag "metropole.svg", height: 150 %>
+        <% end %>
       </div>
       <div class="col-12 col-sm-4 col-lg-2 text-center mb-4">
-        <%= image_tag "territoire-ZDZG.svg", height: 150 %>
+        <%= link_to "https://www.stop-dechets.fr/territoire-zero-dechets-zero-gaspillage", target: :blank do %>
+          <%= image_tag "territoire-ZDZG.svg", height: 150 %>
+        <% end %>
       </div>
       <div class="col-12 col-sm-4 col-lg-2 text-center mb-4 d-flex align-items-center justify-content-center">
-        <%= image_tag "lea-nature.png", width: 130 %>
+        <%= link_to "https://leanature.com/", target: :blank do %>
+          <%= image_tag "lea-nature.png", width: 130 %>
+        <% end %>
       </div>
       <div class="col-12 col-sm-4 col-lg-2 text-center mb-4">
-        <%= image_tag "club-entreprises.svg", height: 150 %>
+        <%= link_to "https://www.cebx.fr/", target: :blank do %>
+          <%= image_tag "club-entreprises.svg", height: 150 %>
+        <% end %>
       </div>
     </div>
 
