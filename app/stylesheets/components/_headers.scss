@@ -1,3 +1,18 @@
 h3 {
   font-size: 21px;
 }
+
+.green-bg {
+  background-color: $secondary;
+  color: white;
+  display: inline-block;
+  padding: 5px 18px;
+  margin-bottom: 0;
+}
+
+.green-bg-no-inline {
+  background-color: $secondary;
+  color: white;
+  padding: 5px 18px;
+  margin-bottom: 0;
+}
