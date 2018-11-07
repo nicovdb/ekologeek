@@ -22,7 +22,7 @@
     }
   }
   .home {
-    margin-top: 18px;
+    margin-top: 5px;
   }
   .home-nav-link {
     color: $light-gray;
@@ -43,7 +43,7 @@
   .logo-nav-secondary {
     width: 100px;
     @media (max-width: $desktop) {
-      height: 40px;
+      height: 100px;
     }
   }
   ul li > a {
