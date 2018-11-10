@@ -11,10 +11,15 @@ class CompaniesController < ApplicationController
     @project = Project.find_by(name: "Bordeaux Métropole")
     @company.project = @project
     @user = User.new(user_params)
-    if @company.save && @user.save
-      @referent = Referent.new(company: @company, user: @user)
-      @referent.save
-      redirect_to root_path
+    if @company.save
+      if @user.save
+        @referent = Referent.new(company: @company, user: @user)
+        @referent.save
+        redirect_to root_path
+      else
+        @company.destroy
+        render :new
+      end
     else
       render :new
     end
