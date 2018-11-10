@@ -46,9 +46,11 @@
         <%= link_to "Contactez-nous !", contact_path, class:"btn btn-primary text-white bold" %>
       </p>
 
-      <h2 class="mt-5 mb-4 green-bg">Formulaire de candidature</h2>
+      <h2 class="mt-5 mb-4 green-bg">Formulaire d'inscription</h2>
 
       <%= simple_form_for @company do |company| %>
+        <p class="mb-0">Veuillez compléter les informations ci-dessous afin de créer votre compte candidat:</p>
+        <p>*Obligatoire</p>
         <%= company.input :name %>
         <%= company.input :town %>
 
