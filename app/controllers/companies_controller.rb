@@ -14,6 +14,7 @@ class CompaniesController < ApplicationController
     if @company.save
       if @user.save
         @referent = Referent.new(company: @company, user: @user)
+        CompagniesController.creation_confirmation(@referent).deliver_now
         @referent.save
         redirect_to root_path
       else
