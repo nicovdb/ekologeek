@@ -32,6 +32,6 @@ class CompaniesController < ApplicationController
   end
 
   def user_params
-    params.require(:company)["user"].permit(:civility, :first_name, :last_name, :role, :telephone, :email, :password)
+    params.require(:company)["user"].permit(:civility, :first_name, :last_name, :role, :telephone, :email, :password, :newsletter_ekg, :newsletter_dzd)
   end
 end
