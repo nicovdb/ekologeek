@@ -1,0 +1,69 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="bg-white container-padding my-5">
+      <h1 class="header text-primary text-center pt-5 mt-5">S'inscrire</h1>
+      <h2 class="mt-5 mb-4 green-bg">Bordeaux Métropole</h2>
+      <div class="row">
+        <div class="col-lg-6 text d-flex flex-column justify-content-center">
+          <h3>Qui peut candidater ?</h3>
+          <p class="mb-0">Tout professionnel de Bordeaux Métropole (effectif ≥ 2 personnes). Pour ce
+          premier Défi Zéro Déchet des Pros, afin d'assurer un accompagnement de
+          qualité, nous accompagnerons 15 structures professionnelles (collectivités
+          et établissements publics, sociétés, associations...)</p>
+          <p>Chaque structure est représentée par un·e référent·e.</p>
+          <h3>Comment candidater ?</h3>
+          <p>En remplissant le formulaire ci-dessous, vous recevrez ensuite des
+          identifiants pour accéder à votre compte candidat. Vous pourrez alors
+          répondre à quelques questions sur un formulaire en ligne. Notre équipe est
+          à votre disposition pour vous aider.</p>
+          <h3>Calendrier :</h3>
+          <ul class="list bullet-custom">
+            <li>
+              <b>6 déc. 2018 - 10h-12h - Athénée municipal de Bordeaux :</b> Réunion d’information pour les structures
+            </li>
+            <li>
+              <b>31 déc. 2018 :</b> Clôture des inscriptions
+            </li>
+            <li>
+              <b>9 jan. 2018 :</b> Annonce des 15 structures sélectionnées
+            </li>
+            <li>
+              <b>17 jan. 2019 :</b> Lancement du Défi Zéro Déchet des Pros (rencontre collective des structures participantes)
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="d-flex flex-column align-items-center h-100 mb-3">
+            <%= image_tag "carte.png", class:"header-padding-comment-image" %>
+          </div>
+        </div>
+      </div>
+      <h2 class="mt-5 mb-4 green-bg">Hors Bordeaux Métropole</h2>
+      <p class="text mb-0">Votre structure n'est pas située sur Bordeaux Métropole ? <b>Vous pouvez organiser un défi sur votre territoire</b> ! Ekolo[geek] vous accompagne et vous fournit les outils pour que vous le fassiez vous-même!</p>
+
+      <p class="d-flex justify-content-center mt-4">
+        <%= link_to "Contactez-nous !", contact_path, class:"btn btn-primary text-white bold" %>
+      </p>
+
+      <h2 class="mt-5 mb-4 green-bg">Formulaire de candidature</h2>
+
+      <%= simple_form_for @company do |company| %>
+        <%= company.input :name %>
+        <%= company.input :town %>
+
+        <%= company.simple_fields_for @user do |user|%>
+          <%= user.input :civility %>
+          <%= user.input :first_name %>
+          <%= user.input :last_name %>
+          <%= user.input :role %>
+          <%= user.input :telephone %>
+          <%= user.input :email %>
+          <%= user.input :password %>
+        <% end %>
+        <%= company.button :submit %>
+      <% end %>
+    </div>
+  </div>
+  <%= render 'shared/footer' %>
+</div>
