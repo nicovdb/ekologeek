@@ -4,6 +4,11 @@ class CompaniesController < ApplicationController
   def new
     @company = Company.new
     @user = User.new
+    @cities = ["Ambarès-et-Lagrave", "Ambès", "Artigues-près-Bordeaux", "Bassens",
+                "Bègles", "Blanquefort", "Bordeaux", "Bouliac", "Bruges", "Carbon-Blanc",
+                "Cenon", "Eysines", "Floirac", "Gradignan", "Le Bouscat", "Le Haillan", "Le Taillan-Médoc",
+                "Lormont", "Martignas-sur-Jalle", "Mérignac", "Parempuyre", "Pessac", "Saint-Aubin-de-Médoc",
+                "Saint-Louis-de-Montferrand", "Saint-Médard-en-Jalles", "Saint-Vincent-de-Paul", "Talence"]
   end
 
   def create
@@ -32,6 +37,6 @@ class CompaniesController < ApplicationController
   end
 
   def user_params
-    params.require(:company)["user"].permit(:civility, :first_name, :last_name, :role, :telephone, :email, :password)
+    params.require(:company)["user"].permit(:civility, :first_name, :last_name, :role, :telephone, :email, :password, :newsletter_ekg, :newsletter_dzd)
   end
 end

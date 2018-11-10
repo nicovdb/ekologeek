@@ -17,7 +17,7 @@
           répondre à quelques questions sur un formulaire en ligne. Notre équipe est
           à votre disposition pour vous aider.</p>
           <h3>Calendrier :</h3>
-          <ul class="list bullet-custom">
+          <ul class="list bullet-custom mb-0">
             <li>
               <b>6 déc. 2018 - 10h-12h - Athénée municipal de Bordeaux :</b> Réunion d’information pour les structures
             </li>
@@ -42,28 +42,66 @@
       <h2 class="mt-5 mb-4 green-bg">Hors Bordeaux Métropole</h2>
       <p class="text mb-0">Votre structure n'est pas située sur Bordeaux Métropole ? <b>Vous pouvez organiser un défi sur votre territoire</b> ! Ekolo[geek] vous accompagne et vous fournit les outils pour que vous le fassiez vous-même!</p>
 
-      <p class="d-flex justify-content-center mt-4">
-        <%= link_to "Contactez-nous !", contact_path, class:"btn btn-primary text-white bold" %>
-      </p>
-
       <h2 class="mt-5 mb-4 green-bg">Formulaire d'inscription</h2>
 
       <%= simple_form_for @company do |company| %>
         <p class="mb-0">Veuillez compléter les informations ci-dessous afin de créer votre compte candidat:</p>
         <p>*Obligatoire</p>
-        <%= company.input :name %>
-        <%= company.input :town %>
 
+        <h3>Structure</h3>
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <%= company.input :name, placeholder: 'Nom de la structure*', label: false %>
+          </div>
+          <div class="col-12 col-md-6">
+            <%= company.input :town, prompt: 'Ville de Bordeaux Métropole*', collection: ["Ambarès-et-Lagrave", "Ambès", "Artigues-près-Bordeaux", "Bassens",
+              "Bègles", "Blanquefort", "Bordeaux", "Bouliac", "Bruges", "Carbon-Blanc",
+              "Cenon", "Eysines", "Floirac", "Gradignan", "Le Bouscat", "Le Haillan",
+              "Le Taillan-Médoc", "Lormont", "Martignas-sur-Jalle", "Mérignac",
+              "Parempuyre", "Pessac", "Saint-Aubin-de-Médoc", "Saint-Louis-de-Montferrand",
+              "Saint-Médard-en-Jalles", "Saint-Vincent-de-Paul", "Talence"], as: :select, label: false  %>
+          </div>
+        </div>
+
+        <h3>Référent·e</h3>
         <%= company.simple_fields_for @user do |user|%>
-          <%= user.input :civility %>
-          <%= user.input :first_name %>
-          <%= user.input :last_name %>
-          <%= user.input :role %>
-          <%= user.input :telephone %>
-          <%= user.input :email %>
-          <%= user.input :password %>
+          <div class="row">
+            <div class="col-12 col-md-3">
+              <%= user.input :civility, prompt: 'Civilité*', collection: ["Mme", "M."], as: :select, label: false  %>
+            </div>
+            <div class="col-12 col-md-3">
+              <%= user.input :first_name, placeholder: 'Prénom*', label: false  %>
+            </div>
+            <div class="col-12 col-md-3">
+              <%= user.input :last_name, placeholder: 'NOM*', label: false  %>
+            </div>
+            <div class="col-12 col-md-3">
+              <%= user.input :role, placeholder: 'Fonction*', label: false  %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-3">
+              <%= user.input :telephone, placeholder: 'Téléphone*', label: false  %>
+            </div>
+            <div class="col-12 col-md-6">
+              <%= user.input :email, placeholder: 'Email*', label: false  %>
+            </div>
+            <div class="col-12 col-md-3 mb-4">
+              <%= user.input :password, placeholder: 'Mot de passe*', label: false  %>
+            </div>
+            <div class="col-12 ml-3">
+              <%= user.input :newsletter_dzd, label: "Oui, je veux recevoir la newsletter du Défi Zéro Déchet des Pros" %>
+            </div>
+            <div class="col-12 ml-3 mb-4">
+              <%= user.input :newsletter_ekg, label: "Oui, je veux recevoir la newsletter mensuelle de l’#{link_to 'association Ekolo[geek]', partenaires_path, target: :blank} (ex. contenu : actualités, recette de saison, Acte ekolo[geek]...)".html_safe %>
+            </div>
+          </div>
         <% end %>
-        <%= company.button :submit %>
+        <div class="d-flex flex-column justify-content-center align-items-center pb-5">
+          <%= company.button :submit, "Créer un compte", class:"btn btn-primary text-white bold" %>
+          <p class='m-2'>En créant un compte, vous acceptez notre <%= link_to "Politique de confidentialité", root_path %></p>
+          <p class="green-bg bold">Vous allez recevoir un mail de confirmation</p>
+        </div>
       <% end %>
     </div>
   </div>
