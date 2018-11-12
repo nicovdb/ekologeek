@@ -1,0 +1,28 @@
+<h1>dernièèèère page, volonté du référent</h1>
+
+<%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
+  <%= f.input :referent_implication %>
+  <%= f.input :referent_sorts %>
+  <%= f.input :referent_accompany %>
+  <%= f.input :referent_complications %>
+  <%= f.input :referent_winner %>
+  <%= f.input :referent_willing %>
+  <%= f.input :referent_obligation %>
+  <%= f.input :referent_obligation_feeling %>
+  <%= f.input :referent_valorisation %>
+  <%= f.input :referent_fun %>
+  <%= f.input :referent_techniques %>
+  <%= f.input :referent_techniques_examples %>
+  <%= f.input :referent_actions_home %>
+  <%= f.input :referent_actions_home_examples %>
+  <%= f.input :referent_personal_reasons %>
+  <%= f.input :referent_changes_wanted %>
+  <%= f.input :referent_accompaniment_need %>
+  <%= f.input :referent_sex %>
+  <%= f.input :referent_age %>
+  <%= f.input :referent_seniority %>
+  <%= f.input :referent_service %>
+  <%= f.button :submit %>
+<% end %>
+
+<%= link_to "Skip", next_wizard_path %>
