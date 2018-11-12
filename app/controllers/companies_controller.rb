@@ -12,6 +12,7 @@ class CompaniesController < ApplicationController
     @company.project = @project
     @user = User.new(user_params)
     if @company.save
+      @user.company_id = @company.id
       if @user.save
         @referent = Referent.new(company: @company, user: @user)
         @referent.save
