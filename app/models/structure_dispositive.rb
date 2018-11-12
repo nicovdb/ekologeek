@@ -1,2 +1,0 @@
-class StructureDispositive < ApplicationRecord
-end

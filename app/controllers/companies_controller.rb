@@ -16,6 +16,9 @@ class CompaniesController < ApplicationController
       if @user.save
         @referent = Referent.new(company: @company, user: @user)
         @referent.save
+        @application = Application.new(company: @company)
+        @application.save
+
         CompaniesMailer.creation_confirmation(@referent).deliver_now
         redirect_to root_path
       else

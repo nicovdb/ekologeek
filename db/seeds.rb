@@ -13,9 +13,9 @@
 #   end
 # puts "done"
 
-# puts "Create DZD Bordeaux Métropole"
-#   Project.create(name: "Bordeaux Métropole")
-# puts "done"
+puts "Create DZD Bordeaux Métropole"
+  Project.create(name: "Bordeaux Métropole")
+puts "done"
 
 puts "Destroy all previous CompanyKnowHows"
   CompanyKnowHow.all.each do |c|

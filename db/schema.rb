@@ -15,43 +15,65 @@ ActiveRecord::Schema.define(version: 2018_11_12_145600) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "application_company_know_hows", force: :cascade do |t|
-    t.bigint "application_id"
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "town"
+    t.bigint "project_id"
+    t.string "accepted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_companies_on_project_id"
+  end
+
+  create_table "company_know_hows", force: :cascade do |t|
+    t.string "origin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dispositives", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "form_company_know_hows", force: :cascade do |t|
+    t.bigint "form_id"
     t.bigint "company_know_how_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["application_id"], name: "index_application_company_know_hows_on_application_id"
-    t.index ["company_know_how_id"], name: "index_application_company_know_hows_on_company_know_how_id"
+    t.index ["company_know_how_id"], name: "index_form_company_know_hows_on_company_know_how_id"
+    t.index ["form_id"], name: "index_form_company_know_hows_on_form_id"
   end
 
-  create_table "application_dispositives", force: :cascade do |t|
-    t.bigint "application_id"
+  create_table "form_dispositives", force: :cascade do |t|
+    t.bigint "form_id"
     t.bigint "dispositive_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["application_id"], name: "index_application_dispositives_on_application_id"
-    t.index ["dispositive_id"], name: "index_application_dispositives_on_dispositive_id"
+    t.index ["dispositive_id"], name: "index_form_dispositives_on_dispositive_id"
+    t.index ["form_id"], name: "index_form_dispositives_on_form_id"
   end
 
-  create_table "application_trash_providers", force: :cascade do |t|
-    t.bigint "application_id"
+  create_table "form_trash_providers", force: :cascade do |t|
+    t.bigint "form_id"
     t.bigint "trash_provider_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["application_id"], name: "index_application_trash_providers_on_application_id"
-    t.index ["trash_provider_id"], name: "index_application_trash_providers_on_trash_provider_id"
+    t.index ["form_id"], name: "index_form_trash_providers_on_form_id"
+    t.index ["trash_provider_id"], name: "index_form_trash_providers_on_trash_provider_id"
   end
 
-  create_table "application_trash_working_types", force: :cascade do |t|
-    t.bigint "application_id"
+  create_table "form_trash_working_types", force: :cascade do |t|
+    t.bigint "form_id"
     t.bigint "trash_working_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["application_id"], name: "index_application_trash_working_types_on_application_id"
-    t.index ["trash_working_type_id"], name: "index_application_trash_working_types_on_trash_working_type_id"
+    t.index ["form_id"], name: "index_form_trash_working_types_on_form_id"
+    t.index ["trash_working_type_id"], name: "index_form_trash_working_types_on_trash_working_type_id"
   end
 
-  create_table "applications", force: :cascade do |t|
+  create_table "forms", force: :cascade do |t|
     t.bigint "company_id"
     t.string "company_activity"
     t.string "company_employees_nb"
@@ -103,29 +125,7 @@ ActiveRecord::Schema.define(version: 2018_11_12_145600) do
     t.string "referent_service"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_applications_on_company_id"
-  end
-
-  create_table "companies", force: :cascade do |t|
-    t.string "name"
-    t.string "town"
-    t.bigint "project_id"
-    t.string "accepted_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["project_id"], name: "index_companies_on_project_id"
-  end
-
-  create_table "company_know_hows", force: :cascade do |t|
-    t.string "origin"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "dispositives", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_forms_on_company_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -177,16 +177,16 @@ ActiveRecord::Schema.define(version: 2018_11_12_145600) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "application_company_know_hows", "applications"
-  add_foreign_key "application_company_know_hows", "company_know_hows"
-  add_foreign_key "application_dispositives", "applications"
-  add_foreign_key "application_dispositives", "dispositives"
-  add_foreign_key "application_trash_providers", "applications"
-  add_foreign_key "application_trash_providers", "trash_providers"
-  add_foreign_key "application_trash_working_types", "applications"
-  add_foreign_key "application_trash_working_types", "trash_working_types"
-  add_foreign_key "applications", "companies"
   add_foreign_key "companies", "projects"
+  add_foreign_key "form_company_know_hows", "company_know_hows"
+  add_foreign_key "form_company_know_hows", "forms"
+  add_foreign_key "form_dispositives", "dispositives"
+  add_foreign_key "form_dispositives", "forms"
+  add_foreign_key "form_trash_providers", "forms"
+  add_foreign_key "form_trash_providers", "trash_providers"
+  add_foreign_key "form_trash_working_types", "forms"
+  add_foreign_key "form_trash_working_types", "trash_working_types"
+  add_foreign_key "forms", "companies"
   add_foreign_key "referents", "companies"
   add_foreign_key "referents", "users"
 end

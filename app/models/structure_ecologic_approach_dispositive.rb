@@ -1,2 +1,0 @@
-class StructureEcologicApproachDispositive < ApplicationRecord
-end
