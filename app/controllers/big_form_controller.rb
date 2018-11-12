@@ -5,16 +5,22 @@ class BigFormController < ApplicationController
 
   def show
     @user = User.last
-    @application = @user.company.application
+    @form = @user.company.form
 
     render_wizard
   end
 
   def update
     @user = User.last
-    @application = @user.company.application
-    @application.update_atributes(params[:application])
+    @form = @user.company.form
+    @form.update_attributes(form_params)
 
-    render_wizard @application
+    render_wizard @form
+  end
+
+  private
+
+  def form_params
+    params.require(:form).permit(:company_activity, :company_employees_nb, :company_participant_nb)
   end
 end
