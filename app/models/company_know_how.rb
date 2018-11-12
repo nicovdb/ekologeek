@@ -1,0 +1,2 @@
+class CompanyKnowHow < ApplicationRecord
+end

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/inscription', to: 'companies#new'
 
   resources :companies
+  resources :big_form
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

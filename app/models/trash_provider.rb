@@ -1,0 +1,2 @@
+class TrashProvider < ApplicationRecord
+end

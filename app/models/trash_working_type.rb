@@ -1,0 +1,2 @@
+class TrashWorkingType < ApplicationRecord
+end

@@ -1,0 +1,10 @@
+<h2>Voilà le méga formulaire</h2>
+
+<%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
+  <%= f.input :company_activity %>
+  <%= f.input :company_employees_nb %>
+  <%= f.input :company_participant_nb %>
+  <%= f.button :submit %>
+<% end %>
+
+<%= link_to "Skip", next_wizard_path %>

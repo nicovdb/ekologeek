@@ -18,6 +18,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'inline_svg'
 gem 'sendgrid-ruby'
+gem 'wicked'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
