@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/partenaires' => 'pages#partenaires'
   get '/plan' => 'pages#plan'
   get '/contact' => 'pages#contact'
+  get '/politique' => 'pages#politique_de_confidentialite'
   get 'dossier_de_mecenat', to: "pages#dossier_de_mecenat"
   get 'charte_graphique', to: "pages#charte_graphique"
   get 'logo_RVB', to: "pages#logo_RVB"
