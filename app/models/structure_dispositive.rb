@@ -1,0 +1,2 @@
+class StructureDispositive < ApplicationRecord
+end
