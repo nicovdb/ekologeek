@@ -1,2 +1,10 @@
 
-<h3>Hello <%= @user.first_name %></h3>
+<div class="wrapper">
+  <div class="container bg-white container-padding my-5 blue h-100">
+    <h3>Hello <%= @user.first_name %></h3>
+
+    <ul>
+      <li><%= @user.company.name %></li>
+    </ul>
+  </div>
+</div>
