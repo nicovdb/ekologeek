@@ -99,6 +99,13 @@
       <li class="nav-item m-3 bold-link">
         <%= link_to  "Contact", contact_path, class:"nav-link text-light-gray pl-lg-3 position borderus pl-lg-5"%>
       </li>
+      <li class="nav-item m-3 bold-link">
+        <% if user_signed_in? %>
+          <%= link_to  "Mon compte", user_path(current_user), class:"nav-link text-light-gray pl-lg-3 position"%>
+        <% else %>
+          <%= link_to  "Connexion", new_user_session_path, class:"nav-link text-light-gray pl-lg-3 position"%>
+        <% end %>
+      </li>
 
     </ul>
   </div>

@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg justify-content-end position-fixed" id="nav_bar">
+  <div class="navbar-logo align-items-center justify-content-center" id="nav_logo">
+    <%= link_to root_path, class:"navbar-brand" do %>
+        <%= image_tag 'logo.jpg', id:"logo" %>
+    <% end %>
+  </div>
+  <button class="navbar-toggler justify-content-end ml-2" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span><%=inline_svg "bars-solid.svg", class:"navbar-toggler-icon text-white"%></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <%= link_to root_path, class:"navbar-brand home-nav-link ml-3 m-lg-none" do %>
+          <%= inline_svg "Accueil.svg", width: 20, class:"home" %>
+        <% end %>
+      </li>
+      <li class="nav-item m-3 bold-link">
+        <%= link_to  "Déconnexion", destroy_user_session_path, method: :delete, class:"nav-link text-light-gray pl-lg-3 position"%>
+      </li>
+    </ul>
+  </div>
+</nav>
