@@ -1,0 +1,14 @@
+<h1>2e page, gestion des déchets</h1>
+
+<%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
+  <%= f.input :trash_indicator %>
+  <%= f.input :trash_indicator_list %>
+  <%= f.input :trash_types %>
+  <%= f.input :trash_sorting %>
+  <%= f.input :trash_sorting_types %>
+  <%= f.input :trash_sorting_quality %>
+  <%= f.input :trash_sorting_knowledge %>
+  <%= f.button :submit %>
+<% end %>
+
+<%= link_to "Skip", next_wizard_path %>

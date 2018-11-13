@@ -1,0 +1,2 @@
+class Dispositive < ApplicationRecord
+end

@@ -1,0 +1,16 @@
+<h1>4e page, volonté des salariés</h1>
+
+<%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
+  <%= f.input :employees_knowledge %>
+  <%= f.input :employees_knowledge_interest %>
+  <%= f.input :employees_propositions %>
+  <%= f.input :employees_propositions_examples %>
+  <%= f.input :employees_propositions_handled %>
+  <%= f.input :employees_concerned %>
+  <%= f.input :employees_engagement %>
+  <%= f.input :employees_actions_work %>
+  <%= f.input :employees_actions_home %>
+  <%= f.button :submit %>
+<% end %>
+
+<%= link_to "Skip", next_wizard_path %>

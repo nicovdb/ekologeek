@@ -1,0 +1,15 @@
+<h1>3e page, volonté de l'entreprise</h1>
+
+<%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
+  <%= f.input :structure_sensitivity %>
+  <%= f.input :structure_environment_strategy %>
+  <%= f.input :structure_environment_strategy_examples %>
+  <%= f.input :structure_ecologic_approach %>
+  <%= f.input :structure_concrete_actions %>
+  <%= f.input :structure_direction_interest %>
+  <%= f.input :structure_direction_interest_reasons %>
+  <%= f.input :structure_expectations %>
+  <%= f.button :submit %>
+<% end %>
+
+<%= link_to "Skip", next_wizard_path %>
