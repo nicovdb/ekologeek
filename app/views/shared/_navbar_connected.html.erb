@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-lg justify-content-end position-fixed" id="nav_bar">
   <div class="navbar-logo align-items-center justify-content-center" id="nav_logo">
     <%= link_to root_path, class:"navbar-brand" do %>
@@ -14,9 +15,99 @@
           <%= inline_svg "Accueil.svg", width: 20, class:"home" %>
         <% end %>
       </li>
-      <li class="nav-item m-3 bold-link">
-        <%= link_to  "Déconnexion", destroy_user_session_path, method: :delete, class:"nav-link text-light-gray pl-lg-3 position"%>
+
+      <li class="nav-item m-3 dropdown bold-link">
+        <% if mobile_device == "mobile" %>
+          <p class="nav-link dropdown-toggle" href="/pourquoi" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
+            POURQUOI
+          </p>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to "Réduire nos déchets pros", pourquoi_path(anchor: "pourquoi1"), class:"dropdown-item text-primary"%>
+            <%= link_to "Participer au Défi Zéro Déchet des pro", pourquoi_path(anchor: "pourquoi2"), class:"dropdown-item text-primary"%>
+          </div>
+        <% else %>
+          <a class="nav-link dropdown-toggle" href="/pourquoi" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
+            POURQUOI
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to "Réduire nos déchets pros", pourquoi_path(anchor: "pourquoi1"), class:"dropdown-item text-primary"%>
+            <%= link_to "Participer au Défi Zéro Déchet des pro", pourquoi_path(anchor: "pourquoi2"), class:"dropdown-item text-primary"%>
+          </div>
+        <% end %>
       </li>
+
+      <li class="nav-item m-3 dropdown bold-link">
+        <% if mobile_device == "mobile" %>
+
+          <p class="nav-link dropdown-toggle" href="/comment" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
+            COMMENT
+          </p>
+
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to "Objectifs du Défi Zéro Déchet des pro", comment_path(anchor: "comment1"), class:"dropdown-item text-primary"%>
+            <%= link_to "Les structures éligibles", comment_path(anchor: "comment2"), class:"dropdown-item text-primary" %>
+            <%= link_to "Les déchets concernés", comment_path(anchor: "comment2"), class:"dropdown-item text-primary" %>
+            <%= link_to "Comment ça se passe ?", comment_path(anchor: "comment4"), class:"dropdown-item text-primary" %>
+            <%= link_to "Planning", comment_path(anchor: "comment5"), class:"dropdown-item text-primary" %>
+            <%= link_to "Combien ça coûte ?", comment_path(anchor: "comment6"), class:"dropdown-item text-primary" %>
+          </div>
+
+        <% else %>
+          <a class="nav-link dropdown-toggle" href="/comment" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
+            COMMENT
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to "Objectifs du Défi Zéro Déchet des pro", comment_path(anchor: "comment1"), class:"dropdown-item text-primary"%>
+            <%= link_to "Les structures éligibles", comment_path(anchor: "comment2"), class:"dropdown-item text-primary" %>
+            <%= link_to "Les déchets concernés", comment_path(anchor: "comment2"), class:"dropdown-item text-primary" %>
+            <%= link_to "Comment ça se passe ?", comment_path(anchor: "comment4"), class:"dropdown-item text-primary" %>
+            <%= link_to "Planning", comment_path(anchor: "comment5"), class:"dropdown-item text-primary" %>
+            <%= link_to "Combien ça coûte ?", comment_path(anchor: "comment6"), class:"dropdown-item text-primary" %>
+          </div>
+        <% end %>
+
+      </li>
+
+      <li class="nav-item m-3 bold-link">
+        <%= link_to "S'INSCRIRE", "/inscription", class:"nav-link text-light-gray" %>
+      </li>
+
+      <li class="nav-item m-3 dropdown bold-link">
+        <% if mobile_device == "mobile" %>
+          <p class="nav-link dropdown-toggle" href="/soutenir" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
+            SOUTENIR
+          </p>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to "Mécéner",soutenir_path(anchor: "soutenir1"), class:"dropdown-item text-primary" %>
+            <%= link_to "Donner", soutenir_path(anchor: "soutenir2"), class:"dropdown-item text-primary" %>
+            <%= link_to "Témoigner", soutenir_path(anchor: "soutenir4"), class:"dropdown-item text-primary" %>
+            <%= link_to "Partager / communiquer", soutenir_path(anchor: "soutenir3"), class:"dropdown-item text-primary" %>
+          </div>
+        <% else %>
+          <a class="nav-link dropdown-toggle" href="/soutenir" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
+            SOUTENIR
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to "Mécéner",soutenir_path(anchor: "soutenir1"), class:"dropdown-item text-primary" %>
+            <%= link_to "Donner", soutenir_path(anchor: "soutenir2"), class:"dropdown-item text-primary" %>
+            <%= link_to "Témoigner", soutenir_path(anchor: "soutenir4"), class:"dropdown-item text-primary" %>
+            <%= link_to "Partager / communiquer", soutenir_path(anchor: "soutenir3"), class:"dropdown-item text-primary" %>
+          </div>
+        <% end %>
+      </li>
+
+      <li class="nav-item m-3 bold-link">
+        <%= link_to  "Contact", contact_path, class:"nav-link text-light-gray pl-lg-3 position borderus pl-lg-5"%>
+      </li>
+      <li class="nav-item m-3 bold-link">
+        <% if user_signed_in? %>
+          <%= link_to  "Mon compte", user_path(current_user), class:"nav-link text-light-gray pl-lg-3 position"%>
+        <% else %>
+          <%= link_to  "Connexion", new_user_session_path, class:"nav-link text-light-gray pl-lg-3 position"%>
+        <% end %>
+      </li>
+
     </ul>
   </div>
 </nav>

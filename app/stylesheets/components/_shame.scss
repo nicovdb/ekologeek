@@ -6,8 +6,7 @@
   background: white !important;
 }
 
-.wrapper {
-  background: $light-gray;
+.down {
   @media only screen
   and (max-width: $mobile)
   and (max-width: $tablet) {
@@ -20,6 +19,18 @@
     position: relative;
     top: 360px;
   }
+}
+
+.wrapper {
+  background: $light-gray;
+}
+
+.space-top {
+  padding-top: 80px;
+}
+
+.viewport {
+  height: calc(100vh - 200px);
 }
 
 .title {
