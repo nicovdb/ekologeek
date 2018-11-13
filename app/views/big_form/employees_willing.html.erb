@@ -5,21 +5,15 @@
   <p class="mb-4">Pour les questions suivantes, veuillez vous mettre à la place de l'ensemble de vos collaborateur·rice·s et répondez en tant que leur représentant·e </p>
 
   <%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
-    <!-- cases à cocher -->
-    <%= f.input :employees_knowledge, label: "20. Vos collaborateur·rice·s ont-ils connaissance de ce défi ?", collection: ["Oui", "Non", "Non communiqué"], as: :select, prompt: "Choisissez" %>
-    <!-- cases à cocher -->
-    <div class="ml-3">
-      <%= f.input :employees_knowledge_interest, label: "Si vous avez répondu 'Oui' à la question précédente, dans quelle mesure vos collaborateur·rice·s expriment de l’intérêt envers le défi ?", collection: ["0", "1", "2", "3", "4"], as: :select, prompt: "Choisissez"%>
-    </div>
-    <!-- cases à cocher -->
-    <%= f.input :employees_propositions, label: "21. Vos collaborateur·rice·s ont-ils déjà fait remonter vers la direction des propositions concernant le déchet ?", collection: ["Oui", "Non", "Non communiqué"], as: :select, prompt: "Choisissez" %>
-    <div class="ml-3">
+    <%= f.input :employees_knowledge, label: "20. Vos collaborateur·rice·s ont-ils connaissance de ce défi ?", collection: ["Oui", "Non", "Non communiqué"], as: :radio_buttons %>
+      <%= f.input :employees_knowledge_interest, label: "Si vous avez répondu 'Oui' à la question précédente, dans quelle mesure vos collaborateur·rice·s expriment de l’intérêt envers le défi ?", collection: ["0", "1", "2", "3", "4"], as: :radio_buttons%>
+    <%= f.input :employees_propositions, label: "21. Vos collaborateur·rice·s ont-ils déjà fait remonter vers la direction des propositions concernant le déchet ?", collection: ["Oui", "Non", "Non communiqué"], as: :radio_buttons %>
+    <div class="pl-4">
       <%= f.input :employees_propositions_examples, label: "Si Oui, veuillez donner des exemples pour illustrer" %>
       <%= f.input :employees_propositions_handled, label: "De quelle manière ces remontées ont-elles été prises en compte ?" %>
     </div>
     <p>22. En tant que représentant·e, indiquez dans quelle mesure les affirmations suivantes s'appliquent à vos collaborateur·rice·s :</p>
-    <!-- mettre le tout en bullet à leur manière -->
-    <div class="ml-3">
+    <div class="pl-4 col-12 col-sm-6">
       <%= f.input :employees_concerned, label: "Sont préoccupé·e·s par la question du déchet", collection: ["Ne s'applique à personne", "S'applique à très peu", "S'applique à certain·es", "S'applique à la majorité", "S'applique à tous·toutes", "Non communiqué"], as: :select, prompt: "Choisissez" %>
       <%= f.input :employees_engagement, label: "Sont engagé·e·s pour participer au défi", collection: ["Ne s'applique à personne", "S'applique à très peu", "S'applique à certain·es", "S'applique à la majorité", "S'applique à tous·toutes", "Non communiqué"], as: :select, prompt: "Choisissez" %>
       <%= f.input :employees_actions_work, label: "Mettent en place des pratiques de réduction de déchet à leur travail", collection: ["Ne s'applique à personne", "S'applique à très peu", "S'applique à certain·es", "S'applique à la majorité", "S'applique à tous·toutes", "Non communiqué"], as: :select, prompt: "Choisissez" %>

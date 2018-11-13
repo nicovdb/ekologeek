@@ -14,7 +14,7 @@
       <%= f.input :company_activity, label: "1. Quelle est l’activité de votre structure ?", placeholder: "Réponse courte" %>
     </div>
     <!-- <p>à transformer en case à cocher</p> -->
-    <%= f.input :company_employees_nb, label: "2. Quelle est la taille de votre structure ?", collection: ["Moins de 10 salarié·e·s", "De 10 à 49 salarié·e·s", "De 50 à 100 salarié·e·s", "De 101 à 200 salarié·e·s", "Plus de 200 salarié·e·s"], as: :select, prompt: "Choisissez" %>
+    <%= f.input :company_employees_nb, label: "2. Quelle est la taille de votre structure ?", collection: ["Moins de 10 salarié·e·s", "De 10 à 49 salarié·e·s", "De 50 à 100 salarié·e·s", "De 101 à 200 salarié·e·s", "Plus de 200 salarié·e·s"], as: :radio_buttons %>
     <div class="col-12 col-sm-6 pl-0">
       <%= f.input :company_participant_nb, label: "3. Quelle est la taille de l'établissement ou du service qui participerait au Défi Zéro Déchet des Pros ?", placeholder: "Nombre de salarié·e·s" %>
     </div>
