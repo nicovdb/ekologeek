@@ -5,9 +5,34 @@
   <p class="mb-4">Pour les questions suivantes, veuillez vous mettre à la place de l'ensemble de vos collaborateur·rice·s et répondez en tant que leur représentant·e </p>
 
   <%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
-    <%= f.input :employees_knowledge, label: "20. Vos collaborateur·rice·s ont-ils connaissance de ce défi ?", collection: ["Oui", "Non", "Non communiqué"], as: :radio_buttons %>
-      <%= f.input :employees_knowledge_interest, label: "Si vous avez répondu 'Oui' à la question précédente, dans quelle mesure vos collaborateur·rice·s expriment de l’intérêt envers le défi ?", collection: ["0", "1", "2", "3", "4"], as: :radio_buttons%>
-    <%= f.input :employees_propositions, label: "21. Vos collaborateur·rice·s ont-ils déjà fait remonter vers la direction des propositions concernant le déchet ?", collection: ["Oui", "Non", "Non communiqué"], as: :radio_buttons %>
+
+    <p>20. Vos collaborateur·rice·s ont-ils connaissance de ce défi ?</p>
+    <%= f.collection_radio_buttons :employees_knowledge, ["Oui", "Non", "Non communiqué"], :to_s, :to_s do |input| %>
+      <label class="mx-2 mb-3">
+        <%= input.radio_button %>
+        <%= input.text %>
+      </label>
+    <% end %>
+
+    <p>Si vous avez répondu 'Oui' à la question précédente, dans quelle mesure vos collaborateur·rice·s expriment de l’intérêt envers le défi ?</p>
+    <div class="d-flex justify-content-center">
+      Très peu
+      <%= f.collection_radio_buttons :employees_knowledge_interest, ["0", "1", "2", "3", "4"], :to_s, :to_s do |input| %>
+        <label class="mx-2 mb-3">
+          <%= input.radio_button %>
+          <%= input.text %>
+        </label>
+      <% end %>
+      Beaucoup
+    </div>
+
+    <p>21. Vos collaborateur·rice·s ont-ils déjà fait remonter vers la direction des propositions concernant le déchet ?</p>
+    <%= f.collection_radio_buttons :employees_propositions, ["Oui", "Non", "Non communiqué"], :to_s, :to_s do |input| %>
+      <label class="mx-2 mb-3">
+        <%= input.radio_button %>
+        <%= input.text %>
+      </label>
+    <% end %>
     <div class="pl-4">
       <%= f.input :employees_propositions_examples, label: "Si Oui, veuillez donner des exemples pour illustrer" %>
       <%= f.input :employees_propositions_handled, label: "De quelle manière ces remontées ont-elles été prises en compte ?" %>
