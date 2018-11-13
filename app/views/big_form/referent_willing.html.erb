@@ -1,28 +1,49 @@
-<h1>dernièèèère page, volonté du référent</h1>
+<div class="container bg-white">
+  <h1 class="my-5 header text-primary text-center">FORMULAIRE DE CANDIDATURE</h1>
+  <p class="text-center">Progression : <b>page 5 sur 5</b> </p>
+  <h2 class="mt-5 mb-2 green-bg">À propos de vous</h2>
+  <p class="mb-4">Pour les questions suivantes, veuillez donner votre avis personnel.</p>
 
-<%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
-  <%= f.input :referent_implication %>
-  <%= f.input :referent_sorts %>
-  <%= f.input :referent_accompany %>
-  <%= f.input :referent_complications %>
-  <%= f.input :referent_winner %>
-  <%= f.input :referent_willing %>
-  <%= f.input :referent_obligation %>
-  <%= f.input :referent_obligation_feeling %>
-  <%= f.input :referent_valorisation %>
-  <%= f.input :referent_fun %>
-  <%= f.input :referent_techniques %>
-  <%= f.input :referent_techniques_examples %>
-  <%= f.input :referent_actions_home %>
-  <%= f.input :referent_actions_home_examples %>
-  <%= f.input :referent_personal_reasons %>
-  <%= f.input :referent_changes_wanted %>
-  <%= f.input :referent_accompaniment_need %>
-  <%= f.input :referent_sex %>
-  <%= f.input :referent_age %>
-  <%= f.input :referent_seniority %>
-  <%= f.input :referent_service %>
-  <%= f.button :submit %>
-<% end %>
-
-<%= link_to "Skip", next_wizard_path %>
+  <%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
+    <!-- transformer en cases à cocher -->
+    <p>23. Dans quelle mesure êtes-vous d'accord avec chacune des affirmations suivantes ?</p>
+    <div class='ml-3'>
+      <%= f.input :referent_implication, label: "La réduction des déchets fait déjà partie de ma vie", collection: ["Pas du tout d'accord", "Plutôt pas d'accord", "Ni en accord ni en désaccord", "Plutôt d'accord", "Tout à fait d'accord"], as: :select, prompt: "Choisissez" %>
+      <%= f.input :referent_sorts, label: "Vous prenez soin de bien trier les déchets chez vous", collection: ["Pas du tout d'accord", "Plutôt pas d'accord", "Ni en accord ni en désaccord", "Plutôt d'accord", "Tout à fait d'accord"], as: :select, prompt: "Choisissez" %>
+      <%= f.input :referent_accompany, label: "Vous êtes prêt·e à accompagner vos collaborateur·ice·s dans le Défi ZD Pro", collection: ["Pas du tout d'accord", "Plutôt pas d'accord", "Ni en accord ni en désaccord", "Plutôt d'accord", "Tout à fait d'accord"], as: :select, prompt: "Choisissez" %>
+      <%= f.input :referent_complications, label: "La réduction des déchets au lieu du travail vous semble difficile", collection: ["Pas du tout d'accord", "Plutôt pas d'accord", "Ni en accord ni en désaccord", "Plutôt d'accord", "Tout à fait d'accord"], as: :select, prompt: "Choisissez" %>
+      <%= f.input :referent_winner, label: "Vous vous estimez capable de faire gagner votre structure", collection: ["Pas du tout d'accord", "Plutôt pas d'accord", "Ni en accord ni en désaccord", "Plutôt d'accord", "Tout à fait d'accord"], as: :select, prompt: "Choisissez" %>
+      <%= f.input :referent_willing, label: "Si ce Défi ZD Pro ou d’autres du même thème a lieu dans le futur, vous y participeriez", collection: ["Pas du tout d'accord", "Plutôt pas d'accord", "Ni en accord ni en désaccord", "Plutôt d'accord", "Tout à fait d'accord"], as: :select, prompt: "Choisissez" %>
+    </div>
+    <!-- transformer en cases à cocher -->
+    <p>24. Dans quelle mesure chacune des affirmations suivantes correspondent-elles à vos motivations pour vous inscrire à ce défi ?</p>
+    <div class="ml-3">
+      <%= f.input :referent_obligation, label: "Je suis obligé·e de le faire", collection: ["Pas du tout correspondant", "Peu correspondant", "Moyennement correspondant", "Bien correspondant", "Tout à fait correspondant"], as: :select, prompt: "Choisissez" %>
+      <%= f.input :referent_obligation_feeling, label: "Je me sens obligé·e de le faire", collection: ["Pas du tout correspondant", "Peu correspondant", "Moyennement correspondant", "Bien correspondant", "Tout à fait correspondant"], as: :select, prompt: "Choisissez" %>
+      <%= f.input :referent_valorisation, label: "C’est important et valorisant pour moi de le faire", collection: ["Pas du tout correspondant", "Peu correspondant", "Moyennement correspondant", "Bien correspondant", "Tout à fait correspondant"], as: :select, prompt: "Choisissez" %>
+      <%= f.input :referent_fun, label: "C’est intéressant et amusant de le faire ", collection: ["Pas du tout correspondant", "Peu correspondant", "Moyennement correspondant", "Bien correspondant", "Tout à fait correspondant"], as: :select, prompt: "Choisissez" %>
+    </div>
+    <!-- transformer en cases à cocher -->
+    <%= f.input :referent_techniques, label:"25. Connaissez-vous par hasard des pratiques de réduction de déchets ?", collection: ["Oui", "Non", "Non communiqué"], as: :select, prompt: "Choisissez" %>
+    <div class="ml-3">
+      <%= f.input :referent_techniques_examples, label: "Si Oui, donnez des exemples " %>
+    </div>
+    <!-- transformer en cases à cocher -->
+    <%= f.input :referent_actions_home, label: "26. Chez vous, adoptez-vous déjà des pratiques de réduction de déchets ?", collection: ["Oui", "Non", "Non communiqué"], as: :select, prompt: "Choisissez" %>
+    <div class="ml-3">
+      <%= f.input :referent_actions_home_examples, label: "Si Oui, donnez des exemples " %>
+    </div>
+    <%= f.input :referent_personal_reasons, label: "27. Quelles sont les raisons personnelles pour lesquelles vous souhaitez participer à ce défi ?" %>
+    <%= f.input :referent_changes_wanted, label: "28. Que voudriez-vous voir changer dans votre structure au niveau des déchets ?" %>
+    <%= f.input :referent_accompaniment_need, label: "29. Sur quoi aimeriez-vous être accompagné·e pour mener à bien ce Défi Zéro Déchet des Pros ?" %>
+    <!-- transformer en cases à cocher -->
+    <%= f.input :referent_sex, label: "30. Vous êtes", collection: ["Un homme", "Une femme", "Je ne souhaite pas le préciser"], as: :select, prompt: "Choisissez" %>
+    <%= f.input :referent_age, label: "31. Votre âge" %>
+    <%= f.input :referent_seniority, label: "Depuis combien d'années travaillez-vous dans votre structure ?" %>
+    <%= f.input :referent_service, label: "32. Dans quel service travaillez-vous ?" %>
+    <div class="d-flex justify-content-around mb-5 mt-4">
+      <%= link_to "< Précédent", previous_wizard_path, class:"btn btn-primary bold" %>
+      <%= f.button :submit, "Envoyer", class:"btn btn-primary bold" %>
+    </div>
+  <% end %>
+</div>

@@ -1,14 +1,31 @@
-<h1>2e page, gestion des déchets</h1>
+<div class="container bg-white">
+  <h1 class="my-5 header text-primary text-center">FORMULAIRE DE CANDIDATURE</h1>
+  <p class="text-center">Progression : <b>page 2 sur 5</b> </p>
+  <h2 class="mt-5 mb-4 green-bg">La gestion des déchets dans votre structure</h2>
 
-<%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
-  <%= f.input :trash_indicator %>
-  <%= f.input :trash_indicator_list %>
-  <%= f.input :trash_types %>
-  <%= f.input :trash_sorting %>
-  <%= f.input :trash_sorting_types %>
-  <%= f.input :trash_sorting_quality %>
-  <%= f.input :trash_sorting_knowledge %>
-  <%= f.button :submit %>
-<% end %>
+  <%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
+    <!-- <p>#rajouter la q5</p> -->
+    <!-- 6 à transformer en cases à cocher -->
+    <%= f.input :trash_indicator, label: "6. Disposez-vous d'indicateurs de suivi de votre production de déchets ? (exemple : kg/mois, litre/semaine, nombre de bacs ou poubelles...)", collection: ["Oui", "Non", "Non communiqué"], as: :select, prompt: "Choisissez" %>
+    <div class="ml-3">
+      <%= f.input :trash_indicator_list, label: "Si oui, lesquels ?" %>
+    </div>
+    <%= f.input :trash_types, label: "7. Quels sont les 3 principaux types de déchets produits dans votre structure ?" %>
+    <!-- <p>#rajouter la q8</p> -->
+    <!-- 9 à transformer en cases à cocher -->
+    <%= f.input :trash_sorting, label: "9. Votre structure fait-elle le tri des déchets ?", collection: ["Oui", "Non", "Non communiqué"], as: :select, prompt: "Choisissez" %>
+    <div class="ml-3">
+      <%= f.input :trash_sorting_types, label:"Si oui, pour quels types de déchets ?" %>
+    </div>
+    <!-- 10 à mettre en cases à cocher -->
+    <%= f.input :trash_sorting_quality, label: "10. Que pensez-vous de la qualité du tri dans votre structure ?", collection: ["0", "1", "2", "3", "4"], as: :select, prompt: "Choisissez" %>
+    <!-- 11 à mettre en cases à cocher -->
+    <%= f.input :trash_sorting_knowledge, label: "11. Dans quelle mesure votre structure connaît-elle l'obligation de tri 5 flux ?", collection: ["0", "1", "2", "3", "4"], as: :select, prompt: "Choisissez" %>
+    <div class="d-flex justify-content-around mb-5 mt-4">
+      <%= link_to "< Précédent", previous_wizard_path, class:"btn btn-primary bold" %>
+      <%= f.button :submit, "Suivant >", class:"btn btn-primary bold" %>
+    </div>
+  <% end %>
+</div>
 
-<%= link_to "Skip", next_wizard_path %>
+
