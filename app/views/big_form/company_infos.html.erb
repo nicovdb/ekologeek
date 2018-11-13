@@ -1,15 +1,36 @@
-<h1>Défi ZD Pro - Formulaire Inscription</h1>
-<p class="mb-0">Merci pour votre inscription !</p>
-<p class="mb-0">Avant de vous lancer dans l'aventure du Défi Zéro Déchet des Pros avec nous, permettez-nous de faire connaissance.</p>
-<p>Ce formulaire a pour but de nous donner une première connaissance de votre structure, vos collaborateurs et vous-même en tant que référent·e.</p>
+<div class="container bg-white">
+  <h1 class="mt-5 mb-4 header text-primary text-center">FORMULAIRE DE CANDIDATURE</h1>
+  <p >Merci pour votre inscription !</p>
+  <p class="mb-0">Avant de vous lancer dans l'aventure du Défi Zéro Déchet des Pros avec nous, permettez-nous de faire connaissance.</p>
+  <p class="mb-0">Ce formulaire a pour but de nous donner une première connaissance de votre structure, vos collaborateurs et vous-même en tant que référent·e.</p>
+  <p class="mb-0">Toutes les réponses que vous nous communiquez ci-après resteront confidentielles entre vous et les accompagnateurs Ekolo[geek].</p>
 
-<p>Sans accord express de votre part, toutes réponses communiquées ci-après resteront confidentielles entre vous et les accompagnateurs Ekolo[geek].</p>
+  <p class="text-center mt-4">Progression : <b>page 1 sur 5</b> </p>
+  <h2 class="mt-4 mb-4 green-bg">Généralités</h2>
 
-<%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
-  <%= f.input :company_activity %>
-  <%= f.input :company_employees_nb %>
-  <%= f.input :company_participant_nb %>
-  <%= f.button :submit %>
-<% end %>
+  <%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
+    <p>1. Quelle est l’activité de votre structure ?</p>
+    <div class="col-12 col-sm-6 pl-0">
+      <%= f.input :company_activity, label: false, placeholder: "Réponse courte" %>
+    </div>
 
-<%= link_to "Skip", next_wizard_path %>
+    <p>2. Quelle est la taille de votre structure ?</p>
+    <%= f.collection_radio_buttons :company_employees_nb, ["Moins de 10 salarié·e·s", "De 10 à 49 salarié·e·s", "De 50 à 100 salarié·e·s", "De 101 à 200 salarié·e·s", "Plus de 200 salarié·e·s"], :to_s, :to_s do |input| %>
+      <label class="mx-2 mb-3">
+        <%= input.radio_button %>
+        <%= input.text %>
+      </label>
+    <% end %>
+
+    <p>3. Quelle est la taille de l'établissement ou du service qui participerait au Défi Zéro Déchet des Pros ?</p>
+    <div class="col-12 col-sm-6 pl-0">
+      <%= f.input :company_participant_nb, label: false, placeholder: "Nombre de salarié·e·s" %>
+    </div>
+    <!-- 4. Comment avez vous connu le défi zéro déchets des pros ? à rajouter -->
+    <div class="d-flex justify-content-end mb-5 mt-4">
+      <%= f.button :submit, "Suivant >", class:"btn btn-primary bold" %>
+    </div>
+  <% end %>
+
+</div>
+

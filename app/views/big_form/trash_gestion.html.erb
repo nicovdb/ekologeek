@@ -1,14 +1,62 @@
-<h1>2e page, gestion des déchets</h1>
+<div class="container bg-white">
+  <h1 class="my-5 header text-primary text-center">FORMULAIRE DE CANDIDATURE</h1>
+  <p class="text-center">Progression : <b>page 2 sur 5</b> </p>
+  <h2 class="mt-5 mb-4 green-bg">La gestion des déchets dans votre structure</h2>
 
-<%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
-  <%= f.input :trash_indicator %>
-  <%= f.input :trash_indicator_list %>
-  <%= f.input :trash_types %>
-  <%= f.input :trash_sorting %>
-  <%= f.input :trash_sorting_types %>
-  <%= f.input :trash_sorting_quality %>
-  <%= f.input :trash_sorting_knowledge %>
-  <%= f.button :submit %>
-<% end %>
+  <%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
+    <!-- <p>#rajouter la q5</p> -->
+    <p>6. Disposez-vous d'indicateurs de suivi de votre production de déchets ? (exemple : kg/mois, litre/semaine, nombre de bacs ou poubelles...)</p>
+    <%= f.collection_radio_buttons :trash_indicator, ["Oui", "Non", "Non communiqué"], :to_s, :to_s do |input| %>
+      <label class="mx-2 mb-3">
+        <%= input.radio_button %>
+        <%= input.text %>
+      </label>
+    <% end %>
 
-<%= link_to "Skip", next_wizard_path %>
+    <div class="pl-4">
+      <%= f.input :trash_indicator_list, label: "Si oui, lesquels ?" %>
+    </div>
+    <%= f.input :trash_types, label: "7. Quels sont les 3 principaux types de déchets produits dans votre structure ?" %>
+    <!-- <p>#rajouter la q8</p> -->
+    <p>9. Votre structure fait-elle le tri des déchets ?</p>
+    <%= f.collection_radio_buttons :trash_sorting, ["Oui", "Non", "Non communiqué"], :to_s, :to_s do |input| %>
+      <label class="mx-2 mb-3">
+        <%= input.radio_button %>
+        <%= input.text %>
+      </label>
+    <% end %>
+    <div class="pl-4">
+      <%= f.input :trash_sorting_types, label:"Si oui, pour quels types de déchets ?" %>
+    </div>
+
+    <p>10. Que pensez-vous de la qualité du tri dans votre structure ?</p>
+    <div class="d-flex justify-content-center">
+      Très mauvaise
+      <%= f.collection_radio_buttons :trash_sorting_quality, ["0", "1", "2", "3", "4"], :to_s, :to_s do |input| %>
+        <label class="mx-2 mb-3">
+          <%= input.radio_button %>
+          <%= input.text %>
+        </label>
+      <% end %>
+      Très bonne
+    </div>
+
+    <p>11. Dans quelle mesure votre structure connaît-elle l'obligation de tri 5 flux ?</p>
+    <div class="d-flex justify-content-center">
+      Très mal
+      <%= f.collection_radio_buttons :trash_sorting_knowledge, ["0", "1", "2", "3", "4"], :to_s, :to_s do |input| %>
+        <label class="mx-2 mb-3">
+          <%= input.radio_button %>
+          <%= input.text %>
+        </label>
+      <% end %>
+      Très bien
+    </div>
+    <div class="d-flex justify-content-around mb-5 mt-4">
+      <%= link_to "< Précédent", previous_wizard_path, class:"btn btn-primary bold" %>
+      <%= f.button :submit, "Suivant >", class:"btn btn-primary bold" %>
+    </div>
+  <% end %>
+</div>
+
+

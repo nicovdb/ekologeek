@@ -1,15 +1,68 @@
-<h1>3e page, volonté de l'entreprise</h1>
+<div class="container bg-white">
+  <h1 class="my-5 header text-primary text-center">FORMULAIRE DE CANDIDATURE</h1>
+  <p class="text-center">Progression : <b>page 3 sur 5</b> </p>
+  <h2 class="mt-5 mb-2 green-bg">Concernant votre structure</h2>
+  <p class="mb-4">Pour répondre aux questions suivantes, veuillez vous mettre à la place de votre structure et répondez en tant que référent de la structure</p>
 
-<%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
-  <%= f.input :structure_sensitivity %>
-  <%= f.input :structure_environment_strategy %>
-  <%= f.input :structure_environment_strategy_examples %>
-  <%= f.input :structure_ecologic_approach %>
-  <%= f.input :structure_concrete_actions %>
-  <%= f.input :structure_direction_interest %>
-  <%= f.input :structure_direction_interest_reasons %>
-  <%= f.input :structure_expectations %>
-  <%= f.button :submit %>
-<% end %>
+  <%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
+    <p>12. Dans quelle mesure votre structure est-elle sensible aux enjeux environnementaux ?</p>
+    <div class="d-flex justify-content-center">
+      Très peu
+      <%= f.collection_radio_buttons :structure_sensitivity, ["0", "1", "2", "3", "4"], :to_s, :to_s do |input| %>
+        <label class="mx-2 mb-3">
+          <%= input.radio_button %>
+          <%= input.text %>
+        </label>
+      <% end %>
+      Beaucoup
+    </div>
 
-<%= link_to "Skip", next_wizard_path %>
+    <p>13. Dans quelle mesure l'environnement fait-il partie de la politique/stratégie de votre structure ?</p>
+    <div class="d-flex justify-content-center">
+      Très peu
+      <%= f.collection_radio_buttons :structure_environment_strategy, ["0", "1", "2", "3", "4"], :to_s, :to_s do |input| %>
+        <label class="mx-2 mb-3">
+          <%= input.radio_button %>
+          <%= input.text %>
+        </label>
+      <% end %>
+      Beaucoup
+    </div>
+    <div class="pl-4">
+      <%= f.input :structure_environment_strategy_examples, label: "Veuillez donner des exemples pour illustrer votre choix précédent." %>
+    </div>
+
+    <p>14. Votre structure est-elle engagée dans une démarche éco-responsable ?</p>
+    <%= f.collection_radio_buttons :structure_ecologic_approach, ["Oui", "Non", "Non communiqué"], :to_s, :to_s do |input| %>
+      <label class="mx-2 mb-3">
+        <%= input.radio_button %>
+        <%= input.text %>
+      </label>
+    <% end %>
+
+    <!-- à rajouter q15 -->
+
+    <%= f.input :structure_concrete_actions, label: "16. Quelles actions concrètes sont actuellement menées en faveur de l'environnement dans votre structure (dans la gestion de l'eau, de l'énergie, réduction des déchets...)?" %>
+
+    <p>17. Dans quelle mesure la direction de votre structure exprime-t-elle de l’intérêt pour ce Défi Zéro Déchets des Pros ?</p>
+    <div class="d-flex justify-content-center">
+      Très peu
+      <%= f.collection_radio_buttons :structure_direction_interest, ["0", "1", "2", "3", "4"], :to_s, :to_s do |input| %>
+        <label class="mx-2 mb-3">
+          <%= input.radio_button %>
+          <%= input.text %>
+        </label>
+      <% end %>
+      Beaucoup
+    </div>
+
+    <%= f.input :structure_direction_interest_reasons, label: "18. Pour quelles raisons votre structure souhaite-t-elle participer à ce défi ?" %>
+
+    <%= f.input :structure_expectations, label: "19. Quelles sont les attentes de votre structure concernant ce Défi Zéro Déchet des Pros ?" %>
+
+    <div class="d-flex justify-content-around mb-5 mt-4">
+      <%= link_to "< Précédent", previous_wizard_path, class:"btn btn-primary bold" %>
+      <%= f.button :submit, "Suivant >", class:"btn btn-primary bold" %>
+    </div>
+  <% end %>
+</div>
