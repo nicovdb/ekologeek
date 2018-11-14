@@ -1,0 +1,13 @@
+fr:
+  activerecord:
+    models:
+      user: utilisateur
+    attributes:
+      user:
+        first_name: Prénom
+        last_name: Nom
+        address: Adresse
+        phone_number: Téléphone
+        avatar: Photo
+  errors:
+    phone_format: incorrect -> format 0678375394

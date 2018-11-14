@@ -99,11 +99,64 @@
       <li class="nav-item m-3 bold-link">
         <%= link_to  "Contact", contact_path, class:"nav-link text-light-gray pl-lg-3 position borderus pl-lg-5"%>
       </li>
-      <li class="nav-item m-3 bold-link">
+
+      <li class="nav-item m-3 dropdown bold-link">
         <% if user_signed_in? %>
-          <%= link_to  "Mon compte", user_path(current_user), class:"nav-link text-light-gray pl-lg-3 position"%>
+          <% if mobile_device == "mobile" %>
+            <p class="nav-link dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">
+              Mon compte
+            </p>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to  "Mon compte", user_path(current_user), class:"dropdown-item text-primary"%>
+              <%= link_to  "Déconnexion", destroy_user_session_path, method: :delete, class:"dropdown-item text-primary"%>
+            </div>
+          <% else %>
+            <a class="nav-link dropdown-toggle" href="/soutenir" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
+              Mon compte
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to  "Mon compte", user_path(current_user), class:"dropdown-item text-primary"%>
+              <%= link_to  "Déconnexion", destroy_user_session_path, method: :delete, class:"dropdown-item text-primary"%>
+            </div>
+          <% end %>
         <% else %>
-          <%= link_to  "Connexion", new_user_session_path, class:"nav-link text-light-gray pl-lg-3 position"%>
+          <% if mobile_device == "mobile" %>
+            <p class="nav-link dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">
+              Connexion
+            </p>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <%= form_for(:user, :url => session_path(:user), html: { class: "navbar-form navbar-right form-inline" }) do |f| %>
+                      <div class="form-group">
+                        <%= f.text_field :email, :placeholder => "Email", class: "form-control" %>
+                      </div>
+                      <div class="form-group">
+                        <%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
+                      </div>
+                      <div class="checkbox">
+                        <%= f.check_box :remember_me %><%= f.label :remember_me %>
+                      </div>
+                      <%= f.submit 'Login', class: "btn btn-default" %>
+              <% end %>
+            </div>
+          <% else %>
+            <a class="nav-link dropdown-toggle" href="/soutenir" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
+              Connexion
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <%= form_for(:user, :url => session_path(:user), html: { class: "navbar-form navbar-right form-inline" }) do |f| %>
+                      <div class="form-group">
+                        <%= f.text_field :email, :placeholder => "Email", class: "form-control" %>
+                      </div>
+                      <div class="form-group">
+                        <%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
+                      </div>
+                      <div class="checkbox">
+                        <%= f.check_box :remember_me %><%= f.label :remember_me %>
+                      </div>
+                      <%= f.submit 'Login', class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          <% end %>
         <% end %>
       </li>
 
