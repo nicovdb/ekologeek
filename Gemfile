@@ -19,6 +19,7 @@ gem 'webpacker'
 gem 'inline_svg'
 gem 'sendgrid-ruby'
 gem 'wicked'
+gem 'devise-i18n'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

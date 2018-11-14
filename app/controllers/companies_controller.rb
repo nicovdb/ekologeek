@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
-  layout "home"
+  before_action :set_company, only: [ :edit, :update]
+  layout Proc.new{ ['new'].include?(action_name) ? 'home' : 'connected' }
 
   def new
     @company = Company.new
@@ -30,7 +31,20 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @user = current_user
+    @company.update(company_params)
+    redirect_to user_path(@user)
+  end
+
   private
+
+  def set_company
+    @company = Company.find(params[:id])
+  end
 
   def company_params
     params.require(:company).permit(:name, :town)
