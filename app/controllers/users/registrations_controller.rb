@@ -1,4 +1,4 @@
-class RegistrationsController < Devise::RegistrationsController
+class Users::RegistrationsController < Devise::RegistrationsController
 
 
   protected
@@ -14,22 +14,6 @@ class RegistrationsController < Devise::RegistrationsController
 
   private
 
-
-  def sign_up_params
-    params.require(:user).permit(
-      :first_name,
-      :last_name,
-      :role,
-      :civility,
-      :address,
-      :telephone,
-      :email,
-      :newsletter_ekg,
-      :newsletter_dzd,
-      :password,
-      :password_confirmation
-    )
-  end
 
   def account_update_params
     params.require(:user).permit(

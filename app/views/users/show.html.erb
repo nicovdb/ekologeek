@@ -31,7 +31,7 @@
       <div class="row">
         <div class="col-12 mt-3">
           <div class="d-flex align-items-center">
-            <% if current_user.ekg_checked?(@user) %>
+            <% if @user.ekg_checked?(@user) %>
               <%= inline_svg "check-circle", width: 20, class:"mr-2" %>
               <span>Oui, je veux recevoir la newsletter du Défi Zéro Déchet des Pros</span>
             <% else %>
@@ -42,7 +42,7 @@
         </div>
         <div class="col-12 mb-5">
           <div class="d-flex align-items-center">
-              <% if current_user.dzd_checked?(@user) %>
+              <% if @user.dzd_checked?(@user) %>
               <%= inline_svg "check-circle", width: 20, class:"mr-2" %>
             <span>Oui, je veux recevoir la newsletter mensuelle de l’<%= link_to 'association Ekolo[geek]', partenaires_path, target: :blank %> (ex. contenu : actualités, recette de saison, Acte ekolo[geek]...)</span>
             <% else %>
@@ -53,7 +53,8 @@
         </div>
       </div>
       <div class="links d-flex justify-content-around pb-4">
-        <%= link_to "Modifier", edit_user_registration_path, class:"btn btn-success" %>
+        <%= link_to "Modifier", edit_user_path(@user), class:"btn btn-success" %>
+        <%= link_to "Modifier mot de passe", new_user_password_path, class:"btn btn-success" %>
         <%= link_to "Supprimer", user_registration_path, method: :delete, class:"btn btn-danger" %>
         <%= link_to "Télécharger mes données", root_path, class:"btn btn-success" %>
       </div>

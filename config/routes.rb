@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: 'registrations' }
+  devise_for :users, controllers: { registrations: 'users/registrations' }
 
   root to: 'pages#home'
   get '/pourquoi' => 'pages#pourquoi'
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :companies
 
   resources :big_form
-  resources :users, only: [:show], path: "utilisateurs"
+  resources :users, only: [:show, :edit, :update], path: "utilisateurs"
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

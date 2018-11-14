@@ -1,0 +1,48 @@
+<div class="wrapper">
+  <div class="container viewport space-top">
+    <div class="bg-white container-padding">
+
+        <h3 class= "pt-3 mt-5">Référent·e</h3>
+        <%= simple_form_for(@user, url: user_path(@user)) do |f|%>
+          <div class="row">
+            <div class="col-12 col-md-3">
+              <%= f.input :civility, prompt: 'Civilité*', collection: ["Mme", "M."], as: :select, label: false  %>
+            </div>
+            <div class="col-12 col-md-3">
+              <%= f.input :first_name, placeholder: 'Prénom*', label: false  %>
+            </div>
+            <div class="col-12 col-md-3">
+              <%= f.input :last_name, placeholder: 'NOM*', label: false  %>
+            </div>
+            <div class="col-12 col-md-3">
+              <%= f.input :role, placeholder: 'Fonction*', label: false  %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-3">
+              <%= f.input :telephone, placeholder: 'Téléphone*', label: false  %>
+            </div>
+            <div class="col-12 col-md-6">
+              <%= f.input :email, placeholder: 'Email*', label: false  %>
+            </div>
+            <div class="col-12 ml-3">
+              <%= f.input :newsletter_dzd, label: "Oui, je veux recevoir la newsletter du Défi Zéro Déchet des Pros" %>
+            </div>
+            <div class="col-12 ml-3 mb-4">
+              <%= f.input :newsletter_ekg, label: "Oui, je veux recevoir la newsletter mensuelle de l’#{link_to 'association Ekolo[geek]', partenaires_path, target: :blank} (ex. contenu : actualités, recette de saison, Acte ekolo[geek]...)".html_safe %>
+            </div>
+            <div class="col-12 ml-3 mb-4">
+              <%= f.input :password,
+                          hint: "mot de passe obligatoire ",
+                          required: false,
+                          input_html: { autocomplete: "password" } %>
+            </div>
+          </div>
+          <div class="d-flex flex-column justify-content-center align-items-center pb-5">
+            <%= f.button :submit, "modifier", class: 'btn btn-primary text-white bold' %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+  <%= render 'shared/footer' %>
+</div>
