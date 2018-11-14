@@ -26,7 +26,17 @@
     <div class="col-12 col-sm-6 pl-0">
       <%= f.input :company_participant_nb, label: false, placeholder: "Nombre de salarié·e·s" %>
     </div>
-    <!-- 4. Comment avez vous connu le défi zéro déchets des pros ? à rajouter -->
+
+    <p>4. Comment avez vous connu le Défi Zéro Déchets des Pros ? </p>
+    <%= f.simple_fields_for @form_company_know_how do |f|%>
+      <%= f.collection_check_boxes :company_know_how_id, @company_know_hows, :id, :origin do |input| %>
+        <label>
+          <%= input.check_box %>
+          <%= input.text %>
+        </label>
+      <% end %>
+    <% end %>
+
     <div class="d-flex justify-content-end mb-5 mt-4">
       <%= f.button :submit, "Suivant >", class:"btn btn-primary bold" %>
     </div>
