@@ -29,6 +29,10 @@
   .home-nav-link {
     color: $light-gray;
     font-size: 26px;
+    padding-left: 30px;
+    @media (max-width: $mobile) {
+      padding-left: 0;
+    }
   }
   .logo-nav {
     background-image: image("logo.jpg");

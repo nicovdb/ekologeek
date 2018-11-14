@@ -52,10 +52,8 @@
       </div>
     </div>
     <div class="links d-flex justify-content-around pb-4">
-      <%= link_to "Modifier", edit_user_path(@user), class:"btn btn-success" %>
-      <%= link_to "Modifier mot de passe", new_user_password_path, class:"btn btn-success" %>
-      <%= link_to "Supprimer", user_registration_path, method: :delete, class:"btn btn-danger" %>
-      <%= link_to "Télécharger mes données", root_path, class:"btn btn-success" %>
+      <%= link_to "Modifier mon profil", edit_user_path(@user), class:"btn btn-success" %>
+      <%= link_to "Modifier ma structure", edit_company_path(@user.company_id), class:"btn btn-success" %>
     </div>
   </div>
 </div>
