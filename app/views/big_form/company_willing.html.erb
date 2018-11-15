@@ -41,16 +41,7 @@
     <% end %>
 
     <p>15. Si Oui, choisissez le·s dispositif·s dans le·lesquel·s votre structure est engagée :</p>
-    <%= f.simple_fields_for @form_dispositive do |f|%>
-      <%= f.collection_check_boxes :dispositive_id, @dispositives, :id, :name do |input| %>
-        <label class="mx-2 mb-3">
-          <%= input.check_box %>
-          <%= input.text %>
-        </label>
-      <% end %>
-    <% end %>
-
-    <!-- à rajouter q15 -->
+    <%= f.collection_check_boxes :dispositive_ids, @dispositives, :id, :name, checked: @form.dispositives.map(&:id) %>
 
     <%= f.input :structure_concrete_actions, label: "16. Quelles actions concrètes sont actuellement menées en faveur de l'environnement dans votre structure (dans la gestion de l'eau, de l'énergie, réduction des déchets...)?" %>
 
