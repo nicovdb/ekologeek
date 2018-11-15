@@ -1,5 +1,6 @@
 class BigFormController < ApplicationController
   include Wicked::Wizard
+  layout "connected"
 
   steps :company_infos, :trash_gestion, :company_willing, :employees_willing, :referent_willing
 
@@ -7,7 +8,6 @@ class BigFormController < ApplicationController
     @user = User.last
     @form = @user.company.form
 
-    # @form.form_company_know_hows.build
     @company_know_hows = CompanyKnowHow.all
     @form_company_know_how = FormCompanyKnowHow.new
 
@@ -90,6 +90,5 @@ class BigFormController < ApplicationController
   def form_d_params
     params.require(:form)[:form_dispositive]
   end
-
 
 end
