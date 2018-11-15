@@ -62,6 +62,7 @@
     <div class="links d-flex justify-content-around pb-4">
       <%= link_to "Modifier mon profil", edit_user_path(@user), class:"btn btn-success" %>
       <%= link_to "Modifier ma structure", edit_company_path(@user.company_id), class:"btn btn-success" %>
+      <%= link_to "Suprimer mon compte", unknown_user_path(@user), method: :patch, class:"btn btn-danger" %>
     </div>
   </div>
 </div>
