@@ -6,14 +6,7 @@
   <%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
 
     <p>5. Quel est le prestataire qui collecte vos déchets ? </p>
-    <%= f.simple_fields_for @form_trash_provider do |f|%>
-      <%= f.collection_check_boxes :trash_provider_id, @trash_providers, :id, :name do |input| %>
-        <label class="mx-2 mb-3">
-          <%= input.check_box %>
-          <%= input.text %>
-        </label>
-      <% end %>
-    <% end %>
+    <%= f.collection_check_boxes :trash_provider_ids, @trash_providers, :id, :name, checked: @form.trash_providers.map(&:id)%>
 
     <p>6. Disposez-vous d'indicateurs de suivi de votre production de déchets ? (exemple : kg/mois, litre/semaine, nombre de bacs ou poubelles...)</p>
     <%= f.collection_radio_buttons :trash_indicator, ["Oui", "Non", "Non communiqué"], :to_s, :to_s do |input| %>
@@ -28,14 +21,7 @@
     </div>
     <%= f.input :trash_types, label: "7. Quels sont les 3 principaux types de déchets produits dans votre structure ?" %>
     <p>8. Quels sont les 3 principaux types de déchets DE FONCTIONNEMENT produits dans votre structure ?</p>
-    <%= f.simple_fields_for @form_trash_working_type do |f|%>
-      <%= f.collection_check_boxes :trash_working_type_id, @trash_working_types, :id, :trash do |input| %>
-        <label class="mx-2 mb-3">
-          <%= input.check_box %>
-          <%= input.text %>
-        </label>
-      <% end %>
-    <% end %>
+    <%= f.collection_check_boxes :trash_working_type_ids, @trash_working_types, :id, :trash, checked: @form.trash_working_types.map(&:id)%>
 
     <p class="mt-3">9. Votre structure fait-elle le tri des déchets ?</p>
     <%= f.collection_radio_buttons :trash_sorting, ["Oui", "Non", "Non communiqué"], :to_s, :to_s do |input| %>
