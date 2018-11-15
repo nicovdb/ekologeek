@@ -1,0 +1,38 @@
+<div class="container bg-white">
+  <h1 class="mt-5 mb-4 header text-primary text-center">FORMULAIRE DE CANDIDATURE</h1>
+  <h2 class="mt-5 mb-2 green-bg">Charte de participation</h2>
+
+  <p>L’établissement s’engage à :</p>
+  <ul class="list bullet-custom">
+    <li>Identifier un référent·e qui sera l'interlocuteur·rice privilégié·e de l'équipe du Défi Zéro Déchets des Pros</li>
+    <li>Donner les moyens (disponibilité, technique, informations) au référent·e pour qu'i·ellel assume ses fonctions de référent·e au sein du Défi Zéro Déchets
+    des Pros</li>
+    <li>Être présent à l'événement de clôture s'il est gagnant</li>
+  </ul>
+
+  <p>Le·la référent·e s’engage à :</p>
+  <ul class="list bullet-custom mb-4">
+    <li>Mettre en œuvre les moyens nécessaires pour atteindre l'objectif du Défi Zéro Déchets des Pros</li>
+    <li>Mobiliser ses collaborateur·rice·s en interne</li>
+    <li>Participer à au moins deux (2) rencontres collectives, dont la première</li>
+    <li>Renseigner sur son compte référent les données sur sa établissement, au moins une fois par mois</li>
+    <li>Se rendre disponible pour répondre à au moins un appel de suivi</li>
+    <li>Mettre en place au moins une action de tri ou de réduction des déchets dans son établissement</li>
+    <li>Gérer les comptes utilisateur·rice·s, s’il·elle a décidé d’en créer pour ses collaborateur·ice·s</li>
+    <li>Accepter de recevoir les informations et actualités du Défi Zéro Déchets des Pros et d’Ekolo[geek] sur son adresse email. Le·la référent·e peut gérer ses
+    préférences dans son compte. </li>
+  </ul>
+
+  <%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
+    <div class="col-12 ml-3">
+      <%= f.input :charte, label: "Oui, je certifie avoir lu et accepté la charte de participation au Défi Zéro Déchet des Pros" %>
+    </div>
+     <div class="col-12 ml-3">
+      <%= f.input :cgv, label: "Oui, j’accepte les Conditions Générales de Vente de participation au Défi Zéro Déchet des Pros" %>
+    </div>
+    <div class="d-flex justify-content-around mb-5 mt-4">
+      <%= link_to "< Précédent", previous_wizard_path, class:"btn btn-primary bold" %>
+      <%= f.button :submit, "Envoyer", class:"btn btn-primary bold" %>
+    </div>
+  <% end %>
+</div>
