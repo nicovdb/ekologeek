@@ -1,5 +1,5 @@
-<div class="wrapper ">
-  <div class="container viewport space-top">
+<div class="wrapper">
+  <div class="bg-white container viewport space-top">
     <h3 class="my-3 pt-4">Structure</h3>
     <div class="structure  m-1">
       <p class="field"><strong>Nom de l'entreprise :</strong> <em><%= @user.company.name %></em></p>
@@ -27,29 +27,37 @@
         <p class="field"><strong>Email :</strong> <em><%= @user.email %></em></p>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12 mt-3">
-        <div class="d-flex align-items-center">
-          <% if @user.ekg_checked?(@user) %>
-            <%= inline_svg "check-circle", width: 20, class:"mr-2" %>
-            <span>Oui, je veux recevoir la newsletter du Défi Zéro Déchet des Pros</span>
-          <% else %>
-            <%= inline_svg "uncheck-circle", width: 20, class:"mr-2" %>
-            <span>Oui, je veux recevoir la newsletter du Défi Zéro Déchet des Pros</span>
-          <% end %>
+    <div class="row mb-3">
+      <% if @user.dzd_checked?(@user) %>
+        <div class="col-1">
+          <%= inline_svg "check-circle", width: 20, class:"mr-2" %>
         </div>
-      </div>
-      <div class="col-12 mb-5">
-        <div class="d-flex align-items-center">
-            <% if @user.dzd_checked?(@user) %>
-            <%= inline_svg "check-circle", width: 20, class:"mr-2" %>
+        <div class="col-11">
           <span>Oui, je veux recevoir la newsletter mensuelle de l’<%= link_to 'association Ekolo[geek]', partenaires_path, target: :blank %> (ex. contenu : actualités, recette de saison, Acte ekolo[geek]...)</span>
-          <% else %>
-            <%= inline_svg "uncheck-circle", width: 20, class:"mr-2" %>
-            <span>Oui, je veux recevoir la newsletter mensuelle de l’<%= link_to 'association Ekolo[geek]', partenaires_path, target: :blank %> (ex. contenu : actualités, recette de saison, Acte ekolo[geek]...)</span>
-          <% end %>
         </div>
-      </div>
+      <% else %>
+        <div class="col-1">
+          <%= inline_svg "uncheck-circle", width: 20, class:"mr-2" %>
+        </div>
+        <div class="col-11">
+          <span>Oui, je veux recevoir la newsletter mensuelle de l’<%= link_to 'association Ekolo[geek]', partenaires_path, target: :blank %> (ex. contenu : actualités, recette de saison, Acte ekolo[geek]...)</span>
+        </div>
+      <% end %>
+      <% if @user.ekg_checked?(@user) %>
+        <div class="col-1">
+          <%= inline_svg "check-circle", width: 20, class:"mr-2" %>
+        </div>
+        <div class="col-11">
+          <span>Oui, je veux recevoir la newsletter du Défi Zéro Déchet des Pros</span>
+        </div>
+      <% else %>
+        <div class="col-1">
+          <%= inline_svg "uncheck-circle", width: 20, class:"mr-2" %>
+        </div>
+        <div class="col-11">
+          <span>Oui, je veux recevoir la newsletter du Défi Zéro Déchet des Pros</span>
+        </div>
+      <% end %>
     </div>
     <div class="links d-flex justify-content-around pb-4">
       <%= link_to "Modifier mon profil", edit_user_path(@user), class:"btn btn-success" %>
@@ -57,4 +65,3 @@
     </div>
   </div>
 </div>
-<%= render 'shared/footer' %>

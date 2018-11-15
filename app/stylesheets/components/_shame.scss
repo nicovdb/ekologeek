@@ -1,5 +1,8 @@
 .container {
   background: $light-gray;
+  height: 100%;
+  margin-bottom: 10px;
+  min-height: 75vh;
 }
 
 .bg-white {
@@ -23,14 +26,11 @@
 
 .wrapper {
   background: $light-gray;
+  height: 100%;
 }
 
 .space-top {
   padding-top: 50px;
-}
-
-.viewport {
-  height: calc(100vh - 200px);
 }
 
 .title {
