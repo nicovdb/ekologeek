@@ -18,8 +18,11 @@ Rails.application.routes.draw do
   resources :companies
 
   resources :big_form
-  resources :users, only: [:show, :edit, :update], path: "utilisateurs"
-
-
+  resources :users, only: [:show, :edit, :update], path: "utilisateurs" do
+    member do
+      patch "unknown"
+      put "unknown"
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

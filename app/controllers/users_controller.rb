@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :unknown]
 
   layout "connected"
 
@@ -12,6 +12,25 @@ class UsersController < ApplicationController
   def update
     @user.update(user_params)
     redirect_to user_path(@user)
+  end
+
+  def unknown
+    flash.now[:alert] = 'Alert message!'
+    attributes = {
+      first_name: "unknown",
+      last_name: "unknown",
+      role: "unknown",
+      telephone: "unknown",
+      email: (0...50).map { ('a'..'z').to_a[rand(26)] }.join,
+      newsletter_ekg: false,
+      newsletter_dzd: false,
+      deleted: true,
+      password: @user.encrypted_password
+    }
+    @user.assign_attributes(attributes)
+    @user.save(validate: false)
+    redirect_to root_path
+
   end
 
   private
@@ -30,7 +49,8 @@ class UsersController < ApplicationController
       :email,
       :newsletter_ekg,
       :newsletter_dzd,
-      :password
+      :password,
+      :deleted
     )
   end
 
