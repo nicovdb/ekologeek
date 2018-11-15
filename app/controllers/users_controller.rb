@@ -15,12 +15,13 @@ class UsersController < ApplicationController
   end
 
   def unknown
+    flash.now[:alert] = 'Alert message!'
     attributes = {
       first_name: "unknown",
       last_name: "unknown",
       role: "unknown",
       telephone: "unknown",
-      email: "unknown",
+      email: (0...50).map { ('a'..'z').to_a[rand(26)] }.join,
       newsletter_ekg: false,
       newsletter_dzd: false,
       deleted: true,
