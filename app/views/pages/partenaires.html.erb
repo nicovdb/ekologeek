@@ -2,7 +2,7 @@
   <div class="container">
     <div class="container-ekologeek bg-white container-padding my-5">
       <h2 class="header text-primary text-center pt-5 mt-5">Ekolo[geek]</h2>
-      <h4 class="mb-5 text-center">Le Défi Zéro Déchet des Pro est porté par l'<%= link_to "association Ekolo[geek]", "http://www.ekologeek.com", target: :blank  %></h4>
+      <h4 class="mb-5 text-center">Le Défi Zéro Déchet des Pros est porté par l'<%= link_to "association Ekolo[geek]", "http://www.ekologeek.com", target: :blank  %></h4>
 
       <div class="row">
         <div class="col-lg-6">
@@ -15,7 +15,7 @@
             <p class="mb-0">Depuis plus de 10 ans, notre association
             <strong>sensibilise et mobilise</strong> le jeune, grand public et les professionnels aux <strong>éco-gestes</strong> (déchets, eau, énergie, consommation responsable) sur le web et sur le terrain.</p>
             <p class="mb-0">Avec notre stand animé, nous participons à
-            plus d'une <strong>quarantaine d'événements par an</strong>, ainsi qu'à des temps périscolaires (TAP). L'association compte 2 salarié.e.s, 1 volontaire en Service
+            plus d'une <strong>quarantaine d'événements par an</strong>, ainsi qu'à des temps périscolaires (TAP). L'association compte 2 salarié·e·s, 1 volontaire en Service
             Civique et une quarantaine de bénévoles.</p>
           </div>
         </div>
@@ -28,7 +28,7 @@
               Depuis 2016, nous accompagnons également des <strong>professionnels dans leur démarche d'éco-responsabilité</strong> interne. Par exemple, à la <strong><%= link_to "mairie du Bouscat", "http://www.bouscat.fr/", target: :blank %></strong>  nous avons accompagné  des « agents référents » sur le thème de l’économie circulaire, avec en 2017 cinq ateliers-formations, la visite d'une ressourcerie, et en 2018 nous continuons sur le thème des changements de comportements sur l'énergie et les déchets.
             </p>
             <p>
-              En 2016-2017, nous avons été <strong>missionnés par <%= link_to "Enedis", "https://www.enedis.fr/", target: :blank %></strong> Aquitaine-Nord pour <strong>étudier l’impact de la consommation d’énergie sur certain·e·s de leur client·e·s </strong> qui ont été accompagnés par les Volontaires de la Transition Energétique (VTE) d'<%= link_to "Unis-Cité", "https://www.uniscite.fr/", target: :blank  %>.
+              En 2016-2017, nous avons été <strong>missionnés par <%= link_to "Enedis", "https://www.enedis.fr/", target: :blank %></strong> Aquitaine-Nord pour <strong>étudier l’impact de la consommation d’énergie sur certain·e·s de leur client·e·s </strong> qui ont été accompagné·e·s par les Volontaires de la Transition Energétique (VTE) d'<%= link_to "Unis-Cité", "https://www.uniscite.fr/", target: :blank  %>.
             </p>
           </div>
         </div>
@@ -55,47 +55,53 @@
         <h4 class="mb-4 text-center">
           Ce projet peut se développer grâce au soutien de nos partenaires :
         </h4>
-
-        <div class="row">
-          <div class="col-12 col-md-4 mb-3">
-            <%= link_to "https://www.cebx.fr/", target: :blank do %>
-              <div class="card">
-                <img class="card-img-top" src="<%= image_path("club-entreprises.svg") %>">
-                <div class="card-body">
-                  <p class="card-text text">
-                    Le <strong> Club des Entreprises de Bordeaux </strong> et son atelier développement durable ont beaucoup apporté à la conception du projet, de par leur expérience sur le sujet. Le Club a également été un important partenaire de communication pour atteindre les entreprises de Bordeaux.
-                  </p>
-                </div>
-              </div>
-            <% end %>
-          </div>
-
-          <div class="col-12 col-md-4 mb-3">
-            <%= link_to "http://www.bordeaux-metropole.fr/", target: :blank do %>
-              <div class="card">
-                <div class="card-img-top d-flex space-around">
-                  <img class="img-fit" src="<%= image_path("metropole.svg") %>">
-                  <img class="img-fit" src="<%= image_path("territoire-ZDZG.svg") %>">
-                </div>
-                <div class="card-body">
-                  <p class="card-text text">
-                    Premier partenaire financier, <strong> Bordeaux Métropole </strong> nous soutient à travers l'appel à projet zéro déchet, en tant que Territoire Zéro Déchet Zéro Gaspillage.
-                  </p>
-                </div>
-              </div>
-            <% end %>
-          </div>
-
-          <div class="col-12 col-md-4 mb-3">
+        <div class="row d-flex text-align-center justify-content-center">
+          <div class="col-12 col-sm-4 col-lg-2 text-center mb-4 d-flex align-items-center justify-content-center">
             <%= link_to "https://www.ademe.fr/", target: :blank do %>
-              <div class="card">
-                <img class="card-img-top" src="<%= image_path("ADEME.png") %>">
-                <div class="card-body">
-                  <p class="card-text text">
-                    Important partenaire financier, l' <strong>ADEME</strong> soutient le Défi Zéro Déchet des pro qui est complémentaire de ses propres outils.
-                  </p>
-                </div>
-              </div>
+              <%= image_tag "ADEME.png", height: 150 %>
+            <% end %>
+          </div>
+          <div class="col-12 col-sm-4 col-lg-2 text-center mb-4 d-flex align-items-center justify-content-center">
+            <%= link_to "https://www.cebx.fr/", target: :blank do %>
+              <%= image_tag "region.png", height: 140 %>
+            <% end %>
+          </div>
+          <div class="col-12 col-sm-4 col-lg-2 text-center mb-4 d-flex align-items-center justify-content-center">
+            <%= link_to "http://www.bordeaux-metropole.fr/", target: :blank do %>
+              <%= image_tag "metropole.svg", height: 150 %>
+            <% end %>
+          </div>
+          <div class="col-12 col-sm-4 col-lg-2 text-center mb-4 d-flex align-items-center justify-content-center">
+            <%= link_to "https://www.stop-dechets.fr/territoire-zero-dechets-zero-gaspillage", target: :blank do %>
+              <%= image_tag "territoire-ZDZG.svg", height: 150 %>
+            <% end %>
+          </div>
+          <div class="col-12 col-sm-4 col-lg-2 text-center mb-4 d-flex align-items-center justify-content-center">
+            <%= link_to "https://leanature.com/", target: :blank do %>
+              <%= image_tag "lea-nature.png", width: 130 %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="row d-flex text-align-center justify-content-center pb-5">
+          <div class="col-12 col-sm-4 col-lg-2 text-center mb-4 pr-2 d-flex align-items-center justify-content-center">
+            <%= link_to "https://www.cebx.fr/", target: :blank do %>
+              <%= image_tag "club-entreprises.svg", height: 150 %>
+            <% end %>
+          </div>
+           <div class="col-12 col-sm-4 col-lg-2 text-center mb-4 pr-2 d-flex align-items-center justify-content-center">
+            <%= link_to "https://www.cebx.fr/", target: :blank do %>
+              <%= image_tag "CCI.png", width: 130 %>
+            <% end %>
+          </div>
+           <div class="col-12 col-sm-4 col-lg-2 text-center mb-4 pr-2 d-flex align-items-center justify-content-center">
+            <%= link_to "https://www.cebx.fr/", target: :blank do %>
+              <%= image_tag "GMAI.png", height: 130 %>
+            <% end %>
+          </div>
+           <div class="col-12 col-sm-4 col-lg-4 text-center mb-4 d-flex align-items-center justify-content-center">
+            <%= link_to "https://www.cebx.fr/", target: :blank do %>
+              <%= image_tag "ecoindustries.png", width: 250 %>
             <% end %>
           </div>
         </div>
