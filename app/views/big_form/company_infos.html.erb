@@ -29,12 +29,8 @@
 
     <p>4. Comment avez vous connu le Défi Zéro Déchets des Pros ? </p>
     <%= f.simple_fields_for @form_company_know_how do |f|%>
-      <%= f.collection_check_boxes :company_know_how_id, @company_know_hows, :id, :origin do |input| %>
-        <label class="mx-2 mb-3">
-          <%= input.check_box %>
-          <%= input.text %>
-        </label>
-      <% end %>
+      <%= f.collection_check_boxes :company_know_how_id, @company_know_hows, :id, :origin  %>
+
     <% end %>
 
     <div class="d-flex justify-content-end mb-5 mt-4">

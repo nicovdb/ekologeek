@@ -9,7 +9,12 @@ class BigFormController < ApplicationController
     @form = @user.company.form
 
     @company_know_hows = CompanyKnowHow.all
-    @form_company_know_how = FormCompanyKnowHow.new
+
+    if @form.form_company_know_hows.empty?
+      @form_company_know_how = FormCompanyKnowHow.new
+    else
+      @form_company_know_how = @form.form_company_know_hows.first
+    end
 
     @trash_providers = TrashProvider.all
     @form_trash_provider = FormTrashProvider.new
