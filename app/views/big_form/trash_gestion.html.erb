@@ -4,11 +4,11 @@
   <h2 class="mt-5 mb-4 green-bg">La gestion des déchets dans votre structure</h2>
 
   <%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
-    <!-- <p>#rajouter la q5</p> -->
+
     <p>5. Quel est le prestataire qui collecte vos déchets ? </p>
     <%= f.simple_fields_for @form_trash_provider do |f|%>
       <%= f.collection_check_boxes :trash_provider_id, @trash_providers, :id, :name do |input| %>
-        <label>
+        <label class="mx-2 mb-3">
           <%= input.check_box %>
           <%= input.text %>
         </label>
@@ -27,18 +27,17 @@
       <%= f.input :trash_indicator_list, label: "Si oui, lesquels ?" %>
     </div>
     <%= f.input :trash_types, label: "7. Quels sont les 3 principaux types de déchets produits dans votre structure ?" %>
-    <!-- <p>#rajouter la q8</p> -->
     <p>8. Quels sont les 3 principaux types de déchets DE FONCTIONNEMENT produits dans votre structure ?</p>
     <%= f.simple_fields_for @form_trash_working_type do |f|%>
       <%= f.collection_check_boxes :trash_working_type_id, @trash_working_types, :id, :trash do |input| %>
-        <label>
+        <label class="mx-2 mb-3">
           <%= input.check_box %>
           <%= input.text %>
         </label>
       <% end %>
     <% end %>
 
-    <p>9. Votre structure fait-elle le tri des déchets ?</p>
+    <p class="mt-3">9. Votre structure fait-elle le tri des déchets ?</p>
     <%= f.collection_radio_buttons :trash_sorting, ["Oui", "Non", "Non communiqué"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
