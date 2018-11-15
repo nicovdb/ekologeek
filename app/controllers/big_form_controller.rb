@@ -65,9 +65,9 @@ class BigFormController < ApplicationController
     render_wizard @form
   end
 
-  # def finish_wizard_path
-  #   # path à déterminer, probablement vers l'admin referent
-  # end
+  def finish_wizard_path
+    candidature_confirmation_path
+  end
 
   private
 
