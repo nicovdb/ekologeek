@@ -6,7 +6,7 @@
 
   <%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
 
-    <p>20. Vos collaborateur·rice·s ont-ils connaissance de ce défi ?</p>
+    <p><b>20.</b> Vos collaborateur·rice·s ont-ils connaissance de ce défi ?</p>
     <%= f.collection_radio_buttons :employees_knowledge, ["Oui", "Non", "Non communiqué"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
@@ -26,7 +26,7 @@
       Beaucoup
     </div>
 
-    <p>21. Vos collaborateur·rice·s ont-ils déjà fait remonter vers la direction des propositions concernant le déchet ?</p>
+    <p class="mt-4"><b>21.</b> Vos collaborateur·rice·s ont-ils déjà fait remonter vers la direction des propositions concernant le déchet ?</p>
     <%= f.collection_radio_buttons :employees_propositions, ["Oui", "Non", "Non communiqué"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
@@ -37,7 +37,7 @@
       <%= f.input :employees_propositions_examples, label: "Si Oui, veuillez donner des exemples pour illustrer" %>
       <%= f.input :employees_propositions_handled, label: "De quelle manière ces remontées ont-elles été prises en compte ?" %>
     </div>
-    <p>22. En tant que représentant·e, indiquez dans quelle mesure les affirmations suivantes s'appliquent à vos collaborateur·rice·s :</p>
+    <p class="mt-4"><b>22.</b> En tant que représentant·e, indiquez dans quelle mesure les affirmations suivantes s'appliquent à vos collaborateur·rice·s :</p>
     <div class="pl-4 col-12 col-sm-6">
       <%= f.input :employees_concerned, label: "Sont préoccupé·e·s par la question du déchet", collection: ["Ne s'applique à personne", "S'applique à très peu", "S'applique à certain·es", "S'applique à la majorité", "S'applique à tous·toutes", "Non communiqué"], as: :select, prompt: "Choisissez" %>
       <%= f.input :employees_engagement, label: "Sont engagé·e·s pour participer au défi", collection: ["Ne s'applique à personne", "S'applique à très peu", "S'applique à certain·es", "S'applique à la majorité", "S'applique à tous·toutes", "Non communiqué"], as: :select, prompt: "Choisissez" %>
