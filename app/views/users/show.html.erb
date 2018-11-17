@@ -60,10 +60,10 @@
       <% end %>
     </div>
     <div class="links d-flex justify-content-around pb-4">
-      <%= link_to "Modifier ma structure", edit_company_path(@user.company_id), class:"btn btn-outline-success bold" %>
-      <%= link_to "Modifier mon profil", edit_user_path(@user), class:"btn btn-outline-success bold" %>
+      <%= link_to "Modifier ma structure", edit_company_path(@user.company_id), class:"btn btn-outline-primary bold" %>
+      <%= link_to "Modifier mon profil", edit_user_path(@user), class:"btn btn-outline-primary bold" %>
       <%= link_to "Suprimer mon compte", unknown_user_path(@user), method: :patch, data: { confirm: "Êtes-vous sûr ?" }, class:"btn btn-outline-danger bold" %>
-      <%= link_to "Mon formulaire de candidature", formulaire_path(:company_infos), class:"btn btn-success bold text-white" %>
+      <%= link_to "Mon formulaire de candidature", formulaire_path(:company_infos), class:"btn btn-primary bold text-white" %>
     </div>
   </div>
 </div>

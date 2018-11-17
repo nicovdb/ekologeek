@@ -32,15 +32,17 @@
         </div>
         <div class="col-4">
           <%= f.input :password,
-                      hint: "mot de passe obligatoire ",
+                      label: "Mot de passe*",
+                      hint: "*Obligatoire pour modifier le profil",
                       required: false,
                       input_html: { autocomplete: "password" } %>
         </div>
       </div>
-      <div class="col-4 offset-4 pb-5">
-        <%= f.button :submit, "modifier", class: 'btn btn-primary text-white bold mr-3 mb-3' %>
-        <%= link_to "Retour", user_path(current_user), class:"btn btn-light mr-3 mb-3" %>
+      <div class="d-flex justify-content-center">
+        <%= f.button :submit, "Modifier*", class: 'btn btn-primary text-white bold mr-3 mb-3' %>
+        <%= link_to "Retour", user_path(current_user), class:"btn btn-outline-primary ml-3 mb-3" %>
       </div>
+      <p class="text-center pb-5 minus">*Vous devrez vous ré-authentifier après la modification</p>
     <% end %>
   </div>
 </div>
