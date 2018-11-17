@@ -10,13 +10,12 @@ class Form < ApplicationRecord
   has_many :dispositives, through: :form_dispositives
 
 
-  validates :company_activity, presence: true, if: :company_infos?
-  validates :trash_sorting, presence: true, if: :trash_gestion?
-  validates :structure_sensitivity, presence: :true, if: :company_willing?
-  validates :employees_knowledge, presence: :true, if: :employees_willing?
-  validates :employees_propositions_examples, presence: :true, if: :employees_willing?
-  validates :referent_sorts, presence: :true, if: :referent_willing?
-  validates :charte, presence: :true, if: :charte?
+  validates :company_activity, :company_employees_nb, :company_participant_nb, presence: true, if: :company_infos?
+  validates :trash_indicator, :trash_types, :trash_sorting, :trash_sorting_quality, :trash_sorting_knowledge, presence: true, if: :trash_gestion?
+  validates :structure_sensitivity, :structure_environment_strategy, :structure_ecologic_approach, :structure_concrete_actions, :structure_direction_interest, :structure_direction_interest_reasons, presence: :true, if: :company_willing?
+  validates :employees_knowledge, :employees_propositions, :employees_concerned, :employees_engagement, :employees_actions_home, :employees_actions_work, presence: :true, if: :employees_willing?
+  validates :referent_implication, :referent_sorts, :referent_accompany, :referent_complications, :referent_winner, :referent_willing, :referent_obligation, :referent_obligation_feeling, :referent_valorisation, :referent_fun, :referent_techniques, :referent_actions_home, :referent_personal_reasons, :referent_changes_wanted, :referent_accompaniment_need, :referent_sex, :referent_age, :referent_seniority, :referent_service, presence: :true, if: :referent_willing?
+  validates :charte, :cgv, presence: :true, if: :charte?
 
 
   def company_infos?
