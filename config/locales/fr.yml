@@ -2,13 +2,21 @@ fr:
   activerecord:
     models:
       user: utilisateur
+
     attributes:
       user:
         first_name: Prénom
         last_name: Nom
-        address: Adresse
-        phone_number: Téléphone
-        avatar: Photo
+        role: Ce champ
+        civility: Ce champ
+        email: Ce champ
+        telephone: Ce champ
+        password: Ce champ
+
+      company:
+        name: Ce champ
+        town: Ce champ
+
       form:
         company_activity: Ce champ
         company_participant_nb: Ce champ
@@ -54,6 +62,30 @@ fr:
 
     errors:
       models:
+        user:
+          attributes:
+            first_name:
+              blank: "doit être rempli"
+            last_name:
+              blank: "doit être rempli"
+            role:
+              blank: "doit être rempli"
+            civility:
+              blank: "doit être rempli"
+            email:
+              blank: "doit être rempli"
+            telephone:
+              blank: "doit être rempli"
+            password:
+              blank: "doit être rempli"
+
+        company:
+          attributes:
+            name:
+              blank: "doit être rempli"
+            town:
+              blank: "doit être rempli"
+
         form:
           attributes:
             company_employees_nb:
