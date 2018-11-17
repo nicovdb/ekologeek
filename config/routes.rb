@@ -19,7 +19,8 @@ Rails.application.routes.draw do
 
   resources :companies
 
-  resources :big_form
+  resources :formulaires
+
   resources :users, only: [:show, :edit, :update], path: "utilisateurs" do
     member do
       patch "unknown"

@@ -5,7 +5,7 @@
   <p class="mb-4">Pour répondre aux questions suivantes, veuillez vous mettre à la place de votre structure et répondez en tant que référent de la structure</p>
 
   <%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
-    <p>12. Dans quelle mesure votre structure est-elle sensible aux enjeux environnementaux ?</p>
+    <p><b>12.</b> Dans quelle mesure votre structure est-elle sensible aux enjeux environnementaux ?</p>
     <div class="d-flex justify-content-center">
       Très peu
       <%= f.collection_radio_buttons :structure_sensitivity, ["0", "1", "2", "3", "4"], :to_s, :to_s do |input| %>
@@ -17,7 +17,7 @@
       Beaucoup
     </div>
 
-    <p>13. Dans quelle mesure l'environnement fait-il partie de la politique/stratégie de votre structure ?</p>
+    <p class="mt-4"><b>13.</b> Dans quelle mesure l'environnement fait-il partie de la politique/stratégie de votre structure ?</p>
     <div class="d-flex justify-content-center">
       Très peu
       <%= f.collection_radio_buttons :structure_environment_strategy, ["0", "1", "2", "3", "4"], :to_s, :to_s do |input| %>
@@ -32,7 +32,7 @@
       <%= f.input :structure_environment_strategy_examples, label: "Veuillez donner des exemples pour illustrer votre choix précédent." %>
     </div>
 
-    <p>14. Votre structure est-elle engagée dans une démarche éco-responsable ?</p>
+    <p class="mt-4"><b>14.</b> Votre structure est-elle engagée dans une démarche éco-responsable ?</p>
     <%= f.collection_radio_buttons :structure_ecologic_approach, ["Oui", "Non", "Non communiqué"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
@@ -40,12 +40,18 @@
       </label>
     <% end %>
 
-    <p>15. Si Oui, choisissez le·s dispositif·s dans le·lesquel·s votre structure est engagée :</p>
-    <%= f.collection_check_boxes :dispositive_ids, @dispositives, :id, :name, checked: @form.dispositives.map(&:id) %>
+    <p class="mt-4"><b>15.</b> Si Oui, choisissez le·s dispositif·s dans le·lesquel·s votre structure est engagée :</p>
+    <%= f.collection_check_boxes :dispositive_ids, @dispositives, :id, :name, checked: @form.dispositives.map(&:id) do |input| %>
+      <label class="mx-2 mb-3">
+        <%= input.check_box %>
+        <%= input.text %>
+      </label>
+    <% end %>
 
-    <%= f.input :structure_concrete_actions, label: "16. Quelles actions concrètes sont actuellement menées en faveur de l'environnement dans votre structure (dans la gestion de l'eau, de l'énergie, réduction des déchets...)?" %>
+    <p class="mt-4"><b>16.</b> Quelles actions concrètes sont actuellement menées en faveur de l'environnement dans votre structure (dans la gestion de l'eau, de l'énergie, réduction des déchets...)?</p>
+    <%= f.input :structure_concrete_actions, label: false %>
 
-    <p>17. Dans quelle mesure la direction de votre structure exprime-t-elle de l’intérêt pour ce Défi Zéro Déchets des Pros ?</p>
+    <p class="mt-4"><b>17.</b> Dans quelle mesure la direction de votre structure exprime-t-elle de l’intérêt pour ce Défi Zéro Déchets des Pros ?</p>
     <div class="d-flex justify-content-center">
       Très peu
       <%= f.collection_radio_buttons :structure_direction_interest, ["0", "1", "2", "3", "4"], :to_s, :to_s do |input| %>
@@ -57,9 +63,11 @@
       Beaucoup
     </div>
 
-    <%= f.input :structure_direction_interest_reasons, label: "18. Pour quelles raisons votre structure souhaite-t-elle participer à ce défi ?" %>
+    <p class="mt-4"><b>18.</b> Pour quelles raisons votre structure souhaite-t-elle participer à ce défi ?</p>
+    <%= f.input :structure_direction_interest_reasons, label: false %>
 
-    <%= f.input :structure_expectations, label: "19. Quelles sont les attentes de votre structure concernant ce Défi Zéro Déchet des Pros ?" %>
+    <p class="mt-4"><b>19.</b> Quelles sont les attentes de votre structure concernant ce Défi Zéro Déchet des Pros ?</p>
+    <%= f.input :structure_expectations, label: false %>
 
     <div class="d-flex justify-content-around mb-5 mt-4">
       <%= link_to "< Précédent", previous_wizard_path, class:"btn btn-primary bold" %>
