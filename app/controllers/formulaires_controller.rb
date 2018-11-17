@@ -1,4 +1,4 @@
-class WizardsController < ApplicationController
+class FormulairesController < ApplicationController
   include Wicked::Wizard
   # before_action :load_form_wizard, except: %i(validate_step)
 
