@@ -111,7 +111,7 @@
               <%= link_to  "Déconnexion", destroy_user_session_path, method: :delete, class:"dropdown-item text-primary"%>
             </div>
           <% else %>
-            <a class="nav-link dropdown-toggle" href="/companies/new" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="/users/sign_in" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
               Mon compte
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -139,7 +139,7 @@
                 <% end %>
             </div>
           <% else %>
-            <a class="nav-link dropdown-toggle" href="/companies/new" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="/users/sign_in" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
               Connexion
             </a>
             <div class="dropdown-menu dropdown-connexion" aria-labelledby="navbarDropdownMenuLink">

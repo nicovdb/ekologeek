@@ -5,12 +5,12 @@ fr:
 
     attributes:
       user:
-        first_name: Ce champ
-        last_name: Ce champ
-        role: Ce champ
-        civility: Ce champ
-        email: Ce champ
-        telephone: Ce champ
+        first_name: Prénom
+        last_name: Nom
+        role: Poste
+        civility: Civilité
+        email: Email
+        telephone: Téléphone
         password: Mot de passe
 
       company:
