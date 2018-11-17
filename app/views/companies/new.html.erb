@@ -96,12 +96,14 @@
             </div>
           </div>
         <% end %>
-        <div class="col-12 mb-4">
-          <%= company.input :usage_acceptance, label: "En créant un compte candidat, vous consentez à ce que les informations recueillies soient utilisées par l’association dans le but de sélectionner les établissements participants" %>
+        <div class="col-12 fsmb-0">
+          <%= company.input :usage_acceptance, label: "En créant un compte candidat, vous consentez à ce que les informations recueillies soient utilisées par l’association dans le but de sélectionner les établissements participants", class:"mb-0" %>
          </div>
+         <p class="minus pl-35 mb-0">Conformément au règlement européen 2016/679 dit RGPD et à la loi du 6 janvier 1978 modifiée, vous disposez d’un droit d’accès, de rectification et d’opposition aux informations qui vous
+         concernent ainsi qu’un droit à la limitation du traitement de ces données, droits que vous pouvez exercer en vous adressant par courriel à pauline.r@ekologeek.com. Si vous estimez, après
+         nous avoir contactés, que vos droits sur vos données ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL.</p>
         <div class="d-flex flex-column justify-content-center align-items-center pb-5">
-          <%= company.button :submit, "Créer un compte", class:"btn btn-primary text-white bold" %>
-          <p class='m-2'>En créant un compte, vous acceptez notre <%= link_to "Politique de confidentialité", politique_path %></p>
+          <%= company.button :submit, "Créer un compte", class:"btn btn-primary text-white bold mt-5 mb-4" %>
           <p class="green-bg bold">Vous allez recevoir un mail de confirmation</p>
         </div>
       <% end %>

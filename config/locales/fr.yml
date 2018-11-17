@@ -11,7 +11,7 @@ fr:
         civility: Ce champ
         email: Ce champ
         telephone: Ce champ
-        password: Ce champ
+        password: Mot de passe
 
       company:
         name: Ce champ
