@@ -40,7 +40,7 @@
           <%= inline_svg "uncheck-circle", width: 20, class:"mr-2" %>
         </div>
         <div class="col-11">
-          <span>Oui, je veux recevoir la newsletter mensuelle de l’<%= link_to 'association Ekolo[geek]', partenaires_path, target: :blank %> (ex. contenu : actualités, recette de saison, Acte ekolo[geek]...)</span>
+          <span>Oui, je veux recevoir la newsletter mensuelle de l’<%= link_to 'association Ekolo[geek]', partenaires_path, target: :blank, class:"cool-link" %> (ex. contenu : actualités, recette de saison, Acte ekolo[geek]...)</span>
         </div>
       <% end %>
       <% if @user.ekg_checked?(@user) %>

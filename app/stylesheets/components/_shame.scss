@@ -207,3 +207,16 @@ hr {
 .pl-35 {
   padding-left: 35px;
 }
+
+a.cool-link {
+  color: #212529;
+  border-bottom: 2px solid $light-gray;
+  transition: 0.4s;
+  &:hover {
+    color: $blue;
+    border-bottom: 2px solid $blue;
+    transition: 0.4s;
+    text-decoration: none;
+  }
+}
+
