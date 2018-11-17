@@ -18,7 +18,7 @@
           <h3>Calendrier :</h3>
           <ul class="list bullet-custom mb-0">
             <li>
-              <b>6 déc. 2018 - 10h-12h - Athénée municipal de Bordeaux :</b> Réunion d’information pour les structures
+              <b class="text-decoration-none">6 déc. 2018 - 10h-12h - <%= link_to "Athénée municipal de Bordeaux", "https://www.google.fr/maps/place/Ath%C3%A9n%C3%A9e+Municipal/@44.8408871,-0.5812093,14z/data=!4m5!3m4!1s0xd5527db54fa1269:0x927f5e7ea3fbca9!8m2!3d44.8398049!4d-0.577148?hl=fr", target: :blank%> :</b> Réunion d’information pour les structures
             </li>
             <li>
               <b>31 déc. 2018 :</b> Clôture des inscriptions
@@ -45,7 +45,7 @@
 
       <%= simple_form_for @company do |company| %>
         <p class="mb-0">Veuillez compléter les informations ci-dessous afin de créer votre compte candidat:</p>
-        <p>*Obligatoire</p>
+        <p class="red">*Obligatoire</p>
 
         <h3>Structure</h3>
         <div class="row">
@@ -91,11 +91,14 @@
             <div class="col-12 ml-3">
               <%= user.input :newsletter_dzd, label: "Oui, je veux recevoir la newsletter du Défi Zéro Déchet des Pros" %>
             </div>
-            <div class="col-12 ml-3 mb-4">
+            <div class="col-12 ml-3">
               <%= user.input :newsletter_ekg, label: "Oui, je veux recevoir la newsletter mensuelle de l’#{link_to 'association Ekolo[geek]', partenaires_path, target: :blank} (ex. contenu : actualités, recette de saison, Acte ekolo[geek]...)".html_safe %>
             </div>
           </div>
         <% end %>
+        <div class="col-12 mb-4">
+          <%= company.input :usage_acceptance, label: "En créant un compte candidat, vous consentez à ce que les informations recueillies soient utilisées par l’association dans le but de sélectionner les établissements participants" %>
+         </div>
         <div class="d-flex flex-column justify-content-center align-items-center pb-5">
           <%= company.button :submit, "Créer un compte", class:"btn btn-primary text-white bold" %>
           <p class='m-2'>En créant un compte, vous acceptez notre <%= link_to "Politique de confidentialité", politique_path %></p>

@@ -5,8 +5,8 @@ fr:
 
     attributes:
       user:
-        first_name: Prénom
-        last_name: Nom
+        first_name: Ce champ
+        last_name: Ce champ
         role: Ce champ
         civility: Ce champ
         email: Ce champ
@@ -16,6 +16,7 @@ fr:
       company:
         name: Ce champ
         town: Ce champ
+        usage_acceptance: Ce champ
 
       form:
         company_activity: Ce champ
@@ -84,6 +85,8 @@ fr:
             name:
               blank: "doit être rempli"
             town:
+              blank: "doit être rempli"
+            usage_acceptance:
               blank: "doit être rempli"
 
         form:

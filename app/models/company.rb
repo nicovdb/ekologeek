@@ -6,5 +6,5 @@ class Company < ApplicationRecord
 
   has_one :form
 
-  validates :name, :town, presence: true
+  validates :name, :town, :usage_acceptance, presence: true
 end

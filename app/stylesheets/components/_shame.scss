@@ -169,4 +169,12 @@ hr {
     text-decoration: none;
     color: #212529;
   }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.red {
+  color: $red
 }
