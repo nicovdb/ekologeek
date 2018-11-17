@@ -1,4 +1,5 @@
 class Form < ApplicationRecord
+
   belongs_to :company
   has_many :form_company_know_hows
   has_many :company_know_hows, through: :form_company_know_hows
