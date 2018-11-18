@@ -1,0 +1,178 @@
+fr:
+  activerecord:
+    models:
+      user: utilisateur
+
+    attributes:
+      user:
+        first_name: Prénom
+        last_name: Nom
+        role: Poste
+        civility: Civilité
+        email: Email
+        telephone: Téléphone
+        password: Mot de passe
+
+      company:
+        name: Ce champ
+        town: Ce champ
+        usage_acceptance: Ce champ
+
+      form:
+        company_activity: Ce champ
+        company_participant_nb: Ce champ
+        company_activity: Ce champ
+        trash_indicator: Ce champ
+        trash_types: Ce champ
+        trash_sorting: Ce champ
+        trash_sorting_quality: Ce champ
+        trash_sorting_knowledge: Ce champ
+        structure_sensitivity: Ce champ
+        structure_environment_strategy: Ce champ
+        structure_ecologic_approach: Ce champ
+        structure_concrete_actions: Ce champ
+        structure_direction_interest: Ce champ
+        structure_direction_interest_reasons: Ce champ
+        employees_knowledge: Ce champ
+        employees_propositions: Ce champ
+        employees_concerned: Ce champ
+        employees_engagement: Ce champ
+        employees_actions_home: Ce champ
+        employees_actions_work: Ce champ
+        referent_implication: Ce champ
+        referent_sorts: Ce champ
+        referent_accompany: Ce champ
+        referent_complications: Ce champ
+        referent_winner: Ce champ
+        referent_willing: Ce champ
+        referent_obligation: Ce champ
+        referent_obligation_feeling: Ce champ
+        referent_valorisation: Ce champ
+        referent_fun: Ce champ
+        referent_techniques: Ce champ
+        referent_actions_home: Ce champ
+        referent_personal_reasons: Ce champ
+        referent_changes_wanted: Ce champ
+        referent_accompaniment_need: Ce champ
+        referent_sex: Ce champ
+        referent_age: Ce champ
+        referent_seniority: Ce champ
+        referent_service: Ce champ
+        charte: Ce champ
+        cgv: Ce champ
+
+    errors:
+      models:
+        user:
+          attributes:
+            first_name:
+              blank: "doit être rempli"
+            last_name:
+              blank: "doit être rempli"
+            role:
+              blank: "doit être rempli"
+            civility:
+              blank: "doit être rempli"
+            email:
+              blank: "doit être rempli"
+            telephone:
+              blank: "doit être rempli"
+            password:
+              blank: "doit être rempli"
+
+        company:
+          attributes:
+            name:
+              blank: "doit être rempli"
+            town:
+              blank: "doit être rempli"
+            usage_acceptance:
+              blank: "doit être rempli"
+
+        form:
+          attributes:
+            company_employees_nb:
+              blank: "doit être rempli"
+            company_participant_nb:
+              blank: "doit être rempli"
+            company_activity:
+              blank: "doit être rempli"
+            trash_indicator:
+              blank: "doit être rempli"
+            trash_types:
+              blank: "doit être rempli"
+            trash_sorting:
+              blank: "doit être rempli"
+            trash_sorting_quality:
+              blank: "doit être rempli"
+            trash_sorting_knowledge:
+              blank: "doit être rempli"
+            structure_sensitivity:
+              blank: "doit être rempli"
+            structure_environment_strategy:
+              blank: "doit être rempli"
+            structure_ecologic_approach:
+              blank: "doit être rempli"
+            structure_concrete_actions:
+              blank: "doit être rempli"
+            structure_direction_interest:
+              blank: "doit être rempli"
+            structure_direction_interest_reasons:
+              blank: "doit être rempli"
+            employees_knowledge:
+              blank: "doit être rempli"
+            employees_propositions:
+              blank: "doit être rempli"
+            employees_concerned:
+              blank: "doit être rempli"
+            employees_engagement:
+              blank: "doit être rempli"
+            employees_actions_home:
+              blank: "doit être rempli"
+            employees_actions_work:
+              blank: "doit être rempli"
+            referent_implication:
+              blank: "doit être rempli"
+            referent_sorts:
+              blank: "doit être rempli"
+            referent_accompany:
+              blank: "doit être rempli"
+            referent_complications:
+              blank: "doit être rempli"
+            referent_winner:
+              blank: "doit être rempli"
+            referent_willing:
+              blank: "doit être rempli"
+            referent_obligation:
+              blank: "doit être rempli"
+            referent_obligation_feeling:
+              blank: "doit être rempli"
+            referent_valorisation:
+              blank: "doit être rempli"
+            referent_fun:
+              blank: "doit être rempli"
+            referent_techniques:
+              blank: "doit être rempli"
+            referent_actions_home:
+              blank: "doit être rempli"
+            referent_personal_reasons:
+              blank: "doit être rempli"
+            referent_changes_wanted:
+              blank: "doit être rempli"
+            referent_accompaniment_need:
+              blank: "doit être rempli"
+            referent_sex:
+              blank: "doit être rempli"
+            referent_age:
+              blank: "doit être rempli"
+            referent_seniority:
+              blank: "doit être rempli"
+            referent_service:
+              blank: "doit être rempli"
+            charte:
+              blank: "doit être rempli"
+            cgv:
+              blank: "doit être rempli"
+
+  errors:
+    phone_format: incorrect -> format 0678375394

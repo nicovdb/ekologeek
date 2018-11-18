@@ -1,0 +1,79 @@
+<div class="wrapper">
+  <div class="bg-white container container-padding viewport space-top mb-5">
+    <h1 class="mt-5 mb-4 header text-primary text-center">Profil</h1>
+    <h3 class="my-3 pt-4">Structure</h3>
+    <div class="structure  m-1">
+      <p class="field"><strong>Nom de l'entreprise :</strong> <em><%= @user.company.name %></em></p>
+    </div>
+    <h3 class="my-3">Référent·e</h3>
+    <div class="row">
+      <div class="col-12 col-md-3 m-1">
+        <p class="field"><strong>Civilité :</strong> <em><%= @user.civility %></em></p>
+      </div>
+      <div class="col-12 col-md-3 m-1">
+        <p class="field"><strong>Prénom :</strong> <em><%= @user.first_name %></em></p>
+      </div>
+      <div class="col-12 col-md-3 m-1">
+        <p class="field"><strong>Nom :</strong> <em><%= @user.last_name.upcase %></em></p>
+      </div>
+      <div class="col-12 col-md-3 m-1">
+        <p class="field"><strong>Poste :</strong> <em><%= @user.role %></em></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-3 m-1">
+        <p class="field"><strong>Téléphone :</strong> <em><%= @user.telephone %></em></p>
+      </div>
+      <div class="col-12 col-md-6 m-1">
+        <p class="field"><strong>Email :</strong> <em><%= @user.email %></em></p>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <% if @user.dzd_checked?(@user) %>
+        <div class="col-1">
+          <%= inline_svg "check-circle", width: 20, class:"mr-2" %>
+        </div>
+        <div class="col-11">
+          <span>Oui, je veux recevoir la newsletter mensuelle de l’<%= link_to 'association Ekolo[geek]', partenaires_path, target: :blank %> (ex. contenu : actualités, recette de saison, Acte ekolo[geek]...)</span>
+        </div>
+      <% else %>
+        <div class="col-1">
+          <%= inline_svg "uncheck-circle", width: 20, class:"mr-2" %>
+        </div>
+        <div class="col-11">
+          <span>Oui, je veux recevoir la newsletter mensuelle de l’<%= link_to 'association Ekolo[geek]', partenaires_path, target: :blank, class:"cool-link" %> (ex. contenu : actualités, recette de saison, Acte ekolo[geek]...)</span>
+        </div>
+      <% end %>
+      <% if @user.ekg_checked?(@user) %>
+        <div class="col-1">
+          <%= inline_svg "check-circle", width: 20, class:"mr-2" %>
+        </div>
+        <div class="col-11">
+          <span>Oui, je veux recevoir la newsletter du Défi Zéro Déchet des Pros</span>
+        </div>
+      <% else %>
+        <div class="col-1">
+          <%= inline_svg "uncheck-circle", width: 20, class:"mr-2" %>
+        </div>
+        <div class="col-11">
+          <span>Oui, je veux recevoir la newsletter du Défi Zéro Déchet des Pros</span>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="row my-5">
+      <div class="col-12 col-sm-6 col-lg-3 p-1">
+        <%= link_to "Modifier ma structure", edit_company_path(@user.company_id), class:"btn btn-outline-primary bold" %>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3 p-1">
+        <%= link_to "Modifier mon profil", edit_user_path(@user), class:"btn btn-outline-primary bold" %>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3 p-1">
+        <%= link_to "Suprimer mon compte", unknown_user_path(@user), method: :patch, data: { confirm: "Êtes-vous sûr ?" }, class:"btn btn-outline-danger bold" %>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3 p-1">
+        <%= link_to "Mon formulaire de candidature", formulaire_path(:company_infos), class:"btn btn-primary bold text-white" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-50874223-2"></script>
+    <script>
+      window.dataLayer     = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-50874223-2');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>DZD Pros</title>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
+    <%= favicon_link_tag 'favicon.png' %>
+  </head>
+  <body>
+    <%= render 'shared/flashes' %>
+
+      <div class="container bg-white">
+        <div class="d-flex justify-content-center">
+          <%= link_to image_tag("logo.jpg", width: 200, class: "text-center"), root_path  %>
+
+        </div>
+        <%= yield %>
+      </div>
+
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_pack_tag 'application' %>
+  </body>
+</html>

@@ -10,3 +10,9 @@
 .bullet-secondary li:before {
   color: $secondary;
 }
+
+li {
+  text-align: start;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}

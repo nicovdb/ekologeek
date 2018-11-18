@@ -1,13 +1,30 @@
 .container {
   background: $light-gray;
+  height: 100%;
+  margin-bottom: 10px;
+  min-height: 75vh;
 }
 
 .bg-white {
   background: white !important;
 }
 
-.wrapper {
-  background: $light-gray;
+.dots {
+  span {
+    height: 20px;
+    width: 20px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px 0;
+
+  }
+  .blue {
+    background-color: $blue
+  }
+}
+
+.down {
   @media only screen
   and (max-width: $mobile)
   and (max-width: $tablet) {
@@ -20,6 +37,15 @@
     position: relative;
     top: 360px;
   }
+}
+
+.wrapper {
+  background: $light-gray;
+  height: 100%;
+}
+
+.space-top {
+  padding-top: 50px;
 }
 
 .title {
@@ -58,6 +84,7 @@
 }
 //
 .header-padding-comment-image {
+  width: 100%;
     @media (max-width: $tablet) {
       padding-top: 0;
       padding-bottom: 30px;
@@ -93,14 +120,6 @@
       width: 300px;
     }
   }
-}
-
-.green-bg {
-  background-color: $secondary;
-  color: white;
-  display: inline-block;
-  padding: 5px 18px;
-  margin-bottom: 0;
 }
 
 body {
@@ -158,3 +177,46 @@ hr {
 .smaller-font {
   font-size: 16px !important;
 }
+
+.text-decoration-none {
+  color: #212529;
+  &:hover {
+    text-decoration: none;
+    color: #212529;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.red {
+  color: $red
+}
+
+.minus {
+  font-size: 12px;
+}
+
+.fsmb-0 {
+  fieldset {
+    margin-bottom: 3px
+  }
+}
+
+.pl-35 {
+  padding-left: 35px;
+}
+
+a.cool-link {
+  color: #212529;
+  border-bottom: 2px solid $light-gray;
+  transition: 0.4s;
+  &:hover {
+    color: $blue;
+    border-bottom: 2px solid $blue;
+    transition: 0.4s;
+    text-decoration: none;
+  }
+}
+

@@ -1,12 +1,12 @@
-<div class="wrapper">
+<div class="wrapper down">
   <div class="container bg-white my-5 container-padding">
     <div id="comment1"></div>
     <h1 class="header text-primary text-center pt-5 mt-5 mb-0">Comment</h1>
     <div class="header-padding-comment" >
       <div class="row">
         <div class="col-lg-6">
-          <h2 class="green-bg mb-4">Objectifs du Défi Zéro Déchet des pro</h2>
-          <p class="text">Le Défi Zéro Déchet des pro consiste en l'<b>accompagnement structurel et personnalisé</b> des structures participantes dans <b>l’étude et la mise en place de solutions</b> techniques, organisationnelles et comportementales pour réduire leurs déchets de fonctionnement.</p>
+          <h2 class="green-bg mb-4">Objectifs</h2>
+          <p class="text">Le Défi Zéro Déchet des pros consiste en l'<b>accompagnement structurel et personnalisé</b> des structures participantes dans <b>l’étude et la mise en place de solutions</b> techniques, organisationnelles et comportementales pour réduire leurs déchets de fonctionnement.</p>
           <ul class="list mb-5 bullet-custom">
             <li class="my-2">
               <strong>Réduire de 10% la production de vos déchets de fonctionnement</strong>
@@ -34,7 +34,7 @@
         </div>
         <div class="col-lg-6">
           <div class="d-flex flex-column justify-content-center align-items-center h-100">
-            <%= image_tag "objectifs.jpg", width: 400, class:"header-padding-comment-image comment-picture" %>
+            <%= image_tag "objectifs.jpg", width: 415, class:"header-padding-comment-image comment-picture ml-3" %>
           </div>
         </div>
       </div>
@@ -42,20 +42,20 @@
 
     <div class="row">
       <div class="col-lg-6">
-        <div class="d-flex flex-column justify-content-center align-items-center h-100">
-          <%= image_tag "carte.png", width: 400, class:"header-padding-comment-image comment-picture" %>
-        </div>
-      </div>
-      <div class="col-lg-6">
         <h2 class="green-bg mb-4 mt-5" >Les structures éligibles</h2>
         <div class="text">
           <p class="mb-2">Toute structure professionnelle d’au moins 2 personnes souhaitant travailler sur ses déchets de fonctionnement est la bienvenue : <b>publique ou privée</b>, quelque soit son activité ou sa taille.
-          Pour ce premier Défi Zéro Déchet des pro, les structures participantes doivent être domiciliées dans <b>le territoire de Bordeaux Métropole</b>.</p>
-          <p class="m-0">Notre objectif est d'étendre le Défi Zéro Déchet des Pro à d'autres territoires.</p>
+          Pour ce premier Défi Zéro Déchet des pros, les structures participantes doivent être domiciliées dans <b>le territoire de Bordeaux Métropole</b>.</p>
+          <p class="m-0">Notre objectif est d'étendre le Défi Zéro Déchet des Pros à d'autres territoires.</p>
           <p class="m-0">Vous souhaiteriez participer mais n'êtes pas sur Bordeaux Métropole ? </p>
           <p class="d-flex justify-content-center mt-3">
             <%= link_to "Contactez-nous !", contact_path, class:"btn btn-primary text-white bold"  %>
           </p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="d-flex flex-column justify-content-center align-items-center h-100">
+          <%= image_tag "carte.png", width: 400, class:"header-padding-comment-image comment-picture" %>
         </div>
       </div>
     </div>
@@ -82,6 +82,9 @@
           <li class="my-2">
             Mobilier, mégots, ampoules, piles, cartouches d'encre, produits d'entretien, cartons, palettes...
           </li>
+          <li class="my-2">
+            Si vous souhaitez agir sur vos déchets d’activités, nos partenaires proposent des programmes d’accompagnement dédiés, contactez-nous pour en savoir plus.
+          </li>
         </ul>
       </div>
       <div id="comment4"></div>
@@ -93,12 +96,21 @@
     </div>
     <div>
       <h2 class="green-bg mt-5 mb-4">Comment ça se passe ?</h2>
+      <h5 class="mb-2 mt-3">Un·e référent·e par structure - sa mission</h5>
+      <ul class="list mb-2 bullet-custom">
+        <li class="my-2">
+          Le référent est le <b>lien entre le Défi Zéro Déchets des Pros et la structure.</b> Cette personne collecte et renseigne les données de sa structure, participe aux rencontres collectives et mobilise ses collaborateur·rice·s.
+        </li>
+        <li class="my-2">
+          <b>Quelque soit son niveau hiérarchique ou sa fonction</b>, le·la référent·e doit être une personne <b>motivée</b> par le Défi Zéro Déchet des Pros, et être en capacité de <b>fédérer et mobiliser</b> le plus grand nombre de collaborateur·rice·s.
+        </li>
+      </ul>
       <h5 class="mb-2">Collecte de données</h5>
       <p>Régulièrement, durant 6 mois, les structures participantes <b>mesurent</b> leur <b>production de déchets</b> et évaluent les <b> changements de comportements</b>, en remplissant des formulaires sur ce site internet (Espace participant). Elles pourront ainsi visualiser leur <b>progression</b> et leur <b>classement</b> par rapport aux autres.</p>
       <h5 class="mb-2 mt-3">Actions collectives</h5>
       <ul class="list mb-2 bullet-custom">
         <li class="my-2">
-          <b>Ateliers-formations / échanges</b> (enjeux-problématiques, causes-conséquences, acteurs de la filière, réglementation, solutions globales, locales et individuelles, avancement dans le Défi Zéro Déchet des pro...)
+          <b>Ateliers-formations / échanges</b> (enjeux-problématiques, causes-conséquences, acteurs de la filière, réglementation, solutions globales, locales et individuelles, avancement dans le Défi Zéro Déchet des pros...)
         </li>
         <li class="my-2">
           <b>Rencontres / visites</b> d’acteurs sur site (installations techniques de prévention et gestion des déchets, établissements exemplaires…) et retours d'expériences de structures exemplaires.
@@ -110,7 +122,7 @@
           <b>Serious game</b> sur les déchets (jeu de société, grand jeu, animation ludique…)
         </li>
         <li class="my-2">
-          Durant le Défi Zéro Déchet des pro, des "<b>sous-défis</b>" facultatifs sont proposés aux participants afin d'augmenter la mobilisation interne sur les déchets
+          Durant le Défi Zéro Déchet des pros, des "<b>sous-défis</b>" facultatifs sont proposés aux participants afin d'augmenter la mobilisation interne sur les déchets
         </li>
       </ul>
       <div id="comment5"></div>
@@ -124,10 +136,10 @@
       </div>
       <ul class="list mb-2 bullet-custom">
         <li class="my-2">
-          <b>Inscription</b> : de novembre à décembre 2018
+          <b>Inscription</b> : Du 19/11 au 30/12/2018
         </li>
         <li class="my-2">
-          <b>Défi Zéro Déchet des pro </b> : de janvier à juin 2019, collecte de données, actions collectives et accompagnement personnalisé
+          <b>Défi Zéro Déchet des pros </b> : De janvier à juin 2019, collecte de données, actions collectives et accompagnement personnalisé
         </li>
         <li class="my-2">
           <b>Clôture</b> : Fin juin 2019, communication externe et événement de clôture, valorisant les participants et les gagnants
@@ -137,14 +149,14 @@
     <div id="comment6"></div>
     <div>
       <h2 class="mb-4 mt-5 green-bg" >Combien ça coûte ?</h2>
-      <p>La participation au Défi Zéro Déchet des pro comprend un <b>tarif forfaitaire</b> de base de 150 €, <b>plus</b> un tarif qui dépend de la taille de votre structure : 10 € par salarié.e. Pour les structures de plus de 100 salarié·e·s, une segmentation tarifaire par direction / département / établissement est possible.</p>
+      <p>La participation au Défi Zéro Déchet des pros comprend un <b>tarif forfaitaire</b> de base de 150 €, <b>plus</b> un tarif qui dépend de la taille de votre structure : 10 € par salarié·e. Pour les structures de plus de 100 salarié·e·s, une segmentation tarifaire par direction / département / établissement est possible.</p>
       <h5 class="my-4 ml-3">Exemples :</h5>
       <ul class="list bullet-custom  bullet-primary no-margin">
         <li class="my-2">
-          Ma structure comprend 10 salarié.e.s, le tarif est de 150 € + 10 € x 10 salarié.e.s = 250 €
+          Ma structure comprend 10 salarié·e·s, le tarif est de 150 € + 10 € x 10 salarié·e·s = 250 €
         </li>
         <li class="mt-2 padding">
-          Ma structure comprend 100 salarié.e.s, le tarif est de 150 € + 10 € x 100 salarié.e.s = 1 150 €
+          Ma structure comprend 100 salarié·e·s, le tarif est de 150 € + 10 € x 100 salarié·e·s = 1 150 €
         </li>
       </ul>
     </div>

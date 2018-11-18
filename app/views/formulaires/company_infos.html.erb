@@ -1,0 +1,51 @@
+<div class="container bg-white">
+  <h1 class="mt-5 mb-4 header text-primary text-center">FORMULAIRE DE CANDIDATURE</h1>
+  <p >Merci pour votre inscription !</p>
+  <p class="mb-0">Avant de vous lancer dans l'aventure du Défi Zéro Déchet des Pros avec nous, permettez-nous de faire connaissance.</p>
+  <p class="mb-0">Ce formulaire a pour but de nous donner une première connaissance de votre structure, vos collaborateurs et vous-même en tant que référent·e.</p>
+  <p class="mb-0">Toutes les réponses que vous nous communiquez ci-après resteront confidentielles entre vous et les accompagnateurs Ekolo[geek].</p>
+
+  <p class="text-center mt-4">Progression : <b>page 1 sur 5</b> </p>
+  <div class="dots d-flex justify-content-center">
+    <span class="blue"></span>
+    <span class=""></span>
+    <span class=""></span>
+    <span class=""></span>
+    <span class=""></span>
+  </div>
+  <h2 class="mt-4 mb-4 green-bg">Généralités</h2>
+
+  <%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
+    <p><b>1.</b> Quelle est l’activité de votre structure ?</p>
+    <div class="col-12 col-sm-6 pl-0">
+      <%= f.input :company_activity, label: false, placeholder: "Réponse courte" %>
+    </div>
+
+    <p class="mt-4"><b>2.</b> Quelle est la taille de votre structure ?</p>
+    <%= f.collection_radio_buttons :company_employees_nb, ["Moins de 10 salarié·e·s", "De 10 à 49 salarié·e·s", "De 50 à 100 salarié·e·s", "De 101 à 200 salarié·e·s", "Plus de 200 salarié·e·s"], :to_s, :to_s do |input| %>
+      <label class="mx-2 mb-3">
+        <%= input.radio_button %>
+        <%= input.text %>
+      </label>
+    <% end %>
+
+    <p class="mt-4"><b>3.</b> Quelle est la taille de l'établissement ou du service qui participerait au Défi Zéro Déchet des Pros ?</p>
+    <div class="col-12 col-sm-6 pl-0">
+      <%= f.input :company_participant_nb, label: false, placeholder: "Nombre de salarié·e·s" %>
+    </div>
+
+    <p class="mt-4"><b>4.</b> Comment avez vous connu le Défi Zéro Déchets des Pros ? </p>
+    <%= f.collection_check_boxes :company_know_how_ids, @company_know_hows, :id, :origin, checked: @form.company_know_hows.map(&:id) do |input| %>
+      <label class="mx-2 mb-3">
+        <%= input.check_box %>
+        <%= input.text %>
+      </label>
+    <% end %>
+
+    <div class="d-flex justify-content-end mb-5 mt-4">
+      <%= f.button :submit, "Suivant >", class:"btn btn-primary bold" %>
+    </div>
+  <% end %>
+
+</div>
+
