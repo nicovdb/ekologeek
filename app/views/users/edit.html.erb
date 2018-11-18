@@ -1,6 +1,6 @@
 <div class="wrapper">
-  <div class="bg-white container viewport space-top">
-
+  <div class="bg-white container viewport space-top mb-5">
+    <h1 class="mt-5 mb-4 header text-primary text-center">Profil</h1>
     <h3 class= "pt-3 mt-5">Référent·e</h3>
     <%= simple_form_for(@user, url: user_path(@user)) do |f|%>
       <div class="row">
@@ -28,19 +28,21 @@
           <%= f.input :newsletter_dzd, label: "Oui, je veux recevoir la newsletter du Défi Zéro Déchet des Pros" %>
         </div>
         <div class="col-12 mb-4">
-          <%= f.input :newsletter_ekg, label: "Oui, je veux recevoir la newsletter mensuelle de l’#{link_to 'association Ekolo[geek]', partenaires_path, target: :blank} (ex. contenu : actualités, recette de saison, Acte ekolo[geek]...)".html_safe %>
+          <%= f.input :newsletter_ekg, label: "Oui, je veux recevoir la newsletter mensuelle de l’#{link_to 'association Ekolo[geek]', partenaires_path, target: :blank, class:"cool-link"} (ex. contenu : actualités, recette de saison, Acte ekolo[geek]...)".html_safe %>
         </div>
         <div class="col-4">
           <%= f.input :password,
-                      hint: "mot de passe obligatoire ",
+                      label: "Mot de passe*",
+                      hint: "*Obligatoire pour modifier le profil",
                       required: false,
                       input_html: { autocomplete: "password" } %>
         </div>
       </div>
-      <div class="col-4 offset-4 pb-5">
-        <%= f.button :submit, "modifier", class: 'btn btn-primary text-white bold mr-3 mb-3' %>
-        <%= link_to "Retour", user_path(current_user), class:"btn btn-light mr-3 mb-3" %>
+      <div class="d-flex justify-content-center">
+        <%= f.button :submit, "Modifier*", class: 'btn btn-primary text-white bold mr-3 mb-3' %>
+        <%= link_to "Retour", user_path(current_user), class:"btn btn-outline-primary ml-3 mb-3" %>
       </div>
+      <p class="text-center pb-5 minus">*Vous devrez vous ré-authentifier après la modification</p>
     <% end %>
   </div>
 </div>
