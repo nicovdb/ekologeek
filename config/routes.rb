@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'communique_de_press', to: "pages#communique_de_press"
   get 'charte_graphique', to: "pages#charte_graphique"
   get 'logo_RVB', to: "pages#logo_RVB"
+  get 'cgv', to: "pages#cgv"
 
   get '/inscription', to: 'companies#new'
 
