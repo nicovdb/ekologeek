@@ -4,11 +4,16 @@
   z-index: 9;
   transition: height 0.3s ease-out;
   -webkit-transition: height 0.3s ease-out;
-  position: absolute;
   top: 70px;
   .nav-link {
     color: $light-gray;
     font-weight: bold;
+    @media(max-width: $mobile){
+      color: white !important;
+    }
+  }
+  .navbar-toggler[data-toggle="collapse"] {
+    height: auto;
   }
   ul li.bold-link {
     font-size: 1.2rem;
@@ -40,8 +45,13 @@
   .navbar-toggler[data-toggle="collapse"] {
     color: white;
   }
-  .dropdown:hover .dropdown-menu {
-    display: block;
+  // .dropdown:hover .dropdown-menu {
+  //   display: block;
+  // }
+    @media (min-width: $desktop) {
+    .dropdown:hover > .dropdown-menu {
+      display: block;
+    }
   }
   a .dropdown-item:active {
     font-weight: bold;
@@ -55,18 +65,18 @@
   ul li > a {
     .nav-link[data-toggle="dropdown"] {
       @media(max-width: $tablet) {
-        display: block;
+        // display: block;
       }
     }
   }
   @media (max-width: $desktop) {
     top: 40px;
+    padding: 0;
   }
 }
 
 #nav_bar {
   background-color: $primary;
-
   &.animatedMenu{
     background-color: $primary;
     box-shadow: 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -7px rgba(0,0,0,0.2);
@@ -78,7 +88,6 @@
       color: white;
     }
     .home {
-      margin-top: -7px;
       height: 20px;
     }
 
@@ -94,8 +103,8 @@
 
     }
     ul {
-      align-items: center;
-      justify-content: end;
+      // align-items: center;
+      // justify-content: end;
     }
     .home-nav-link svg {
       color: white;
@@ -115,14 +124,14 @@
   top: 80px;
   left: 30px;
   z-index: 11;
-  @media only screen
-  and (min-width: 992px)
-  and (max-width: 1159px) {
-    position: sticky;
-    top: 84px;
-    left: 30px;
-    z-index: 11;
-  }
+  // @media only screen
+  // and (min-width: 992px)
+  // and (max-width: 1159px) {
+  //   position: sticky;
+  //   top: 0px;
+  //   left: 30px;
+  //   z-index: 11;
+  // }
    svg {
      width: 100px;
      padding: 10px;
@@ -152,17 +161,17 @@
 .navbar-logo {
   display: none;
 }
-#contact-link {
-  z-index: 9;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  @media (max-width: $tablet) {
-    position: fixed;
-    top: 0;
-    right: 10px;
-  }
-}
+// #contact-link {
+//   z-index: 9;
+//   position: fixed;
+//   top: 20px;
+//   right: 20px;
+//   @media (max-width: $tablet) {
+//     position: fixed;
+//     top: 0;
+//     right: 10px;
+//   }
+// }
 .position {
   position: relative;
 }

@@ -18,20 +18,20 @@
 
       <li class="nav-item m-3 dropdown bold-link">
         <% if mobile_device == "mobile" %>
-          <p class="nav-link dropdown-toggle" href="/pourquoi" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
-            POURQUOI
-          </p>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "Réduire nos déchets pros", pourquoi_path(anchor: "pourquoi1"), class:"dropdown-item text-primary"%>
-            <%= link_to "Participer au Défi Zéro Déchet des pro", pourquoi_path(anchor: "pourquoi2"), class:"dropdown-item text-primary"%>
-          </div>
-        <% else %>
-          <a class="nav-link dropdown-toggle" href="/pourquoi" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="/pourquoi" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             POURQUOI
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "Réduire nos déchets pros", pourquoi_path(anchor: "pourquoi1"), class:"dropdown-item text-primary"%>
-            <%= link_to "Participer au Défi Zéro Déchet des pro", pourquoi_path(anchor: "pourquoi2"), class:"dropdown-item text-primary"%>
+            <%= link_to "Réduire nos déchets pros", pourquoi_path(anchor: "pourquoi1"), class:"anchor dropdown-item text-primary"%>
+            <%= link_to "Participer au Défi Zéro Déchet des pros", pourquoi_path(anchor: "pourquoi2"), class:"anchor dropdown-item text-primary"%>
+          </div>
+        <% else %>
+          <a class="nav-link dropdown-toggle" href="/pourquoi" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            POURQUOI
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to "Réduire nos déchets pros", pourquoi_path(anchor: "pourquoi1"), class:"anchor dropdown-item text-primary"%>
+            <%= link_to "Participer au Défi Zéro Déchet des pros", pourquoi_path(anchor: "pourquoi2"), class:"anchor dropdown-item text-primary"%>
           </div>
         <% end %>
       </li>
@@ -39,17 +39,17 @@
       <li class="nav-item m-3 dropdown bold-link">
         <% if mobile_device == "mobile" %>
 
-          <p class="nav-link dropdown-toggle" href="/comment" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="/comment" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             COMMENT
-          </p>
+          </a>
 
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "Objectifs du Défi Zéro Déchet des pro", comment_path(anchor: "comment1"), class:"dropdown-item text-primary"%>
-            <%= link_to "Les structures éligibles", comment_path(anchor: "comment2"), class:"dropdown-item text-primary" %>
-            <%= link_to "Les déchets concernés", comment_path(anchor: "comment2"), class:"dropdown-item text-primary" %>
-            <%= link_to "Comment ça se passe ?", comment_path(anchor: "comment4"), class:"dropdown-item text-primary" %>
-            <%= link_to "Planning", comment_path(anchor: "comment5"), class:"dropdown-item text-primary" %>
-            <%= link_to "Combien ça coûte ?", comment_path(anchor: "comment6"), class:"dropdown-item text-primary" %>
+            <%= link_to "Objectifs du Défi Zéro Déchet des pros", comment_path(anchor: "comment1"), class:"anchor dropdown-item text-primary"%>
+            <%= link_to "Les déchets concernés", comment_path(anchor: "comment2"), class:"anchor dropdown-item text-primary" %>
+            <%= link_to "Les structures éligibles", comment_path(anchor: "comment2"), class:"anchor dropdown-item text-primary" %>
+            <%= link_to "Comment ça se passe ?", comment_path(anchor: "comment4"), class:"anchor dropdown-item text-primary" %>
+            <%= link_to "Planning", comment_path(anchor: "comment5"), class:"anchor dropdown-item text-primary" %>
+            <%= link_to "Combien ça coûte ?", comment_path(anchor: "comment6"), class:"anchor dropdown-item text-primary" %>
           </div>
 
         <% else %>
@@ -58,12 +58,12 @@
           </a>
 
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "Objectifs du Défi Zéro Déchet des pro", comment_path(anchor: "comment1"), class:"dropdown-item text-primary"%>
-            <%= link_to "Les structures éligibles", comment_path(anchor: "comment2"), class:"dropdown-item text-primary" %>
-            <%= link_to "Les déchets concernés", comment_path(anchor: "comment2"), class:"dropdown-item text-primary" %>
-            <%= link_to "Comment ça se passe ?", comment_path(anchor: "comment4"), class:"dropdown-item text-primary" %>
-            <%= link_to "Planning", comment_path(anchor: "comment5"), class:"dropdown-item text-primary" %>
-            <%= link_to "Combien ça coûte ?", comment_path(anchor: "comment6"), class:"dropdown-item text-primary" %>
+            <%= link_to "Objectifs du Défi Zéro Déchet des pros", comment_path(anchor: "comment1"), class:"anchor dropdown-item text-primary"%>
+            <%= link_to "Les déchets concernés", comment_path(anchor: "comment2"), class:"anchor dropdown-item text-primary" %>
+            <%= link_to "Les structures éligibles", comment_path(anchor: "comment2"), class:"anchor dropdown-item text-primary" %>
+            <%= link_to "Comment ça se passe ?", comment_path(anchor: "comment4"), class:"anchor dropdown-item text-primary" %>
+            <%= link_to "Planning", comment_path(anchor: "comment5"), class:"anchor dropdown-item text-primary" %>
+            <%= link_to "Combien ça coûte ?", comment_path(anchor: "comment6"), class:"anchor dropdown-item text-primary" %>
           </div>
         <% end %>
 
@@ -75,24 +75,24 @@
 
       <li class="nav-item m-3 dropdown bold-link">
         <% if mobile_device == "mobile" %>
-          <p class="nav-link dropdown-toggle" href="/soutenir" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="/soutenir" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             SOUTENIR
-          </p>
+          </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "Mécéner",soutenir_path(anchor: "soutenir1"), class:"dropdown-item text-primary" %>
-            <%= link_to "Donner", soutenir_path(anchor: "soutenir2"), class:"dropdown-item text-primary" %>
-            <%= link_to "Témoigner", soutenir_path(anchor: "soutenir4"), class:"dropdown-item text-primary" %>
-            <%= link_to "Partager / communiquer", soutenir_path(anchor: "soutenir3"), class:"dropdown-item text-primary" %>
+            <%= link_to "Mécéner",soutenir_path(anchor: "soutenir1"), class:"anchor dropdown-item text-primary" %>
+            <%= link_to "Donner", soutenir_path(anchor: "soutenir2"), class:"anchor dropdown-item text-primary" %>
+            <%= link_to "Témoigner", soutenir_path(anchor: "soutenir4"), class:"anchor dropdown-item text-primary" %>
+            <%= link_to "Partager / communiquer", soutenir_path(anchor: "soutenir3"), class:"anchor dropdown-item text-primary" %>
           </div>
         <% else %>
           <a class="nav-link dropdown-toggle" href="/soutenir" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
             SOUTENIR
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "Mécéner",soutenir_path(anchor: "soutenir1"), class:"dropdown-item text-primary" %>
-            <%= link_to "Donner", soutenir_path(anchor: "soutenir2"), class:"dropdown-item text-primary" %>
-            <%= link_to "Témoigner", soutenir_path(anchor: "soutenir4"), class:"dropdown-item text-primary" %>
-            <%= link_to "Partager / communiquer", soutenir_path(anchor: "soutenir3"), class:"dropdown-item text-primary" %>
+            <%= link_to "Mécéner",soutenir_path(anchor: "soutenir1"), class:"anchor dropdown-item text-primary" %>
+            <%= link_to "Donner", soutenir_path(anchor: "soutenir2"), class:"anchor dropdown-item text-primary" %>
+            <%= link_to "Témoigner", soutenir_path(anchor: "soutenir4"), class:"anchor dropdown-item text-primary" %>
+            <%= link_to "Partager / communiquer", soutenir_path(anchor: "soutenir3"), class:"anchor dropdown-item text-primary" %>
           </div>
         <% end %>
       </li>
@@ -101,66 +101,65 @@
         <%= link_to  "Contact", contact_path, class:"nav-link text-light-gray pl-lg-3 position borderus pl-lg-5"%>
       </li>
 
-      <li class="nav-item m-3 dropdown bold-link">
+      <li class="nav-item m-3 dropdown bold-link ">
         <% if user_signed_in? %>
-          <% if mobile_device == "mobile" %>
-            <p class="nav-link dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">
-              Mon compte
-            </p>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <%= link_to  "Mon compte", user_path(current_user), class:"dropdown-item text-primary"%>
-              <%= link_to  "Déconnexion", destroy_user_session_path, method: :delete, class:"dropdown-item text-primary"%>
-            </div>
-          <% else %>
-            <a class="nav-link dropdown-toggle" href="/soutenir" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
-              Mon compte
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <%= link_to  "Mon compte", user_path(current_user), class:"dropdown-item text-primary"%>
-              <%= link_to  "Déconnexion", destroy_user_session_path, method: :delete, class:"dropdown-item text-primary"%>
-            </div>
-          <% end %>
+        <% if mobile_device == "mobile" %>
+        <a class="nav-link dropdown-toggle connexion-link" style="color: white;" id="" role="button" aria-haspopup="true" data-toggle="dropdown" aria-expanded="false">
+          Mon compte
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to  "Mon compte", user_path(current_user), class:"dropdown-item text-primary"%>
+          <%= link_to  "Déconnexion", destroy_user_session_path, method: :delete, class:"dropdown-item text-primary"%>
+        </div>
         <% else %>
-          <% if mobile_device == "mobile" %>
-            <p class="nav-link dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">
-              Connexion
-            </p>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <%= form_for(:user, :url => session_path(:user), html: { class: "navbar-form navbar-right form-inline" }) do |f| %>
-                <div class="form-group">
-                  <%= f.text_field :email, :placeholder => "Email", class: "form-control" %>
-                </div>
-                <div class="form-group">
-                  <%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
-                </div>
-                <div class="checkbox">
-                  <%= f.check_box :remember_me %><%= f.label :remember_me %>
-                </div>
-                <%= f.submit 'Login', class: "btn btn-primary" %>
-              <% end %>
-            </div>
-          <% else %>
-            <a class="nav-link dropdown-toggle" href="/soutenir" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
-              Connexion
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <%= form_for(:user, :url => session_path(:user), html: { class: "navbar-form navbar-right form-inline" }) do |f| %>
-                <div class="form-group">
-                  <%= f.text_field :email, :placeholder => "Email", class: "form-control" %>
-                </div>
-                <div class="form-group">
-                  <%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
-                </div>
-                <div class="checkbox">
-                  <%= f.check_box :remember_me %><%= f.label :remember_me %>
-                </div>
-                <%= f.submit 'Login', class: "btn btn-default" %>
-              <% end %>
-            </div>
+        <a class="nav-link dropdown-toggle connexion-link" style="color: white;" href="/companies/new" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
+          Mon compte
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to  "Mon compte", user_path(current_user), class:"dropdown-item text-primary"%>
+          <%= link_to  "Déconnexion", destroy_user_session_path, method: :delete, class:"dropdown-item text-primary"%>
+        </div>
+        <% end %>
+        <% else %>
+        <% if mobile_device == "mobile" %>
+        <a class="nav-link dropdown-toggle" style="color: white;" role="button" aria-haspopup="true" data-toggle="dropdown" aria-expanded="false">
+          Connexion
+        </a>
+        <div class="dropdown-menu dropdown-connexion" aria-labelledby="navbarDropdownMenuLink">
+          <%= form_for(:user, :url => session_path(:user), html: { class: "navbar-form navbar-right form-inline d-flex flex-column justify-content-start" }) do |f| %>
+          <div class="form-group">
+            <%= f.text_field :email, :placeholder => "Email", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
+          </div>
+          <div class="checkbox d-flex align-items-center">
+            <%= f.check_box :remember_me %><%= f.label :remember_me %>
+          </div>
+          <%= f.submit 'Login', class: "btn btn-default" %>
           <% end %>
+        </div>
+        <% else %>
+        <a class="nav-link dropdown-toggle" style="color: white;" href="/companies/new" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Connexion
+        </a>
+        <div class="dropdown-menu dropdown-connexion" aria-labelledby="navbarDropdownMenuLink">
+          <%= form_for(:user, :url => session_path(:user), html: { class: "navbar-form navbar-right form-inline d-flex flex-column justify-content-start" }) do |f| %>
+          <div class="form-group">
+            <%= f.text_field :email, :placeholder => "Email", class: "form-control" %>
+          </div>
+          <div class="form-group ">
+            <%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
+          </div>
+          <div class="checkbox d-flex align-items-center">
+            <%= f.check_box :remember_me %><%= f.label :remember_me %>
+          </div>
+          <%= f.submit 'Login', class: "btn btn-primary" %>
+          <% end %>
+        </div>
+        <% end %>
         <% end %>
       </li>
-
     </ul>
   </div>
 </nav>
