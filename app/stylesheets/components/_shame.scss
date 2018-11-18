@@ -9,6 +9,21 @@
   background: white !important;
 }
 
+.dots {
+  span {
+    height: 20px;
+    width: 20px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px 0;
+
+  }
+  .blue {
+    background-color: $blue
+  }
+}
+
 .down {
   @media only screen
   and (max-width: $mobile)
@@ -169,4 +184,39 @@ hr {
     text-decoration: none;
     color: #212529;
   }
+
+  a:hover {
+    text-decoration: none;
+  }
 }
+
+.red {
+  color: $red
+}
+
+.minus {
+  font-size: 12px;
+}
+
+.fsmb-0 {
+  fieldset {
+    margin-bottom: 3px
+  }
+}
+
+.pl-35 {
+  padding-left: 35px;
+}
+
+a.cool-link {
+  color: #212529;
+  border-bottom: 2px solid $light-gray;
+  transition: 0.4s;
+  &:hover {
+    color: $blue;
+    border-bottom: 2px solid $blue;
+    transition: 0.4s;
+    text-decoration: none;
+  }
+}
+

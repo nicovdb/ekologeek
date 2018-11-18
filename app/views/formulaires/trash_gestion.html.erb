@@ -1,6 +1,13 @@
 <div class="container bg-white">
   <h1 class="my-5 header text-primary text-center">FORMULAIRE DE CANDIDATURE</h1>
   <p class="text-center">Progression : <b>page 2 sur 5</b> </p>
+  <div class="dots d-flex justify-content-center">
+    <span class="blue"></span>
+    <span class="blue"></span>
+    <span class=""></span>
+    <span class=""></span>
+    <span class=""></span>
+  </div>
   <h2 class="mt-5 mb-4 green-bg">La gestion des déchets dans votre structure</h2>
 
   <%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>

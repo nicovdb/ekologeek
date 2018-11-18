@@ -1,5 +1,6 @@
 <div class="wrapper">
-  <div class="bg-white container viewport space-top">
+  <div class="bg-white container container-padding viewport space-top mb-5">
+    <h1 class="mt-5 mb-4 header text-primary text-center">Profil</h1>
     <h3 class="my-3 pt-4">Structure</h3>
     <div class="structure  m-1">
       <p class="field"><strong>Nom de l'entreprise :</strong> <em><%= @user.company.name %></em></p>
@@ -40,7 +41,7 @@
           <%= inline_svg "uncheck-circle", width: 20, class:"mr-2" %>
         </div>
         <div class="col-11">
-          <span>Oui, je veux recevoir la newsletter mensuelle de l’<%= link_to 'association Ekolo[geek]', partenaires_path, target: :blank %> (ex. contenu : actualités, recette de saison, Acte ekolo[geek]...)</span>
+          <span>Oui, je veux recevoir la newsletter mensuelle de l’<%= link_to 'association Ekolo[geek]', partenaires_path, target: :blank, class:"cool-link" %> (ex. contenu : actualités, recette de saison, Acte ekolo[geek]...)</span>
         </div>
       <% end %>
       <% if @user.ekg_checked?(@user) %>
@@ -60,11 +61,19 @@
       <% end %>
     </div>
 
-    <div class="links d-flex flex-column flex-lg-row justify-content-between pb-4">
-      <%= link_to "Modifier mon profil", edit_user_path(@user), class:"btn btn-success my-2" %>
-      <%= link_to "Modifier ma structure", edit_company_path(@user.company_id), class:"btn btn-success my-2" %>
-      <%= link_to "test du wizard", big_form_path(:company_infos), class:"btn btn-success my-2" %>
-      <%= link_to "Suprimer mon compte", unknown_user_path(@user), method: :patch, data: { confirm: "are you sure???" }, class:"btn btn-danger my-2" %>
+    <div class="row my-5">
+      <div class="col-12 col-sm-6 col-lg-3 p-1">
+        <%= link_to "Modifier ma structure", edit_company_path(@user.company_id), class:"btn btn-outline-primary bold" %>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3 p-1">
+        <%= link_to "Modifier mon profil", edit_user_path(@user), class:"btn btn-outline-primary bold" %>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3 p-1">
+        <%= link_to "Suprimer mon compte", unknown_user_path(@user), method: :patch, data: { confirm: "Êtes-vous sûr ?" }, class:"btn btn-outline-danger bold" %>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3 p-1">
+        <%= link_to "Mon formulaire de candidature", formulaire_path(:company_infos), class:"btn btn-primary bold text-white" %>
+      </div>
     </div>
   </div>
 </div>

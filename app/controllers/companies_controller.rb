@@ -21,7 +21,7 @@ class CompaniesController < ApplicationController
         @form.save
 
         CompaniesMailer.creation_confirmation(@referent).deliver_now
-        redirect_to root_path
+        redirect_to user_path(@user)
       else
         @company.destroy
         render :new
@@ -47,7 +47,7 @@ class CompaniesController < ApplicationController
   end
 
   def company_params
-    params.require(:company).permit(:name, :town)
+    params.require(:company).permit(:name, :town, :usage_acceptance)
   end
 
   def user_params

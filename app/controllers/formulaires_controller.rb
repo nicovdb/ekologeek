@@ -48,6 +48,7 @@ class FormulairesController < ApplicationController
   end
 
   def finish_wizard_path
+    FormulairesMailer.candidature_confirmation(current_user).deliver_now
     candidature_confirmation_path
   end
 
