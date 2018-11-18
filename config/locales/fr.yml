@@ -59,7 +59,8 @@ fr:
         referent_seniority: Ce champ
         referent_service: Ce champ
         charte: Ce champ
-        cgv: Ce champe champ
+        cgv: Ce champ
+        confidentiality: Ce champ
 
     errors:
       models:
