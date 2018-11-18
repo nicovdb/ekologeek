@@ -27,8 +27,11 @@
     <div class="col-12 ml-3">
       <%= f.input :charte, label: "Oui, je certifie avoir lu et accepté la charte de participation au Défi Zéro Déchet des Pros" %>
     </div>
-     <div class="col-12 ml-3">
+    <div class="col-12 ml-3">
       <%= f.input :cgv, label: "Oui, j’accepte les #{link_to 'Conditions Générales de Vente', cgv_path, target: :blank, class:"cool-link"} de participation au Défi Zéro Déchet des Pros".html_safe %>
+    </div>
+    <div class="col-12 ml-3">
+      <%= f.input :confidentiality, label: "J’ai lu et j’accepte la Politique de Confidentialité" %>
     </div>
     <div class="d-flex justify-content-around mb-5 mt-4">
       <%= link_to "< Précédent", previous_wizard_path, class:"btn btn-primary bold" %>

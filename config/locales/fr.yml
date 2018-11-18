@@ -59,7 +59,7 @@ fr:
         referent_seniority: Ce champ
         referent_service: Ce champ
         charte: Ce champ
-        cgv: Ce champ
+        cgv: Ce champe champ
 
     errors:
       models:
@@ -172,6 +172,8 @@ fr:
             charte:
               blank: "doit être rempli"
             cgv:
+              blank: "doit être rempli"
+            confidentiality:
               blank: "doit être rempli"
 
   errors:

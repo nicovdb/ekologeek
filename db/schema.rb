@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_17_160357) do
+ActiveRecord::Schema.define(version: 2018_11_18_220402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,6 +134,7 @@ ActiveRecord::Schema.define(version: 2018_11_17_160357) do
     t.boolean "employees_willing", default: false
     t.boolean "referent_willing_validation", default: false
     t.boolean "charte_validation", default: false
+    t.boolean "confidentiality", default: false
     t.index ["company_id"], name: "index_forms_on_company_id"
   end
 

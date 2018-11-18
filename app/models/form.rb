@@ -16,7 +16,7 @@ class Form < ApplicationRecord
   validates :structure_sensitivity, :structure_environment_strategy, :structure_ecologic_approach, :structure_concrete_actions, :structure_direction_interest, :structure_direction_interest_reasons, presence: :true, if: :company_willing?
   validates :employees_knowledge, :employees_propositions, :employees_concerned, :employees_engagement, :employees_actions_home, :employees_actions_work, presence: :true, if: :employees_willing?
   validates :referent_implication, :referent_sorts, :referent_accompany, :referent_complications, :referent_winner, :referent_willing, :referent_obligation, :referent_obligation_feeling, :referent_valorisation, :referent_fun, :referent_techniques, :referent_actions_home, :referent_personal_reasons, :referent_changes_wanted, :referent_accompaniment_need, :referent_sex, :referent_age, :referent_seniority, :referent_service, presence: :true, if: :referent_willing?
-  validates :charte, :cgv, presence: :true, if: :charte?
+  validates :charte, :cgv, :confidentiality, presence: :true, if: :charte?
 
 
   def company_infos?
