@@ -36,8 +36,12 @@ class CompaniesController < ApplicationController
 
   def update
     @user = current_user
-    @company.update(company_params)
-    redirect_to user_path(@user)
+    @company.usage_acceptance = true
+    if @company.update(company_params)
+      redirect_to user_path(@user)
+    else
+      render :edit
+    end
   end
 
   private
