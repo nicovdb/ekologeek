@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_15_111910) do
+ActiveRecord::Schema.define(version: 2018_11_16_171058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,6 +127,12 @@ ActiveRecord::Schema.define(version: 2018_11_15_111910) do
     t.datetime "updated_at", null: false
     t.boolean "charte", default: false
     t.boolean "cgv", default: false
+    t.boolean "company_infos", default: false
+    t.boolean "trash_gestion", default: false
+    t.boolean "company_willing", default: false
+    t.boolean "employees_willing", default: false
+    t.boolean "referent_willing_validation", default: false
+    t.boolean "charte_validation", default: false
     t.index ["company_id"], name: "index_forms_on_company_id"
   end
 

@@ -9,12 +9,12 @@
   <h2 class="mt-4 mb-4 green-bg">Généralités</h2>
 
   <%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
-    <p>1. Quelle est l’activité de votre structure ?</p>
+    <p><b>1.</b> Quelle est l’activité de votre structure ?</p>
     <div class="col-12 col-sm-6 pl-0">
       <%= f.input :company_activity, label: false, placeholder: "Réponse courte" %>
     </div>
 
-    <p>2. Quelle est la taille de votre structure ?</p>
+    <p class="mt-4"><b>2.</b> Quelle est la taille de votre structure ?</p>
     <%= f.collection_radio_buttons :company_employees_nb, ["Moins de 10 salarié·e·s", "De 10 à 49 salarié·e·s", "De 50 à 100 salarié·e·s", "De 101 à 200 salarié·e·s", "Plus de 200 salarié·e·s"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
@@ -22,13 +22,18 @@
       </label>
     <% end %>
 
-    <p>3. Quelle est la taille de l'établissement ou du service qui participerait au Défi Zéro Déchet des Pros ?</p>
+    <p class="mt-4"><b>3.</b> Quelle est la taille de l'établissement ou du service qui participerait au Défi Zéro Déchet des Pros ?</p>
     <div class="col-12 col-sm-6 pl-0">
       <%= f.input :company_participant_nb, label: false, placeholder: "Nombre de salarié·e·s" %>
     </div>
 
-    <p>4. Comment avez vous connu le Défi Zéro Déchets des Pros ? </p>
-    <%= f.collection_check_boxes :company_know_how_ids, @company_know_hows, :id, :origin, checked: @form.company_know_hows.map(&:id) %>
+    <p class="mt-4"><b>4.</b> Comment avez vous connu le Défi Zéro Déchets des Pros ? </p>
+    <%= f.collection_check_boxes :company_know_how_ids, @company_know_hows, :id, :origin, checked: @form.company_know_hows.map(&:id) do |input| %>
+      <label class="mx-2 mb-3">
+        <%= input.check_box %>
+        <%= input.text %>
+      </label>
+    <% end %>
 
     <div class="d-flex justify-content-end mb-5 mt-4">
       <%= f.button :submit, "Suivant >", class:"btn btn-primary bold" %>
