@@ -60,6 +60,7 @@ fr:
         referent_service: Ce champ
         charte: Ce champ
         cgv: Ce champ
+        confidentiality: Ce champ
 
     errors:
       models:
@@ -172,6 +173,8 @@ fr:
             charte:
               blank: "doit être rempli"
             cgv:
+              blank: "doit être rempli"
+            confidentiality:
               blank: "doit être rempli"
 
   errors:
