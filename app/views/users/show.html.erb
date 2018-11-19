@@ -31,14 +31,14 @@
     <div class="row mb-3">
       <% if @user.dzd_checked?(@user) %>
         <div class="col-1">
-          <%= inline_svg "check-circle", width: 20, class:"mr-2" %>
+          <%= inline_svg "check-circle.svg", width: 20, class:"mr-2" %>
         </div>
         <div class="col-11">
           <span>Oui, je veux recevoir la newsletter mensuelle de l’<%= link_to 'association Ekolo[geek]', partenaires_path, target: :blank %> (ex. contenu : actualités, recette de saison, Acte ekolo[geek]...)</span>
         </div>
       <% else %>
         <div class="col-1">
-          <%= inline_svg "uncheck-circle", width: 20, class:"mr-2" %>
+          <%= inline_svg "uncheck-circle.svg", width: 20, class:"mr-2" %>
         </div>
         <div class="col-11">
           <span>Oui, je veux recevoir la newsletter mensuelle de l’<%= link_to 'association Ekolo[geek]', partenaires_path, target: :blank, class:"cool-link" %> (ex. contenu : actualités, recette de saison, Acte ekolo[geek]...)</span>
@@ -46,14 +46,14 @@
       <% end %>
       <% if @user.ekg_checked?(@user) %>
         <div class="col-1">
-          <%= inline_svg "check-circle", width: 20, class:"mr-2" %>
+          <%= inline_svg "check-circle.svg", width: 20, class:"mr-2" %>
         </div>
         <div class="col-11">
           <span>Oui, je veux recevoir la newsletter du Défi Zéro Déchet des Pros</span>
         </div>
       <% else %>
         <div class="col-1">
-          <%= inline_svg "uncheck-circle", width: 20, class:"mr-2" %>
+          <%= inline_svg "uncheck-circle.svg", width: 20, class:"mr-2" %>
         </div>
         <div class="col-11">
           <span>Oui, je veux recevoir la newsletter du Défi Zéro Déchet des Pros</span>
