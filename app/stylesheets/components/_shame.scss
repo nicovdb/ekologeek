@@ -200,12 +200,19 @@ hr {
 
 .fsmb-0 {
   fieldset {
-    margin-bottom: 3px
+    margin-bottom: 3px;
+
+  }
+  @media(max-width: $mobile){
+    padding: 0;
   }
 }
 
 .pl-35 {
   padding-left: 35px;
+  @media(max-width: $mobile){
+    padding-left: 20px;
+  }
 }
 
 a.cool-link {
@@ -219,4 +226,3 @@ a.cool-link {
     text-decoration: none;
   }
 }
-
