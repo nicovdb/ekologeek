@@ -1,5 +1,5 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: ENV['HOST'] }
+  config.action_mailer.default_url_options = { host: "www.defi-zero-dechet-pro.com" }
   config.action_mailer.delivery_method = :smtp
 
   # Verifies that versions and hashed value of the package contents in the project's package.json
