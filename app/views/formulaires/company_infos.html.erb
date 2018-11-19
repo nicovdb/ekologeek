@@ -34,7 +34,8 @@
       <%= f.input :company_participant_nb, label: false, placeholder: "Nombre de salarié·e·s" %>
     </div>
 
-    <p class="mt-4"><b>4.</b> Comment avez vous connu le Défi Zéro Déchets des Pros ? </p>
+    <p class="mt-4 mb-0"><b>4.</b> Comment avez vous connu le Défi Zéro Déchets des Pros ? </p>
+    <p class="ml-3"><em>Plusieurs réponses possibles</em></p>
     <%= f.collection_check_boxes :company_know_how_ids, @company_know_hows, :id, :origin, checked: @form.company_know_hows.map(&:id) do |input| %>
       <label class="mx-2 mb-3">
         <%= input.check_box %>
@@ -48,4 +49,3 @@
   <% end %>
 
 </div>
-
