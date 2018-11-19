@@ -12,4 +12,5 @@ ActiveAdmin.register Form do
 #   permitted
 # end
 
+
 end
