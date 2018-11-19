@@ -17,12 +17,14 @@
     <%= favicon_link_tag 'favicon.png' %>
   </head>
   <body>
-    <%= render 'shared/flashes' %>
-    <%= render 'shared/navbar_secondary_connected' %>
-    <%= render 'shared/navbar_connected' %>
+    <div class="wrapper">
+      <%= render 'shared/flashes' %>
+      <%= render 'shared/navbar_secondary_connected' %>
+      <%= render 'shared/navbar_connected' %>
       <%= yield %>
-    <%= render 'shared/footer' %>
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_pack_tag 'application' %>
+      <%= render 'shared/footer' %>
+      <%= javascript_include_tag 'application' %>
+      <%= javascript_pack_tag 'application' %>
+    </div>
   </body>
 </html>
