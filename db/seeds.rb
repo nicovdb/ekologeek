@@ -99,3 +99,4 @@ puts "Create dispositives"
   Dispositive.create(name: "PDE / PDA ('Plan Déplacement Entreprise / Administration')")
   Dispositive.create(name: "Non communiqué")
 puts "doooooooooooooone"
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
