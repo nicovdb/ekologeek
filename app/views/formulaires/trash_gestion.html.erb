@@ -12,7 +12,8 @@
 
   <%= simple_form_for(@form, method: :put, url: wizard_path) do |f| %>
 
-    <p class="mt-4"><b>5.</b> Quel est le prestataire qui collecte vos déchets ? </p>
+    <p class="mt-4 mb-0"><b>5.</b> Quel est le prestataire qui collecte vos déchets ? </p>
+    <p class="ml-3"><em>Plusieurs réponses possibles</em></p>
     <%= f.collection_check_boxes :trash_provider_ids, @trash_providers, :id, :name, checked: @form.trash_providers.map(&:id) do |input| %>
       <label class="mx-2 mb-3">
         <%= input.check_box %>
@@ -35,7 +36,8 @@
     <p class="mt-4"><b>7.</b> Quels sont les 3 principaux types de déchets produits dans votre structure ?</p>
 
     <%= f.input :trash_types, label: false %>
-    <p class="mt-4"><b>8.</b> Quels sont les 3 principaux types de déchets DE FONCTIONNEMENT produits dans votre structure ?</p>
+    <p class="mt-4 mb-0"><b>8.</b> Quels sont les 3 principaux types de déchets DE FONCTIONNEMENT produits dans votre structure ?</p>
+    <p class="ml-3"><em>Plusieurs réponses possibles</em></p>
     <%= f.collection_check_boxes :trash_working_type_ids, @trash_working_types, :id, :trash, checked: @form.trash_working_types.map(&:id) do |input| %>
       <label class="mx-2 mb-3">
         <%= input.check_box %>
@@ -83,5 +85,3 @@
     </div>
   <% end %>
 </div>
-
-
