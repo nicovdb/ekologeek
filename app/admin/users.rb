@@ -10,9 +10,8 @@ ActiveAdmin.register User do
                 :newsletter_dzd,
                 :deleted,
                 :admin,
-                :current_sign_in_at
-                :sign_in_count
-                :company_activity
+                :password,
+                :company_id
 
   index do
     selectable_column
@@ -28,9 +27,6 @@ ActiveAdmin.register User do
     column :newsletter_dzd
     column :deleted
     column :admin
-    column :current_sign_in_at
-    column :sign_in_count
-    # column :created_at
     actions
   end
 
@@ -48,8 +44,7 @@ ActiveAdmin.register User do
       row :newsletter_ekg
       row :newsletter_dzd
       row :deleted
-      row :current_sign_in_at
-      row :sign_in_count
+      row :admin
     end
 
     panel "Entreprise de l'utilisateur" do
@@ -67,7 +62,7 @@ ActiveAdmin.register User do
       attributes_table do
         row :company_activity
         row :company_employees_nb
-        row :company_participant_nb, through: :form
+        row :company_participant_nb
         row :trash_indicator
         row :trash_indicator_list
         row :trash_types
@@ -137,9 +132,6 @@ ActiveAdmin.register User do
   filter :newsletter_ekg, :as => :check_boxes
   filter :newsletter_dzd, :as => :check_boxes
   filter :deleted, :as => :check_boxes
-  filter :current_sign_in_at
-  filter :sign_in_count
-  filter :created_at
 
   form do |f|
     f.inputs do
@@ -153,8 +145,9 @@ ActiveAdmin.register User do
       f.input :newsletter_ekg
       f.input :newsletter_dzd
       f.input :deleted
+      f.input :admin
+      f.input :password
       f.actions
-      # f.input :admin
     end
   end
 
