@@ -15,16 +15,15 @@ ActiveAdmin.register Referent do
   show do
     panel "Référent" do
       table_for referent.user do
-        column :email
+        column :company
+        column :civility
         column :first_name
         column :last_name
-        column :company_id
         column :role
-        column :civility
+        column :email
         column :telephone
         column :newsletter_ekg
         column :newsletter_dzd
-        column :deleted
         column :admin
       end
     end
