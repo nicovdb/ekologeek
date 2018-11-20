@@ -6,8 +6,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :company
-
   validates :civility, :first_name, :last_name, :role, :telephone, :email, :password, presence: true
 
   def ekg_checked?(current_user)
@@ -18,4 +16,7 @@ class User < ApplicationRecord
     current_user.newsletter_dzd
   end
 
+  def name
+    "#{first_name} #{last_name}"
+  end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_19_150334) do
+ActiveRecord::Schema.define(version: 2018_11_20_182500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,10 +45,10 @@ ActiveRecord::Schema.define(version: 2018_11_19_150334) do
     t.string "name"
     t.string "town"
     t.bigint "project_id"
-    t.string "accepted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "usage_acceptance", default: false
+    t.boolean "accepted", default: false, null: false
     t.index ["project_id"], name: "index_companies_on_project_id"
   end
 
@@ -209,6 +209,7 @@ ActiveRecord::Schema.define(version: 2018_11_19_150334) do
     t.boolean "newsletter_ekg", default: false
     t.boolean "newsletter_dzd", default: false
     t.boolean "deleted", default: false
+    t.boolean "admin", default: false, null: false
     t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

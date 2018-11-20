@@ -1,7 +1,9 @@
 fr:
   activerecord:
     models:
-      user: utilisateur
+      user: Utilisateurs
+      form: Formulaires
+      company: Entreprises
     attributes:
       user:
         first_name: Prénom
@@ -11,53 +13,75 @@ fr:
         email: Email
         telephone: Téléphone
         password: Mot de passe
+        created_at: Créé le
       company:
-        name: Ce champ
-        town: Ce champ
+        name: Nom
+        town: Ville
         usage_acceptance: Ce champ
       form:
-        company_activity: Ce champ
-        company_participant_nb: Ce champ
-        company_activity: Ce champ
-        trash_indicator: Ce champ
-        trash_types: Ce champ
-        trash_sorting: Ce champ
-        trash_sorting_quality: Ce champ
-        trash_sorting_knowledge: Ce champ
-        structure_sensitivity: Ce champ
-        structure_environment_strategy: Ce champ
-        structure_ecologic_approach: Ce champ
-        structure_concrete_actions: Ce champ
-        structure_direction_interest: Ce champ
-        structure_direction_interest_reasons: Ce champ
-        employees_knowledge: Ce champ
-        employees_propositions: Ce champ
-        employees_concerned: Ce champ
-        employees_engagement: Ce champ
-        employees_actions_home: Ce champ
-        employees_actions_work: Ce champ
-        referent_implication: Ce champ
-        referent_sorts: Ce champ
-        referent_accompany: Ce champ
-        referent_complications: Ce champ
-        referent_winner: Ce champ
-        referent_willing: Ce champ
-        referent_obligation: Ce champ
-        referent_obligation_feeling: Ce champ
-        referent_valorisation: Ce champ
-        referent_fun: Ce champ
-        referent_techniques: Ce champ
-        referent_actions_home: Ce champ
-        referent_personal_reasons: Ce champ
-        referent_changes_wanted: Ce champ
-        referent_accompaniment_need: Ce champ
-        referent_sex: Ce champ
-        referent_age: Ce champ
-        referent_seniority: Ce champ
-        referent_service: Ce champ
-        charte: Ce champ
-        cgv: Ce champ
-        confidentiality: Ce champ
+        company: Entreprise
+        referent: Référent
+        company_activity: 1. Domaine d'activité
+        company_participant_nb: 3. Nombre de participants
+        company_employees_nb: 2. Taille de la structure
+        company_know_hows: 4. Connaissance via
+        trash_providers: 5. Prestataires déchets
+        trash_indicator: 6.1 Indicateurs de suivi
+        trash_indicator_list: 6.2 Exemples
+        trash_types: 7. Les 3 types de déchets
+        trash_working_types: 8. Déchets de fonctionnement
+        trash_sorting: 9.1 Structure fait le tri des déchets ?
+        trash_sorting_types: 9.2 Types de déchets
+        trash_sorting_quality: 10. Qualité du tri
+        trash_sorting_knowledge: 11. Connaissance du tri 5 flux
+        structure_sensitivity: 12. Sensibilité aux enjeux environnementaux
+        structure_environment_strategy: 13.1 Environnement stratégie de la structure
+        structure_environment_strategy_examples: 13.2 Exemples
+        structure_ecologic_approach: 14. Engagement écoresponsable
+        dispositives: 15. Dispositifs engagés
+        structure_concrete_actions: 16. Actions concrètes
+        structure_direction_interest: 17. Intéret de la direction pour DZDP
+        structure_direction_interest_reasons: 18. Raisons de la participation
+        structure_expectations: 19. Attentes vis à vis du DZDP
+        employees_knowledge: 20.1 Connaissance du DZDP par les collaborateurs
+        employees_knowledge_interest: 20.2 Mesure de leur intéret
+        employees_propositions: 21.1 Propositions des collaborateurs
+        employees_propositions_examples: 21.2 Exemples
+        employees_propositions_handled: 21.3 Prise en compte
+        employees_concerned: 22.1 Collaborateurs préoccupés
+        employees_engagement: 22.2 Engagement pour DZDP
+        employees_actions_home: 22.3 Pratiques de réduction des déchets chez eux
+        employees_actions_work: 22.4 Pratiques de réduction des déchets au travail
+        referent_implication: 23.1 Réduction déchets partie vie référent
+        referent_sorts: 23.2 Tri des déchets chez eux
+        referent_accompany: 23.3 Prêt à accompagner les collaborateurs au DZDP
+        referent_complications: 23.4 Réduction déchets semble difficile
+        referent_winner: 23.5 Capacité à faire gagner la structure
+        referent_willing: 23.6 Volonté de participer
+        referent_obligation: 24.1 Obligé de faire le DZDP
+        referent_obligation_feeling: 24.2 Sentiment d'obligation
+        referent_valorisation: 24.3 Important/valorisant
+        referent_fun: 24.4 Interessant/amusant
+        referent_techniques: 25.1 Connaissance des pratiques
+        referent_techniques_examples: 25.2 Exemples
+        referent_actions_home: 26.1 Pratiques personnelles
+        referent_actions_home_examples: 26.2 Exemples
+        referent_personal_reasons: 27. Raisons personnelles
+        referent_changes_wanted: 28. Changements souhaités
+        referent_accompaniment_need: 29. Souhaits d'accompagnement
+        referent_sex: 30. Vous êtes
+        referent_age: 31. Âge
+        referent_seniority: 32. Ancienneté
+        referent_service: 33. Service
+        charte: Accepte la charte
+        cgv: Accepte les CGV
+        confidentiality: "Accepte la politique de confidentialité"
+        company_infos: Rempli la 1ere page
+        trash_gestion: "Rempli la 2e page"
+        company_willing: "Rempli la 3e page"
+        employees_willing: "Rempli la 4e page"
+        referent_willing_validation: "Rempli la 5e page"
+        charte_validation: "Fini le questionnaire"
 
     errors:
       models:
@@ -251,6 +275,8 @@ fr:
      action_label: "%{title} les éléments sélectionnés"
      labels:
        destroy: "Supprimer"
+   forms:
+     company_activity: "Domaine d'activité"
    comments:
      created_at: "Créé le"
      resource_type: "Type de ressource"

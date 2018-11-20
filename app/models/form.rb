@@ -10,6 +10,7 @@ class Form < ApplicationRecord
   has_many :form_dispositives
   has_many :dispositives, through: :form_dispositives
 
+  has_one :referent, through: :company
 
   validates :company_activity, :company_employees_nb, :company_participant_nb, presence: true, if: :company_infos?
   validates :trash_indicator, :trash_types, :trash_sorting, :trash_sorting_quality, :trash_sorting_knowledge, presence: true, if: :trash_gestion?
