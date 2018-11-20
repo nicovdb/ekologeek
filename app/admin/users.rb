@@ -10,6 +10,8 @@ ActiveAdmin.register User do
                 :newsletter_dzd,
                 :deleted,
                 :admin,
+                :current_sign_in_at
+                :sign_in_count
                 :company_activity
 
   index do
@@ -58,10 +60,14 @@ ActiveAdmin.register User do
     end
 
     panel "formulaire" do
+      table_for user.company.form do
+        column :company_activity
+        column :company_employees_nb
+
       attributes_table do
         row :company_activity
         row :company_employees_nb
-        row :company_participant_nb
+        row :company_participant_nb, through: :form
         row :trash_indicator
         row :trash_indicator_list
         row :trash_types
@@ -117,6 +123,7 @@ ActiveAdmin.register User do
         row :charte_validation
         row :confidentiality
       end
+      end
     end
   end
 
@@ -146,7 +153,7 @@ ActiveAdmin.register User do
       f.input :newsletter_ekg
       f.input :newsletter_dzd
       f.input :deleted
-      f.submit :submit
+      f.actions
       # f.input :admin
     end
   end
