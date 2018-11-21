@@ -4,7 +4,7 @@ ActiveAdmin.register Referent do
 
   permit_params :company_id, :user_id
 
-   index do
+  index download_links: false do
     selectable_column
     id_column
       column :company
@@ -15,7 +15,6 @@ ActiveAdmin.register Referent do
   show do
     panel "Référent" do
       table_for referent.user do
-        column :company
         column :civility
         column :first_name
         column :last_name

@@ -18,6 +18,8 @@ fr:
         name: Nom
         town: Ville
         usage_acceptance: Ce champ
+        form: Formulaire
+        accepted: Acceptée
       form:
         company: Entreprise
         referent: Référent
