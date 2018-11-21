@@ -34,11 +34,12 @@ a.edit_link{
   color: white !important;
   background: $blue !important;
 }
-.menu_item a::before {
-  color: red !important;
-}
 
 input[type="submit"] {
   color: white !important;
   background: $blue !important;
+}
+
+#logout {
+  display: none !important;
 }
