@@ -6,9 +6,19 @@ ActiveAdmin.register_page "Dashboard" do
   content title: proc{ I18n.t("active_admin.dashboard") } do
     columns do
       column do
-        panel "Liens utiles" do
-          render 'links'
-        end
+        render 'analytics'
+      end
+      column do
+        render 'heroku'
+      end
+      column do
+        render 'sendgrid'
+      end
+      column do
+        render 'sendinblue'
+      end
+      column do
+        render 'staging'
       end
     end
   end
