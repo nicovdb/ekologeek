@@ -19,4 +19,8 @@ class User < ApplicationRecord
   def name
     "#{first_name} #{last_name}"
   end
+
+  def admin?(current_user)
+    current_user.admin
+  end
 end
