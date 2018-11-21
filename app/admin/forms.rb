@@ -66,7 +66,7 @@ ActiveAdmin.register Form do
                 :charte_validation,
                 :confidentiality
 
-   index do
+  index do
     selectable_column
     id_column
       column :company
@@ -132,8 +132,73 @@ ActiveAdmin.register Form do
       column :charte
       column :cgv
       column :confidentiality
-
     actions
+  end
+
+  csv do
+    column(:company) { |form| form.company.name}
+    column(:referent) { |form| form.referent.name}
+    column :company_infos
+    column :trash_gestion
+    column :company_willing
+    column :employees_willing
+    column :referent_willing_validation
+    column :charte_validation
+    column :company_activity
+    column :company_employees_nb
+    column :company_participant_nb
+    column(:company_know_hows) { |form| form.company_know_hows.map { |ckh| ckh.origin }}
+    column(:trash_providers) { |form| form.trash_providers.map { |tp| tp.name }}
+    column :trash_indicator
+    column :trash_indicator_list
+    column :trash_types
+    column(:trash_working_types) { |form| form.trash_working_types.map { |twt| twt.trash }}
+    column :trash_sorting
+    column :trash_sorting_types
+    column :trash_sorting_quality
+    column :trash_sorting_knowledge
+    column :structure_sensitivity
+    column :structure_environment_strategy
+    column :structure_environment_strategy_examples
+    column :structure_ecologic_approach
+    column(:dispositives) { |form| form.dispositives.map { |d| d.name }}
+    column :structure_concrete_actions
+    column :structure_direction_interest
+    column :structure_direction_interest_reasons
+    column :structure_expectations
+    column :employees_knowledge
+    column :employees_knowledge_interest
+    column :employees_propositions
+    column :employees_propositions_examples
+    column :employees_propositions_handled
+    column :employees_concerned
+    column :employees_engagement
+    column :employees_actions_work
+    column :employees_actions_home
+    column :referent_implication
+    column :referent_sorts
+    column :referent_accompany
+    column :referent_complications
+    column :referent_winner
+    column :referent_willing
+    column :referent_obligation
+    column :referent_obligation_feeling
+    column :referent_valorisation
+    column :referent_fun
+    column :referent_techniques
+    column :referent_techniques_examples
+    column :referent_actions_home
+    column :referent_actions_home_examples
+    column :referent_personal_reasons
+    column :referent_changes_wanted
+    column :referent_accompaniment_need
+    column :referent_sex
+    column :referent_age
+    column :referent_seniority
+    column :referent_service
+    column :charte
+    column :cgv
+    column :confidentiality
   end
 
   show do

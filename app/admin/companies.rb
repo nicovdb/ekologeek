@@ -4,7 +4,7 @@ ActiveAdmin.register Company do
 
   permit_params :name, :town, :project_id, :accepted
 
-   index do
+  index do
     selectable_column
     id_column
       column :name
@@ -12,6 +12,12 @@ ActiveAdmin.register Company do
       column :form
       column :accepted
     actions
+  end
+
+  csv do
+    column :name
+    column :town
+    column :accepted
   end
 
   show do
@@ -24,16 +30,14 @@ ActiveAdmin.register Company do
 
     panel "Référent" do
       table_for company.referent.user do
-        column :email
+        column :civility
         column :first_name
         column :last_name
-        column :company_id
         column :role
-        column :civility
+        column :email
         column :telephone
         column :newsletter_ekg
         column :newsletter_dzd
-        column :deleted
         column :admin
       end
     end
