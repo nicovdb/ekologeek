@@ -103,61 +103,65 @@
 
       <li class="nav-item m-3 dropdown bold-link ">
         <% if user_signed_in? %>
-        <% if mobile_device == "mobile" %>
-        <a class="nav-link dropdown-toggle connexion-link" style="color: white;" id="" role="button" aria-haspopup="true" data-toggle="dropdown" aria-expanded="false">
-          Mon compte
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-          <%= link_to  "Mon compte", user_path(current_user), class:"dropdown-item text-primary"%>
-          <%= link_to  "Déconnexion", destroy_user_session_path, method: :delete, class:"dropdown-item text-primary"%>
-        </div>
-        <% else %>
-        <a class="nav-link dropdown-toggle connexion-link" style="color: white;" href="/companies/new" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
-          Mon compte
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-          <%= link_to  "Mon compte", user_path(current_user), class:"dropdown-item text-primary"%>
-          <%= link_to  "Déconnexion", destroy_user_session_path, method: :delete, class:"dropdown-item text-primary"%>
-        </div>
-        <% end %>
-        <% else %>
-        <% if mobile_device == "mobile" %>
-        <a class="nav-link dropdown-toggle" style="color: white;" role="button" aria-haspopup="true" data-toggle="dropdown" aria-expanded="false">
-          Connexion
-        </a>
-        <div class="dropdown-menu dropdown-connexion" aria-labelledby="navbarDropdownMenuLink">
-          <%= form_for(:user, :url => session_path(:user), html: { class: "navbar-form navbar-right form-inline d-flex flex-column justify-content-start" }) do |f| %>
-          <div class="form-group">
-            <%= f.text_field :email, :placeholder => "Email", class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
-          </div>
-          <div class="checkbox d-flex align-items-center">
-            <%= f.check_box :remember_me %><%= f.label :remember_me %>
-          </div>
-          <%= f.submit 'Login', class: "btn btn-default" %>
+          <% if mobile_device == "mobile" %>
+            <a class="nav-link dropdown-toggle connexion-link" style="color: white;" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" data-toggle="dropdown" aria-expanded="false">
+              Mon compte
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to  "Mon compte", user_path(current_user), class:"dropdown-item text-primary"%>
+              <%= link_to  "Déconnexion", destroy_user_session_path, method: :delete, class:"dropdown-item text-primary"%>
+              <% if current_user.admin?(current_user) %>
+                <%= link_to  "Admin", admin_root_path, class:"dropdown-item text-primary"%>
+              <% end %>
+            </div>
+          <% else %>
+            <%= link_to "Mon compte", user_path(current_user), class: "nav-link dropdown-toggle", id:"navbarDropdownMenuLink", role:"button", ariahaspopup: true, ariaexpanded: false %>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to  "Mon compte", user_path(current_user), class:"dropdown-item text-primary"%>
+              <%= link_to  "Déconnexion", destroy_user_session_path, method: :delete, class:"dropdown-item text-primary"%>
+              <% if current_user.admin?(current_user) %>
+                <%= link_to  "Admin", admin_root_path, class:"dropdown-item text-primary"%>
+              <% end %>
+            </div>
           <% end %>
-        </div>
         <% else %>
-        <a class="nav-link dropdown-toggle" style="color: white;" href="/companies/new" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Connexion
-        </a>
-        <div class="dropdown-menu dropdown-menu-right dropdown-connexion" aria-labelledby="navbarDropdownMenuLink">
-          <%= form_for(:user, :url => session_path(:user), html: { class: "navbar-form navbar-right form-inline d-flex flex-column justify-content-start" }) do |f| %>
-          <div class="form-group">
-            <%= f.text_field :email, :placeholder => "Email", class: "form-control" %>
-          </div>
-          <div class="form-group ">
-            <%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
-          </div>
-          <div class="checkbox d-flex align-items-center">
-            <%= f.check_box :remember_me %><%= f.label :remember_me %>
-          </div>
-          <%= f.submit 'Login', class: "btn btn-primary" %>
+          <% if mobile_device == "mobile" %>
+            <a class="nav-link dropdown-toggle" style="color: white;" role="button" aria-haspopup="true" data-toggle="dropdown" aria-expanded="false">
+              Connexion
+            </a>
+            <div class="dropdown-menu dropdown-connexion" aria-labelledby="navbarDropdownMenuLink">
+              <%= form_for(:user, :url => session_path(:user), html: { class: "navbar-form navbar-right form-inline d-flex flex-column justify-content-start" }) do |f| %>
+                <div class="form-group">
+                  <%= f.text_field :email, :placeholder => "Email", class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
+                </div>
+                <div class="checkbox d-flex align-items-center">
+                  <%= f.check_box :remember_me %><%= f.label :remember_me %>
+                </div>
+                <%= f.submit 'Login', class: "btn btn-default" %>
+              <% end %>
+            </div>
+          <% else %>
+            <a class="nav-link dropdown-toggle" style="color: white;" href="/companies/new" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Connexion
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-connexion" aria-labelledby="navbarDropdownMenuLink">
+              <%= form_for(:user, :url => session_path(:user), html: { class: "navbar-form navbar-right form-inline d-flex flex-column justify-content-start" }) do |f| %>
+                <div class="form-group">
+                  <%= f.text_field :email, :placeholder => "Email", class: "form-control" %>
+                </div>
+                <div class="form-group ">
+                  <%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
+                </div>
+                <div class="checkbox d-flex align-items-center">
+                  <%= f.check_box :remember_me %><%= f.label :remember_me %>
+                </div>
+                <%= f.submit 'Login', class: "btn btn-primary" %>
+              <% end %>
+            </div>
           <% end %>
-        </div>
-        <% end %>
         <% end %>
       </li>
     </ul>
