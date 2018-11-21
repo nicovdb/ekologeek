@@ -222,6 +222,10 @@ ActiveAdmin.setup do |config|
   #
     config.namespace :admin do |admin|
       admin.build_menu :utility_navigation do |menu|
+        menu.add label: "Google Analytics", url: "https://analytics.google.com", html_options: { target: :blank }
+        admin.add_logout_button_to_menu menu
+      end
+      admin.build_menu :utility_navigation do |menu|
         menu.add label: "Heroku", url: "https://id.heroku.com/login", html_options: { target: :blank }
         admin.add_logout_button_to_menu menu
       end
@@ -230,7 +234,7 @@ ActiveAdmin.setup do |config|
         admin.add_logout_button_to_menu menu
       end
       admin.build_menu :utility_navigation do |menu|
-        menu.add label: "Sendingblue", url: "https://fr.sendinblue.com/users/login/", html_options: { target: :blank }
+        menu.add label: "Sendinblue", url: "https://fr.sendinblue.com/users/login/", html_options: { target: :blank }
         admin.add_logout_button_to_menu menu
       end
       admin.build_menu :utility_navigation do |menu|
