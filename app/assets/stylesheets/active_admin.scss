@@ -5,13 +5,40 @@
 // Active Admin source.
 //
 // For example, to change the sidebar width:
-// $sidebar-width: 242px;
+//$sidebar-width: 500px;
 
 // Active Admin's got SASS!
 @import "active_admin/mixins";
-@import "active_admin/base";
-
+@import "arctic_admin/base";
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+
+.header a {
+  color: #212529 !important;
+  transition: 0.4s !important;
+  margin: 0 10px;
+  &:hover {
+    color: $blue !important;
+    transition: 0.4s !important;
+    text-decoration: none !important;
+  }
+}
+
+a.edit_link{
+  color: white !important;
+  background: $green !important;
+}
+a.edit_link{
+  color: white !important;
+  background: $blue !important;
+}
+.menu_item a::before {
+  color: red !important;
+}
+
+input[type="submit"] {
+  color: white !important;
+  background: $blue !important;
+}
