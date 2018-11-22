@@ -21,7 +21,7 @@ Devise.setup do |config|
   config.mailer_sender = 'pauline.r@ekologeek.com'
 
   # Configure the class responsible to send e-mails.
-  # config.mailer = 'CompaniesMailer'
+  config.mailer = 'MyDeviseMailer'
 
 
   # Configure the parent class responsible to send e-mails.
