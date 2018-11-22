@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   root to: 'pages#home'
+
   get '/pourquoi' => 'pages#pourquoi'
   get '/comment' => 'pages#comment'
   get '/soutenir' => 'pages#soutenir'
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   get '/contact' => 'pages#contact'
   get '/politique' => 'pages#politique_de_confidentialite'
   get '/candidature_confirmation' => 'pages#end_of_form'
+  get '/post_inscription' => 'pages#post_inscription'
   get 'dossier_de_mecenat', to: "pages#dossier_de_mecenat"
   get 'communique_de_press', to: "pages#communique_de_press"
   get 'charte_graphique', to: "pages#charte_graphique"
