@@ -13,7 +13,6 @@ class User < ApplicationRecord
     message: I18n.t('errors.phone_format')
   }
 
-
   def ekg_checked?(current_user)
     current_user.newsletter_ekg
   end
