@@ -99,8 +99,11 @@ fr:
               blank: "doit être rempli"
             email:
               blank: "doit être rempli"
+              taken: "existe déjà"
+              invalid: "n'est pas au bon format"
             telephone:
               blank: "doit être rempli"
+              invalid: "n'est pas au bon format"
             password:
               blank: "doit être rempli"
 

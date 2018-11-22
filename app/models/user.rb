@@ -7,6 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :civility, :first_name, :last_name, :role, :telephone, :email, :password, presence: true
+  validates :telephone, format: /((\+)33|0)[1-9](\d{2}){4}/
 
   def ekg_checked?(current_user)
     current_user.newsletter_ekg
