@@ -49,7 +49,7 @@ fr:
         action: Confirmer mon email
         greeting: Bienvenue %{recipient}!
         instruction: 'Vous pouvez confirmer votre email grâce au lien ci-dessous:'
-        subject: Instructions de confirmation
+        subject: Instructions de confirmation pour le Défi Zéro Déchet des Pros
       email_changed:
         greeting:
         message:

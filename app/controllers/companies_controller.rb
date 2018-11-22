@@ -20,8 +20,8 @@ class CompaniesController < ApplicationController
         @form = Form.new(company: @company)
         @form.save
 
-        CompaniesMailer.creation_confirmation(@referent).deliver_now
-        redirect_to user_path(@user)
+        # CompaniesMailer.creation_confirmation(@referent, @user).deliver_now
+        redirect_to post_inscription_path
       else
         @company.destroy
         render :new

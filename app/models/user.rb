@@ -4,9 +4,15 @@ class User < ApplicationRecord
   belongs_to :company
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
 
-  validates :civility, :first_name, :last_name, :role, :telephone, :email, :password, presence: true
+  validates :civility, :first_name, :last_name, :role, :email, :password, presence: true
+
+  validates :telephone, format: {
+    with: /\A(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})\z/,
+    message: I18n.t('errors.phone_format')
+  }
+
 
   def ekg_checked?(current_user)
     current_user.newsletter_ekg

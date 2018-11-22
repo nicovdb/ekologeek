@@ -54,6 +54,8 @@ class UsersController < ApplicationController
       :email,
       :newsletter_ekg,
       :newsletter_dzd,
+      :confirmation_token,
+      :confirmation_sent_at,
       :password,
       :deleted
     )
