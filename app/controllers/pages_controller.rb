@@ -20,7 +20,4 @@ class PagesController < ApplicationController
   def cgv
     send_file "#{Rails.root}/app/assets/documents/cgv.pdf", type: "application/pdf", x_sendfile: true
   end
-
-  def home
-  end
 end
