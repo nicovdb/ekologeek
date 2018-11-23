@@ -34,9 +34,12 @@ class UsersController < ApplicationController
     @user.assign_attributes(attributes)
     @user.save(validate: false)
     redirect_to root_path
-
   end
 
+  def destroy_cookies
+    cookies.delete(:_ekologeek_session)
+    redirect_to user_path(params["id"])
+  end
 
   private
 
