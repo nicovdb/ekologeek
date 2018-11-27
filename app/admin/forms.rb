@@ -1,5 +1,5 @@
 ActiveAdmin.register Form do
-  config.filters = false
+  config.filters = true
   actions :index, :show
 
   permit_params :company_id,
@@ -134,6 +134,12 @@ ActiveAdmin.register Form do
       column :confidentiality
     actions
   end
+
+  filter :company_infos, as: :check_boxes
+  filter :trash_gestion, as: :check_boxes
+  filter :company_willing, as: :check_boxes
+  filter :employees_willing, as: :check_boxes
+  filter :referent_willing_validation, as: :check_boxes
 
   csv do
     column(:company) { |form| form.company.name}
