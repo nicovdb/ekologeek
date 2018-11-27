@@ -94,6 +94,7 @@ fr:
         employees_willing: "Rempli la 4e page"
         referent_willing_validation: "Rempli la 5e page"
         charte_validation: "Fini le questionnaire"
+        confirmed_at: "Confirmé le"
     errors:
       models:
         user:
