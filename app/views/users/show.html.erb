@@ -2,7 +2,11 @@
   <div class="bg-white container container-padding viewport space-top mb-5">
     <h1 class="mt-5 pt-5 mb-4 header text-primary text-center">Profil</h1>
     <div class="p-1">
-      <%= link_to "Mon formulaire de candidature", formulaire_path(:company_infos), class:"btn btn-primary bold text-white" %>
+      <% if @user.company.form.charte_validation %>
+        <div class="bold text-center"><em> Candidature en cours de traitement</em> </div>
+      <% else %>
+        <%= link_to "Mon formulaire de candidature", formulaire_path(:company_infos), class:"btn btn-primary bold text-white" %>
+      <% end %>
     </div>
     <h3 class="my-3 pt-4">Structure</h3>
     <div class="structure  m-1">
