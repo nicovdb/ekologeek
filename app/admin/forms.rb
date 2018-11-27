@@ -71,6 +71,7 @@ ActiveAdmin.register Form do
     id_column
       column :company
       column :referent
+      column(:confirmed_at) { |form| form.referent.user.confirmed_at}
       column :company_infos
       column :trash_gestion
       column :company_willing
@@ -140,10 +141,12 @@ ActiveAdmin.register Form do
   filter :company_willing, as: :check_boxes
   filter :employees_willing, as: :check_boxes
   filter :referent_willing_validation, as: :check_boxes
+  filter :charte_validation, as: :check_boxes
 
   csv do
     column(:company) { |form| form.company.name}
     column(:referent) { |form| form.referent.name}
+    column(:confirmed_at) { |form| form.referent.user.confirmed_at}
     column :company_infos
     column :trash_gestion
     column :company_willing
