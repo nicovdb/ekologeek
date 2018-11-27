@@ -115,6 +115,11 @@ fr:
               invalid: "n'est pas au bon format"
             password:
               blank: "doit être rempli"
+              too_short: trop court (min 6 caractères)
+            password_confirmation:
+              confirmation: ne correspond pas
+            current_password:
+              blank: "doit être rempli"
 
         company:
           attributes:
@@ -211,6 +216,7 @@ fr:
               blank: "doit être rempli"
             confidentiality:
               blank: "doit être rempli"
+
   active_admin:
    dashboard: "Tableau de bord"
    dashboard_welcome:

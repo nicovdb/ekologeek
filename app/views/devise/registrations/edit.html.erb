@@ -10,7 +10,6 @@
               <div class="col-12 ml-3 mb-4">
                 <h3>Mot de passe</h3>
                 <%= f.input :password,
-                            hint: "leave it blank if you don't want to change it",
                             required: false,
                             input_html: { autocomplete: "new-password" } %>
               </div>
@@ -21,7 +20,6 @@
               </div>
               <div class="col-12 ml-3 mb-4">
                 <%= f.input :current_password,
-                            hint: "we need your current password to confirm your changes",
                             required: false,
                             input_html: { autocomplete: "current-password" } %>
               </div>
@@ -29,8 +27,8 @@
           </div>
         </div>
         <div class="form-actions">
-          <%= f.button :submit, "Update", class:"btn btn-primary" %>
-          <%= link_to "Back", user_path(@user), class:"btn btn-light" %>
+          <%= f.button :submit, "Modifier", class:"btn btn-primary" %>
+          <%= link_to "Retour", user_path(@user), class:"btn btn-light" %>
         </div>
       <% end %>
   </div>
