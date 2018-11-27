@@ -4,6 +4,7 @@ fr:
       user: Utilisateurs
       form: Formulaires
       company: Entreprises
+      referent: Référent
     attributes:
       user:
         first_name: Prénom
@@ -17,9 +18,18 @@ fr:
       company:
         name: Nom
         town: Ville
+        user: utilisateur
         usage_acceptance: Ce champ
         form: Formulaire
         accepted: Acceptée
+        created_at: Créé le
+        confirmed_at: confirmé le
+      referent:
+        created_at: Créé le
+        updated_at: Modifié le
+        company: Entreprise
+        user: Référent
+        confirmed_at: Confirmé le
       form:
         company: Entreprise
         referent: Référent
@@ -84,7 +94,6 @@ fr:
         employees_willing: "Rempli la 4e page"
         referent_willing_validation: "Rempli la 5e page"
         charte_validation: "Fini le questionnaire"
-
     errors:
       models:
         user:
@@ -229,6 +238,7 @@ fr:
        filter: "Filtrer"
        clear: "Supprimer les filtres"
      predicates:
+       created_at: Créé le
        contains: "Contient"
        equals: "Égal à"
        starts_with: "Commence par"
@@ -239,6 +249,7 @@ fr:
        lteq_datetime: "Antérieur ou égal à"
        from: "De"
        to: "À"
+       confirmed_at: confirmé le
    search_status:
      headline: "Statut de la recherche :"
      current_scope: "Etendu du filtre :"
@@ -345,3 +356,7 @@ fr:
      blog: "Blog"
   errors:
     phone_format: incorrect -> format 0678375394
+  time:
+    formats:
+      long: "%Y-%m-%d %H:%M:%S"
+      short: "%Y-%m-%d"

@@ -1,8 +1,8 @@
 ActiveAdmin.register Company do
-  config.filters = false
+  config.filters = true
   actions :index, :show, :edit, :update
 
-  permit_params :name, :town, :project_id, :accepted
+  permit_params :name, :town, :project_id, :accepted, :created_at
 
   index do
     selectable_column
@@ -11,13 +11,19 @@ ActiveAdmin.register Company do
       column :town
       column :form
       column :accepted
+      column :created_at
     actions
   end
+
+  filter :name, as: :select
+  filter :accepted, as: :select
+  filter :created_at, as: :date_range
 
   csv do
     column :name
     column :town
     column :accepted
+    column :created_at
   end
 
   show do
