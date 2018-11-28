@@ -25,14 +25,17 @@ class UsersController < ApplicationController
       last_name: "unknown",
       role: "unknown",
       telephone: "unknown",
-      email: (0...50).map { ('a'..'z').to_a[rand(26)] }.join,
       newsletter_ekg: false,
       newsletter_dzd: false,
       deleted: true,
+      civility: "unknown",
       password: @user.encrypted_password
     }
+
     @user.assign_attributes(attributes)
-    @user.save(validate: false)
+    @user.update_column(:email, (0...50).map { ('a'..'z').to_a[rand(26)] }.join)
+    @user.save!(validate: false)
+
     redirect_to root_path
   end
 
