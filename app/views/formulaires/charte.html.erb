@@ -31,7 +31,7 @@
       <%= f.input :cgv, label: "Oui, j’accepte les #{link_to 'Conditions Générales de Vente', cgv_path, target: :blank, class:"cool-link"} de participation au Défi Zéro Déchet des Pros".html_safe %>
     </div>
     <div class="col-12 ml-3">
-      <%= f.input :confidentiality, label: "J’ai lu et j’accepte la Politique de Confidentialité" %>
+      <%= f.input :confidentiality, label: "J’ai lu et j’accepte la #{ link_to "Politique de Confidentialité", politique_path, target: :black, class:"cool-link"}".html_safe %> 
     </div>
     <div class="d-flex justify-content-around mb-5 mt-4">
       <%= link_to "< Précédent", previous_wizard_path, class:"btn btn-primary bold" %>
@@ -39,4 +39,3 @@
     </div>
   <% end %>
 </div>
-
