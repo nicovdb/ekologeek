@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_12_141541) do
+ActiveRecord::Schema.define(version: 2018_12_12_161612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,10 @@ ActiveRecord::Schema.define(version: 2018_12_12_141541) do
     t.integer "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.integer "frequency_number"
+    t.string "frequency_periodicity"
+    t.string "frequency_day"
     t.index ["company_id"], name: "index_bins_on_company_id"
   end
 
@@ -247,14 +251,6 @@ ActiveRecord::Schema.define(version: 2018_12_12_141541) do
     t.index ["company_id"], name: "index_forms_on_company_id"
   end
 
-  create_table "frequencies", force: :cascade do |t|
-    t.integer "number"
-    t.string "periodicity"
-    t.string "day"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "no_app_reasons", force: :cascade do |t|
     t.string "reason"
     t.datetime "created_at", null: false
@@ -334,15 +330,6 @@ ActiveRecord::Schema.define(version: 2018_12_12_141541) do
     t.index ["trash_id"], name: "index_trash_bins_on_trash_id"
   end
 
-  create_table "trash_frequencies", force: :cascade do |t|
-    t.bigint "frequency_id"
-    t.bigint "bin_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["bin_id"], name: "index_trash_frequencies_on_bin_id"
-    t.index ["frequency_id"], name: "index_trash_frequencies_on_frequency_id"
-  end
-
   create_table "trash_providers", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -369,6 +356,7 @@ ActiveRecord::Schema.define(version: 2018_12_12_141541) do
     t.integer "density"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "display", default: false
   end
 
   create_table "user_behaviour_diags", force: :cascade do |t|
@@ -484,8 +472,6 @@ ActiveRecord::Schema.define(version: 2018_12_12_141541) do
   add_foreign_key "result_not_made_reasons", "user_behaviour_results"
   add_foreign_key "trash_bins", "bins"
   add_foreign_key "trash_bins", "trashes"
-  add_foreign_key "trash_frequencies", "bins"
-  add_foreign_key "trash_frequencies", "frequencies"
   add_foreign_key "trash_result_actions", "result_actions"
   add_foreign_key "trash_result_actions", "trashes"
   add_foreign_key "user_behaviour_diags", "users"

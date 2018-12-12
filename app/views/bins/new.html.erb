@@ -1,0 +1,24 @@
+<div class="container">
+    <%= simple_form_for @bin do |f| %>
+
+      <%= f.input :name, label: "Nom de la poubelle" %>
+      <%= f.input :shared, as: :boolean, label: "Partagez-vous cette poubelle" %>
+      <%= f.input :volume, label: "Volume de la pobelle en litre" %>
+      <%= f.input :frequency_number, label: "Nombre de ramassage" %>
+      <%= f.input :frequency_periodicity, label: "Par Mois / Jour / Année " %>
+      <%= f.input :frequency_day, label: "Quel jour ?" %>
+      <%= f.input :collector, label: "Qui collect ce flux ?" %>
+      <p>Que jetez-vous dans cette poubelle ?</p>
+      <%= f.collection_check_boxes :trash_ids, @trashes, :id, :name do |input| %>
+        <label class="mx-2 mb-3">
+          <%= input.check_box %>
+          <%= input.text %>
+        </label>
+      <% end %>
+      <%= f.simple_fields_for @trash do |trash|%>
+        <%= trash.input :name, label: "Autre déchet" %>
+      <% end %>
+      <%= f.input :cost, label: "Coût annuel de ce flux" %>
+      <%= f.button :submit, class:"btn btn-primary" %>
+    <% end %>
+</div>
