@@ -7,25 +7,32 @@ class BinsController < ApplicationController
   end
 
   def create
-    @bin = Bin.new(bin_params)
-    @trash = Trash.new
+
+    # @trash = Trash.new
     @trashes = Trash.where(display: true)
-    unless params["trash"].nil?
-      trash_name = params["trash"]
-      @trash = Trash.new(name: trash_name)
-      @trash.save
+
+    unless params["bin"]["trash"]["name"].nil?
+      trash_name = params["bin"]["trash"]["name"]
+      @new_trash = Trash.new(name: trash_name)
+      @new_trash.save
     end
-    if @bin.save
+
+    @bin = Bin.new(bin_params)
+    @bin.company = current_user.company
+    @bin.trash_ids << @new_trash.id.to_s
+
+    if @bin.save!
       redirect_to root_path
     else
       render :new
     end
+
   end
 
   private
 
   def bin_params
-    params.require(:bin).permit!
+    params.require(:bin).permit(:name, :shared, :volume, :frequency_number, :frequency_periodicity, :frequency_day, :collector, :trash_ids)
   end
 
 end
