@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_12_111114) do
+ActiveRecord::Schema.define(version: 2018_12_12_141541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,12 @@ ActiveRecord::Schema.define(version: 2018_12_12_111114) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "app_reasons", force: :cascade do |t|
+    t.string "reason"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "bins", force: :cascade do |t|
@@ -115,6 +121,24 @@ ActiveRecord::Schema.define(version: 2018_12_12_111114) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_behaviour_id"], name: "index_diag_actions_on_company_behaviour_id"
+  end
+
+  create_table "diag_app_reasons", force: :cascade do |t|
+    t.bigint "app_reason_id"
+    t.bigint "user_behaviour_diag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["app_reason_id"], name: "index_diag_app_reasons_on_app_reason_id"
+    t.index ["user_behaviour_diag_id"], name: "index_diag_app_reasons_on_user_behaviour_diag_id"
+  end
+
+  create_table "diag_no_app_reasons", force: :cascade do |t|
+    t.bigint "no_app_reason_id"
+    t.bigint "user_behaviour_diag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["no_app_reason_id"], name: "index_diag_no_app_reasons_on_no_app_reason_id"
+    t.index ["user_behaviour_diag_id"], name: "index_diag_no_app_reasons_on_user_behaviour_diag_id"
   end
 
   create_table "dispositives", force: :cascade do |t|
@@ -231,12 +255,33 @@ ActiveRecord::Schema.define(version: 2018_12_12_111114) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "no_app_reasons", force: :cascade do |t|
+    t.string "reason"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "not_made_reasons", force: :cascade do |t|
+    t.string "reason"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "objectives", force: :cascade do |t|
     t.integer "reduction_percentage"
     t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_objectives_on_company_id"
+  end
+
+  create_table "priority_actions", force: :cascade do |t|
+    t.bigint "user_behaviour_diag_id"
+    t.integer "priority_level"
+    t.string "action"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_behaviour_diag_id"], name: "index_priority_actions_on_user_behaviour_diag_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -269,6 +314,15 @@ ActiveRecord::Schema.define(version: 2018_12_12_111114) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_behaviour_id"], name: "index_result_actions_on_company_behaviour_id"
+  end
+
+  create_table "result_not_made_reasons", force: :cascade do |t|
+    t.bigint "user_behaviour_result_id"
+    t.bigint "not_made_reason_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["not_made_reason_id"], name: "index_result_not_made_reasons_on_not_made_reason_id"
+    t.index ["user_behaviour_result_id"], name: "index_result_not_made_reasons_on_user_behaviour_result_id"
   end
 
   create_table "trash_bins", force: :cascade do |t|
@@ -317,6 +371,64 @@ ActiveRecord::Schema.define(version: 2018_12_12_111114) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_behaviour_diags", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "work_sorting_order"
+    t.string "work_sorting_applied"
+    t.string "work_trash_reduction"
+    t.text "work_trash_reduction_comment"
+    t.string "home_sorting_order"
+    t.string "home_sorting_applied"
+    t.string "home_trash_reduction"
+    t.text "home_trash_reduction_comment"
+    t.string "context_knowledge"
+    t.text "context_knowledge_comment"
+    t.string "concerned"
+    t.string "trash_reduction_hard"
+    t.string "dedicated_employee"
+    t.boolean "want_to_help", default: false
+    t.text "no_app_reason_comment"
+    t.text "app_reason_comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_behaviour_diags_on_user_id"
+  end
+
+  create_table "user_behaviour_results", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "starting_month"
+    t.string "actions_made"
+    t.text "actions_made_reasons"
+    t.string "actions_not_made"
+    t.string "work_sorting_order"
+    t.string "work_sorting_applied"
+    t.string "work_trash_reduction"
+    t.text "work_trash_reduction_comment"
+    t.string "new_actions"
+    t.text "new_actions_comment"
+    t.string "more_actions"
+    t.text "more_actions_comment"
+    t.string "better_actions"
+    t.text "better_actions_comment"
+    t.string "context_knowledge"
+    t.text "context_knowledge_comment"
+    t.string "concerned"
+    t.text "concerned_comment"
+    t.string "trash_reduction_hard"
+    t.text "trash_reduction_hard_comment"
+    t.string "dedicated_employee"
+    t.text "dedicated_employee_comment"
+    t.string "work_continue"
+    t.text "work_continue_comment"
+    t.string "home_continue"
+    t.text "home_continue_comment"
+    t.string "accompanier"
+    t.text "accompanier_comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_behaviour_results_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -350,6 +462,10 @@ ActiveRecord::Schema.define(version: 2018_12_12_111114) do
   add_foreign_key "company_behaviours", "companies"
   add_foreign_key "costs", "companies"
   add_foreign_key "diag_actions", "company_behaviours"
+  add_foreign_key "diag_app_reasons", "app_reasons"
+  add_foreign_key "diag_app_reasons", "user_behaviour_diags"
+  add_foreign_key "diag_no_app_reasons", "no_app_reasons"
+  add_foreign_key "diag_no_app_reasons", "user_behaviour_diags"
   add_foreign_key "form_company_know_hows", "company_know_hows"
   add_foreign_key "form_company_know_hows", "forms"
   add_foreign_key "form_dispositives", "dispositives"
@@ -360,13 +476,18 @@ ActiveRecord::Schema.define(version: 2018_12_12_111114) do
   add_foreign_key "form_trash_working_types", "trash_working_types"
   add_foreign_key "forms", "companies"
   add_foreign_key "objectives", "companies"
+  add_foreign_key "priority_actions", "user_behaviour_diags"
   add_foreign_key "referents", "companies"
   add_foreign_key "referents", "users"
   add_foreign_key "result_actions", "company_behaviours"
+  add_foreign_key "result_not_made_reasons", "not_made_reasons"
+  add_foreign_key "result_not_made_reasons", "user_behaviour_results"
   add_foreign_key "trash_bins", "bins"
   add_foreign_key "trash_bins", "trashes"
   add_foreign_key "trash_frequencies", "bins"
   add_foreign_key "trash_frequencies", "frequencies"
   add_foreign_key "trash_result_actions", "result_actions"
   add_foreign_key "trash_result_actions", "trashes"
+  add_foreign_key "user_behaviour_diags", "users"
+  add_foreign_key "user_behaviour_results", "users"
 end
