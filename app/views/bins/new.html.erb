@@ -1,7 +1,19 @@
 <div class="container">
-    <%= simple_form_for @bin |f| %>
+    <%= simple_form_for @bin do |f| %>
       <%= f.input :name %>
-      <%= f.input :trash %>
+      <%= f.input :shared %>
       <%= f.input :volume %>
+      <%= f.input :frequency_number %>
+      <%= f.input :frequency_periodicity %>
+      <%= f.input :frequency_day %>
+      <%= f.input :collector %>
+      <%= f.collection_check_boxes :trash_ids, @trashes, :id, :name do |input| %>
+        <label class="mx-2 mb-3">
+          <%= input.check_box %>
+          <%= input.text %>
+        </label>
+      <% end %>
+      <%= f.input :cost %>
+      <%= f.button :submit, class:"btn btn-primary" %>
     <% end %>
 </div>
