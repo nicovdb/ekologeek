@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_22_101934) do
+ActiveRecord::Schema.define(version: 2018_12_12_111114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,29 @@ ActiveRecord::Schema.define(version: 2018_11_22_101934) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "bins", force: :cascade do |t|
+    t.bigint "company_id"
+    t.integer "volume"
+    t.string "collector"
+    t.boolean "shared"
+    t.integer "cost"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_bins_on_company_id"
+  end
+
+  create_table "collects", force: :cascade do |t|
+    t.bigint "bin_id"
+    t.date "start_at"
+    t.date "end_at"
+    t.integer "filled_rate"
+    t.text "comment"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bin_id"], name: "index_collects_on_bin_id"
+  end
+
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.string "town"
@@ -52,10 +75,46 @@ ActiveRecord::Schema.define(version: 2018_11_22_101934) do
     t.index ["project_id"], name: "index_companies_on_project_id"
   end
 
+  create_table "company_behaviours", force: :cascade do |t|
+    t.bigint "company_id"
+    t.integer "participants_nb"
+    t.string "employees_sensitized"
+    t.text "employees_sensitized_comment"
+    t.string "actions_displayed"
+    t.string "strategic_display"
+    t.text "strategic_display_comment"
+    t.string "newbies_sensitized"
+    t.text "newbies_sensitized_comment"
+    t.string "indicators_communicated"
+    t.text "indicators_communicated_comment"
+    t.string "daily_actions_diag"
+    t.string "status"
+    t.string "actions_nb_result"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_company_behaviours_on_company_id"
+  end
+
   create_table "company_know_hows", force: :cascade do |t|
     t.string "origin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "costs", force: :cascade do |t|
+    t.integer "global_annual_cost"
+    t.bigint "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_costs_on_company_id"
+  end
+
+  create_table "diag_actions", force: :cascade do |t|
+    t.string "action"
+    t.bigint "company_behaviour_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_behaviour_id"], name: "index_diag_actions_on_company_behaviour_id"
   end
 
   create_table "dispositives", force: :cascade do |t|
@@ -164,11 +223,29 @@ ActiveRecord::Schema.define(version: 2018_11_22_101934) do
     t.index ["company_id"], name: "index_forms_on_company_id"
   end
 
+  create_table "frequencies", force: :cascade do |t|
+    t.integer "number"
+    t.string "periodicity"
+    t.string "day"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "objectives", force: :cascade do |t|
+    t.integer "reduction_percentage"
+    t.bigint "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_objectives_on_company_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "diagnostic_end_at"
+    t.date "bilan_start_at"
   end
 
   create_table "referents", force: :cascade do |t|
@@ -180,14 +257,62 @@ ActiveRecord::Schema.define(version: 2018_11_22_101934) do
     t.index ["user_id"], name: "index_referents_on_user_id"
   end
 
+  create_table "result_actions", force: :cascade do |t|
+    t.bigint "company_behaviour_id"
+    t.string "name"
+    t.text "comment"
+    t.string "state"
+    t.text "state_comment"
+    t.string "domain"
+    t.text "domain_comment"
+    t.integer "employees_making_nb"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_behaviour_id"], name: "index_result_actions_on_company_behaviour_id"
+  end
+
+  create_table "trash_bins", force: :cascade do |t|
+    t.bigint "trash_id"
+    t.bigint "bin_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bin_id"], name: "index_trash_bins_on_bin_id"
+    t.index ["trash_id"], name: "index_trash_bins_on_trash_id"
+  end
+
+  create_table "trash_frequencies", force: :cascade do |t|
+    t.bigint "frequency_id"
+    t.bigint "bin_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bin_id"], name: "index_trash_frequencies_on_bin_id"
+    t.index ["frequency_id"], name: "index_trash_frequencies_on_frequency_id"
+  end
+
   create_table "trash_providers", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "trash_result_actions", force: :cascade do |t|
+    t.bigint "trash_id"
+    t.bigint "result_action_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["result_action_id"], name: "index_trash_result_actions_on_result_action_id"
+    t.index ["trash_id"], name: "index_trash_result_actions_on_trash_id"
+  end
+
   create_table "trash_working_types", force: :cascade do |t|
     t.string "trash"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trashes", force: :cascade do |t|
+    t.string "name"
+    t.integer "density"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -219,7 +344,12 @@ ActiveRecord::Schema.define(version: 2018_11_22_101934) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bins", "companies"
+  add_foreign_key "collects", "bins"
   add_foreign_key "companies", "projects"
+  add_foreign_key "company_behaviours", "companies"
+  add_foreign_key "costs", "companies"
+  add_foreign_key "diag_actions", "company_behaviours"
   add_foreign_key "form_company_know_hows", "company_know_hows"
   add_foreign_key "form_company_know_hows", "forms"
   add_foreign_key "form_dispositives", "dispositives"
@@ -229,6 +359,14 @@ ActiveRecord::Schema.define(version: 2018_11_22_101934) do
   add_foreign_key "form_trash_working_types", "forms"
   add_foreign_key "form_trash_working_types", "trash_working_types"
   add_foreign_key "forms", "companies"
+  add_foreign_key "objectives", "companies"
   add_foreign_key "referents", "companies"
   add_foreign_key "referents", "users"
+  add_foreign_key "result_actions", "company_behaviours"
+  add_foreign_key "trash_bins", "bins"
+  add_foreign_key "trash_bins", "trashes"
+  add_foreign_key "trash_frequencies", "bins"
+  add_foreign_key "trash_frequencies", "frequencies"
+  add_foreign_key "trash_result_actions", "result_actions"
+  add_foreign_key "trash_result_actions", "trashes"
 end
