@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :bins, only: [:show, :index, :new, :create]
+  resources :bins, only: [:new, :create]
+  resources :collects, only: [:new, :create, :edit, :update]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

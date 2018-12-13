@@ -1,0 +1,14 @@
+<div class="container">
+
+  <%= simple_form_for @collect do |f| %>
+
+    <%= f.input :bin_id, collection: @bins %>
+    <%= f.input :start_at %>
+    <%= f.input :end_at %>
+    <%= f.input :filled_rate %>
+    <%= f.input :comment %>
+    <%= f.button :submit %>
+
+  <% end %>
+
+</div>
