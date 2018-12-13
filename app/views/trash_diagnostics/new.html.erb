@@ -1,0 +1,11 @@
+<div class="container">
+
+  <%= simple_form_for @trash_diagnostic do |f| %>
+    <%= f.input :annual_cost %>
+    <%= f.input :reduction_objective %>
+    <%= f.button :submit %>
+  <% end %>
+
+  <%= render "bins/form", trash: Trash.new, trashes: Trash.where(display: true), bin: Bin.new %>
+
+</div>
