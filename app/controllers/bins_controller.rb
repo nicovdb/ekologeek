@@ -8,7 +8,6 @@ class BinsController < ApplicationController
 
   def create
 
-    # @trash = Trash.new
     @trashes = Trash.where(display: true)
 
     unless params["bin"]["trash"]["name"].nil?
@@ -19,7 +18,7 @@ class BinsController < ApplicationController
 
     @bin = Bin.new(bin_params)
     @bin.company = current_user.company
-    @bin.trash_ids << @new_trash.id.to_s
+    @bin.trashes << @new_trash
 
     if @bin.save!
       redirect_to root_path
@@ -32,7 +31,15 @@ class BinsController < ApplicationController
   private
 
   def bin_params
-    params.require(:bin).permit(:name, :shared, :volume, :frequency_number, :frequency_periodicity, :frequency_day, :collector, :trash_ids)
+    params.require(:bin).permit(:name,
+                                :shared,
+                                :volume,
+                                :cost,
+                                :frequency_number,
+                                :frequency_periodicity,
+                                :frequency_day,
+                                :collector,
+                                trash_ids: [])
   end
 
 end
