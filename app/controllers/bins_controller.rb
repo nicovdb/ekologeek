@@ -20,7 +20,7 @@ class BinsController < ApplicationController
     @bin.company = current_user.company
     @bin.trashes << @new_trash
 
-    if @bin.save!
+    if @bin.save
       redirect_to root_path
     else
       render :new
