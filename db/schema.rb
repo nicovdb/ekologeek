@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_12_161612) do
+ActiveRecord::Schema.define(version: 2018_12_13_143439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,14 +109,6 @@ ActiveRecord::Schema.define(version: 2018_12_12_161612) do
     t.string "origin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "costs", force: :cascade do |t|
-    t.integer "global_annual_cost"
-    t.bigint "company_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_costs_on_company_id"
   end
 
   create_table "diag_actions", force: :cascade do |t|
@@ -263,14 +255,6 @@ ActiveRecord::Schema.define(version: 2018_12_12_161612) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "objectives", force: :cascade do |t|
-    t.integer "reduction_percentage"
-    t.bigint "company_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_objectives_on_company_id"
-  end
-
   create_table "priority_actions", force: :cascade do |t|
     t.bigint "user_behaviour_diag_id"
     t.integer "priority_level"
@@ -328,6 +312,15 @@ ActiveRecord::Schema.define(version: 2018_12_12_161612) do
     t.datetime "updated_at", null: false
     t.index ["bin_id"], name: "index_trash_bins_on_bin_id"
     t.index ["trash_id"], name: "index_trash_bins_on_trash_id"
+  end
+
+  create_table "trash_diagnostics", force: :cascade do |t|
+    t.integer "annual_cost"
+    t.float "reduction_objective"
+    t.bigint "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_trash_diagnostics_on_company_id"
   end
 
   create_table "trash_providers", force: :cascade do |t|
@@ -448,7 +441,6 @@ ActiveRecord::Schema.define(version: 2018_12_12_161612) do
   add_foreign_key "collects", "bins"
   add_foreign_key "companies", "projects"
   add_foreign_key "company_behaviours", "companies"
-  add_foreign_key "costs", "companies"
   add_foreign_key "diag_actions", "company_behaviours"
   add_foreign_key "diag_app_reasons", "app_reasons"
   add_foreign_key "diag_app_reasons", "user_behaviour_diags"
@@ -463,7 +455,6 @@ ActiveRecord::Schema.define(version: 2018_12_12_161612) do
   add_foreign_key "form_trash_working_types", "forms"
   add_foreign_key "form_trash_working_types", "trash_working_types"
   add_foreign_key "forms", "companies"
-  add_foreign_key "objectives", "companies"
   add_foreign_key "priority_actions", "user_behaviour_diags"
   add_foreign_key "referents", "companies"
   add_foreign_key "referents", "users"
@@ -472,6 +463,7 @@ ActiveRecord::Schema.define(version: 2018_12_12_161612) do
   add_foreign_key "result_not_made_reasons", "user_behaviour_results"
   add_foreign_key "trash_bins", "bins"
   add_foreign_key "trash_bins", "trashes"
+  add_foreign_key "trash_diagnostics", "companies"
   add_foreign_key "trash_result_actions", "result_actions"
   add_foreign_key "trash_result_actions", "trashes"
   add_foreign_key "user_behaviour_diags", "users"
