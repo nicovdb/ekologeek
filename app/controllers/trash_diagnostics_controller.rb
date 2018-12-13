@@ -1,5 +1,4 @@
 class TrashDiagnosticsController < ApplicationController
-
   def new
     @trash_diagnostic = TrashDiagnostic.new
   end
@@ -7,7 +6,7 @@ class TrashDiagnosticsController < ApplicationController
   def create
     @trash_diagnostic = TrashDiagnostic.new(trash_diagnostic_params)
     @trash_diagnostic.company = current_user.company
-    if @trash_diagnostic.save
+    if @trash_diagnostic.save!
       redirect_to root_path
     else
       render :new
