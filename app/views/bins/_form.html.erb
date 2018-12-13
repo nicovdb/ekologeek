@@ -1,13 +1,20 @@
 <%= simple_form_for bin, url: bins_path, method: :post do |f| %>
 
   <%= f.input :name, label: "Nom de la poubelle" %>
-  <%= f.input :shared, as: :boolean, label: "Partagez-vous cette poubelle" %>
-  <%= f.input :volume, label: "Volume de la pobelle en litre" %>
-  <%= f.input :frequency_number, label: "Nombre de ramassage" %>
-  <%= f.input :frequency_periodicity, label: "Par Mois / Jour / Année " %>
-  <%= f.input :frequency_day, label: "Quel jour ?" %>
-  <%= f.input :collector, label: "Qui collect ce flux ?" %>
-  <p>Que jetez-vous dans cette poubelle ?</p>
+  <%= f.input :shared, as: :boolean, label: "Ce bac est-il utilisé par d'autres structures ? (cochez si oui)" %>
+  <%= f.input :volume, label: "Quel est le volume de ce bac ?  Cette réponse est indispensable pour évaluer votre production de déchets. Si vous ne trouvez pas cette information, vous pouvez prendre des mesures et le calculer. En cas de problème, indiquez “00” et contactez-nous", collection: [["10L", 10], ["20L", 20], ["30L", 30], ["35L", 35], ["40L", 40], ["50L", 50], ["80L", 80], ["120L", 120], ["180L", 180], ["240L", 240], ["340L", 340], ["500L", 500], ["660L", 660], ["770L", 770], ["1100L", 1100]], label_method: :first, value_method: :second %>
+  <p>A quelle fréquence ce flux est-il collecté ?</p>
+  <%= f.input :frequency_number, label: "Répéter tout(es) les", placeholder: "nombre de fois" %>
+  <%= f.input :frequency_periodicity, collection: ["jours", "semaines", "mois", "années"], prompt: "fréquence", label: false %>
+  <p>Répéter le</p>
+  <%= f.collection_check_boxes :frequency_day, ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"], :to_s, :to_s do |input| %>
+    <label class="mx-2 mb-3">
+      <%= input.check_box %>
+      <%= input.text %>
+    </label>
+  <% end %>
+  <%= f.input :collector, label: "Qui collecte ce flux ?" %>
+  <p>Que jetez-vous dans ce·s bac·s ?</p>
   <%= f.collection_check_boxes :trash_ids, trashes, :id, :name do |input| %>
     <label class="mx-2 mb-3">
       <%= input.check_box %>
@@ -17,6 +24,6 @@
   <%= f.simple_fields_for trash do |trash|%>
     <%= trash.input :name, label: "Autre déchet" %>
   <% end %>
-  <%= f.input :cost, label: "Coût annuel de ce flux" %>
-  <%= f.button :submit, class:"btn btn-primary" %>
+  <%= f.input :cost, label: "Quel est le coût annuel de ce flux (si disponible) ?" %>
+  <%= f.button :submit, "Enregistrer ce flux", class:"btn btn-primary" %>
 <% end %>
