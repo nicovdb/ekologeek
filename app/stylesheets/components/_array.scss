@@ -12,6 +12,9 @@ td {
   text-align: center;
 }
 
-.gray {
-  background-color: $gray;
+tbody:nth-child(even) {
+  background: #CCC;
+}
+tbody:nth-child(odd) {
+  background: #FFF
 }

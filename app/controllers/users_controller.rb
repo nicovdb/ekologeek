@@ -4,6 +4,23 @@ class UsersController < ApplicationController
 
   layout "connected"
 
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(user_params)
+    generated_password = Devise.friendly_token.first(10)
+    @user.password = generated_password
+    @user.company = current_user.company
+    if @user.save!
+      UsersMailer.welcome(@user, generated_password).deliver
+      redirect_to donnees_path
+    else
+      render :new
+    end
+  end
+
   def show
   end
 

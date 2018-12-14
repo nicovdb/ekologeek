@@ -8,8 +8,6 @@
         <%= link_to "Saisir un relevé", new_collect_path, class:"btn btn-primary" %>
         <%= link_to "Ajouter un bac", new_bin_path, class:"btn btn-primary" %>
       </div>
-
-
       <table class="mt-5">
         <thead>
           <tr>
@@ -38,7 +36,30 @@
         </tbody>
         <% end %>
       </table>
-
+      <h2 class="green-bg mt-5">Utilisateur·ice·s de votre structure</h2>
+      <table class="mt-5">
+        <thead>
+          <tr>
+            <th>Civilité</th>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Poste</th>
+            <th>Téléphone</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <% @users.each do |user| %>
+        <tbody>
+          <td  class="gray" ><%= user.civility %></td>
+          <td><%= user.first_name %></td>
+          <td  class="gray" ><%= user.last_name %></td>
+          <td><%= user.role %></td>
+          <td><%= user.telephone %></td>
+          <td><%= user.email %></td>
+        </tbody>
+        <% end %>
+      </table>
+      <%= link_to "Ajouter un compte", new_user_path %>
 
     </div>
   </div>

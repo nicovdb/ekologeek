@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 
   resources :formulaires
 
-  resources :users, only: [:show, :edit, :update], path: "utilisateurs" do
+  resources :users, only: [:show, :edit, :update, :new, :create], path: "utilisateurs" do
     member do
       patch "unknown"
       put "unknown"

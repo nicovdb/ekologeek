@@ -26,6 +26,7 @@ class CollectsController < ApplicationController
 
   def index
     @collects = current_user.collects
+    @users = current_user.company.users
   end
 
   def edit
