@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get '/plan' => 'pages#plan'
   get '/contact' => 'pages#contact'
   get '/politique' => 'pages#politique_de_confidentialite'
+  get '/tableau_de_bord' => 'pages#tableau_de_bord'
+  get '/donnees' => 'pages#donnees'
   get '/candidature_confirmation' => 'pages#end_of_form'
   get '/post_inscription' => 'pages#post_inscription'
   get 'dossier_de_mecenat', to: "pages#dossier_de_mecenat"
