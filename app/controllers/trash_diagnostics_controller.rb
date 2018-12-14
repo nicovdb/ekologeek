@@ -1,4 +1,7 @@
 class TrashDiagnosticsController < ApplicationController
+
+  layout "connected"
+  
   def new
     @trash_diagnostic = TrashDiagnostic.new
   end
