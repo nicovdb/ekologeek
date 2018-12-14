@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  layout "home"
+  layout :pages_layout
   # skip_before_action :authenticate_user!, only: [:home]
 
   def dossier_de_mecenat
@@ -19,5 +19,11 @@ class PagesController < ApplicationController
 
   def cgv
     send_file "#{Rails.root}/app/assets/documents/cgv.pdf", type: "application/pdf", x_sendfile: true
+  end
+
+  private
+
+  def pages_layout
+    user_signed_in? ? "connected" : "home"
   end
 end

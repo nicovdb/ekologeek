@@ -1,5 +1,7 @@
 class BinsController < ApplicationController
 
+  layout "connected"
+
   def new
     @bin = Bin.new
     @trashes = Trash.where(display: true)
@@ -14,17 +16,14 @@ class BinsController < ApplicationController
       @new_trash = Trash.new(name: trash_name)
       @new_trash.save
     end
-
     @bin = Bin.new(bin_params)
     @bin.company = current_user.company
     @bin.trashes << @new_trash
-
     if @bin.save
       redirect_to root_path
     else
       render :new
     end
-
   end
 
   private

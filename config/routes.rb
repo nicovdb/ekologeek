@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
-  root to: 'pages#home'
+  authenticated :user do
+    root :to => 'pages#tableau_de_bord'
+  end
+  root :to => 'pages#home'
 
   get '/pourquoi' => 'pages#pourquoi'
   get '/comment' => 'pages#comment'
@@ -12,6 +15,7 @@ Rails.application.routes.draw do
   get '/plan' => 'pages#plan'
   get '/contact' => 'pages#contact'
   get '/politique' => 'pages#politique_de_confidentialite'
+  get '/tableau_de_bord' => 'pages#tableau_de_bord'
   get '/candidature_confirmation' => 'pages#end_of_form'
   get '/post_inscription' => 'pages#post_inscription'
   get 'dossier_de_mecenat', to: "pages#dossier_de_mecenat"
@@ -27,7 +31,7 @@ Rails.application.routes.draw do
 
   resources :formulaires
 
-  resources :users, only: [:show, :edit, :update], path: "utilisateurs" do
+  resources :users, only: [:show, :edit, :update, :new, :create], path: "utilisateurs" do
     member do
       patch "unknown"
       put "unknown"
@@ -35,7 +39,8 @@ Rails.application.routes.draw do
   end
 
   resources :bins, only: [:new, :create]
-  resources :collects, only: [:new, :create, :edit, :update]
+  get "/donnees", to: "collects#index", as: "donnees"
+  resources :collects, only: [:new, :create, :edit, :update, :destroy]
   resources :trash_diagnostics, only: [:new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
