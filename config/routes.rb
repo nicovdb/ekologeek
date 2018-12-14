@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
-  root to: 'pages#home'
+  authenticated :user do
+    root :to => 'pages#tableau_de_bord'
+  end
+  root :to => 'pages#home'
 
   get '/pourquoi' => 'pages#pourquoi'
   get '/comment' => 'pages#comment'
