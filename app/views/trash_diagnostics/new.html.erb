@@ -1,9 +1,13 @@
-<div class="container">
 
-  <%= simple_form_for @trash_diagnostic do |f| %>
-    <%= f.input :annual_cost %>
-    <%= f.input :reduction_objective %>
-    <%= f.button :submit %>
-  <% end %>
-
+<div class="wrapper">
+  <div class="container">
+    <div class="container-soutenir">
+      <h1 class="header text-primary pt-5 text-center">DIAGNOSTIC</h1>
+      <%= simple_form_for @trash_diagnostic do |f| %>
+        <%= f.input :annual_cost %>
+        <%= f.input :reduction_objective %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
 </div>

@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="container">
     <div class="container-soutenir">
-      <h1 class="header text-primary pt-5 text-center">Faire un relevé</h1>
+      <h1 class="header text-primary pt-5 text-center">Modifier</h1>
       <%= simple_form_for @collect do |f| %>
 
         <%= f.input :bin_id, collection: @bins, label: "Choisir un bac" %>
@@ -10,7 +10,7 @@
         <%= f.input :end_at, label: false %>
         <%= f.input :filled_rate, collection: [["0%", 0], ["25%", 25], ["50%", 50], ["75%", 75], ["100%", 100], ["125%", 125], ["150%", 150]], label_method: :first, value_method: :second, label: "Taux de remplissage du bac" %>
         <%= f.input :comment, label: "Commentaire" %>
-        <%= f.button :submit, "Enregistrer un relevé" %>
+        <%= f.button :submit, "Enregistrer les modifications" %>
 
       <% end %>
     </div>
