@@ -2,24 +2,43 @@
   <div class="container">
     <div class="container-soutenir">
       <h1 class="header text-primary pt-5 text-center">DONNÉES</h1>
+      <h2 class="green-bg mt-5">Déchets de fonctionnement de votre structure</h2>
+      <div class="d-flex justify-content-around mt-5">
+        <%= link_to "Réaliser votre diagnostic", new_trash_diagnostic_path, class:"btn btn-primary" %>
+        <%= link_to "Saisir un relevé", new_collect_path, class:"btn btn-primary" %>
+        <%= link_to "Ajouter un bac", new_bin_path, class:"btn btn-primary" %>
+      </div>
 
-      <%= link_to "Réaliser votre diagnostic", new_trash_diagnostic_path, class:"btn btn-primary" %>
-      <%= link_to "Saisir un relevé", new_collect_path, class:"btn btn-primary" %>
-      <%= link_to "Ajouter un bac", new_bin_path, class:"btn btn-primary" %>
-      <% @collects.each do |collect| %>
-        <p><%= collect.bin.name %>
-        <%= collect.start_at %>
-        <%= collect.end_at %>
-        <%= collect.filled_rate %>
-        <%= collect.end_at %>
-        <%= link_to "Modifier", edit_collect_path(collect), class: "btn btn-primary" %>
-        <%= link_to "Supprimer", collect_path(collect),
-                                method: :delete,
-                                class: "btn btn-danger",
-                                data: { confirm: "Êtes-vous sûr ?"}
-        %>
-      </p>
-      <% end %>
+
+      <table class="mt-5">
+        <thead>
+          <tr>
+            <th> Type de bacs</th>
+            <th> Début de période de relevée</th>
+            <th> Fin de période de relevée</th>
+            <th> Taux de remplissage</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <% @collects.each do |collect| %>
+        <tbody>
+          <td  class="gray" ><%= collect.bin.name %></td>
+          <td><%= collect.start_at %></td>
+          <td  class="gray" ><%= collect.end_at %></td>
+          <td><%= collect.filled_rate %></td>
+          <td  class="gray" ><%= link_to "Modifier", edit_collect_path(collect), class: "btn btn-primary" %></td>
+          <td>
+            <%= link_to "Supprimer", collect_path(collect),
+                                    method: :delete,
+                                    class: "btn btn-danger",
+                                    data: { confirm: "Êtes-vous sûr ?"}
+            %>
+          </td>
+        </tbody>
+        <% end %>
+      </table>
+
 
     </div>
   </div>
