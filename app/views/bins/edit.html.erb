@@ -1,4 +1,4 @@
-<%= simple_form_for bin, url: bins_path, method: :post do |f| %>
+<%= simple_form_for @bin do |f| %>
 
   <%= f.input :name, label: "Nom de la poubelle" %>
   <%= f.input :shared, as: :boolean, label: "Ce bac est-il utilisé par d'autres structures ? (cochez si oui)" %>
@@ -15,17 +15,15 @@
   <% end %>
   <%= f.input :collector, label: "Qui collecte ce flux ?" %>
   <p>Que jetez-vous dans ce·s bac·s ?</p>
-  <%= f.collection_check_boxes :trash_ids, trashes, :id, :name do |input| %>
+  <%= f.collection_check_boxes :trash_ids, @trashes, :id, :name do |input| %>
     <label class="mx-2 mb-3">
       <%= input.check_box %>
       <%= input.text %>
     </label>
   <% end %>
-  <%= f.simple_fields_for trash do |trash|%>
+  <%= f.simple_fields_for @trash do |trash|%>
     <%= trash.input :name, label: "Autre déchet" %>
   <% end %>
   <%= f.input :cost, label: "Quel est le coût annuel de ce flux (si disponible) ?" %>
-  <div class="d-flex justify-content-center mt-4 mb-5">
-    <%= f.button :submit, "Valider", class:"btn btn-primary bold" %>
-  </div>
+  <%= f.button :submit, "Valider", class:"btn btn-primary" %>
 <% end %>

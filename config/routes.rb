@@ -38,9 +38,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :bins, only: [:new, :create]
-  get "/donnees", to: "collects#index", as: "donnees"
+  resources :bins, only: [:new, :create, :edit, :update, :destroy]
   resources :collects, only: [:new, :create, :edit, :update, :destroy]
+  get "/donnees", to: "collects#index", as: "donnees"
   resources :trash_diagnostics, only: [:new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -2,11 +2,14 @@
   <div class="container">
     <div class="container-soutenir">
       <h1 class="header text-primary pt-5 text-center">DONNÉES</h1>
+      <h2 class="green-bg mt-5">Diagnostics</h2>
+      <p class='mb-0 mt-4'>Les diagnostics doivent nécessairement être réalisés avant le 15 février 2019. Au-delà de cette date, ils ne seront plus modifiables.</p>
+      <p>Cliquez sur les boutons ci-dessous pour accéder aux pages de diagnostics :</p>
+      <p> <%= link_to "Diagnostic technique Structure", new_trash_diagnostic_path, class:"btn btn-primary bold" %></p>
       <h2 class="green-bg mt-5">Déchets de fonctionnement de votre structure</h2>
       <div class="d-flex justify-content-around mt-4">
-        <%= link_to "Réaliser votre diagnostic", new_trash_diagnostic_path, class:"btn btn-primary bold" %>
         <%= link_to "Saisir un relevé", new_collect_path, class:"btn btn-primary bold" %>
-        <%= link_to "Ajouter un bac", new_bin_path, class:"btn btn-primary bold" %>
+        <%= link_to "Gérer les bacs", new_bin_path, class:"btn btn-primary bold" %>
       </div>
       <table class="mt-4">
         <thead>
@@ -21,21 +24,21 @@
           </tr>
         </thead>
         <% @collects.each do |collect| %>
-        <tbody>
-          <td  class="gray" ><%= collect.bin.name %></td>
-          <td><%= collect.start_at.strftime("%d/%m/%y") %></td>
-          <td  class="gray" ><%= collect.end_at.strftime("%d/%m/%y") %></td>
-          <td><%= collect.filled_rate %>%</td>
-          <td><%= collect.comment %></td>
-          <td  class="gray" ><%= link_to "Modifier", edit_collect_path(collect), class: "btn btn-primary" %></td>
-          <td>
-            <%= link_to "Supprimer", collect_path(collect),
-                                    method: :delete,
-                                    class: "btn btn-danger",
-                                    data: { confirm: "Êtes-vous sûr ?"}
-            %>
-          </td>
-        </tbody>
+          <tbody>
+            <td  class="gray" ><%= collect.bin.name %></td>
+            <td><%= collect.start_at.strftime("%d/%m/%y") %></td>
+            <td  class="gray" ><%= collect.end_at.strftime("%d/%m/%y") %></td>
+            <td><%= collect.filled_rate %>%</td>
+            <td><%= collect.comment %></td>
+            <td  class="gray" ><%= link_to "Modifier", edit_collect_path(collect), class: "btn btn-primary" %></td>
+            <td>
+              <%= link_to "Supprimer", collect_path(collect),
+                                      method: :delete,
+                                      class: "btn btn-danger",
+                                      data: { confirm: "Êtes-vous sûr ?"}
+              %>
+            </td>
+          </tbody>
         <% end %>
       </table>
       <h2 class="green-bg mt-5">Utilisateur·ice·s de votre structure</h2>

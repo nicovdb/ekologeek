@@ -6,6 +6,7 @@ class BinsController < ApplicationController
     @bin = Bin.new
     @trashes = Trash.where(display: true)
     @trash = Trash.new
+    @bins = current_user.company.bins
   end
 
   def create
@@ -20,10 +21,34 @@ class BinsController < ApplicationController
     @bin.company = current_user.company
     @bin.trashes << @new_trash
     if @bin.save
-      redirect_to root_path
+      redirect_to new_bin_path
     else
       render :new
     end
+  end
+
+  def edit
+    @bin = Bin.find(params[:id])
+    @trashes = Trash.where(display: true)
+    @trash = Trash.new
+    @bins = current_user.company.bins
+  end
+
+  def update
+    @bin = Bin.find(params[:id])
+    @trashes = Trash.where(display: true)
+    @bin.update_attributes(bin_params)
+    if @bin.save
+      redirect_to new_bin_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @bin = Bin.find(params[:id])
+    @bin.destroy
+    redirect_to new_bin_path
   end
 
   private
