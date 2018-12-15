@@ -13,7 +13,7 @@ Notre équipe se tient à votre disposition pour vous aider dans votre candidatu
 
 Cliquez sur le lien ci-dessous pour activer votre compte :
 
-<%= link_to t('.action'), new_user_password_url(@user) %>
+<%= link_to t('.action'), edit_password_url(@user, reset_password_token: @token) %>
 
 Écologiquement, l'équipe Défi.
 <%= devise_image_tag("logo.jpg", alt:"logo") %>
