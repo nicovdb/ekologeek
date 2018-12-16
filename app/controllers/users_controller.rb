@@ -81,7 +81,8 @@ class UsersController < ApplicationController
       :confirmation_token,
       :confirmation_sent_at,
       :password,
-      :deleted
+      :deleted,
+      :created_by_referent
     )
   end
 
