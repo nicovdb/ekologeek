@@ -18,7 +18,7 @@ class CollectsController < ApplicationController
       @collect.status = "suivi"
     end
     if @collect.save
-      redirect_to root_path
+      redirect_to donnees_path
     else
       render :new
     end

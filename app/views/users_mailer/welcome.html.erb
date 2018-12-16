@@ -13,7 +13,9 @@ Date limite d'envoi du formulaire : 31 décembre 2018.</p>
 
 <p>Cliquez sur le lien ci-dessous pour activer votre compte : </p>
 
-<p><%= link_to t('.action'), new_user_password_url(@user) %></p>
+<p><%= link_to t('.action'), edit_password_url(@user, reset_password_token: @token)%></p>
+
 
 <p>Écologiquement, l'équipe Défi.</p>
 <%= devise_image_tag("logo.jpg", alt:"logo") %>
+
