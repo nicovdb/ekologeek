@@ -12,9 +12,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     generated_password = Devise.friendly_token.first(10)
     @user.password = generated_password
+
     @user.company = current_user.company
-    if @user.save!
-      UsersMailer.welcome(@user, generated_password).deliver
+    if @user.save
+      @user.send_reset_password_instructions
       redirect_to donnees_path
     else
       render :new

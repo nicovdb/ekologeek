@@ -2,9 +2,9 @@ class UsersMailer < ApplicationMailer
   helper :application
   # include Devise::Controllers::UrlHelpers
 
-  def welcome(user, password)
+  def welcome(user, token)
     @user = user
-    @password = password
+    @token = token
     mail(to: @user.email, subject:  "Votre compte a été créé !")
   end
 
