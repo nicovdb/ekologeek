@@ -1,7 +1,9 @@
 class ChartsController < ApplicationController
 
-  layout "connected"
+  layout "charts"
 
   def index
+    @collects = Collect.all
+    @bins = Bin.all
   end
 end

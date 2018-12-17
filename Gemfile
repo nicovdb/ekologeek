@@ -22,6 +22,8 @@ gem 'wicked'
 gem 'devise-i18n'
 gem 'activeadmin'
 gem 'arctic_admin'
+gem "chartkick"
+gem "groupdate"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
