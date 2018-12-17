@@ -2,8 +2,37 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 
-puts "Crée les flux"
-trashes = ["Ordures ménagères résiduelles (Bordeaux Métropole : bac noir)",
+# puts "Crée les flux"
+# trashes = ["Ordures ménagères résiduelles (Bordeaux Métropole : bac noir)",
+# "Déchets recyclables (Bordeaux Métropole : bac vert)",
+# "Verre",
+# "Déchets alimentaires (marc de café, thé, reste de repas...)",
+# "Mégots",
+# "Papiers",
+# "Carton",
+# "Canettes",
+# "Stylos",
+# "Cartouches d’encre",
+# "Piles et batteries",
+# "Lampes",
+# "Déchets d’équipements électriques et électronique (DEEE)",
+# "Consommables d’impression",
+# "Bois",
+# "Palettes",
+# "Mobilier de bureau",
+# "Plastique (emballages, bouteilles, gobelets)",
+# "Films et emballages plastique",
+# "Polystyrène",
+# "Bouteilles en plastique",
+# "Gobelets en papier / carton",
+# "Gobelets en plastique"]
+# trashes.each do |trash|
+#   Trash.create(name: trash, display: true)
+# end
+# puts "flux créés"
+
+puts "bin types en cours de créa"
+bin_types = ["Ordures ménagères résiduelles (Bordeaux Métropole : bac noir)",
 "Déchets recyclables (Bordeaux Métropole : bac vert)",
 "Verre",
 "Déchets alimentaires (marc de café, thé, reste de repas...)",
@@ -26,10 +55,10 @@ trashes = ["Ordures ménagères résiduelles (Bordeaux Métropole : bac noir)",
 "Bouteilles en plastique",
 "Gobelets en papier / carton",
 "Gobelets en plastique"]
-trashes.each do |trash|
-  Trash.create(name: trash, display: true)
+bin_types.each do |bin_type|
+  BinType.create(name: bin_type, density: 0.4)
 end
-puts "flux créés"
+puts "bin types créés"
 
 # if Rails.env.development?
 

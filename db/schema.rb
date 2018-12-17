@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_13_143439) do
+ActiveRecord::Schema.define(version: 2018_12_17_134924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,13 @@ ActiveRecord::Schema.define(version: 2018_12_13_143439) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "bin_types", force: :cascade do |t|
+    t.string "name"
+    t.float "density"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "bins", force: :cascade do |t|
     t.bigint "company_id"
     t.integer "volume"
@@ -55,10 +62,11 @@ ActiveRecord::Schema.define(version: 2018_12_13_143439) do
     t.integer "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
     t.integer "frequency_number"
     t.string "frequency_periodicity"
     t.string "frequency_day"
+    t.bigint "bin_type_id"
+    t.index ["bin_type_id"], name: "index_bins_on_bin_type_id"
     t.index ["company_id"], name: "index_bins_on_company_id"
   end
 
@@ -437,6 +445,7 @@ ActiveRecord::Schema.define(version: 2018_12_13_143439) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bins", "bin_types"
   add_foreign_key "bins", "companies"
   add_foreign_key "collects", "bins"
   add_foreign_key "companies", "projects"

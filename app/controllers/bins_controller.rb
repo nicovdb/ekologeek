@@ -54,7 +54,7 @@ class BinsController < ApplicationController
   private
 
   def bin_params
-    params.require(:bin).permit(:name,
+    params.require(:bin).permit(:bin_type_id,
                                 :shared,
                                 :volume,
                                 :cost,

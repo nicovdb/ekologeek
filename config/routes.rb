@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   authenticated :user do
-    root :to => 'pages#tableau_de_bord'
+    root :to => 'charts#index'
   end
   root :to => 'pages#home'
 

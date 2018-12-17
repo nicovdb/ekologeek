@@ -1,15 +1,17 @@
 class CollectsController < ApplicationController
 
-  before_action :set_bins, only: [:new, :create, :edit, :update]
+  before_action :set_bins, only: [ :edit, :update]
 
   layout "connected"
 
   def new
     @collect = Collect.new
+    @bins = Bin.all
   end
 
   def create
     @collect = Collect.new(collect_params)
+    @bins = Bin.all
     if @collect.end_at <= current_user.company.project.diagnostic_end_at
       @collect.status = "diagnostic"
     elsif @collect.start_at >= current_user.company.project.bilan_start_at

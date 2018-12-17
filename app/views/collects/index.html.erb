@@ -25,7 +25,7 @@
         </thead>
         <% @collects.each do |collect| %>
           <tbody>
-            <td  class="gray" ><%= collect.bin.name %></td>
+            <td  class="gray" ><%= collect.bin.bin_type.name %></td>
             <td><%= collect.start_at.strftime("%d/%m/%y") %></td>
             <td  class="gray" ><%= collect.end_at.strftime("%d/%m/%y") %></td>
             <td><%= collect.filled_rate %>%</td>

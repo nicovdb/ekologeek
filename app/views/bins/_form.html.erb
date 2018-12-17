@@ -1,6 +1,6 @@
 <%= simple_form_for bin, url: bins_path, method: :post do |f| %>
 
-  <%= f.input :name, label: "Nom de la poubelle" %>
+  <%= f.input :bin_type_id, collection: BinType.all, label_method: :name, value_method: :id, label: "Choisissez un bac"  %>
   <%= f.input :shared, as: :boolean, label: "Ce bac est-il utilisé par d'autres structures ? (cochez si oui)" %>
   <%= f.input :volume, label: "Quel est le volume de ce bac ?  Cette réponse est indispensable pour évaluer votre production de déchets. Si vous ne trouvez pas cette information, vous pouvez prendre des mesures et le calculer. En cas de problème, indiquez “00” et contactez-nous", collection: [["10L", 10], ["20L", 20], ["30L", 30], ["35L", 35], ["40L", 40], ["50L", 50], ["80L", 80], ["120L", 120], ["180L", 180], ["240L", 240], ["340L", 340], ["500L", 500], ["660L", 660], ["770L", 770], ["1100L", 1100]], label_method: :first, value_method: :second %>
   <p>A quelle fréquence ce flux est-il collecté ?</p>

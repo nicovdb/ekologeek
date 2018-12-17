@@ -19,15 +19,15 @@
         </thead>
         <% @bins.each do |bin| %>
         <tbody>
-          <td><%= bin.name %></td>
+          <td><%= bin.bin_type.name  %></td>
           <td><%= bin.shared %></td>
-          <td><%= bin.volume %></td>
+          <td><%= bin.volume %>L</td>
           <td><%= bin.frequency_number %> <%= bin.frequency_periodicity %> <%= bin.frequency_day %> </td>
           <td> <%= bin.collector %> </td>
           <td><% bin.trashes.each do |trash| %>
              <%= trash.name %>,
           <% end %></td>
-          <td> <%= bin.cost %> </td>
+          <td> <%= bin.cost %>€ </td>
           <td><%= link_to "Modifier", edit_bin_path(bin), class: "btn btn-primary" %></td>
           <td>
             <%= link_to "Supprimer", bin_path(bin),
