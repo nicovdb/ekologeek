@@ -19,6 +19,7 @@ class CollectsController < ApplicationController
     else
       @collect.status = "suivi"
     end
+    @collect.weight_person_day = @collect.add_weight_person_day
     if @collect.save
       redirect_to donnees_path
     else

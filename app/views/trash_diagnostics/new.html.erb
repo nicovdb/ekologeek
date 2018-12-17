@@ -4,6 +4,7 @@
     <div class="container-soutenir">
       <h1 class="header text-primary pt-5 text-center">DIAGNOSTIC</h1>
       <%= simple_form_for @trash_diagnostic do |f| %>
+        <%= f.input :employees_nb %>
         <%= f.input :annual_cost %>
         <%= f.input :reduction_objective %>
         <%= f.button :submit %>
