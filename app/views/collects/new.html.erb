@@ -4,7 +4,7 @@
       <h1 class="header text-primary pt-5 text-center">Faire un relevé</h1>
       <%= simple_form_for @collect do |f| %>
 
-        <%= f.input :bin_id, collection: @bins, label: "Choisir un bac" %>
+        <%= f.input :bin_id, collection: @bins.map {|bin| [bin.bin_type.name, bin.id] } , label_method: :first, value_method: :last, label: "Choisir un bac" %>
         <p>Période du relevé : début et fin</p>
         <%= f.input :start_at, label: false %>
         <%= f.input :end_at, label: false %>
@@ -16,3 +16,4 @@
     </div>
   </div>
 </div>
+

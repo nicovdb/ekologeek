@@ -1,15 +1,17 @@
 class CollectsController < ApplicationController
 
-  before_action :set_bins, only: [:new, :create, :edit, :update]
+  before_action :set_bins, only: [ :edit, :update]
 
   layout "connected"
 
   def new
     @collect = Collect.new
+    @bins = Bin.all
   end
 
   def create
     @collect = Collect.new(collect_params)
+    @bins = Bin.all
     if @collect.end_at <= current_user.company.project.diagnostic_end_at
       @collect.status = "diagnostic"
     elsif @collect.start_at >= current_user.company.project.bilan_start_at
@@ -17,6 +19,7 @@ class CollectsController < ApplicationController
     else
       @collect.status = "suivi"
     end
+    @collect.weight_person_day = @collect.add_weight_person_day
     if @collect.save
       redirect_to donnees_path
     else

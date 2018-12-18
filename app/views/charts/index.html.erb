@@ -1,10 +1,10 @@
-<% require 'chartkick' %>
-
 <div class="wrapper">
   <div class="container">
     <div class="container-soutenir">
       <h1 class="header text-primary pt-5 text-center">TABLEAU DE BORD</h1>
-      <%= line_chart User.group_by_day(:created_at).count %>
+      <%= line_chart @bins.map { |bin|
+        {name: bin.bin_type.name, data: bin.collects.group(:weight_person_day).count}
+      } %>
     </div>
   </div>
 </div>

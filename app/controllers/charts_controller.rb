@@ -5,5 +5,6 @@ class ChartsController < ApplicationController
   def index
     @collects = Collect.all
     @bins = Bin.all
+    @bin_types = current_user.bin_types
   end
 end
