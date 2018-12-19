@@ -42,5 +42,7 @@ Rails.application.routes.draw do
   get "/donnees", to: "collects#index", as: "donnees"
   resources :trash_diagnostics, only: [:new, :create]
   resources :charts, only: :index, path: "tableau_de_bord"
+
+  get "kilo_per_employee_per_day" => "charts#kilo_per_employee_per_day"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
