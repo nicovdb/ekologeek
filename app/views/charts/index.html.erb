@@ -2,9 +2,29 @@
   <div class="container">
     <div class="container-soutenir">
       <h1 class="header text-primary pt-5 text-center">TABLEAU DE BORD</h1>
-      <%= line_chart @bins.map { |bin|
-        {name: bin.bin_type.name, data: bin.collects.group(:weight_person_day).count}
-      } %>
+      <%= line_chart kilo_per_employee_per_day_path, library: {
+          chart: {
+            backgroundColor: '#F4F4F4',
+            type: 'line'
+          },
+          title: { text: 'Evolution de votre structure'},
+          yAxis: {
+            lineColor: '#000000',
+            lineWidth: 3,
+            title: {
+              text: 'Kg / collaborateur·rice / jour moyen',
+            },
+          },
+          xAxis: {
+            crosshair: true,
+            lineColor: '#000000',
+            lineWidth: 3,
+            title: {
+              text: 'Temps',
+            },
+          },
+        }
+      %>
     </div>
   </div>
 </div>
