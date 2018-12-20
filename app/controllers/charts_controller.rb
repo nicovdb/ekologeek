@@ -3,10 +3,7 @@ class ChartsController < ApplicationController
   layout "charts"
 
   def index
-    @collects = Collect.all
-    @bins = current_user.bins
-    @bin_types = BinType.all
-    @companies = Company.all
+
   end
 
   def kilo_per_employee_per_day
@@ -16,12 +13,16 @@ class ChartsController < ApplicationController
                 JOIN bin_types ON bin_types.id = bins.bin_type_id
                 WHERE companies.id = #{current_user.company.id}"
     @collects = ActiveRecord::Base.connection.execute(sql)
-    values = @collects.values
-    @types = values.map { |value| value[3]}.uniq
-    render json: @types.map { |type|
+    @types_collects = @collects.group_by { |collect| collect["name"]}
+    render json: @series = @types_collects.map { |type_collects|
+      @data = []
+      @start_at = type_collects[1].map { |type_collect| [type_collect["start_at"], type_collect["weight_person_day"]]}
+      @end_at = type_collects[1].map { |type_collect| [type_collect["end_at"], type_collect["weight_person_day"]]}
+      @data << @start_at
+      @data << @end_at
       {
-        name: type,
-        data: @collects.select { |k, v| k["name"]  == type}.group_by_day { |d| d["start_at"] }.sum {|k, v| v[0]["weight_person_day"] }
+        name: type_collects.first,
+        data: @data.flatten(1)
       }
     }
   end
