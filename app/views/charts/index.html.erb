@@ -2,7 +2,9 @@
   <div class="container">
     <div class="container-soutenir">
       <h1 class="header text-primary pt-5 text-center">TABLEAU DE BORD</h1>
-      <%= line_chart @series, type: 'xrange'%>
+      <%= line_chart kilo_per_employee_per_day_path, library: {
+        title: { text: "test"}
+      }%>
     </div>
   </div>
 </div>
