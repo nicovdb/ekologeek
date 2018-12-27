@@ -1,0 +1,33 @@
+<div class="container bg-white">
+  <h1 class="mt-5 mb-4 header text-primary text-center">DIAGNOSTIC COMPORTEMENTAL INDIVIDUEL</h1>
+
+
+  <p class="text-center mt-4">Progression : <b>page 3 sur 5</b> </p>
+  <div class="dots d-flex justify-content-center">
+    <span class="blue"></span>
+    <span class="blue"></span>
+    <span class="blue"></span>
+    <span class=""></span>
+    <span class=""></span>
+  </div>
+  <h2 class="mt-4 mb-4 green-bg">?</h2>
+
+  <%= simple_form_for(@user_behaviour_diag, method: :put, url: wizard_path) do |f| %>
+    <p class="mt-4"><b>13. </b>Vous avez connaissance du contexte des déchets (enjeux, problématiques…) ?</p>
+    <%= f.collection_radio_buttons :context_knowledge, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
+      <label class="mx-2 mb-3">
+        <%= input.radio_button %>
+        <%= input.text %>
+      </label>
+    <% end %>
+
+    <%= f.input :context_knowledge_comment, class: "hidden-comment"%>
+
+    <div class="d-flex justify-content-around mb-5 mt-4">
+      <%= link_to "< Précédent", previous_wizard_path, class:"btn btn-primary bold" %>
+      <%= f.button :submit, "Suivant >", class:"btn btn-primary bold" %>
+    </div>
+
+  <% end %>
+
+</div>

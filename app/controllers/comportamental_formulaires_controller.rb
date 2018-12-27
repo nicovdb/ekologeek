@@ -53,7 +53,14 @@ class ComportamentalFormulairesController < ApplicationController
       :home_sorting_order,
       :home_sorting_applied,
       :home_trash_reduction,
-      :home_trash_reduction_comment
+      :home_trash_reduction_comment,
+      :context_knowledge,
+      :context_knowledge_comment,
+      :concerned,
+      :favorable_reduction,
+      :crappy_reduction,
+      :trash_reduction_hard,
+      :dedicated_employee
     )
   end
 
