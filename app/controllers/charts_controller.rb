@@ -3,7 +3,6 @@ class ChartsController < ApplicationController
   layout "charts"
 
   def index
-
   end
 
   def kilo_per_employee_per_day
