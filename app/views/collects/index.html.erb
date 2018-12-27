@@ -6,7 +6,13 @@
       <p class='mb-0 mt-4'>Les diagnostics doivent nécessairement être réalisés avant le 15 février 2019. Au-delà de cette date, ils ne seront plus modifiables.</p>
       <p>Cliquez sur les boutons ci-dessous pour accéder aux pages de diagnostics :</p>
       <p> <%= link_to "Diagnostic technique Structure", new_trash_diagnostic_path, class:"btn btn-primary bold" %></p>
-      <%= link_to "Formulaire comportemental", comportamental_formulaire_path(current_user), class:"btn btn-primary bold" %>
+
+      <% if current_user.user_behaviour_diag.nil? %>
+        <%= link_to "Faire mon formulaire comportemental", new_comportamental_formulaire_path, class:"btn btn-primary bold" %>
+      <% else %>
+        <%= link_to "Formulaire comportemental", comportamental_formulaire_path(current_user.user_behaviour_diag.step), class:"btn btn-primary bold" %>
+      <% end %>
+
       <h2 class="green-bg mt-5">Déchets de fonctionnement de votre structure</h2>
       <div class="d-flex justify-content-around mt-4">
         <%= link_to "Saisir un relevé", new_collect_path, class:"btn btn-primary bold" %>
