@@ -24,6 +24,7 @@ gem 'activeadmin'
 gem 'arctic_admin'
 gem "chartkick"
 gem "groupdate"
+gem "cocoon"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
