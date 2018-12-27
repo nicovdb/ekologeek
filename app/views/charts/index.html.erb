@@ -1,4 +1,6 @@
 <script src="https://code.highcharts.com/modules/xrange.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
 
 <div class="wrapper">
   <div class="container">
@@ -18,7 +20,7 @@
     Highcharts.chart('testchart', {
         chart: {
             type: 'xrange',
-            styledMode: true
+            // styledMode: true
         },
         title: {
             text: 'Highcharts X-range'
@@ -27,11 +29,11 @@
             type: 'datetime'
         },
         yAxis: {
-            title: {
-                text: ''
-            },
-            categories: ['Prototyping', 'Development', 'Testing'],
-            reversed: true
+            // title: {
+            //     text: ''
+            // },
+            // categories: ['Prototyping', 'Development', 'Testing'],
+            // reversed: true
         },
         series: [{
             name: 'Project 1',
