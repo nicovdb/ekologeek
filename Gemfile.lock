@@ -305,6 +305,7 @@ DEPENDENCIES
   groupdate
   inline_svg
   jbuilder (~> 2.0)
+  jquery-rails
   letter_opener
   listen (~> 3.0.5)
   pg (~> 0.21)

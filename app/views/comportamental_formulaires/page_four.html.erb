@@ -1,26 +1,17 @@
 <div class="container bg-white">
   <h1 class="mt-5 mb-4 header text-primary text-center">DIAGNOSTIC COMPORTEMENTAL INDIVIDUEL</h1>
 
-  <p class="text-center mt-4">Progression : <b>page 3 sur 5</b> </p>
+  <p class="text-center mt-4">Progression : <b>page 4 sur 5</b> </p>
   <div class="dots d-flex justify-content-center">
     <span class="blue"></span>
     <span class="blue"></span>
     <span class="blue"></span>
-    <span class=""></span>
+    <span class="blue"></span>
     <span class=""></span>
   </div>
   <h2 class="mt-4 mb-4 green-bg">?</h2>
 
   <%= simple_form_for(@user_behaviour_diag, method: :put, url: wizard_path) do |f| %>
-    <div id='priority-action'>
-      <%= f.simple_fields_for :priority_actions do |priority_action| %>
-        <%= render 'priority_action_fields', f: priority_action %>
-      <% end %>
-      <div class='links'>
-        <%= link_to_add_association 'Rajouter une action', f , :priority_actions, render_options: { render: '_priority_action_fields' } %>
-      </div>
-    </div>
-
     <div class="d-flex justify-content-around mb-5 mt-4">
       <%= link_to "< Précédent", previous_wizard_path, class:"btn btn-primary bold" %>
       <%= f.button :submit, "Suivant >", class:"btn btn-primary bold" %>
