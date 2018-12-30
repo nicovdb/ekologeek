@@ -19,8 +19,8 @@ class ChartsController < ApplicationController
         "#44CFCB", "#4EA5D9", "#224870", "#122C34", "#F96900", "#7A4419", "#755C1B" ]
       data = type_collects[1].map { |type_collect|
         {
-          x: (type_collect["start_at"].to_time.to_i * 1000),
-          x2: (type_collect["end_at"].to_time.to_i * 1000),
+          x: (type_collect["start_at"].to_time.to_i * 1000 + 3600000),
+          x2: (type_collect["end_at"].to_time.to_i * 1000 + 3600000),
           y: type_collect["weight_person_day"],
           color: colors[index]
         }
@@ -45,8 +45,8 @@ class ChartsController < ApplicationController
         "#44CFCB", "#4EA5D9", "#224870", "#122C34", "#F96900", "#7A4419", "#755C1B" ]
       data = company_collects[1].map { |company_collect|
         {
-          x: (company_collect["start_at"].to_time.to_i * 1000),
-          x2: (company_collect["end_at"].to_time.to_i * 1000),
+          x: (company_collect["start_at"].to_time.to_i * 1000 + 3600000),
+          x2: (company_collect["end_at"].to_time.to_i * 1000 + 3600000),
           y: company_collect["weight_person_day"],
           color: colors[index]
         }
@@ -58,7 +58,7 @@ class ChartsController < ApplicationController
     }
 
 
-    #calculs de poids moyens
+    #calculs de poids moyens pour recap
     @total_weight = 0
     @days_and_weight_per_type_per_person = @types_collects.map {|type_collects|
       days = 0

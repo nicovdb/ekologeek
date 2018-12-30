@@ -58,6 +58,15 @@
           text: 'Kg / collaborateur·rice / jour moyen'
         }
       },
+      tooltip: {
+        shared: true,
+        useHTML: true,
+        // headerFormat: '<small>{point.key}</small><table>',
+        pointFormat: '<tr><td style="color: {series.color}">{series.name}: </td>' +
+            '<td style="text-align: right"><b>{point.y} Kg/personne/jour</b></td></tr>',
+        footerFormat: '</table>',
+        valueDecimals: 2
+    },
       series: JSON.parse(document.getElementById("companychart").dataset.series)
     });
 
@@ -77,6 +86,15 @@
         title: {
           text: 'Kg / collaborateur·rice / jour moyen'
         }
+      },
+      tooltip: {
+        shared: true,
+        useHTML: true,
+        // headerFormat: '<small>{point.key}</small><table>',
+        pointFormat: '<tr><td style="color: {series.color}">{series.name}: </td>' +
+            '<td style="text-align: right"><b>{point.y} Kg/personne/jour</b></td></tr>',
+        footerFormat: '</table>',
+        valueDecimals: 2
       },
       series: JSON.parse(document.getElementById("adminchart").dataset.series)
     });
