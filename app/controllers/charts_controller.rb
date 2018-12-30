@@ -4,8 +4,6 @@ class ChartsController < ApplicationController
 
   def index
     #données des séries pour le graphique récapitulatif de chaque structure
-    ##il faut reprendre ce code en changeant légérement la requete sql pour permettre à l'admin
-    ##de choisir l'entreprise qu'il veut voir parmi une liste déroulante
     sql = "SELECT start_at, end_at, weight_person_day, bin_types.name FROM collects
                 JOIN bins ON bins.id = collects.bin_id
                 JOIN companies ON companies.id = bins.company_id
@@ -58,8 +56,8 @@ class ChartsController < ApplicationController
     }
 
 
-    #calculs de poids moyens pour recap
-    @total_weight = 0
+    #calculs de poids moyens pour recap par type pour une entreprise
+    @total_weight_per_company = 0
     @days_and_weight_per_type_per_person = @types_collects.map {|type_collects|
       days = 0
       weight = 0
@@ -67,8 +65,21 @@ class ChartsController < ApplicationController
         days += (type_collect["end_at"].to_date - type_collect["start_at"].to_date)
         weight += ((type_collect["end_at"].to_date - type_collect["start_at"].to_date) * type_collect["weight_person_day"])
       }
-      @total_weight += weight
+      @total_weight_per_company += weight
       [type_collects.first, days, weight]
+    }
+
+  #calculs de poids moyens pour recap par entreprise
+    @total_weight = 0
+    @days_and_weight_per_company_per_person = @companies_collects.map {|company_collects|
+      days = 0
+      weight = 0
+      company_collects[1].map { |company_collect|
+        days += (company_collect["end_at"].to_date - company_collect["start_at"].to_date)
+        weight += ((company_collect["end_at"].to_date - company_collect["start_at"].to_date) * company_collect["weight_person_day"])
+      }
+      @total_weight += weight
+      [company_collects.first, days, weight]
     }
   end
 end

@@ -18,22 +18,29 @@
         </div>
       <% end %>
 
-      <!-- graph reprenant tout seulement pour les admin -->
+      <!-- graph reprenant tout seulement pour les admin, à voir pour essayer d'y intégrer aussi les types de déchets -->
       <% if current_user.admin %>
         <h4 class="text-center bold">TOUTES LES STRUCTURES</h4>
         <div id='adminchart' data-series="<%= @admin_series.to_json %>"></div>
+        <p>Récapitulatif</p>
+        <% @days_and_weight_per_company_per_person.each do |company|  %>
+        <p> <%= company[0] %> : <%= (company[2] / company[1]).round %> Kg par employé par jour en moyenne pour <%= company[1].to_i %> jours suivis </p>
+        <% end %>
+        <b>Soit un total de <%= @total_weight.round %> Kg par employé depuis le début du défi</b>
         <hr class="my-5">
         <h4 class="text-center bold">STRUCTURE 1 (à rendre dynamique pour permettre de choisir la structure)</h4>
       <% end %>
 
-      <!-- Ici s'affiche le graphique par entreprise, les données sont données via data-series -->
+      <!-- Ici s'affiche le graphique par entreprise, les données sont récupérées via data-series -->
       <div id='companychart' data-series="<%= @series.to_json %>"></div>
 
+      <!-- On va leur mettre le recap en dur (faudra presenter joli) à la place du total dans le graph pour lequel je ne vois aucune methode -->
       <p>Récapitulatif</p>
       <% @days_and_weight_per_type_per_person.each do |type|  %>
       <p> <%= type[0] %> : <%= (type[2] / type[1]).round %> Kg par employé par jour en moyenne pour <%= type[1].to_i %> jours suivis </p>
       <% end %>
-      <b>Soit un total de <%= @total_weight.round %> Kg par employé depuis le début du défi</b>
+      <b>Soit un total de <%= @total_weight_per_company.round %> Kg par employé depuis le début du défi</b>
+      <!-- reste aussi à comparer le diag avec le présent de façon dynamique -->
     </div>
   </div>
 </div>
@@ -44,8 +51,7 @@
     //graph par entreprise
     Highcharts.chart('companychart', {
       chart: {
-        type: 'xrange',
-        // styledMode: true
+        type: 'xrange'
       },
       title: {
         text: ''
@@ -73,8 +79,7 @@
     //graph total pour les admin
     Highcharts.chart('adminchart', {
       chart: {
-        type: 'xrange',
-        // styledMode: true
+        type: 'xrange'
       },
       title: {
         text: ''
