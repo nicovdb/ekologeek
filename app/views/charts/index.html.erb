@@ -1,74 +1,37 @@
 <script src="https://code.highcharts.com/modules/xrange.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<!-- <script src="https://code.highcharts.com/modules/exporting.js"></script> -->
 
 
 <div class="wrapper">
   <div class="container">
     <div class="container-soutenir">
       <h1 class="header text-primary pt-5 text-center">TABLEAU DE BORD</h1>
-      <%= line_chart kilo_per_employee_per_day_path, library: {
-        title: { text: "test"}
-      }%>
+      <h2 class="green-bg my-4">Production de déchets de fonctionnement</h2>
+      <div id='testchart' data-series="<%= @series.to_json %>"></div>
     </div>
   </div>
 </div>
 
-<div id='testchart'></div>
 
 <script>
   document.addEventListener("DOMContentLoaded", function(event) {
     Highcharts.chart('testchart', {
-        chart: {
-            type: 'xrange',
-            // styledMode: true
-        },
+      chart: {
+        type: 'xrange',
+      },
+      title: {
+        text: ''
+      },
+      xAxis: {
+        type: 'datetime'
+      },
+      yAxis: {
         title: {
-            text: 'Highcharts X-range'
-        },
-        xAxis: {
-            type: 'datetime'
-        },
-        yAxis: {
-            // title: {
-            //     text: ''
-            // },
-            // categories: ['Prototyping', 'Development', 'Testing'],
-            // reversed: true
-        },
-        series: [{
-            name: 'Project 1',
-            // pointPadding: 0,
-            // groupPadding: 0,
-            pointWidth: 20,
-            data: [{
-                x: Date.UTC(2014, 10, 21),
-                x2: Date.UTC(2014, 11, 2),
-                y: 0,
-            }, {
-                x: Date.UTC(2014, 11, 2),
-                x2: Date.UTC(2014, 11, 5),
-                y: 1
-            }, {
-                x: Date.UTC(2014, 11, 8),
-                x2: Date.UTC(2014, 11, 9),
-                y: 2
-            }, {
-                x: Date.UTC(2014, 11, 9),
-                x2: Date.UTC(2014, 11, 19),
-                y: 1
-            }, {
-                x: Date.UTC(2014, 11, 10),
-                x2: Date.UTC(2014, 11, 23),
-                y: 2
-            }],
-            // dataLabels: {
-            //     enabled: true
-            // }
-        }]
-
+          text: 'Kg / collaborateur·rice / jour moyen'
+        }
+      },
+      series: JSON.parse(document.getElementById("testchart").dataset.series)
     });
-
   });
-
 </script>
 
