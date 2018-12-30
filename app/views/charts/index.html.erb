@@ -7,7 +7,15 @@
     <div class="container-soutenir">
       <h1 class="header text-primary pt-5 text-center">TABLEAU DE BORD</h1>
       <h2 class="green-bg my-4">Production de déchets de fonctionnement</h2>
+      <div class="text-center">
+        <%= link_to "Saisir un relevé", new_collect_path, class:"btn btn-primary bold" %>
+      </div>
       <div id='testchart' data-series="<%= @series.to_json %>"></div>
+      <p>Récapitulatif</p>
+      <% @days_and_weight_per_type_per_person.each do |type|  %>
+      <p> <%= type[0] %> : <%= type[2].round %> Kg par employé par jour en moyenne pour <%= type[1].to_i %> jours suivis </p>
+      <% end %>
+      <b>Soit un total de <%= @total_weight.round %> Kg par employé depuis le début du défi</b>
     </div>
   </div>
 </div>
