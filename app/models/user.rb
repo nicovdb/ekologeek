@@ -56,4 +56,8 @@ class User < ApplicationRecord
   def admin?(current_user)
     current_user.admin
   end
+
+  def referent?
+    self.company.referent.user == self
+  end
 end
