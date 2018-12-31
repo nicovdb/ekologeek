@@ -28,7 +28,12 @@ class CollectsController < ApplicationController
   end
 
   def index
-    @collects = current_user.collects
+
+    if current_user.admin
+      @collects = Collect.all.order(id: :desc)
+    else
+      @collects = current_user.collects
+    end
     @users = current_user.company.users
   end
 

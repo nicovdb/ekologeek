@@ -21,6 +21,9 @@
         <table class="mt-4">
           <thead>
             <tr class="text-center">
+              <% if current_user.admin %>
+                <th>Structure</th>
+              <% end %>
               <th> Type de bacs</th>
               <th> Début de période de relevée</th>
               <th> Fin de période de relevée</th>
@@ -36,6 +39,9 @@
           </thead>
           <% @collects.each do |collect| %>
             <tbody>
+              <% if current_user.admin %>
+                <td> <%= collect.bin.company.name %></td>
+              <% end %>
               <td><%= collect.bin.bin_type.name %></td>
               <td><%= collect.start_at.strftime("%d/%m/%y") %></td>
               <td><%= collect.end_at.strftime("%d/%m/%y") %></td>
