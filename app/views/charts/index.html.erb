@@ -6,7 +6,7 @@
 
 
 <div class="wrapper">
-  <div class="container">
+  <div class="container bg-white mb-5 pb-5">
     <div class="container-soutenir">
       <h1 class="header text-primary pt-5 text-center">TABLEAU DE BORD</h1>
       <h2 class="green-bg my-4">Production de déchets de fonctionnement</h2>
@@ -18,10 +18,11 @@
         </div>
       <% end %>
 
-      <!-- graph reprenant tout seulement pour les admin, à voir pour essayer d'y intégrer aussi les types de déchets -->
+      <!-- graph reprenant tout seulement pour les admin-->
       <% if current_user.admin %>
         <h4 class="text-center bold">TOUTES LES STRUCTURES</h4>
         <div id='adminchart' data-series="<%= @admin_series.to_json %>"></div>
+        <!-- solution de secours à la place des totaux dans le graphique -->
         <p>Récapitulatif</p>
         <% @days_and_weight_per_company_per_person.each do |company|  %>
         <p> <%= company[0] %> : <%= (company[2] / company[1]).round %> Kg par employé par jour en moyenne pour <%= company[1].to_i %> jours suivis </p>
