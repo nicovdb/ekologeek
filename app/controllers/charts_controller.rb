@@ -71,7 +71,7 @@ class ChartsController < ApplicationController
       [type_collects.first, days, weight]
     }
 
-  #calculs de poids moyens pour recap par entreprise
+    #calculs de poids moyens pour recap par entreprise (pour admin)
     @total_weight = 0
     @days_and_weight_per_company_per_person = @companies_collects.map {|company_collects|
       days = 0
