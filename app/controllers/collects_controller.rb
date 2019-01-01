@@ -6,12 +6,12 @@ class CollectsController < ApplicationController
 
   def new
     @collect = Collect.new
-    @bins = Bin.all
+    @bins = current_user.bins
   end
 
   def create
     @collect = Collect.new(collect_params)
-    @bins = Bin.all
+    @bins = current_user.bins
     if @collect.end_at <= current_user.company.project.diagnostic_end_at
       @collect.status = "diagnostic"
     elsif @collect.start_at >= current_user.company.project.bilan_start_at
@@ -28,7 +28,12 @@ class CollectsController < ApplicationController
   end
 
   def index
-    @collects = current_user.collects
+
+    if current_user.admin
+      @collects = Collect.all.order(id: :desc)
+    else
+      @collects = current_user.collects
+    end
     @users = current_user.company.users
   end
 
