@@ -47,7 +47,7 @@ class ComportamentalFormulairesController < ApplicationController
         new_reason =  NoAppReason.create(reason: params.dig(:user_behaviour_diag, :other_label))
         @user_behaviour_diag.no_app_reasons << new_reason
       end
-      
+
       if params.dig(:user_behaviour_diag, :autre_label).present?
         new_reason =  AppReason.create(reason: params.dig(:user_behaviour_diag, :autre_label))
         @user_behaviour_diag.app_reasons << new_reason
@@ -55,6 +55,7 @@ class ComportamentalFormulairesController < ApplicationController
 
     when :page_five
       @user_behaviour_diag.page_five = true
+      form_params = step_five_params
     end
 
     @user_behaviour_diag.update_attributes(form_params)
@@ -94,6 +95,15 @@ class ComportamentalFormulairesController < ApplicationController
 
   def step_four_params
     params.require(:user_behaviour_diag).permit(no_app_reason_ids: [], app_reason_ids: [] )
+  end
+
+  def step_five_params
+    params.require(:user_behaviour_diag).permit(
+        :favorable_reduction,
+        :sexe,
+        :age,
+        :seniority
+      )
   end
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_02_112842) do
+ActiveRecord::Schema.define(version: 2019_01_02_123305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -391,6 +391,9 @@ ActiveRecord::Schema.define(version: 2019_01_02_112842) do
     t.boolean "page_five", default: false
     t.string "favorable_reduction"
     t.string "crappy_reduction"
+    t.string "sexe"
+    t.integer "age"
+    t.integer "seniority"
     t.index ["user_id"], name: "index_user_behaviour_diags_on_user_id"
   end
 
