@@ -16,6 +16,8 @@ class ComportamentalFormulairesController < ApplicationController
   def show
     @user = current_user
     @user_behaviour_diag = @user.user_behaviour_diag
+    @no_app_reasons = NoAppReason.public_only + [ OpenStruct.new({ id: 0, name: "Autre", other: true }) ]
+    @app_reasons = AppReason.public_only + [ OpenStruct.new({ id: 0, name: "Autre", autre: true }) ]
     @priority_action = PriorityAction.new(user_behaviour_diag_id: @user_behaviour_diag.id )
     # @priority_action.save
     @priority_actions = @user_behaviour_diag.priority_action_ids
@@ -40,11 +42,22 @@ class ComportamentalFormulairesController < ApplicationController
       form_params = step_three_params
     when :page_four
       @user_behaviour_diag.page_four = true
+      form_params = step_four_params
+      if params.dig(:user_behaviour_diag, :other_label).present?
+        new_reason =  NoAppReason.create(reason: params.dig(:user_behaviour_diag, :other_label))
+        @user_behaviour_diag.no_app_reasons << new_reason
+      end
+      
+      if params.dig(:user_behaviour_diag, :autre_label).present?
+        new_reason =  AppReason.create(reason: params.dig(:user_behaviour_diag, :autre_label))
+        @user_behaviour_diag.app_reasons << new_reason
+      end
+
     when :page_five
       @user_behaviour_diag.page_five = true
     end
-    @user_behaviour_diag.update_attributes(form_params)
 
+    @user_behaviour_diag.update_attributes(form_params)
     render_wizard @user_behaviour_diag
   end
 
@@ -77,6 +90,10 @@ class ComportamentalFormulairesController < ApplicationController
 
   def step_three_params
     params.require(:user_behaviour_diag).permit(priority_actions_attributes:{})
+  end
+
+  def step_four_params
+    params.require(:user_behaviour_diag).permit(no_app_reason_ids: [], app_reason_ids: [] )
   end
 
 

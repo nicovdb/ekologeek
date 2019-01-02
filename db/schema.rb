@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_27_134640) do
+ActiveRecord::Schema.define(version: 2019_01_02_112842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2018_12_27_134640) do
     t.string "reason"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "public", default: false
   end
 
   create_table "bin_types", force: :cascade do |t|
@@ -137,13 +138,13 @@ ActiveRecord::Schema.define(version: 2018_12_27_134640) do
     t.index ["user_behaviour_diag_id"], name: "index_diag_app_reasons_on_user_behaviour_diag_id"
   end
 
-  create_table "diag_no_app_reasons", force: :cascade do |t|
+  create_table "diag_no_ap_reasons", force: :cascade do |t|
     t.bigint "no_app_reason_id"
     t.bigint "user_behaviour_diag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["no_app_reason_id"], name: "index_diag_no_app_reasons_on_no_app_reason_id"
-    t.index ["user_behaviour_diag_id"], name: "index_diag_no_app_reasons_on_user_behaviour_diag_id"
+    t.index ["no_app_reason_id"], name: "index_diag_no_ap_reasons_on_no_app_reason_id"
+    t.index ["user_behaviour_diag_id"], name: "index_diag_no_ap_reasons_on_user_behaviour_diag_id"
   end
 
   create_table "dispositives", force: :cascade do |t|
@@ -256,6 +257,7 @@ ActiveRecord::Schema.define(version: 2018_12_27_134640) do
     t.string "reason"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "public", default: false
   end
 
   create_table "not_made_reasons", force: :cascade do |t|
@@ -462,8 +464,8 @@ ActiveRecord::Schema.define(version: 2018_12_27_134640) do
   add_foreign_key "diag_actions", "company_behaviours"
   add_foreign_key "diag_app_reasons", "app_reasons"
   add_foreign_key "diag_app_reasons", "user_behaviour_diags"
-  add_foreign_key "diag_no_app_reasons", "no_app_reasons"
-  add_foreign_key "diag_no_app_reasons", "user_behaviour_diags"
+  add_foreign_key "diag_no_ap_reasons", "no_app_reasons"
+  add_foreign_key "diag_no_ap_reasons", "user_behaviour_diags"
   add_foreign_key "form_company_know_hows", "company_know_hows"
   add_foreign_key "form_company_know_hows", "forms"
   add_foreign_key "form_dispositives", "dispositives"
