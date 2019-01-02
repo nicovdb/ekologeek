@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DiagNoAppReasonTest < ActiveSupport::TestCase
+class DiagNoApReasonTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

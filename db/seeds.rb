@@ -31,34 +31,83 @@
 # end
 # puts "flux créés"
 
-puts "bin types en cours de créa"
-bin_types = ["Ordures ménagères résiduelles (Bordeaux Métropole : bac noir)",
-"Déchets recyclables (Bordeaux Métropole : bac vert)",
-"Verre",
-"Déchets alimentaires (marc de café, thé, reste de repas...)",
-"Mégots",
-"Papiers",
-"Carton",
-"Canettes",
-"Stylos",
-"Cartouches d’encre",
-"Piles et batteries",
-"Lampes",
-"Déchets d’équipements électriques et électronique (DEEE)",
-"Consommables d’impression",
-"Bois",
-"Palettes",
-"Mobilier de bureau",
-"Plastique (emballages, bouteilles, gobelets)",
-"Films et emballages plastique",
-"Polystyrène",
-"Bouteilles en plastique",
-"Gobelets en papier / carton",
-"Gobelets en plastique"]
-bin_types.each do |bin_type|
-  BinType.create(name: bin_type, density: 0.4)
+# puts "bin types en cours de créa"
+# bin_types = ["Ordures ménagères résiduelles (Bordeaux Métropole : bac noir)",
+# "Déchets recyclables (Bordeaux Métropole : bac vert)",
+# "Verre",
+# "Déchets alimentaires (marc de café, thé, reste de repas...)",
+# "Mégots",
+# "Papiers",
+# "Carton",
+# "Canettes",
+# "Stylos",
+# "Cartouches d’encre",
+# "Piles et batteries",
+# "Lampes",
+# "Déchets d’équipements électriques et électronique (DEEE)",
+# "Consommables d’impression",
+# "Bois",
+# "Palettes",
+# "Mobilier de bureau",
+# "Plastique (emballages, bouteilles, gobelets)",
+# "Films et emballages plastique",
+# "Polystyrène",
+# "Bouteilles en plastique",
+# "Gobelets en papier / carton",
+# "Gobelets en plastique"]
+# bin_types.each do |bin_type|
+#   BinType.create(name: bin_type, density: 0.4)
+# end
+# puts "bin types créés"
+
+puts "destroy db UserBehaviourDiag - PriorityAction - NoAppReason"
+
+NoAppReason.destroy_all
+AppReason.destroy_all
+PriorityAction.destroy_all
+UserBehaviourDiag.destroy_all
+UserBehaviourResult.destroy_all
+
+
+
+puts "ok"
+
+puts "no app reason start"
+
+no_reason_types = [ "Pas de raison et/ou pas de besoin de changer mes habitudes",
+                "D'autres priorités à gérer",
+                "Trop contraignants (changement d'organisation, d’habitudes, de procédures...)",
+                "Peu / pas efficace",
+                "Raisons financières",
+                "Faute de temps",
+                "Manque de soutien de la hiérarchie / des collaborateur·rices",
+                "Manque d’information (intérêt, solutions, fournisseurs…)",
+                "N’y pense pas",
+                "Techniquement pas possible / compliqué (pas de poubelles, pas d’alternatives disponibles…)",
+
+]
+
+no_reason_types.each do |no_reason_type|
+  NoAppReason.create!(reason: no_reason_type, public: true)
 end
-puts "bin types créés"
+
+puts "no app reason end"
+
+puts "app_reason start"
+
+reason_types = [ "Réduire mes impacts sur l’environnement",
+                "Réduire les impacts de ma structure sur l’environnement",
+                "Faire des économies financières pour moi",
+                "Faire des économies financières pour ma structure",
+                "Obligation de ma structure",
+                "Participer à une démarche collective",
+]
+
+reason_types.each do |reason_type|
+  AppReason.create!(reason: reason_type, public: true)
+end
+
+puts "app reason end"
 
 # if Rails.env.development?
 

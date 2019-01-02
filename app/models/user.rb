@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :bin_types, through: :bins
 
   has_one :user_behaviour_diag, dependent: :destroy
+  has_one :user_behaviour_result, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable

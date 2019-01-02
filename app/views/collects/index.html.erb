@@ -9,6 +9,18 @@
       <% if current_user.referent? && current_user.company.trash_diagnostic.nil? %>
         <p> <%= link_to "Diagnostic technique Structure", new_trash_diagnostic_path, class:"btn btn-primary bold" %></p>
       <% end %>
+    
+      <% if current_user.user_behaviour_diag.nil? %>
+        <%= link_to "Faire mon formulaire comportemental", new_comportamental_formulaire_path, class:"btn btn-primary bold" %>
+      <% else %>
+        <%= link_to "Formulaire comportemental", comportamental_formulaire_path(:page_one), class:"btn btn-primary bold" %>
+      <% end %>
+
+      <% if current_user.user_behaviour_result.nil? %>
+        <%= link_to "Réaliser le formulaire - bilan comportemental", new_result_comportamental_formulaire_path, class:"btn btn-primary bold" %>
+      <% else %>
+        <%= link_to "Voir le formulaire - Bilan comportemental", result_comportamental_formulaire_path(:page_one), class:"btn btn-primary bold" %>
+      <% end %>
 
       <% if !current_user.company.trash_diagnostic.nil?  %>
         <h2 class="green-bg mt-5">Déchets de fonctionnement de votre structure</h2>
@@ -17,6 +29,7 @@
             <%= link_to "Saisir un relevé", new_collect_path, class:"btn btn-primary bold" %>
             <%= link_to "Gérer les bacs", new_bin_path, class:"btn btn-primary bold" %>
           </div>
+
         <% end %>
         <table class="mt-4">
           <thead>
@@ -98,4 +111,3 @@
     </div>
   </div>
 </div>
-
