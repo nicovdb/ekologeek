@@ -66,6 +66,9 @@ NoAppReason.destroy_all
 AppReason.destroy_all
 PriorityAction.destroy_all
 UserBehaviourDiag.destroy_all
+UserBehaviourResult.destroy_all
+
+
 
 puts "ok"
 

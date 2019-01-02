@@ -13,6 +13,12 @@
         <%= link_to "Formulaire comportemental", comportamental_formulaire_path(:page_one), class:"btn btn-primary bold" %>
       <% end %>
 
+      <% if current_user.user_behaviour_result.nil? %>
+        <%= link_to "Réaliser le formulaire - bilan comportemental", new_result_comportamental_formulaire_path, class:"btn btn-primary bold" %>
+      <% else %>
+        <%= link_to "Voir le formulaire - Bilan comportemental", result_comportamental_formulaire_path(:page_one), class:"btn btn-primary bold" %>
+      <% end %>
+
       <h2 class="green-bg mt-5">Déchets de fonctionnement de votre structure</h2>
       <div class="d-flex justify-content-around mt-4">
         <%= link_to "Saisir un relevé", new_collect_path, class:"btn btn-primary bold" %>

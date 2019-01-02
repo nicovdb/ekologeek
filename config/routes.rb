@@ -30,6 +30,7 @@ Rails.application.routes.draw do
 
   resources :formulaires
   resources :comportamental_formulaires, only: [ :show, :new, :edit, :update ]
+  resources :result_comportamental_formulaires, only: [ :show, :new, :edit, :update ]
 
   resources :users, only: [:show, :edit, :update, :new, :create], path: "utilisateurs" do
     member do

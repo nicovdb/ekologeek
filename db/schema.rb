@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_02_123305) do
+ActiveRecord::Schema.define(version: 2019_01_02_160440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -429,6 +429,12 @@ ActiveRecord::Schema.define(version: 2019_01_02_123305) do
     t.text "accompanier_comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "page_one", default: false
+    t.boolean "page_two", default: false
+    t.boolean "page_three", default: false
+    t.boolean "page_four", default: false
+    t.boolean "page_five", default: false
+    t.boolean "page_six", default: false
     t.index ["user_id"], name: "index_user_behaviour_results_on_user_id"
   end
 

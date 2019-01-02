@@ -105,6 +105,4 @@ class ComportamentalFormulairesController < ApplicationController
         :seniority
       )
   end
-
-
 end
