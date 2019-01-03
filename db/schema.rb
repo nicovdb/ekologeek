@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_02_160440) do
+ActiveRecord::Schema.define(version: 2019_01_03_140745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "action_mades", force: :cascade do |t|
+    t.string "action"
+    t.bigint "user_behaviour_result_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_behaviour_result_id"], name: "index_action_mades_on_user_behaviour_result_id"
+  end
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -253,6 +261,14 @@ ActiveRecord::Schema.define(version: 2019_01_02_160440) do
     t.index ["company_id"], name: "index_forms_on_company_id"
   end
 
+  create_table "no_action_mades", force: :cascade do |t|
+    t.string "action"
+    t.bigint "user_behaviour_result_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_behaviour_result_id"], name: "index_no_action_mades_on_user_behaviour_result_id"
+  end
+
   create_table "no_app_reasons", force: :cascade do |t|
     t.string "reason"
     t.datetime "created_at", null: false
@@ -264,6 +280,7 @@ ActiveRecord::Schema.define(version: 2019_01_02_160440) do
     t.string "reason"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "public", default: false
   end
 
   create_table "priority_actions", force: :cascade do |t|
@@ -400,9 +417,7 @@ ActiveRecord::Schema.define(version: 2019_01_02_160440) do
   create_table "user_behaviour_results", force: :cascade do |t|
     t.bigint "user_id"
     t.string "starting_month"
-    t.string "actions_made"
     t.text "actions_made_reasons"
-    t.string "actions_not_made"
     t.string "work_sorting_order"
     t.string "work_sorting_applied"
     t.string "work_trash_reduction"
@@ -435,6 +450,9 @@ ActiveRecord::Schema.define(version: 2019_01_02_160440) do
     t.boolean "page_four", default: false
     t.boolean "page_five", default: false
     t.boolean "page_six", default: false
+    t.string "actions_not_made_comment"
+    t.string "favorable_reduction"
+    t.string "crappy_reduction"
     t.index ["user_id"], name: "index_user_behaviour_results_on_user_id"
   end
 
@@ -465,6 +483,7 @@ ActiveRecord::Schema.define(version: 2019_01_02_160440) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "action_mades", "user_behaviour_results"
   add_foreign_key "bins", "bin_types"
   add_foreign_key "bins", "companies"
   add_foreign_key "collects", "bins"
@@ -484,6 +503,7 @@ ActiveRecord::Schema.define(version: 2019_01_02_160440) do
   add_foreign_key "form_trash_working_types", "forms"
   add_foreign_key "form_trash_working_types", "trash_working_types"
   add_foreign_key "forms", "companies"
+  add_foreign_key "no_action_mades", "user_behaviour_results"
   add_foreign_key "priority_actions", "user_behaviour_diags"
   add_foreign_key "referents", "companies"
   add_foreign_key "referents", "users"
