@@ -64,6 +64,9 @@ puts "destroy db UserBehaviourDiag - PriorityAction - NoAppReason"
 
 NoAppReason.destroy_all
 AppReason.destroy_all
+ActionMade.destroy_all
+NoActionMade.destroy_all
+NotMadeReason.destroy_all
 PriorityAction.destroy_all
 UserBehaviourDiag.destroy_all
 UserBehaviourResult.destroy_all
@@ -88,7 +91,7 @@ no_reason_types = [ "Pas de raison et/ou pas de besoin de changer mes habitudes"
 ]
 
 no_reason_types.each do |no_reason_type|
-  NoAppReason.create!(reason: no_reason_type, public: true)
+  NoAppReason.create(reason: no_reason_type, public: true)
 end
 
 puts "no app reason end"
@@ -104,10 +107,31 @@ reason_types = [ "Réduire mes impacts sur l’environnement",
 ]
 
 reason_types.each do |reason_type|
-  AppReason.create!(reason: reason_type, public: true)
+  AppReason.create(reason: reason_type, public: true)
 end
 
 puts "app reason end"
+
+puts "not made reason start"
+
+not_made_reason_types = [ "Pas de raison et/ou pas de besoin de changer mes habitudes",
+                "D'autres priorités à gérer",
+                "Trop contraignants (changement d'organisation, d’habitudes, de procédures...)",
+                "Peu / pas efficace",
+                "Raisons financières",
+                "Faute de temps",
+                "Manque de soutien de la hiérarchie / des collaborateur·rices",
+                "Manque d’information (intérêt, solutions, fournisseurs…)",
+                "N’y pense pas",
+                "Techniquement pas possible / compliqué (pas de poubelles, pas d’alternatives disponibles…)"
+
+]
+
+not_made_reason_types.each do |not_made_reason_type|
+  NotMadeReason.create(reason: not_made_reason_type, public: true)
+end
+
+
 
 # if Rails.env.development?
 

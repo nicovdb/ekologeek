@@ -1,10 +1,10 @@
 <div class="container bg-white">
   <h1 class="mt-5 mb-4 header text-primary text-center">BILAN COMPORTEMENTAL INDIVIDUEL</h1>
 
-  <p class="text-center mt-4">Progression : <b>page 1 sur 6</b> </p>
+  <p class="text-center mt-4">Progression : <b>page 2 sur 6</b> </p>
   <div class="dots d-flex justify-content-center">
     <span class="blue"></span>
-    <span class=""></span>
+    <span class="blue"></span>
     <span class=""></span>
     <span class=""></span>
     <span class=""></span>
@@ -13,12 +13,17 @@
 
   <%= simple_form_for(@user_behaviour_result, method: :put, url: wizard_path) do |f| %>
     <p class="mt-4"><b>2. </b>Parmi les actions mises en place durant le Défi Zéro Déchet des Pros, quelle·s est·sont celle·s que vous pratiquez personnellement ?</p>
-    <%= f.collection_radio_buttons :starting_month, ["Janvier", "Février", "Avril", "Mai",  "Juin"], :to_s, :to_s do |input| %>
-      <label class="mx-2 mb-3">
-        <%= input.radio_button %>
-        <%= input.text %>
-      </label>
-    <% end %>
+    <div id='priority-action'>
+      <%= f.simple_fields_for :action_mades do |action_made| %>
+        <%= render 'action_made_fields', f: action_made %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'Rajouter une action', f , :action_mades, render_options: { render: '_action_made_fields' } %>
+      </div>
+    </div>
+
+    <p class="mt-4"><b>3. </b>Pour quelle·s raison·s le·s pratiquez-vous ?</p>
+      <%= f.input :actions_made_reasons, label: false  %>
     <div class="d-flex justify-content-around mb-5 mt-4">
       <%= link_to "< Précédent", previous_wizard_path, class:"btn btn-primary bold" %>
       <%= f.button :submit, "Suivant >", class:"btn btn-primary bold" %>

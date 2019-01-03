@@ -44,7 +44,10 @@ Pour chacune des propositions suivantes, veuillez indiquer dans quelle mesure el
         <%= input.text %>
       </label>
     <% end %>
-    <%= f.input :work_trash_reduction_comment, class: "hidden-comment"%>
+
+    <p class="mt-4"><b>3.1 </b>Dites nous en plus</p>
+    <%= f.input :work_trash_reduction_comment,label: false, placeholder: "Réponse courte"%>
+
 
 
     <p class="mt-4"><b>4. </b>Chez vous, vous connaissez les consignes de tri des déchets de votre territoire ?</p>
@@ -70,7 +73,9 @@ Pour chacune des propositions suivantes, veuillez indiquer dans quelle mesure el
         <%= input.text %>
       </label>
     <% end %>
-    <%= f.input :home_trash_reduction_comment, class: "hidden-comment"%>
+    <p class="mt-4"><b>6.1 </b>Dites nous en plus</p>
+    <%= f.input :home_trash_reduction_comment,label: false, placeholder: "Réponse courte"%>
+
 
     <div class="d-flex justify-content-end mb-5 mt-4">
       <%= f.button :submit, "Suivant >", class:"btn btn-primary bold" %>
