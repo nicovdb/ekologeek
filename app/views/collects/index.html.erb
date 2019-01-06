@@ -22,6 +22,12 @@
         <%= link_to "Voir le formulaire - Bilan comportemental", result_comportamental_formulaire_path(:start), class:"btn btn-primary bold" %>
       <% end %>
 
+      <% if current_user.company.company_behaviours.empty? %>
+        <%= link_to "Faire mon diagnostic comportemental de la structure", new_company_behaviour_diag_path, class:"btn btn-primary bold" %>
+      <% else %>
+        <%= link_to "Voir mon diagnostic comportemental de la structure", company_behaviour_diag_path(:step_one), class:"btn btn-primary bold" %>
+      <% end %>
+
       <% if !current_user.company.trash_diagnostic.nil?  %>
         <h2 class="green-bg mt-5">Déchets de fonctionnement de votre structure</h2>
         <% if current_user.referent? %>

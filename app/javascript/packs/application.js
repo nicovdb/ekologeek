@@ -7,3 +7,4 @@ import '../components/anchor.js';
 import '../components/add-bin.js';
 import '../components/chartkick.js';
 import '../components/x-range.js';
+import '../components/dropable.js';

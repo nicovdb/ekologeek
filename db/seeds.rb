@@ -60,7 +60,7 @@
 # end
 # puts "bin types créés"
 
-puts "destroy db UserBehaviourDiag - PriorityAction - NoAppReason"
+puts "destroy db "
 
 NoAppReason.destroy_all
 AppReason.destroy_all
@@ -70,6 +70,8 @@ NotMadeReason.destroy_all
 PriorityAction.destroy_all
 UserBehaviourDiag.destroy_all
 UserBehaviourResult.destroy_all
+DiagAction.destroy_all
+CompanyBehaviour.destroy_all
 
 
 

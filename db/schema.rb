@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_03_140745) do
+ActiveRecord::Schema.define(version: 2019_01_04_154917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -120,6 +120,9 @@ ActiveRecord::Schema.define(version: 2019_01_03_140745) do
     t.string "actions_nb_result"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "step_one", default: false
+    t.boolean "step_two", default: false
+    t.boolean "step_three", default: false
     t.index ["company_id"], name: "index_company_behaviours_on_company_id"
   end
 
@@ -134,6 +137,7 @@ ActiveRecord::Schema.define(version: 2019_01_03_140745) do
     t.bigint "company_behaviour_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "diag_action_comment"
     t.index ["company_behaviour_id"], name: "index_diag_actions_on_company_behaviour_id"
   end
 
