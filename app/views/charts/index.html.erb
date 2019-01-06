@@ -47,12 +47,15 @@
 </div>
 
 
-<script>
+
+<script type="module">
+
   document.addEventListener("DOMContentLoaded", function(event) {
     //graph par entreprise
     Highcharts.chart('companychart', {
       chart: {
-        type: 'xrange'
+        type: 'xrange',
+        styledMode: true
       },
       title: {
         text: ''
@@ -73,14 +76,15 @@
             '<td style="text-align: right">{point.y} Kg/personne/jour </td></tr>',
         footerFormat: '</table>',
         valueDecimals: 2
-    },
+      },
       series: JSON.parse(document.getElementById("companychart").dataset.series)
     });
 
     //graph total pour les admin
     Highcharts.chart('adminchart', {
       chart: {
-        type: 'xrange'
+        type: 'xrange',
+        styledMode: true
       },
       title: {
         text: ''
