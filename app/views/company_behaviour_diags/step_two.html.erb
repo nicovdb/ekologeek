@@ -29,7 +29,7 @@
       </label>
     <% end %>
 
-
+    <div>
       <p class="mt-4"><b>5.</b> Cet affichage est-il situé à des endroits stratégiques (à proximité des boites / poubelles / bacs...) ?</p>
       <%= f.collection_radio_buttons :strategic_display, ["Oui", "Non", "Non communiqué"], :to_s, :to_s do |input| %>
         <label class="mx-2 mb-3 first">
@@ -41,9 +41,10 @@
         <p class="mt-4"><b>5.1 </b> Dites nous en plus </p>
         <%= f.input :strategic_display_comment, label: false, placeholder: "Réponse courte" %>
       </div>
+    </div>
 
 
-
+    <div>
       <p class="mt-4"><b>6.</b> Lors de l'arrivée de nouveaux·lles salarié·e·s, sont-ils·elles informé·e·s de la gestion des déchets de la structure ?</p>
       <%= f.collection_radio_buttons :newbies_sensitized, ["Oui", "Non", "Non communiqué"], :to_s, :to_s do |input| %>
         <label class="mx-2 mb-3 first">
@@ -55,18 +56,20 @@
         <p class="mt-4"><b>6.1 </b> Dites nous en plus </p>
         <%= f.input :newbies_sensitized_comment, label: false, placeholder: "Réponse courte" %>
       </div>
+    </div>
 
-
-    <p class="mt-4"><b>7.</b>Les indicateurs de suivi des déchets (kg, tonnes, litres, m3, nb de bacs / container...) sont-ils communiqués à vous-même et à vos collaborateur·rice·s ?</p>
-    <%= f.collection_radio_buttons :indicators_communicated, ["Oui", "Non", "Non communiqué"], :to_s, :to_s do |input| %>
-      <label class="mx-2 mb-3 first">
-        <%= input.radio_button %>
-        <%= input.text %>
-      </label>
-    <% end %>
-    <div class="d-none dropable">
-      <p class="mt-4"><b>7.1 </b> Dites nous en plus </p>
-      <%= f.input :indicators_communicated_comment, label: false, placeholder: "Réponse courte" %>
+    <div>
+      <p class="mt-4"><b>7.</b>Les indicateurs de suivi des déchets (kg, tonnes, litres, m3, nb de bacs / container...) sont-ils communiqués à vous-même et à vos collaborateur·rice·s ?</p>
+      <%= f.collection_radio_buttons :indicators_communicated, ["Oui", "Non", "Non communiqué"], :to_s, :to_s do |input| %>
+        <label class="mx-2 mb-3 first">
+          <%= input.radio_button %>
+          <%= input.text %>
+        </label>
+      <% end %>
+      <div class="d-none dropable">
+        <p class="mt-4"><b>7.1 </b> Dites nous en plus </p>
+        <%= f.input :indicators_communicated_comment, label: false, placeholder: "Réponse courte" %>
+      </div>
     </div>
 
     <div class="d-flex justify-content-around mb-5 mt-4">
