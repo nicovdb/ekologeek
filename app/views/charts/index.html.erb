@@ -12,43 +12,48 @@
       <h2 class="green-bg my-4">Production de déchets de fonctionnement</h2>
 
       <!-- possibilité de saisir un relevé si on est référent mais pas admin -->
-      <% if current_user.referent? && !current_user.admin%>
-        <div class="text-center">
-          <%= link_to "Saisir un relevé", new_collect_path, class:"btn btn-primary bold" %>
-        </div>
+      <% if current_user.referent? && current_user.company.trash_diagnostic.nil? %>
+        <p>Vous devez réaliser le  <%= link_to "diagnostic de votre structure", new_trash_diagnostic_path %> pour pouvoir afficher un graphique.</p>
       <% end %>
 
-      <!-- graph reprenant tout seulement pour les admin-->
-      <% if current_user.admin %>
-        <h4 class="text-center bold">TOUTES LES STRUCTURES</h4>
-        <div id='adminchart' data-series="<%= @admin_series.to_json %>"></div>
-        <!-- solution de secours à la place des totaux dans le graphique -->
-        <p>Récapitulatif</p>
-        <% @days_and_weight_per_company_per_person.each do |company|  %>
-        <p> <%= company[0] %> : <%= (company[2] / company[1]).round %> Kg par employé par jour en moyenne pour <%= company[1].to_i %> jours suivis </p>
-        <% end %>
-        <b>Soit un total de <%= @total_weight.round %> Kg par employé depuis le début du défi</b>
-        <hr class="my-5">
+      <% if !current_user.company.trash_diagnostic.nil? %>
 
-
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Structure
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <% @companies.each do |company| %>
-              <p id="<%= company.id %>"><%= link_to company.name, chart_path(company.id), class: "dropdown-item", remote: true %></p>
-            <% end %>
+        <% if current_user.referent? && !current_user.admin%>
+          <div class="text-center">
+            <%= link_to "Saisir un relevé", new_collect_path, class:"btn btn-primary bold" %>
           </div>
-        </div>
+        <% end %>
+
+        <!-- graph reprenant tout seulement pour les admin-->
+        <% if current_user.admin %>
+          <h4 class="text-center bold">TOUTES LES STRUCTURES</h4>
+          <div id='adminchart' data-series="<%= @admin_series.to_json %>"></div>
+          <!-- solution de secours à la place des totaux dans le graphique -->
+          <p>Récapitulatif</p>
+          <% @days_and_weight_per_company_per_person.each do |company|  %>
+          <p> <%= company[0] %> : <%= (company[2] / company[1]).round %> Kg par employé par jour en moyenne pour <%= company[1].to_i %> jours suivis </p>
+          <% end %>
+          <b>Soit un total de <%= @total_weight.round %> Kg par employé depuis le début du défi</b>
+          <hr class="my-5">
 
 
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Structure
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <% @companies.each do |company| %>
+                <p id="<%= company.id %>"><%= link_to company.name, chart_path(company.id), class: "dropdown-item", remote: true %></p>
+              <% end %>
+            </div>
+          </div>
+
+
+        <% end %>
+
+        <!-- Ici s'affiche le graphique par entreprise, les données sont récupérées via data-series -->
+        <div id="values"></div>
       <% end %>
-
-      <!-- Ici s'affiche le graphique par entreprise, les données sont récupérées via data-series -->
-      <div id="values"></div>
-
-
     </div>
   </div>
 </div>
