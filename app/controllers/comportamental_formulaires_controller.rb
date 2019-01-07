@@ -39,7 +39,11 @@ class ComportamentalFormulairesController < ApplicationController
       form_params = step_two_params
     when :page_three
       @user_behaviour_diag.page_three = true
-      form_params = step_three_params
+      if params.dig(:user_behaviour_diag, :priority_actions_attributes).present?
+        form_params = step_three_params
+      else
+        form_params = {}
+      end
     when :page_four
       @user_behaviour_diag.page_four = true
       form_params = step_four_params
