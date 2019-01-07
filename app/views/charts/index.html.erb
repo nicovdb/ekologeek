@@ -58,34 +58,38 @@
 <script type="module">
   document.addEventListener("DOMContentLoaded", function(event) {
     //graph total pour les admin
-    Highcharts.chart('adminchart', {
-      chart: {
-        type: 'xrange',
-        styledMode: true
-      },
-      title: {
-        text: ''
-      },
-      xAxis: {
-        type: 'datetime'
-      },
-      yAxis: {
+    var adminChartDisplay = document.getElementById("adminchart");
+    if (adminChartDisplay) {
+      Highcharts.chart('adminchart', {
+        chart: {
+          type: 'xrange',
+          styledMode: true
+        },
         title: {
-          text: 'Kg / collaborateur·rice / jour moyen'
-        }
-      },
-      tooltip: {
-        shared: true,
-        useHTML: true,
-        // headerFormat: '<small>{point.key}</small><table>',
-        pointFormat: '<tr><td style="color: {series.color}"><b>{series.name}</b> / </td>' +
-            '<tr><td style="text-align: right">{point.type} : </td></tr>' +
-            '<td style="text-align: right">{point.y} Kg/personne/jour </td></tr>',
-        footerFormat: '</table>',
-        valueDecimals: 2
-      },
-      series: JSON.parse(document.getElementById("adminchart").dataset.series)
-    });
+          text: ''
+        },
+        xAxis: {
+          type: 'datetime'
+        },
+        yAxis: {
+          title: {
+            text: 'Kg / collaborateur·rice / jour moyen'
+          }
+        },
+        tooltip: {
+          shared: true,
+          useHTML: true,
+          // headerFormat: '<small>{point.key}</small><table>',
+          pointFormat: '<tr><td style="color: {series.color}"><b>{series.name}</b> / </td>' +
+              '<tr><td style="text-align: right">{point.type} : </td></tr>' +
+              '<td style="text-align: right">{point.y} Kg/personne/jour </td></tr>',
+          footerFormat: '</table>',
+          valueDecimals: 2
+        },
+        series: JSON.parse(adminChartDisplay.dataset.series)
+      });
+    }
+
 
     var valuesSpace = document.getElementById("values");
     var values = '<%= j render "charts/show", company: current_user.company, series: @series, total_weight_per_company: @total_weight_per_company, days_and_weight_per_type_per_person: @days_and_weight_per_type_per_person %>';
