@@ -36,7 +36,7 @@
       </div>
     </div>
     <div class="row mb-3">
-      <% if @user.dzd_checked?(@user) %>
+      <% if @user.dzd_checked? %>
         <div class="col-1">
           <%= inline_svg "check-circle.svg", width: 20, class:"mr-2" %>
         </div>
@@ -51,7 +51,7 @@
           <span>Oui, je veux recevoir la newsletter mensuelle de l’<%= link_to 'association Ekolo[geek]', partenaires_path, target: :blank, class:"cool-link" %> (ex. contenu : actualités, recette de saison, Acte ekolo[geek]...)</span>
         </div>
       <% end %>
-      <% if @user.ekg_checked?(@user) %>
+      <% if @user.ekg_checked? %>
         <div class="col-1">
           <%= inline_svg "check-circle.svg", width: 20, class:"mr-2" %>
         </div>
@@ -92,4 +92,3 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-
