@@ -42,20 +42,20 @@ class User < ApplicationRecord
     end
   end
 
-  def ekg_checked?(current_user)
-    current_user.newsletter_ekg
+  def ekg_checked?
+    self.newsletter_ekg
   end
 
-  def dzd_checked?(current_user)
-    current_user.newsletter_dzd
+  def dzd_checked?
+    self.newsletter_dzd
   end
 
   def name
     "#{first_name} #{last_name}"
   end
 
-  def admin?(current_user)
-    current_user.admin
+  def admin?
+    self.admin
   end
 
   def referent?

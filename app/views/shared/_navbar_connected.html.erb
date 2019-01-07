@@ -36,7 +36,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <%= link_to  "Profil", user_path(current_user), class:"dropdown-item text-primary"%>
-              <% if current_user.admin?(current_user) %>
+              <% if current_user.admin? %>
                 <%= link_to  "Admin", admin_root_path, class:"dropdown-item text-primary"%>
               <% end %>
               <%= link_to  "Déconnexion", destroy_user_session_path, method: :delete, class:"dropdown-item text-primary"%>
@@ -45,7 +45,7 @@
             <%= link_to "Mon compte", user_path(current_user), class: "nav-link dropdown-toggle", id:"navbarDropdownMenuLink", role:"button", ariahaspopup: true, ariaexpanded: false %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
               <%= link_to  "Profil", user_path(current_user), class:"dropdown-item text-primary"%>
-              <% if current_user.admin?(current_user) %>
+              <% if current_user.admin? %>
                 <%= link_to  "Admin", admin_root_path, class:"dropdown-item text-primary"%>
               <% end %>
               <%= link_to  "Déconnexion", destroy_user_session_path, method: :delete, class:"dropdown-item text-primary"%>
