@@ -19,7 +19,7 @@
       <% if !current_user.company.trash_diagnostic.nil? %>
 
         <% if current_user.referent? && !current_user.admin%>
-          <div class="text-center">
+          <div class="text-center mb-4">
             <%= link_to "Saisir un relevé", new_collect_path, class:"btn btn-primary bold" %>
           </div>
         <% end %>
@@ -38,7 +38,7 @@
 
 
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-primary bold dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Structure
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -52,7 +52,9 @@
         <% end %>
 
         <!-- Ici s'affiche le graphique par entreprise, les données sont récupérées via data-series -->
-        <div id="values"></div>
+        <% if !current_user.collects.empty? %>
+          <div id="values"></div>
+        <% end %>
       <% end %>
     </div>
   </div>
