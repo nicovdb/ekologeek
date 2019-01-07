@@ -29,19 +29,26 @@
         <% end %>
         <b>Soit un total de <%= @total_weight.round %> Kg par employé depuis le début du défi</b>
         <hr class="my-5">
-        <h4 class="text-center bold">STRUCTURE 1 (à rendre dynamique pour permettre de choisir la structure)</h4>
+
+
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Structure
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <% @companies.each do |company| %>
+              <p id="<%= company.id %>"><%= link_to company.name, chart_path(company.id), class: "dropdown-item", remote: true %></p>
+            <% end %>
+          </div>
+        </div>
+
+
       <% end %>
 
       <!-- Ici s'affiche le graphique par entreprise, les données sont récupérées via data-series -->
-      <div id='companychart' data-series="<%= @series.to_json %>"></div>
+      <div id="values"></div>
 
-      <!-- On va leur mettre le recap en dur (faudra presenter joli) à la place du total dans le graph pour lequel je ne vois aucune methode -->
-      <p>Récapitulatif</p>
-      <% @days_and_weight_per_type_per_person.each do |type|  %>
-      <p> <%= type[0] %> : <%= (type[2] / type[1]).round %> Kg par employé par jour en moyenne pour <%= type[1].to_i %> jours suivis </p>
-      <% end %>
-      <b>Soit un total de <%= @total_weight_per_company.round %> Kg par employé depuis le début du défi</b>
-      <!-- reste aussi à comparer le diag avec le présent de façon dynamique -->
+
     </div>
   </div>
 </div>
@@ -49,37 +56,7 @@
 
 
 <script type="module">
-
   document.addEventListener("DOMContentLoaded", function(event) {
-    //graph par entreprise
-    Highcharts.chart('companychart', {
-      chart: {
-        type: 'xrange',
-        styledMode: true
-      },
-      title: {
-        text: ''
-      },
-      xAxis: {
-        type: 'datetime'
-      },
-      yAxis: {
-        title: {
-          text: 'Kg / collaborateur·rice / jour moyen'
-        }
-      },
-      tooltip: {
-        shared: true,
-        useHTML: true,
-        // headerFormat: '<small>{point.key}</small><table>',
-        pointFormat: '<tr><td style="color: {series.color}"><b>{series.name}</b>: </td>' +
-            '<td style="text-align: right">{point.y} Kg/personne/jour </td></tr>',
-        footerFormat: '</table>',
-        valueDecimals: 2
-      },
-      series: JSON.parse(document.getElementById("companychart").dataset.series)
-    });
-
     //graph total pour les admin
     Highcharts.chart('adminchart', {
       chart: {
@@ -108,6 +85,39 @@
         valueDecimals: 2
       },
       series: JSON.parse(document.getElementById("adminchart").dataset.series)
+    });
+
+    var valuesSpace = document.getElementById("values");
+    var values = '<%= j render "charts/show", company: current_user.company, series: @series, total_weight_per_company: @total_weight_per_company, days_and_weight_per_type_per_person: @days_and_weight_per_type_per_person %>';
+
+    valuesSpace.innerHTML = values;
+
+    Highcharts.chart('companychart', {
+      chart: {
+        type: 'xrange',
+        styledMode: true
+      },
+      title: {
+        text: ''
+      },
+      xAxis: {
+        type: 'datetime'
+      },
+      yAxis: {
+        title: {
+          text: 'Kg / collaborateur·rice / jour moyen'
+        }
+      },
+      tooltip: {
+        shared: true,
+        useHTML: true,
+        // headerFormat: '<small>{point.key}</small><table>',
+        pointFormat: '<tr><td style="color: {series.color}"><b>{series.name}</b>: </td>' +
+            '<td style="text-align: right">{point.y} Kg/personne/jour </td></tr>',
+        footerFormat: '</table>',
+        valueDecimals: 2
+      },
+      series: JSON.parse(document.getElementById("companychart").dataset.series)
     });
 
   });

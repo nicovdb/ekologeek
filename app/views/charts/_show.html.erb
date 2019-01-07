@@ -1,0 +1,7 @@
+<h4 class="text-center bold"><%= company.name.upcase %></h4>
+<div id='companychart' data-series="<%= series.to_json %>"></div>
+<p>Récapitulatif</p>
+<% days_and_weight_per_type_per_person.each do |type|  %>
+  <p> <%= type[0] %> : <%= (type[2] / type[1]).round %> Kg par employé par jour en moyenne pour <%= type[1].to_i %> jours suivis </p>
+<% end %>
+<b>Soit un total de <%= total_weight_per_company.round %> Kg par employé depuis le début du défi</b>
