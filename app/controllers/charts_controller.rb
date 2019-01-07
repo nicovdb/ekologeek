@@ -11,23 +11,19 @@ class ChartsController < ApplicationController
                 WHERE companies.id = #{current_user.company.id}"
     @collects = ActiveRecord::Base.connection.execute(sql)
     @types_collects = @collects.group_by { |collect| collect["type"]}
-    @series = @types_collects.map.with_index { |type_collects, index|
-      colors = ["#7cb5ec", "#434348", "#90ed7d", "#f7a35c", "#8085e9", "#f15c80", "#e4d354", "#2b908f",
-        "#f45b5b", "#91e8e1", "#DB7F8E", "604D53", "#9DA3A4", "#FFC857", "#C5283D", "#255F85", "#481D24",
-        "#44CFCB", "#4EA5D9", "#224870", "#122C34", "#F96900", "#7A4419", "#755C1B" ]
-      data = type_collects[1].map { |type_collect|
+    @series = @types_collects.map do |type_collects|
+      data = type_collects[1].map do |type_collect|
         {
           x: (type_collect["start_at"].to_time.to_i * 1000 + 3600000),
           x2: (type_collect["end_at"].to_time.to_i * 1000 + 3600000),
-          y: type_collect["weight_person_day"],
-          color: colors[index]
+          y: type_collect["weight_person_day"]
         }
-      }
+      end
       {
         name: type_collects.first,
         data: data
       }
-    }
+    end
 
     #les données pour le graphique spécial admin avec toutes les structures
     admin_sql = "SELECT start_at, end_at, weight_person_day, companies.name AS company, bin_types.name AS type FROM collects
@@ -38,16 +34,12 @@ class ChartsController < ApplicationController
                 WHERE projects.id = #{current_user.company.project.id}"
     @admin_collects = ActiveRecord::Base.connection.execute(admin_sql)
     @companies_collects = @admin_collects.group_by { |collect| collect["company"]}
-    @admin_series = @companies_collects.map.with_index { |company_collects, index|
-      colors = ["#7cb5ec", "#434348", "#90ed7d", "#f7a35c", "#8085e9", "#f15c80", "#e4d354", "#2b908f",
-        "#f45b5b", "#91e8e1", "#DB7F8E", "604D53", "#9DA3A4", "#FFC857", "#C5283D", "#255F85", "#481D24",
-        "#44CFCB", "#4EA5D9", "#224870", "#122C34", "#F96900", "#7A4419", "#755C1B" ]
+    @admin_series = @companies_collects.map { |company_collects|
       data = company_collects[1].map { |company_collect|
         {
           x: (company_collect["start_at"].to_time.to_i * 1000 + 3600000),
           x2: (company_collect["end_at"].to_time.to_i * 1000 + 3600000),
           y: company_collect["weight_person_day"],
-          color: colors[index],
           type: company_collect["type"]
         }
       }
