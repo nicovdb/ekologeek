@@ -3,8 +3,6 @@
 
 <!-- Voilà un script qui fonctionne s'ils nous demandent de rajouter le téléchargement des graphs -->
 <!-- <script src="https://code.highcharts.com/modules/exporting.js"></script> -->
-
-
 <div class="wrapper">
   <div class="container bg-white mb-5 pb-5">
     <div class="container-soutenir">
@@ -30,10 +28,32 @@
           <div id='adminchart' data-series="<%= @admin_series.to_json %>"></div>
           <!-- solution de secours à la place des totaux dans le graphique -->
           <p>Récapitulatif</p>
-          <% @days_and_weight_per_company_per_person.each do |company|  %>
-          <p> <%= company[0] %> : <%= (company[2] / company[1]).round %> Kg par employé par jour en moyenne pour <%= company[1].to_i %> jours suivis </p>
-          <% end %>
-          <b>Soit un total de <%= @total_weight.round %> Kg par employé depuis le début du défi</b>
+
+          <table class="mt-4">
+            <thead>
+              <tr class="text-center">
+                <th> Structure</th>
+                <th> Kg/collaborateur/jour</th>
+                <th> Jours suivis </th>
+                <th> Poids total </th>
+              </tr>
+            </thead>
+            <% @days_and_weight_per_company_per_person.each do |company|  %>
+              <tbody>
+                <td><%= company[0] %></td>
+                <td><%= (company[2] / company[1]).round %></td>
+                <td><%= company[1].to_i  %></td>
+                <td><%= company[2].round %> Kg</td>
+              </tbody>
+            <% end %>
+            <tbody>
+              <td>Total</td>
+              <td>-</td>
+              <td>calculer le nombre de jours depuis le début</td>
+              <td><%= @total_weight.round %> Kg</td>
+            </tbody>
+          </table>
+
           <hr class="my-5">
 
 
