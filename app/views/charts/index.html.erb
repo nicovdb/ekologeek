@@ -49,7 +49,7 @@
             <tbody>
               <td>Total</td>
               <td>-</td>
-              <td>calculer le nombre de jours depuis le début</td>
+              <td>-</td>
               <td><%= @total_weight.round %> Kg</td>
             </tbody>
           </table>
@@ -75,6 +75,8 @@
         <% if !current_user.collects.empty? %>
           <div id="values"></div>
         <% end %>
+        <%=  (@residual_trash / @total_weight_per_company * 100).round %>%
+        <p>d'ordures ménagères résiduelles sur la production totale de déchets de fonctionnement</p>
       <% end %>
     </div>
   </div>

@@ -53,6 +53,7 @@ class ChartsController < ApplicationController
 
     #calculs de poids moyens pour recap par type pour une entreprise
     @total_weight_per_company = 0
+    @residual_trash = 0
     @days_and_weight_per_type_per_person = @types_collects.map {|type_collects|
       days = 0
       weight = 0
@@ -61,6 +62,9 @@ class ChartsController < ApplicationController
         weight += ((type_collect["end_at"].to_date - type_collect["start_at"].to_date) * type_collect["weight_person_day"])
       }
       @total_weight_per_company += weight
+      if type_collects.first == "Ordures ménagères résiduelles (Bordeaux Métropole : bac noir)"
+        @residual_trash = weight
+      end
       [type_collects.first, days, weight]
     }
 
