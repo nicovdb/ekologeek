@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
-  root to: 'pages#home'
+  authenticated :user do
+    root :to => 'charts#index'
+  end
+  root :to => 'pages#home'
 
   get '/pourquoi' => 'pages#pourquoi'
   get '/comment' => 'pages#comment'
@@ -26,12 +29,23 @@ Rails.application.routes.draw do
   resources :companies
 
   resources :formulaires
+  resources :comportamental_formulaires, only: [ :show, :new, :edit, :update ]
+  resources :result_comportamental_formulaires, only: [ :show, :new, :edit, :update ]
+  resources :company_behaviour_diags, only: [ :show, :new, :edit, :update ]
 
-  resources :users, only: [:show, :edit, :update], path: "utilisateurs" do
+  resources :users, only: [:show, :edit, :update, :new, :create], path: "utilisateurs" do
     member do
       patch "unknown"
       put "unknown"
     end
   end
+
+  resources :bins, only: [:new, :create, :edit, :update, :destroy]
+  resources :collects, only: [:new, :create, :edit, :update, :destroy]
+  get "/donnees", to: "collects#index", as: "donnees"
+  resources :trash_diagnostics, only: [:new, :create]
+  resources :charts, only: [:index, :show], path: "tableau_de_bord"
+
+  get "kilo_per_employee_per_day" => "charts#kilo_per_employee_per_day"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

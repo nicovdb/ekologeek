@@ -1,0 +1,82 @@
+<div class="container bg-white">
+  <h1 class="mt-5 mb-4 header text-primary text-center">DIAGNOSTIC COMPORTEMENTAL DE LA STRUCTURE</h1>
+
+  <p class="text-center mt-4">Progression : <b>page 2 sur 3</b> </p>
+  <div class="dots d-flex justify-content-center">
+    <span class="blue"></span>
+    <span class="blue"></span>
+    <span class=""></span>
+  </div>
+  <h2 class="mt-4 mb-4 green-bg">Généralités</h2>
+
+  <%= simple_form_for(@company_behaviour, method: :put, url: wizard_path) do |f| %>
+
+    <p class="mt-4"><b>3.</b> Dans quelle mesure vos collaborateur·rice·s sont-ils sensibilisés et/ou formés à la gestion et/ou la réduction des déchets ?</p>
+    <%= f.collection_radio_buttons :employees_sensitized, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup", "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
+      <label class="mx-2 mb-3">
+        <%= input.radio_button %>
+        <%= input.text %>
+      </label>
+    <% end %>
+    <p class="mt-4"><b>3.1 </b> Dites nous en plus </p>
+    <%= f.input :employees_sensitized_comment, label: false, placeholder: "Réponse courte" %>
+
+    <p class="mt-4"><b>4.</b> Un affichage des consignes de tri est-il en place ?</p>
+    <%= f.collection_radio_buttons :actions_displayed, ["Oui", "Non", "Non communiqué"], :to_s, :to_s do |input| %>
+      <label class="mx-2 mb-3">
+        <%= input.radio_button %>
+        <%= input.text %>
+      </label>
+    <% end %>
+
+    <div>
+      <p class="mt-4"><b>5.</b> Cet affichage est-il situé à des endroits stratégiques (à proximité des boites / poubelles / bacs...) ?</p>
+      <%= f.collection_radio_buttons :strategic_display, ["Oui", "Non", "Non communiqué"], :to_s, :to_s do |input| %>
+        <label class="mx-2 mb-3 first">
+          <%= input.radio_button  %>
+          <%= input.text %>
+        </label>
+      <% end %>
+      <div class="d-none dropable">
+        <p class="mt-4"><b>5.1 </b> Dites nous en plus </p>
+        <%= f.input :strategic_display_comment, label: false, placeholder: "Réponse courte" %>
+      </div>
+    </div>
+
+
+    <div>
+      <p class="mt-4"><b>6.</b> Lors de l'arrivée de nouveaux·lles salarié·e·s, sont-ils·elles informé·e·s de la gestion des déchets de la structure ?</p>
+      <%= f.collection_radio_buttons :newbies_sensitized, ["Oui", "Non", "Non communiqué"], :to_s, :to_s do |input| %>
+        <label class="mx-2 mb-3 first">
+          <%= input.radio_button %>
+          <%= input.text %>
+        </label>
+      <% end %>
+      <div class="d-none dropable">
+        <p class="mt-4"><b>6.1 </b> Dites nous en plus </p>
+        <%= f.input :newbies_sensitized_comment, label: false, placeholder: "Réponse courte" %>
+      </div>
+    </div>
+
+    <div>
+      <p class="mt-4"><b>7.</b>Les indicateurs de suivi des déchets (kg, tonnes, litres, m3, nb de bacs / container...) sont-ils communiqués à vous-même et à vos collaborateur·rice·s ?</p>
+      <%= f.collection_radio_buttons :indicators_communicated, ["Oui", "Non", "Non communiqué"], :to_s, :to_s do |input| %>
+        <label class="mx-2 mb-3 first">
+          <%= input.radio_button %>
+          <%= input.text %>
+        </label>
+      <% end %>
+      <div class="d-none dropable">
+        <p class="mt-4"><b>7.1 </b> Dites nous en plus </p>
+        <%= f.input :indicators_communicated_comment, label: false, placeholder: "Réponse courte" %>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-around mb-5 mt-4">
+      <%= link_to "< Précédent", previous_wizard_path, class:"btn btn-primary bold" %>
+      <%= f.button :submit, "Suivant >", class:"btn btn-primary bold" %>
+    </div>
+
+  <% end %>
+
+</div>

@@ -1,10 +1,23 @@
-<div class="wrapper down">
-  <div class="container">
-    <div class="container-soutenir">
-      <h1 class="header text-primary mt-5 pt-5 text-center">Contact</h1>
-      <p class="text-center">Vous souhaitez nous poser une question, ou simplement être tenu au courant de l'évolution du défi ? C'est ici !</p>
-      <%= render "contact-form"  %>
+
+<% if user_signed_in? %>
+  <div class="wrapper">
+    <div class="container">
+      <div class="container-soutenir">
+        <h1 class="header text-primary pt-5 text-center">Contact</h1>
+        <p class="text-center">Vous souhaitez nous poser une question, ou simplement être tenu au courant de l'évolution du défi ? C'est ici !</p>
+        <%= render "contact-form"  %>
+      </div>
     </div>
   </div>
-  <%= render 'shared/footer' %>
-</div>
+<% else %>
+  <div class="wrapper down">
+    <div class="container">
+      <div class="container-soutenir">
+        <h1 class="header text-primary mt-5 pt-5 text-center">Contact</h1>
+        <p class="text-center">Vous souhaitez nous poser une question, ou simplement être tenu au courant de l'évolution du défi ? C'est ici !</p>
+        <%= render "contact-form"  %>
+      </div>
+    </div>
+    <%= render "shared/footer" %>
+  </div>
+<% end %>

@@ -1,0 +1,21 @@
+
+<p>nouveau user</p>
+<p>Bonjour  <%= @user.civility %> <%= @user.last_name.upcase %></p>
+
+<p>Vous souhaitez participer au Défi Zéro Déchet des Pros. Bravo pour votre engagement !</p>
+
+<p>Votre compte candidat <%= @user.company.name %> a bien été créé.</p>
+
+<p>Pour candidater, nous vous invitons dès à présent à vous rendre sur votre compte candidat pour remplir le formulaire. Vous pouvez enregistrer vos réponses, les modifier ou les compléter plus tard.
+Date limite d'envoi du formulaire : 31 décembre 2018.</p>
+
+<p>Notre équipe se tient à votre disposition pour vous aider dans votre candidature.</p>
+
+<p>Cliquez sur le lien ci-dessous pour activer votre compte : </p>
+
+<p><%= link_to t('.action'), edit_password_url(@user, reset_password_token: @token)%></p>
+
+
+<p>Écologiquement, l'équipe Défi.</p>
+<%= devise_image_tag("logo.jpg", alt:"logo") %>
+

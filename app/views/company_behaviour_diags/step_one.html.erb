@@ -1,0 +1,32 @@
+<div class="container bg-white">
+  <h1 class="mt-5 mb-4 header text-primary text-center">DIAGNOSTIC COMPORTEMENTAL DE LA STRUCTURE</h1>
+
+  <p class="text-center mt-4">Progression : <b>page 1 sur 3</b> </p>
+  <div class="dots d-flex justify-content-center">
+    <span class="blue"></span>
+    <span class=""></span>
+    <span class=""></span>
+  </div>
+  <h2 class="mt-4 mb-4 green-bg">Généralités</h2>
+
+  <%= simple_form_for(@company_behaviour, method: :put, url: wizard_path) do |f| %>
+    <p class="mt-4"><b>1. </b>Dont vous-même, combien y a-t-il de collaborateur·rice·s participant·e·s au Défi ?</p>
+    <%= f.input :participants_nb, label: false%>
+
+    <p class="mt-4"><b>2. </b>Quelles actions concrètes pour la gestion et/ou la réduction des déchets sont actuellement menées dans votre structure ?</p>
+    <div id='priority-action'>
+      <%= f.simple_fields_for :diag_actions do |diag_action| %>
+        <%= render 'diag_action_fields', f: diag_action %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'Rajouter une action', f , :diag_actions, render_options: { render: '_diag_action_fields' } %>
+      </div>
+    </div>
+
+
+    <div class="d-flex justify-content-end mb-5 mt-4">
+      <%= f.button :submit, "Suivant >", class:"btn btn-primary bold" %>
+    </div>
+  <% end %>
+
+</div>

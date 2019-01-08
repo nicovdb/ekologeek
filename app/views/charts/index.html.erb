@@ -1,0 +1,158 @@
+<!-- il faudrait réussir à ne pas passer par ce lien mais par le fichier que j'ai créé -->
+<script src="https://code.highcharts.com/modules/xrange.js"></script>
+
+<!-- Voilà un script qui fonctionne s'ils nous demandent de rajouter le téléchargement des graphs -->
+<!-- <script src="https://code.highcharts.com/modules/exporting.js"></script> -->
+<div class="wrapper">
+  <div class="container bg-white mb-5 pb-5">
+    <div class="container-soutenir">
+      <h1 class="header text-primary pt-5 text-center">TABLEAU DE BORD</h1>
+      <h2 class="green-bg my-4">Production de déchets de fonctionnement</h2>
+
+      <!-- possibilité de saisir un relevé si on est référent mais pas admin -->
+      <% if current_user.referent? && current_user.company.trash_diagnostic.nil? %>
+        <p>Vous devez réaliser le  <%= link_to "diagnostic de votre structure", new_trash_diagnostic_path %> pour pouvoir afficher un graphique.</p>
+      <% end %>
+
+      <% if !current_user.company.trash_diagnostic.nil? %>
+
+        <% if current_user.referent? && !current_user.admin%>
+          <div class="text-center mb-4">
+            <%= link_to "Saisir un relevé", new_collect_path, class:"btn btn-primary bold" %>
+          </div>
+        <% end %>
+
+        <!-- graph reprenant tout seulement pour les admin-->
+        <% if current_user.admin %>
+          <h4 class="text-center bold">TOUTES LES STRUCTURES</h4>
+          <div id='adminchart' data-series="<%= @admin_series.to_json %>"></div>
+          <!-- solution de secours à la place des totaux dans le graphique -->
+          <p>Récapitulatif</p>
+
+          <table class="mt-4">
+            <thead>
+              <tr class="text-center">
+                <th> Structure</th>
+                <th> Kg/collaborateur/jour</th>
+                <th> Jours suivis </th>
+                <th> Poids total </th>
+              </tr>
+            </thead>
+            <% @days_and_weight_per_company_per_person.each do |company|  %>
+              <tbody>
+                <td><%= company[0] %></td>
+                <td><%= (company[2] / company[1]).round %></td>
+                <td><%= company[1].to_i  %></td>
+                <td><%= company[2].round %> Kg</td>
+              </tbody>
+            <% end %>
+            <tbody>
+              <td>Total</td>
+              <td>-</td>
+              <td>-</td>
+              <td><%= @total_weight.round %> Kg</td>
+            </tbody>
+          </table>
+
+          <hr class="my-5">
+
+
+          <div class="dropdown">
+            <button class="btn btn-primary bold dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Structure
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <% @companies.each do |company| %>
+                <p id="<%= company.id %>"><%= link_to company.name, chart_path(company.id), class: "dropdown-item", remote: true %></p>
+              <% end %>
+            </div>
+          </div>
+
+
+        <% end %>
+
+        <!-- Ici s'affiche le graphique par entreprise, les données sont récupérées via data-series -->
+        <% if !current_user.collects.empty? %>
+          <div id="values"></div>
+        <% end %>
+        <%=  (@residual_trash / @total_weight_per_company * 100).round %>%
+        <p>d'ordures ménagères résiduelles sur la production totale de déchets de fonctionnement</p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+<script type="module">
+  document.addEventListener("DOMContentLoaded", function(event) {
+    //graph total pour les admin
+    var adminChartDisplay = document.getElementById("adminchart");
+    if (adminChartDisplay) {
+      Highcharts.chart('adminchart', {
+        chart: {
+          type: 'xrange',
+          styledMode: true
+        },
+        title: {
+          text: ''
+        },
+        xAxis: {
+          type: 'datetime'
+        },
+        yAxis: {
+          title: {
+            text: 'Kg / collaborateur·rice / jour moyen'
+          }
+        },
+        tooltip: {
+          shared: true,
+          useHTML: true,
+          // headerFormat: '<small>{point.key}</small><table>',
+          pointFormat: '<tr><td style="color: {series.color}"><b>{series.name}</b> / </td>' +
+              '<tr><td style="text-align: right">{point.type} : </td></tr>' +
+              '<td style="text-align: right">{point.y} Kg/personne/jour </td></tr>',
+          footerFormat: '</table>',
+          valueDecimals: 2
+        },
+        series: JSON.parse(adminChartDisplay.dataset.series)
+      });
+    }
+
+
+    var valuesSpace = document.getElementById("values");
+    var values = '<%= j render "charts/show", company: current_user.company, series: @series, total_weight_per_company: @total_weight_per_company, days_and_weight_per_type_per_person: @days_and_weight_per_type_per_person %>';
+
+    valuesSpace.innerHTML = values;
+
+    Highcharts.chart('companychart', {
+      chart: {
+        type: 'xrange',
+        styledMode: true
+      },
+      title: {
+        text: ''
+      },
+      xAxis: {
+        type: 'datetime'
+      },
+      yAxis: {
+        title: {
+          text: 'Kg / collaborateur·rice / jour moyen'
+        }
+      },
+      tooltip: {
+        shared: true,
+        useHTML: true,
+        // headerFormat: '<small>{point.key}</small><table>',
+        pointFormat: '<tr><td style="color: {series.color}"><b>{series.name}</b>: </td>' +
+            '<td style="text-align: right">{point.y} Kg/personne/jour </td></tr>',
+        footerFormat: '</table>',
+        valueDecimals: 2
+      },
+      series: JSON.parse(document.getElementById("companychart").dataset.series)
+    });
+
+  });
+</script>
+

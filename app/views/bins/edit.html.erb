@@ -1,0 +1,80 @@
+<div class="wrapper">
+  <div class="container bg-white">
+    <div class="container-soutenir">
+      <%= simple_form_for @bin, url: bin_path do |f| %>
+
+        <p><b>1.</b> Choisissez un bac :</p>
+        <%= f.input :bin_type_id, collection: BinType.all, label_method: :name, value_method: :id, label: false  %>
+        <p><b>2.</b> Partagé :</p>
+        <%= f.input :shared, as: :boolean, label: "Ce bac est-il utilisé par d'autres structures ? (cochez si oui)" %>
+        <p><b>3.</b> Volume :</p>
+        <p class='minus'><em>Cette réponse est indispensable pour évaluer votre production de déchets. Si vous ne trouvez pas cette information, vous pouvez prendre des mesures et le calculer. En cas de problème, indiquez “00” et contactez-nous</em></p>
+        <div class="row d-flex align-items-baseline justify-content-left">
+          <div class="col-xs-6 ml-3">
+            <%= f.input :volume, label: false %>
+          </div>
+          <div class="col-xs-6 ml-3">
+            litres
+          </div>
+        </div>
+        <p class='minus'><em>Exemples de volume de bacs</em></p>
+        <div class="row text-center">
+          <div class="col-xs-12 col-sm-4">
+            <%= image_tag "poubelle.jpg", height: 80 %>
+            <p class='minus'>50 litres - ø45 x 69 cm</p>
+          </div>
+          <div class="col-xs-12 col-sm-4">
+            <%= image_tag "bac-2-roues.jpg", height: 80 %>
+            <p class='minus'>120 litres - 56 x 48 x 97 cm </p>
+          </div>
+          <div class="col-xs-12 col-sm-4">
+            <%= image_tag "bac-4-roues.jpg", height: 80 %>
+            <p class='minus'>1 100 litres -112 x 137 x 147 cm</p>
+          </div>
+        </div>
+        <p class='minus'><em>Formule de calcul de volumes (litres)</em></p>
+        <div class="row text-center">
+          <div class="col-xs-12 col-sm-6">
+            <%= image_tag "volume-rectangle.png", height: 80 %>
+            <p class='minus'>L x l x h (cm) / 1 000</p>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <%= image_tag "volume-cylindre.png", height: 80 %>
+            <p class='minus'> h x r x r (cm) x 3,14 / 1 000 </p>
+          </div>
+        </div>
+
+        <!-- c'est de la merde il faut faire mieux -->
+        <p><b>4.</b> Fréquence de collecte : (à réfléchir comment faire ça bien, en rajoutant la possibilité de faire irrégulier</p>
+        <%= f.input :frequency_number, label: "Répéter tout(es) les", placeholder: "nombre de fois" %>
+        <%= f.input :frequency_periodicity, collection: ["jours", "semaines", "mois", "années"], prompt: "fréquence", label: false %>
+        <p>Répéter le</p>
+        <%= f.collection_check_boxes :frequency_day, ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"], :to_s, :to_s do |input| %>
+          <label class="mx-2 mb-3">
+            <%= input.check_box %>
+            <%= input.text %>
+          </label>
+        <% end %>
+
+        <!-- là aussi il faudra gérer à partir de la liste de TrashProviders en rajoutant un champ display: true or false je pense -->
+        <p><b>5.</b> Prestataire·s de collecte : (à améliorer aussi, devrait être comme q.6)</p>
+        <%= f.input :collector, label: false %>
+        <p><b>6.</b> Déchet·s collecté·s :</p>
+        <%= f.collection_check_boxes :trash_ids, @trashes, :id, :name do |input| %>
+          <label class="mx-2 mb-3">
+            <%= input.check_box %>
+            <%= input.text %>
+          </label>
+        <% end %>
+        <%= f.simple_fields_for @trash do |trash|%>
+          <%= trash.input :name, label: "Autre déchet" %>
+        <% end %>
+        <p><b>7.</b> Coût annuel (si disponible) ?</p>
+        <%= f.input :cost, label: false %>
+        <div class="d-flex justify-content-center mt-4 mb-5">
+          <%= f.button :submit, "Valider", class:"btn btn-primary bold" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

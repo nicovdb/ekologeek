@@ -1,0 +1,20 @@
+th {
+  padding: 15px 20px;
+  background: $secondary;
+  color: white;
+}
+
+td:first-child {
+  font-weight: bold;
+}
+
+td {
+  text-align: center;
+}
+
+tbody:nth-child(even) {
+  background: #FFF;
+}
+tbody:nth-child(odd) {
+  background: #CCC
+}

@@ -1,0 +1,28 @@
+<h4 class="text-center bold"><%= company.name.upcase %></h4>
+<div id='companychart' data-series="<%= series.to_json %>"></div>
+<p>Récapitulatif</p>
+
+<table class="mt-4">
+  <thead>
+    <tr class="text-center">
+      <th> Type de déchet</th>
+      <th> Kg/collaborateur/jour</th>
+      <th> Jours suivis </th>
+      <th> Poids total </th>
+    </tr>
+  </thead>
+  <% @days_and_weight_per_type_per_person.each do |type|  %>
+    <tbody>
+      <td><%= type[0] %></td>
+      <td><%= (type[2] / type[1]).round %></td>
+      <td><%= type[1].to_i  %></td>
+      <td><%= type[2].round %> Kg</td>
+    </tbody>
+  <% end %>
+  <tbody>
+    <td>Total</td>
+    <td>-</td>
+    <td>-</td>
+    <td><%= @total_weight_per_company.round %> Kg</td>
+  </tbody>
+</table>

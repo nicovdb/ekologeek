@@ -1,0 +1,32 @@
+var valuesSpace = document.getElementById("values");
+var values = '<%= j render "charts/show", company: @company, series: @series, total_weight_per_company: @total_weight_per_company, days_and_weight_per_type_per_person: @days_and_weight_per_type_per_person %>';
+
+valuesSpace.innerHTML = values;
+
+Highcharts.chart('companychart', {
+  chart: {
+    type: 'xrange',
+    styledMode: true
+  },
+  title: {
+    text: ''
+  },
+  xAxis: {
+    type: 'datetime'
+  },
+  yAxis: {
+    title: {
+      text: 'Kg / collaborateur·rice / jour moyen'
+    }
+  },
+  tooltip: {
+    shared: true,
+    useHTML: true,
+    // headerFormat: '<small>{point.key}</small><table>',
+    pointFormat: '<tr><td style="color: {series.color}"><b>{series.name}</b>: </td>' +
+        '<td style="text-align: right">{point.y} Kg/personne/jour </td></tr>',
+    footerFormat: '</table>',
+    valueDecimals: 2
+  },
+  series: JSON.parse(document.getElementById("companychart").dataset.series)
+});

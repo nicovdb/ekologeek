@@ -3,8 +3,17 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   belongs_to :company
 
+  has_many :bins, through: :company
+  has_many :collects, through: :bins
+  has_many :bin_types, through: :bins
+
+  has_one :user_behaviour_diag, dependent: :destroy
+  has_one :user_behaviour_result, dependent: :destroy
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
+
+  attr_accessor :created_by_referent
 
   validates :civility, :first_name, :last_name, :role, :email, :telephone, :password, presence: true
 
@@ -13,19 +22,43 @@ class User < ApplicationRecord
     message: I18n.t('errors.phone_format')
   }
 
-  def ekg_checked?(current_user)
-    current_user.newsletter_ekg
+  def send_on_create_confirmation_instructions
+    if self.created_by_referent
+      false
+    else
+      send_confirmation_instructions
+    end
   end
 
-  def dzd_checked?(current_user)
-    current_user.newsletter_dzd
+  def reset_password(new_password, new_password_confirmation)
+    if new_password.present?
+      self.password = new_password
+      self.password_confirmation = new_password_confirmation
+      self.confirmed_at = Time.current
+      save
+    else
+      errors.add(:password, :blank)
+      false
+    end
+  end
+
+  def ekg_checked?
+    self.newsletter_ekg
+  end
+
+  def dzd_checked?
+    self.newsletter_dzd
   end
 
   def name
     "#{first_name} #{last_name}"
   end
 
-  def admin?(current_user)
-    current_user.admin
+  def admin?
+    self.admin
+  end
+
+  def referent?
+    self.company.referent.user == self
   end
 end
