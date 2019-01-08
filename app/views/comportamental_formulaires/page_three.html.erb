@@ -11,7 +11,7 @@
   </div>
 
   <%= simple_form_for(@user_behaviour_diag, method: :put, url: wizard_path) do |f| %>
-      <p class="mt-4"><b>13. </b>Selon vous, par ordre de priorité, quelles sont les actions à mettre en place dans votre structure au niveau des déchets ? (rajouter des action)</p>
+      <p class="mt-4"><b>13. </b>Selon vous, par ordre de priorité, quelles sont les actions à mettre en place dans votre structure au niveau des déchets ? (rajouter des actions)</p>
     <div id='priority-action'>
       <%= f.simple_fields_for :priority_actions do |priority_action| %>
         <%= render 'priority_action_fields', f: priority_action %>
