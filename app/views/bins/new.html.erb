@@ -3,6 +3,14 @@
     <div class="container-soutenir">
       <h1 class="header text-primary pt-5 text-center">Gérer les bacs</h1>
 
+      <div class="d-flex justify-content-center my-4">
+        <span class='btn btn-primary bold add-bin'>Ajouter un bac</span>
+      </div>
+
+      <span class='add-bin-form'>
+        <%= render "bins/form", trash: @trash, trashes: @trashes, bin: @bin %>
+      </span>
+
       <table class="mt-4">
         <thead>
           <tr>
@@ -41,13 +49,6 @@
         <% end %>
       </table>
 
-      <div class="d-flex justify-content-center my-4">
-        <span class='btn btn-primary bold add-bin'>Ajouter un bac</span>
-      </div>
-
-      <span class='add-bin-form'>
-        <%= render "bins/form", trash: @trash, trashes: @trashes, bin: @bin %>
-      </span>
     </div>
   </div>
 </div>
