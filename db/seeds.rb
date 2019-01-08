@@ -2,80 +2,74 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 
-# puts "Crée les flux"
-# trashes = ["Ordures ménagères résiduelles (Bordeaux Métropole : bac noir)",
-# "Déchets recyclables (Bordeaux Métropole : bac vert)",
-# "Verre",
-# "Déchets alimentaires (marc de café, thé, reste de repas...)",
-# "Mégots",
-# "Papiers",
-# "Carton",
-# "Canettes",
-# "Stylos",
-# "Cartouches d’encre",
-# "Piles et batteries",
-# "Lampes",
-# "Déchets d’équipements électriques et électronique (DEEE)",
-# "Consommables d’impression",
-# "Bois",
-# "Palettes",
-# "Mobilier de bureau",
-# "Plastique (emballages, bouteilles, gobelets)",
-# "Films et emballages plastique",
-# "Polystyrène",
-# "Bouteilles en plastique",
-# "Gobelets en papier / carton",
-# "Gobelets en plastique"]
-# trashes.each do |trash|
-#   Trash.create(name: trash, display: true)
-# end
-# puts "flux créés"
+puts "Crée les flux"
+trashes = [["Ordures ménagères résiduelles (Bordeaux Métropole : bac noir)", 0.25],
+["Déchets recyclables (Bordeaux Métropole : bac vert)", 0.2],
+["Verre", 0.4],
+["Déchets alimentaires (marc de café, thé, reste de repas...)", 0.3],
+["Mégots", 0.1],
+["Papiers", 0.25],
+["Carton", 0.06],
+["Canettes", 0.04],
+["Stylos", 0.04],
+["Cartouches d’encre", 0.14],
+["Piles et batteries", 0.17],
+["Lampes", 0.03],
+["Bois", 0.3],
+["Palettes", 0.1],
+["Plastique (emballages, bouteilles, gobelets)", 0.07],
+["Films et emballages plastique", 0.02],
+["Polystyrène", 0.02],
+["Bouteilles en plastique", 0.02],
+["Gobelets en papier / carton", 0.12],
+["Gobelets en plastique", 0.12]]
+trashes.each do |trash|
+  Trash.create(name: trash.first, density: trash.last, display: true)
+end
+puts "flux créés"
 
-# puts "bin types en cours de créa"
-# bin_types = ["Ordures ménagères résiduelles (Bordeaux Métropole : bac noir)",
-# "Déchets recyclables (Bordeaux Métropole : bac vert)",
-# "Verre",
-# "Déchets alimentaires (marc de café, thé, reste de repas...)",
-# "Mégots",
-# "Papiers",
-# "Carton",
-# "Canettes",
-# "Stylos",
-# "Cartouches d’encre",
-# "Piles et batteries",
-# "Lampes",
-# "Déchets d’équipements électriques et électronique (DEEE)",
-# "Consommables d’impression",
-# "Bois",
-# "Palettes",
-# "Mobilier de bureau",
-# "Plastique (emballages, bouteilles, gobelets)",
-# "Films et emballages plastique",
-# "Polystyrène",
-# "Bouteilles en plastique",
-# "Gobelets en papier / carton",
-# "Gobelets en plastique"]
-# bin_types.each do |bin_type|
-#   BinType.create(name: bin_type, density: 0.4)
-# end
-# puts "bin types créés"
+puts "bin types en cours de créa"
+bin_types = [["Ordures ménagères résiduelles (Bordeaux Métropole : bac noir)", 0.25],
+["Déchets recyclables (Bordeaux Métropole : bac vert)", 0.2],
+["Verre", 0.4],
+["Déchets alimentaires (marc de café, thé, reste de repas...)", 0.3],
+["Mégots", 0.1],
+["Papiers", 0.25],
+["Carton", 0.06],
+["Canettes", 0.04],
+["Stylos", 0.04],
+["Cartouches d’encre", 0.14],
+["Piles et batteries", 0.17],
+["Lampes", 0.03],
+["Bois", 0.3],
+["Palettes", 0.1],
+["Plastique (emballages, bouteilles, gobelets)", 0.07],
+["Films et emballages plastique", 0.02],
+["Polystyrène", 0.02],
+["Bouteilles en plastique", 0.02],
+["Gobelets en papier / carton", 0.12],
+["Gobelets en plastique", 0.12]]
+bin_types.each do |bin_type|
+  BinType.create(name: bin_type.first, density: bin_type.last)
+end
+puts "bin types créés"
 
-puts "destroy db "
+# puts "destroy db "
 
-NoAppReason.destroy_all
-AppReason.destroy_all
-ActionMade.destroy_all
-NoActionMade.destroy_all
-NotMadeReason.destroy_all
-PriorityAction.destroy_all
-UserBehaviourDiag.destroy_all
-UserBehaviourResult.destroy_all
-DiagAction.destroy_all
-CompanyBehaviour.destroy_all
+# NoAppReason.destroy_all
+# AppReason.destroy_all
+# ActionMade.destroy_all
+# NoActionMade.destroy_all
+# NotMadeReason.destroy_all
+# PriorityAction.destroy_all
+# UserBehaviourDiag.destroy_all
+# UserBehaviourResult.destroy_all
+# DiagAction.destroy_all
+# CompanyBehaviour.destroy_all
 
 
 
-puts "ok"
+# puts "ok"
 
 puts "no app reason start"
 
