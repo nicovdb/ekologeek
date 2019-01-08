@@ -12,6 +12,7 @@ class BinsController < ApplicationController
   def create
     @trash = Trash.new
     @trashes = Trash.where(display: true)
+    @bins = current_user.company.bins
     unless params["bin"]["trash"]["name"].nil?
       trash_name = params["bin"]["trash"]["name"]
       @new_trash = Trash.new(name: trash_name)

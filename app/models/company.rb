@@ -7,6 +7,7 @@ class Company < ApplicationRecord
   has_many :costs, dependent: :destroy
   has_many :company_behaviours, dependent: :destroy
 
+
   has_one :referent, dependent: :destroy
   has_one :form, dependent: :destroy
   has_one :trash_diagnostic, dependent: :destroy
