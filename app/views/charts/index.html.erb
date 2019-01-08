@@ -74,9 +74,10 @@
         <!-- Ici s'affiche le graphique par entreprise, les données sont récupérées via data-series -->
         <% if !current_user.collects.empty? %>
           <div id="values"></div>
+          <% if @total_weight_per_company != 0 %>
+            <p><%= (@residual_trash / @total_weight_per_company * 100).round %>% d'ordures ménagères résiduelles sur la production totale de déchets de fonctionnement</p>
+          <% end %>
         <% end %>
-        <%=  (@residual_trash / @total_weight_per_company * 100).round %>%
-        <p>d'ordures ménagères résiduelles sur la production totale de déchets de fonctionnement</p>
       <% end %>
     </div>
   </div>
