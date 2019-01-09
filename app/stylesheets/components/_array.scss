@@ -1,3 +1,7 @@
+.structur-array {
+  overflow-y: scroll;
+}
+
 th {
   padding: 15px 20px;
   background: $secondary;
@@ -19,25 +23,6 @@ tbody:nth-child(odd) {
   background: #CCC;
 }
 
-table {
-  margin: auto;
-}
-
 table.user-array {
   width: 100%;
-}
-
-@media screen and (max-width:461px) {
-
-}
-@media screen and (max-width: 1400px) {
-  table,
-  thead,
-  tbody,
-  tr,
-  td {
-    display: grid;
-    margin: 0.5rem;
-
-  }
 }
