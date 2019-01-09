@@ -16,5 +16,28 @@ tbody:nth-child(even) {
   background: #FFF;
 }
 tbody:nth-child(odd) {
-  background: #CCC
+  background: #CCC;
+}
+
+table {
+  margin: auto;
+}
+
+table.user-array tr {
+  padding: 50px;
+}
+
+@media screen and (max-width:461px) {
+
+}
+@media screen and (max-width: 1400px) {
+  table,
+  thead,
+  tbody,
+  tr,
+  td {
+    display: grid;
+    margin: 0.5rem;
+
+  }
 }

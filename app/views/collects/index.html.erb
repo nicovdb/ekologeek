@@ -1,11 +1,10 @@
 <div class="wrapper">
-  <div class="container">
-    <div class="container-soutenir">
-      <h1 class="header text-primary pt-5 text-center">DONNÉES</h1>
-      <h2 class="green-bg mt-5">Diagnostics</h2>
-      <p class='mb-0 mt-4'>Les diagnostics doivent nécessairement être réalisés avant le 15 février 2019. Au-delà de cette date, ils ne seront plus modifiables.</p>
-      <p>Cliquez sur les boutons ci-dessous pour accéder aux pages de diagnostics :</p>
-
+  <div class="container-soutenir">
+    <h1 class="header text-primary pt-5 text-center">DONNÉES</h1>
+    <h2 class="green-bg mt-5">Diagnostics</h2>
+    <p class='mb-0 mt-4'>Les diagnostics doivent nécessairement être réalisés avant le 15 février 2019. Au-delà de cette date, ils ne seront plus modifiables.</p>
+    <p>Cliquez sur les boutons ci-dessous pour accéder aux pages de diagnostics :</p>
+    <div class="text-center">
       <% if current_user.referent? && current_user.company.trash_diagnostic.nil? %>
         <p> <%= link_to "Diagnostic technique Structure", new_trash_diagnostic_path, class:"btn btn-primary bold" %></p>
       <% end %>
@@ -28,37 +27,38 @@
         <% elsif Date.today > current_user.company.project.bilan_start_at %>
           <%= link_to "Bilan comportemental Collaborateur·rice", result_comportamental_formulaire_path(:start), class:"btn btn-primary bold" %>
         <% end %>
+      </div>
 
 
-        <h2 class="green-bg mt-5">Déchets de fonctionnement de votre structure</h2>
-        <% if current_user.referent? %>
-          <div class="d-flex justify-content-around mt-4">
-            <%= link_to "Saisir un relevé", new_collect_path, class:"btn btn-primary bold" %>
-            <%= link_to "Gérer les bacs", new_bin_path, class:"btn btn-primary bold" %>
-          </div>
-        <% end %>
-
-        <table class="mt-4">
-          <thead>
-            <tr class="text-center">
-              <% if current_user.admin %>
-                <th>Structure</th>
-              <% end %>
-              <th> Type de bacs</th>
-              <th> Début de période de relevée</th>
-              <th> Fin de période de relevée</th>
-              <th> Taux de remplissage</th>
-              <th>Poids du bac</th>
-              <th>Poids du bac (/collaborateur·rice/jour moyen</th>
-              <th>Commentaire</th>
-              <% if current_user.referent? %>
-                <th></th>
-                <th></th>
-              <% end %>
-            </tr>
-          </thead>
-          <% @collects.each do |collect| %>
-            <tbody>
+      <h2 class="green-bg mt-5">Déchets de fonctionnement de votre structure</h2>
+      <% if current_user.referent? %>
+        <div class="d-flex justify-content-around mt-4">
+          <%= link_to "Saisir un relevé", new_collect_path, class:"btn btn-primary bold" %>
+          <%= link_to "Gérer les bacs", new_bin_path, class:"btn btn-primary bold" %>
+        </div>
+      <% end %>
+      <table class="mt-4">
+        <thead>
+          <tr class="text-center">
+            <% if current_user.admin %>
+              <th>Structure</th>
+            <% end %>
+            <th> Type de bacs</th>
+            <th> Début de période de relevée</th>
+            <th> Fin de période de relevée</th>
+            <th> Taux de remplissage</th>
+            <th>Poids du bac</th>
+            <th>Poids du bac (/collaborateur·rice/jour moyen</th>
+            <th>Commentaire</th>
+            <% if current_user.referent? %>
+              <th></th>
+              <th></th>
+            <% end %>
+          </tr>
+        </thead>
+        <% @collects.each do |collect| %>
+          <tbody>
+            <tr>
               <% if current_user.admin %>
                 <td> <%= collect.bin.company.name %></td>
               <% end %>
@@ -79,41 +79,41 @@
                   %>
                 </td>
               <% end %>
-            </tbody>
-          <% end %>
-        </table>
-        <% if current_user.referent? %>
-          <h2 class="green-bg mt-5 mb-4">Utilisateur·ice·s de votre structure</h2>
-          <p><%= link_to "Ajouter un·e utilisateur·ice", new_user_path, class:"btn btn-primary mt-4 bold" %></p>
-        <% else %>
-          <h2 class="green-bg mt-5 mb-4">Référent·e et collaborateur·ice·s de votre structure</h2>
-          <p class="mb-0">Le·la référent·e de votre structure dans le cadre du Défi Zéro Déchet des Pro est : </p>
-          <p class="mb-0 bold"><%= current_user.company.referent.user.first_name.capitalize %> <%= current_user.company.referent.user.last_name.upcase %></p>
-          <p class="mb-0 bold"><%= current_user.company.referent.user.role.capitalize %></p>
-          <p class="mb-0 bold"><%= current_user.company.referent.user.telephone %></p>
-          <p class="mb-0 bold"><%= current_user.company.referent.user.email %></p>
-        <% end %>
-        <table class="mt-4 mb-5">
-          <thead>
-            <tr class="text-center">
-              <th>Prénom</th>
-              <th>NOM</th>
-              <th>Fonction</th>
-              <th>Téléphone</th>
-              <th>Email</th>
             </tr>
-          </thead>
-          <% @users.each do |user| %>
-          <tbody>
-            <td><%= user.first_name.capitalize %></td>
-            <td><%= user.last_name.upcase %></td>
-            <td><%= user.role.capitalize %></td>
-            <td><%= user.telephone %></td>
-            <td><%= user.email %></td>
           </tbody>
-          <% end %>
-        </table>
+        <% end %>
+      </table>
+      <% if current_user.referent? %>
+        <h2 class="green-bg mt-5 mb-4">Utilisateur·ice·s de votre structure</h2>
+        <p class= "text-center"><%= link_to "Ajouter un·e utilisateur·ice", new_user_path, class:"btn btn-primary mt-4 bold" %></p>
+      <% else %>
+        <h2 class="green-bg mt-5 mb-4">Référent·e et collaborateur·ice·s de votre structure</h2>
+        <p class="mb-0">Le·la référent·e de votre structure dans le cadre du Défi Zéro Déchet des Pro est : </p>
+        <p class="mb-0 bold"><%= current_user.company.referent.user.first_name.capitalize %> <%= current_user.company.referent.user.last_name.upcase %></p>
+        <p class="mb-0 bold"><%= current_user.company.referent.user.role.capitalize %></p>
+        <p class="mb-0 bold"><%= current_user.company.referent.user.telephone %></p>
+        <p class="mb-0 bold"><%= current_user.company.referent.user.email %></p>
       <% end %>
-    </div>
+      <table class="mt-4 mb-5 user-array">
+        <thead>
+          <tr class="text-center">
+            <th>Prénom</th>
+            <th>NOM</th>
+            <th>Fonction</th>
+            <th>Téléphone</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <% @users.each do |user| %>
+        <tbody>
+          <td><%= user.first_name.capitalize %></td>
+          <td><%= user.last_name.upcase %></td>
+          <td><%= user.role.capitalize %></td>
+          <td><%= user.telephone %></td>
+          <td><%= user.email %></td>
+        </tbody>
+        <% end %>
+      </table>
+    <% end %>
   </div>
 </div>
