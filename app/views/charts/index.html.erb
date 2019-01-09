@@ -27,7 +27,7 @@
           <h4 class="text-center bold">TOUTES LES STRUCTURES</h4>
           <div id='adminchart' data-series="<%= @admin_series.to_json %>"></div>
           <!-- solution de secours à la place des totaux dans le graphique -->
-          <p>Récapitulatif</p>
+          <h2 class="green-bg my-4">Récapitulatif</h2>
 
           <table class="mt-4">
             <thead>
@@ -75,7 +75,12 @@
         <% if !current_user.collects.empty? %>
           <div id="values"></div>
           <% if @total_weight_per_company != 0 %>
-            <p><%= (@residual_trash / @total_weight_per_company * 100).round %>% d'ordures ménagères résiduelles sur la production totale de déchets de fonctionnement</p>
+          <div class="d-flex justify-content-center align-items-center mt-4 percentage">
+            <div class="percente percente-red">
+              <%= (@residual_trash / @total_weight_per_company * 100).round %>%
+            </div>
+            <p>d'ordures ménagères résiduelles sur la production totale de déchets de fonctionnement</p>
+          </div>
           <% end %>
         <% end %>
       <% end %>
@@ -156,4 +161,3 @@
 
   });
 </script>
-
