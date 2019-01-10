@@ -6,7 +6,7 @@
   <%= f.input :shared, as: :boolean, label: "Ce bac est-il utilisé par d'autres structures ? (cochez si oui)" %>
   <p><b>3.</b> Volume :</p>
   <p class='minus'><em>Cette réponse est indispensable pour évaluer votre production de déchets. Si vous ne trouvez pas cette information, vous pouvez prendre des mesures et le calculer. En cas de problème, indiquez “00” et contactez-nous</em></p>
-  <div class="row d-flex align-items-baseline justify-content-left">
+  <div class="row d-flex align-items-baseline justify-content-center">
     <div class="col-xs-6 ml-3">
       <%= f.input :volume, label: false %>
     </div>
@@ -14,29 +14,29 @@
       litres
     </div>
   </div>
-  <p class='minus'><em>Exemples de volume de bacs</em></p>
+  <p class='minus mt-4'><em>Exemples de volume de bacs</em></p>
   <div class="row text-center">
     <div class="col-xs-12 col-sm-4">
-      <%= image_tag "poubelle.jpg", height: 80 %>
+      <%= image_tag "poubelle.jpg", height: 150 %>
       <p class='minus'>50 litres - ø45 x 69 cm</p>
     </div>
     <div class="col-xs-12 col-sm-4">
-      <%= image_tag "bac-2-roues.jpg", height: 80 %>
+      <%= image_tag "bac-2-roues.jpg", height: 150 %>
       <p class='minus'>120 litres - 56 x 48 x 97 cm </p>
     </div>
     <div class="col-xs-12 col-sm-4">
-      <%= image_tag "bac-4-roues.jpg", height: 80 %>
+      <%= image_tag "bac-4-roues.jpg", height: 150 %>
       <p class='minus'>1 100 litres -112 x 137 x 147 cm</p>
     </div>
   </div>
-  <p class='minus'><em>Formule de calcul de volumes (litres)</em></p>
+  <p class='minus mt-4'><em>Formules de calcul de volumes (litres)</em></p>
   <div class="row text-center">
     <div class="col-xs-12 col-sm-6">
-      <%= image_tag "volume-rectangle.png", height: 80 %>
+      <%= image_tag "volume-rectangle.png", height: 150 %>
       <p class='minus'>L x l x h (cm) / 1 000</p>
     </div>
-    <div class="col-xs-12 col-sm-6">
-      <%= image_tag "volume-cylindre.png", height: 80 %>
+    <div class="col-xs-12 col-sm-6 mb-4">
+      <%= image_tag "volume-cylindre.png", height: 150 %>
       <p class='minus'> h x r x r (cm) x 3,14 / 1 000 </p>
     </div>
   </div>
