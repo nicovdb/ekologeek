@@ -119,15 +119,13 @@
             <% end %>
           </table>
       </div>
-      <% end %>
       <div id="structure"></div>
       <h2 class="green-bg mt-5">Votre structure dans le Défi</h2>
-
       <div class="d-flex justify-content-around align-items-center my-5">
         <div class="d-flex flex-column align-items-center">
           <p><b>Coup annuel des déchets</b></p>
           <div class="pill d-flex justify-content-center align-items-center">
-            <%= @trash_diagnostic.annual_cost %>
+            <%= @trash_diagnostic.annual_cost %> €
           </div>
         </div>
         <div class="d-flex flex-column align-items-center">
@@ -142,6 +140,7 @@
             <%= @trash_diagnostic.employees_nb.to_i %>
           </div>
         </div>
+      <% end %>
       </div>
     </div>
   </div>

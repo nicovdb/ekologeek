@@ -9,10 +9,12 @@
       <h1 class="header text-primary pt-5 text-center">TABLEAU DE BORD</h1>
       <h2 class="green-bg my-4">Production de déchets de fonctionnement</h2>
 
+
       <!-- possibilité de saisir un relevé si on est référent mais pas admin -->
       <% if current_user.referent? && current_user.company.trash_diagnostic.nil? %>
         <p>Vous devez réaliser le  <%= link_to "diagnostic de votre structure", new_trash_diagnostic_path %> pour pouvoir afficher un graphique.</p>
       <% end %>
+
 
       <% if !current_user.company.trash_diagnostic.nil? %>
 
@@ -20,6 +22,10 @@
           <div class="text-center mb-4">
             <%= link_to "Saisir un relevé", new_collect_path, class:"btn btn-primary bold" %>
           </div>
+        <% end %>
+
+        <% if current_user.company.bins.empty? %>
+          <b><p class="text-center mt-5">Il n'y a pas encore d'élément pour afficher le graphique</p></b>
         <% end %>
 
         <!-- graph reprenant tout seulement pour les admin-->
