@@ -2,6 +2,7 @@ class Collect < ApplicationRecord
   belongs_to :bin
   validates :start_at, :end_at, :end_at, :filled_rate, presence: true
   validate :check_correct_end_at
+  validate :check_correct_end_at_versus_today
 
   def add_weight_person_day
     persons = self.bin.company.trash_diagnostic.employees_nb
@@ -16,4 +17,9 @@ class Collect < ApplicationRecord
     end
   end
 
+  def check_correct_end_at_versus_today
+    if self.end_at >= Date.today
+      errors.add(:end_at, "Pas de relever après la date d'aujourd'hui")
+    end
+  end
 end
