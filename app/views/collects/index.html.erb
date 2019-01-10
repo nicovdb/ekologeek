@@ -3,7 +3,7 @@
     <div class="container-soutenir">
       <h1 class="header text-primary pt-5 text-center">DONNÉES</h1>
       <h2 class="green-bg mt-5">Diagnostics</h2>
-      <p class='mb-0 mt-4'>Les diagnostics doivent nécessairement être réalisés avant le 15 février 2019. Au-delà de cette date, ils ne seront plus modifiables.</p>
+      <p class='mb-0 mt-4'>Les diagnostics doivent nécessairement être réalisés avant le 10 février 2019. Au-delà de cette date, ils ne seront plus modifiables.</p>
       <p>Cliquez sur les boutons ci-dessous pour accéder aux pages de diagnostics :</p>
       <div class="text-center">
         <% if current_user.referent? && current_user.company.trash_diagnostic.nil? %>
@@ -120,6 +120,29 @@
           </table>
       </div>
       <% end %>
+      <div id="structure"></div>
+      <h2 class="green-bg mt-5">Votre structure dans le Défi</h2>
+
+      <div class="d-flex justify-content-around align-items-center my-5">
+        <div class="d-flex flex-column align-items-center">
+          <p><b>Coup annuel des déchets</b></p>
+          <div class="pill d-flex justify-content-center align-items-center">
+            <%= @trash_diagnostic.annual_cost %>
+          </div>
+        </div>
+        <div class="d-flex flex-column align-items-center">
+          <p> <b> Objectif </b></p>
+          <div class="pill d-flex justify-content-center align-items-center">
+            <%= @trash_diagnostic.reduction_objective.to_i %> %
+          </div>
+        </div>
+        <div class="d-flex flex-column align-items-center">
+          <p><b> Nombre d'employée dans l'entreprise </b></p>
+          <div class="pill d-flex justify-content-center align-items-center">
+            <%= @trash_diagnostic.employees_nb.to_i %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
