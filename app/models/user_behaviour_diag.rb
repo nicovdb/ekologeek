@@ -13,10 +13,7 @@ class UserBehaviourDiag < ApplicationRecord
   has_many :diag_app_reasons, dependent: :destroy
   has_many :app_reasons, through: :diag_app_reasons
 
-  validates :work_sorting_order, :work_sorting_applied, :work_trash_reduction, :work_trash_reduction_comment, :home_sorting_order, :home_sorting_applied, :home_trash_reduction, :home_trash_reduction_comment, presence: true, if: :page_one?
-  validates :context_knowledge, :context_knowledge_comment, :concerned, :favorable_reduction, :crappy_reduction, :trash_reduction_hard, :dedicated_employee, presence: true, if: :page_two?
-  validates :priority_actions, presence: true, if: :page_three?
+  validates :work_sorting_order, :work_sorting_applied, :work_trash_reduction, presence: true, if: :page_one?
+  validates :context_knowledge, :concerned, :trash_reduction_hard, presence: true, if: :page_two?
   validates :no_app_reason_ids, :app_reason_ids, presence: true, if: :page_four?
-  validates :no_app_reason_ids, :app_reason_ids, presence: true, if: :page_four?
-  validates :sexe, :age, :seniority, presence: true, if: :page_five?
 end

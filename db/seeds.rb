@@ -75,7 +75,7 @@ puts "no app reason start"
 
 no_reason_types = [ "Pas de raison et/ou pas de besoin de changer mes habitudes",
                 "D'autres priorités à gérer",
-                "Trop contraignants (changement d'organisation, d’habitudes, de procédures...)",
+                "Trop contraignant (changement d'organisation, d’habitudes, de procédures...)",
                 "Peu / pas efficace",
                 "Raisons financières",
                 "Faute de temps",
@@ -112,7 +112,7 @@ puts "not made reason start"
 
 not_made_reason_types = [ "Pas de raison et/ou pas de besoin de changer mes habitudes",
                 "D'autres priorités à gérer",
-                "Trop contraignants (changement d'organisation, d’habitudes, de procédures...)",
+                "Trop contraignant (changement d'organisation, d’habitudes, de procédures...)",
                 "Peu / pas efficace",
                 "Raisons financières",
                 "Faute de temps",

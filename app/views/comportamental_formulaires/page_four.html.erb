@@ -11,27 +11,33 @@
   </div>
 
   <%= simple_form_for(@user_behaviour_diag, method: :put, url: wizard_path) do |f| %>
-  <p class="mt-4"><b>14. </b>Au travail, pour quelle·s raison·s ne pratiquez-vous pas ou pas plus d’actions de tri ou réduction des déchets ?</p>
+
+  <p class="mt-4"><b>14. </b>Au travail, pour quelle·s raison·s pratiquez-vous des actions liées aux déchets (tri, réduction…) :</p>
+  <div class="form-group otherable">
+    <%= f.collection_check_boxes :app_reason_ids, AppReason.all, :id, :name do |o| %>
+    <div class="d-flex flex-column">
+      <label>
+        <%= o.check_box %>
+        <%= o.text %>
+      </label>
+    </div>
+    <% end %>
+    <%= f.input :autre_label, wrapper_html: { class: "autre-field "}, label:"Autre" %>
+  </div>
+
+  <p class="mt-4"><b>15. </b>Au travail, pour quelle·s raison·s ne pratiquez-vous pas (ou pas plus) d’actions de tri ou réduction des déchets :</p>
     <div class="form-group otherable">
       <%= f.collection_check_boxes :no_app_reason_ids, NoAppReason.all, :id, :name do |input| %>
+      <div class="d-flex flex-column">
         <label>
           <%= input.check_box %>
           <%= input.text %>
         </label>
+      </div>
       <% end %>
       <%= f.input :other_label, wrapper_html: { class: "other-field "}, label: "Autre" %>
     </div>
 
-    <p class="mt-4"><b>15. </b>Au travail, pour quelle·s raison·s pratiquez-vous des actions liées aux déchets (tri, réduction…) ?</p>
-    <div class="form-group otherable">
-      <%= f.collection_check_boxes :app_reason_ids, AppReason.all, :id, :name do |o| %>
-        <label>
-          <%= o.check_box %>
-          <%= o.text %>
-        </label>
-      <% end %>
-      <%= f.input :autre_label, wrapper_html: { class: "autre-field "}, label:"Autre" %>
-    </div>
     <div class="d-flex justify-content-around mb-5 mt-4">
       <%= link_to "< Précédent", previous_wizard_path, class:"btn btn-primary bold" %>
       <%= f.button :submit, "Suivant >", class:"btn btn-primary bold" %>
