@@ -46,7 +46,7 @@
   <%= f.input :frequency_number, label: "Répéter tout(es) les", placeholder: "nombre de fois" %>
   <%= f.input :frequency_periodicity, collection: ["jours", "semaines", "mois", "années"], prompt: "fréquence", label: false %>
   <p>Répéter le</p>
-  <%= f.collection_check_boxes :frequency_day, ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"], :to_s, :to_s do |input| %>
+  <%= f.collection_check_boxes :frequency_day, ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"], :to_s, :to_s do |input| %>
     <label class="mx-2 mb-3">
       <%= input.check_box %>
       <%= input.text %>
@@ -56,16 +56,19 @@
   <!-- là aussi il faudra gérer à partir de la liste de TrashProviders en rajoutant un champ display: true or false je pense -->
   <p><b>5.</b> Prestataire·s de collecte : (à améliorer aussi, devrait être comme q.6)</p>
   <%= f.input :collector, label: false %>
-  <p><b>6.</b> Déchet·s collecté·s :</p>
-  <%= f.collection_check_boxes :trash_ids, trashes, :id, :name do |input| %>
+
+  <div class="d-flex flex-column">
+    <p><b>6.</b> Déchet·s collecté·s :</p>
+    <%= f.collection_check_boxes :trash_ids, trashes, :id, :name do |input| %>
     <label class="mx-2 mb-3">
       <%= input.check_box %>
       <%= input.text %>
     </label>
-  <% end %>
-  <%= f.simple_fields_for trash do |trash|%>
+    <% end %>
+    <%= f.simple_fields_for trash do |trash|%>
     <%= trash.input :name, label: "Autre déchet" %>
-  <% end %>
+    <% end %>
+  </div>
   <p><b>7.</b> Coût annuel (si disponible) ?</p>
   <%= f.input :cost, label: false %>
   <div class="d-flex justify-content-center mt-4 mb-5">

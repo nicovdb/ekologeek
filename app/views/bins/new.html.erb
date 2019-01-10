@@ -33,9 +33,9 @@
           <td><%= bin.shared ? "Oui" : "Non" %></td>
           <td><%= bin.volume %>L</td>
           <td><%= bin.frequency_number %> <%= bin.frequency_periodicity %> <%= bin.frequency_day %> </td>
-          <td> <%= bin.collector.capitalize %> </td>
+          <td><%= bin.collector.capitalize %></td>
           <td><% bin.trashes.each do |trash| %>
-             <%= trash.name.capitalize %>,
+             <%= trash.name.capitalize %>
           <% end %></td>
           <td> <%= bin.cost %>€ </td>
           <td><%= link_to "Modifier", edit_bin_path(bin), class: "btn btn-primary" %></td>
