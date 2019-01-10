@@ -46,6 +46,7 @@
                 <th>Structure</th>
               <% end %>
               <th> Type de bacs</th>
+              <th> N° du bac</th>
               <th> Début de période de relevée</th>
               <th> Fin de période de relevée</th>
               <th> Taux de remplissage</th>
@@ -65,6 +66,7 @@
                   <td> <%= collect.bin.company.name %></td>
                 <% end %>
                 <td><%= collect.bin.bin_type.name %></td>
+                <td><%= collect.bin.id %></td>
                 <td><%= collect.start_at.strftime("%d/%m/%y") %></td>
                 <td><%= collect.end_at.strftime("%d/%m/%y") %></td>
                 <td><%= collect.filled_rate %>%</td>
