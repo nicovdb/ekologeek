@@ -106,6 +106,10 @@
                 <th>Fonction</th>
                 <th>Téléphone</th>
                 <th>Email</th>
+                <% if current_user.referent? %>
+                  <th>Nb de connexion</th>
+                  <th>Dernière connexion</th>
+                <% end %>
               </tr>
             </thead>
             <% @users.each do |user| %>
@@ -115,6 +119,10 @@
               <td><%= user.role.capitalize %></td>
               <td><%= user.telephone %></td>
               <td><%= user.email %></td>
+              <% if current_user.referent? && user.last_sign_in_at.present? %>
+                <td><%= user.sign_in_count %></td>
+                <td><%= user.last_sign_in_at.strftime("%d-%m-%Y") %></td>
+              <% end %>
             </tbody>
             <% end %>
           </table>

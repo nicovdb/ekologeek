@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_one :user_behaviour_result, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
+         :recoverable, :rememberable, :validatable, :confirmable, :trackable
 
   attr_accessor :created_by_referent
 
