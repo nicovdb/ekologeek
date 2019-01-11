@@ -4,6 +4,7 @@ class UserBehaviourDiag < ApplicationRecord
   attr_accessor :autre_label
   belongs_to :user
 
+
   has_many :priority_actions, inverse_of: :user_behaviour_diag, dependent: :destroy
   accepts_nested_attributes_for :priority_actions, reject_if: :all_blank, allow_destroy: true
 
