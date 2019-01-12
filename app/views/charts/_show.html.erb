@@ -1,6 +1,16 @@
 <h4 class="text-center bold"><%= company.name.upcase %></h4>
 <div id='companychart' data-series="<%= series.to_json %>"></div>
-<h2 class="green-bg my-4">Récapitulatif</h2>
+
+<% if @total_weight_per_company != 0 %>
+  <div class="d-flex justify-content-center align-items-center my-4 percentage">
+    <div class="percente percente-red">
+      <%= (@residual_trash / @total_weight_per_company * 100).round %>%
+    </div>
+    <p>d'ordures ménagères résiduelles sur la production totale de déchets de fonctionnement</p>
+  </div>
+<% end %>
+
+<h2 class="green-bg my-4">Total par type de déchets</h2>
 <div class="structur-array">
   <table class="mt-4">
     <thead>
