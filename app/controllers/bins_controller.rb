@@ -22,7 +22,6 @@ class BinsController < ApplicationController
     end
     @bin = Bin.new(bin_params)
     @bin.company = current_user.company
-    byebug
     if !@new_trash.nil?
       @bin.trashes << @new_trash
     end
