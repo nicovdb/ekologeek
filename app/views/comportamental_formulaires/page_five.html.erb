@@ -11,8 +11,9 @@
   </div>
 
   <%= simple_form_for(@user_behaviour_diag, method: :put, url: wizard_path) do |f| %>
+
     <p class="mt-4"><b>16. </b>Seriez-vous prêt·e à agir avec le·la référent·e et vos collaborateur·rice·s pour atteindre l’objectif de réduire d'au moins 10% les déchets de fonctionnement de votre structure :</p>
-    <%= f.input :favorable_reduction, as: :select, label: false, option: ['oui', 'non'] %>
+    <%= f.input :favorable_reduction, label: "", as: :radio_buttons, collection: [[true, 'oui'], [false, 'non']], label_method: :second, value_method: :first%>
 
     <p class="mt-4"><b>17. </b>Vous êtes :</p>
     <%= f.collection_radio_buttons :sexe, ["Un homme", "Une femme", "Je ne souhaite pas le préciser"], :to_s, :to_s do |input| %>

@@ -16,7 +16,7 @@
   <div class="form-group otherable">
     <%= f.collection_check_boxes :app_reason_ids, @app_reasons, :id, :name do |o| %>
     <div class="d-flex flex-column">
-      <label class="<%= o.text.split.first %> ">
+      <label>
         <%= o.check_box %>
         <%= o.text %>
       </label>
