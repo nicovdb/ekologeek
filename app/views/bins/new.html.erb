@@ -5,49 +5,52 @@
 
       <div class="d-flex justify-content-center my-4">
         <span class='btn btn-primary bold add-bin'>Ajouter un bac</span>
+        <%= link_to "Retour", donnees_path, class: "btn btn-outline-primary ml-2" %>
       </div>
 
       <span class='add-bin-form'>
         <%= render "bins/form", trash: @trash, trashes: @trashes, bin: @bin %>
       </span>
 
-      <table class="mt-4">
-        <thead>
-          <tr>
-            <th> Type de bacs</th>
-            <th>Partagé</th>
-            <th> Volume (Litres)</th>
-            <th> Fréquence de collecte habituelle</th>
-            <th> Prestataire de collecte</th>
-            <th>Déchets collectés</th>
-            <th>Coût annuel</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <% @bins.each do |bin| %>
-        <tbody>
-          <td><%= bin.bin_type.name  %></td>
-          <td><%= bin.shared ? "Oui" : "Non" %></td>
-          <td><%= bin.volume %>L</td>
-          <td><%= bin.frequency_number %> <%= bin.frequency_periodicity %> <%= bin.frequency_day %> </td>
-          <td> <%= bin.collector.capitalize %> </td>
-          <td><% bin.trashes.each do |trash| %>
-             <%= trash.name.capitalize %>,
-          <% end %></td>
-          <td> <%= bin.cost %>€ </td>
-          <td><%= link_to "Modifier", edit_bin_path(bin), class: "btn btn-primary" %></td>
-          <td>
-            <%= link_to "Supprimer", bin_path(bin),
-                                    method: :delete,
-                                    class: "btn btn-danger",
-                                    data: { confirm: "Êtes-vous sûr ?"}
-            %>
-          </td>
+      <div class="structur-array">
+        <table class="my-4">
+          <thead>
+            <tr>
+              <th> Type de bacs</th>
+              <th>Partagé</th>
+              <th> Volume (Litres)</th>
+              <th> Fréquence de collecte habituelle</th>
+              <th> Prestataire de collecte</th>
+              <th>Déchets collectés</th>
+              <th>Coût annuel</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <% @bins.each do |bin| %>
+          <tbody>
+            <td><%= bin.bin_type.name  %></td>
+            <td><%= bin.shared ? "Oui" : "Non" %></td>
+            <td><%= bin.volume %>L</td>
+            <td><%= bin.frequency_number %> <%= bin.frequency_periodicity %> <%= bin.frequency_day %> </td>
+            <td> <%= bin.collector.capitalize %> </td>
+            <td><% bin.trashes.each do |trash| %>
+               <%= trash.name.capitalize %>,
+            <% end %></td>
+            <td> <%= bin.cost %>€ </td>
+            <td><%= link_to "Modifier", edit_bin_path(bin), class: "btn btn-primary" %></td>
+            <td>
+              <%= link_to "Supprimer", bin_path(bin),
+                                      method: :delete,
+                                      class: "btn btn-danger",
+                                      data: { confirm: "Êtes-vous sûr ?"}
+              %>
+            </td>
 
-        </tbody>
-        <% end %>
-      </table>
+          </tbody>
+          <% end %>
+        </table>
+      </div>
 
     </div>
   </div>
