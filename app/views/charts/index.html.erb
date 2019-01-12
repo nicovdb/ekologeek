@@ -47,7 +47,7 @@
               <% @days_and_weight_per_company_per_person.each do |company|  %>
                 <tbody>
                   <td><%= company[0] %></td>
-                  <td><%= (company[2] / company[1]).round %></td>
+                  <td><%= (company[2] / company[1]).round(2) %></td>
                   <td><%= company[1].to_i  %></td>
                   <td><%= company[2].round %> Kg</td>
                 </tbody>

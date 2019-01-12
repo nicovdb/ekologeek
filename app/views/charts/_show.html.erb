@@ -14,7 +14,7 @@
     <% @days_and_weight_per_type_per_person.each do |type|  %>
       <tbody>
         <td><%= type[0] %></td>
-        <td><%= (type[2] / type[1]).round %></td>
+        <td><%= (type[2] / type[1]).round(2) %></td>
         <td><%= type[1].to_i  %></td>
         <td><%= type[2].round %> Kg</td>
       </tbody>
