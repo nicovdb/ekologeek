@@ -25,18 +25,20 @@
             DONNÉES
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "diagnostic", donnees_path(anchor: "diagnostic"), class:"anchor dropdown-item text-primary"%>
+            <%= link_to "Diagnostic", donnees_path(anchor: "diagnostic"), class:"anchor dropdown-item text-primary"%>
             <%= link_to "Déchets de fonctionnement de votre structure", donnees_path(anchor: "dechets"), class:"anchor dropdown-item text-primary"%>
-            <%= link_to "Référent·e et collaborateur·rice·s de votre structure", donnees_path(anchor: "referent"), class:"anchor dropdown-item text-primary"%>
+            <%= link_to "Collaborateur·rice·s de votre structure", donnees_path(anchor: "referent"), class:"anchor dropdown-item text-primary"%>
+            <%= link_to "Votre structure dans le Défi", donnees_path(anchor: "structure"), class:"anchor dropdown-item text-primary"%>
           </div>
         <% else %>
           <a class="nav-link dropdown-toggle" href="/donnees" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
             DONNÉES
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "diagnostic", donnees_path(anchor: "diagnostic"), class:"anchor dropdown-item text-primary"%>
+            <%= link_to "Diagnostic", donnees_path(anchor: "diagnostic"), class:"anchor dropdown-item text-primary"%>
             <%= link_to "Déchets de fonctionnement de votre structure", donnees_path(anchor: "dechets"), class:"anchor dropdown-item text-primary"%>
-            <%= link_to "Référent·e et collaborateur·rice·s de votre structure", donnees_path(anchor: "referent"), class:"anchor dropdown-item text-primary"%>
+            <%= link_to "Collaborateur·rice·s de votre structure", donnees_path(anchor: "referent"), class:"anchor dropdown-item text-primary"%>
+            <%= link_to "Votre structure dans le Défi", donnees_path(anchor: "structure"), class:"anchor dropdown-item text-primary"%>
           </div>
         <% end %>
       </li>
