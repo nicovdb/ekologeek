@@ -1,10 +1,14 @@
 <div class="wrapper">
   <div class="container">
     <div class="container-soutenir">
+      <div id="diagnostic"></div>
       <h1 class="header text-primary pt-5 text-center">DONNÉES</h1>
       <h2 class="green-bg mt-5">Diagnostics</h2>
+
       <p class='mb-0 mt-4'>Les diagnostics doivent nécessairement être réalisés avant le 10 février 2019. Au-delà de cette date, ils ne seront plus modifiables.</p>
+
       <p>Cliquez sur les boutons ci-dessous pour accéder aux pages de diagnostics :</p>
+      <div id="dechets"></div>
       <div class="text-center">
         <% if current_user.referent? && current_user.company.trash_diagnostic.nil? %>
           <p> <%= link_to "Diagnostic technique Structure", new_trash_diagnostic_path, class:"btn btn-primary bold" %></p>
@@ -32,6 +36,7 @@
 
 
         <h2 class="green-bg mt-5">Déchets de fonctionnement de votre structure</h2>
+
         <% if current_user.referent? %>
           <div class="d-flex justify-content-around mt-4">
             <%= link_to "Saisir un relevé", new_collect_path, class:"btn btn-primary bold" %>
@@ -93,6 +98,7 @@
           <p class= "text-center"><%= link_to "Ajouter un·e utilisateur·ice", new_user_path, class:"btn btn-primary mt-4 bold" %></p>
         <% else %>
           <h2 class="green-bg mt-5 mb-4">Référent·e et collaborateur·ice·s de votre structure</h2>
+          <div id="referent"></div>
           <p class="mb-0">Le·la référent·e de votre structure dans le cadre du Défi Zéro Déchet des Pro est : </p>
           <p class="mb-0 bold"><%= current_user.company.referent.user.first_name.capitalize %> <%= current_user.company.referent.user.last_name.upcase %></p>
           <p class="mb-0 bold"><%= current_user.company.referent.user.role.capitalize %></p>
