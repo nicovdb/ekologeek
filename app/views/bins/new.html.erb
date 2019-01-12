@@ -29,7 +29,7 @@
         <% @bins.each do |bin| %>
         <tbody>
           <td><%= bin.bin_type.name  %></td>
-          <td><%= bin.bin_type.id %></td>
+          <td><%= bin.id %></td>
           <td><%= bin.shared ? "Oui" : "Non" %></td>
           <td><%= bin.volume %>L</td>
           <td><%= bin.frequency_number %> <%= bin.frequency_periodicity %> <%= bin.frequency_day %> </td>
