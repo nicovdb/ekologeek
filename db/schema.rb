@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_11_142321) do
+ActiveRecord::Schema.define(version: 2019_01_12_134846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -289,7 +289,7 @@ ActiveRecord::Schema.define(version: 2019_01_11_142321) do
 
   create_table "priority_actions", force: :cascade do |t|
     t.bigint "user_behaviour_diag_id"
-    t.integer "priority_level"
+    t.string "priority_level"
     t.string "action"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
