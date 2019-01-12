@@ -42,7 +42,7 @@
   </div>
 
   <!-- c'est de la merde il faut faire mieux -->
-  <p><b>4.</b> Fréquence de collecte : (à réfléchir comment faire ça bien, en rajoutant la possibilité de faire irrégulier</p>
+  <p><b>4.</b> Fréquence de collecte : </p>
   <%= f.input :frequency_number, label: "Répéter tout(es) les", placeholder: "nombre de fois" %>
   <%= f.input :frequency_periodicity, collection: ["jours", "semaines", "mois", "années"], prompt: "fréquence", label: false %>
   <p>Répéter le</p>
@@ -54,7 +54,7 @@
   <% end %>
 
   <!-- là aussi il faudra gérer à partir de la liste de TrashProviders en rajoutant un champ display: true or false je pense -->
-  <p><b>5.</b> Prestataire·s de collecte : (à améliorer aussi, devrait être comme q.6)</p>
+  <p><b>5.</b> Prestataire·s de collecte :</p>
   <%= f.input :collector, label: false %>
 
   <div class="d-flex flex-column">

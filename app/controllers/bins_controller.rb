@@ -15,12 +15,17 @@ class BinsController < ApplicationController
     @bins = current_user.company.bins
     unless params["bin"]["trash"]["name"].nil?
       trash_name = params["bin"]["trash"]["name"]
-      @new_trash = Trash.new(name: trash_name)
-      @new_trash.save
+      if trash_name != ""
+        @new_trash = Trash.new(name: trash_name)
+        @new_trash.save
+      end
     end
     @bin = Bin.new(bin_params)
     @bin.company = current_user.company
-    @bin.trashes << @new_trash
+    byebug
+    if !@new_trash.nil?
+      @bin.trashes << @new_trash
+    end
     if @bin.save
       redirect_to new_bin_path
     else
