@@ -61,6 +61,15 @@
             </table>
           </div>
 
+           <% if @total_weight != 0 %>
+            <div class="d-flex justify-content-center align-items-center mt-4 percentage">
+              <div class="percente percente-red">
+                <%= (@admin_residual_trash / @total_weight * 100).round %>%
+              </div>
+              <p>d'ordures ménagères résiduelles sur la production totale de déchets de fonctionnement</p>
+            </div>
+          <% end %>
+
           <hr class="my-5">
 
 
@@ -82,12 +91,12 @@
         <% if !current_user.collects.empty? %>
           <div id="values"></div>
           <% if @total_weight_per_company != 0 %>
-          <div class="d-flex justify-content-center align-items-center mt-4 percentage">
-            <div class="percente percente-red">
-              <%= (@residual_trash / @total_weight_per_company * 100).round %>%
+            <div class="d-flex justify-content-center align-items-center mt-4 percentage">
+              <div class="percente percente-red">
+                <%= (@residual_trash / @total_weight_per_company * 100).round %>%
+              </div>
+              <p>d'ordures ménagères résiduelles sur la production totale de déchets de fonctionnement</p>
             </div>
-            <p>d'ordures ménagères résiduelles sur la production totale de déchets de fonctionnement</p>
-          </div>
           <% end %>
         <% end %>
       <% end %>
