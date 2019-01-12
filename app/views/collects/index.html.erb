@@ -122,6 +122,9 @@
               <% if current_user.referent? && user.last_sign_in_at.present? %>
                 <td><%= user.sign_in_count %></td>
                 <td><%= user.last_sign_in_at.strftime("%d-%m-%Y") %></td>
+              <% else %>
+                <td> - </td>
+                <td> - </td>
               <% end %>
             </tbody>
             <% end %>
