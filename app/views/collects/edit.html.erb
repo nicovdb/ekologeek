@@ -3,7 +3,6 @@
     <div class="container-soutenir">
       <h1 class="header text-primary pt-5 text-center">Modifier</h1>
       <%= simple_form_for @collect do |f| %>
-        <p><b>Pas de modification possible pour le type de bac (<%= @collect.bin.bin_type.name %>)</b></p>
         <p>Période du relevé : début et fin</p>
         <%= f.input :start_at, label: false %>
         <%= f.input :end_at, label: false %>
