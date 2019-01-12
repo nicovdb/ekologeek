@@ -11,7 +11,7 @@
 
   <%= simple_form_for(@company_behaviour, method: :put, url: wizard_path) do |f| %>
     <p class="mt-4"><b>1. </b>Dont vous-même, combien y a-t-il de collaborateur·rice·s participant·e·s au Défi ?</p>
-    <%= f.input :participants_nb, label: false%>
+    <%= f.input :participants_nb, collection: 1..500, label: false%>
 
     <p class="mt-4"><b>2. </b>Quelles actions concrètes pour la gestion et/ou la réduction des déchets sont actuellement menées dans votre structure ?</p>
     <div id='priority-action'>
@@ -19,7 +19,7 @@
         <%= render 'diag_action_fields', f: diag_action %>
       <% end %>
       <div class='links'>
-        <%= link_to_add_association 'Rajouter une action', f , :diag_actions, render_options: { render: '_diag_action_fields' } %>
+        <%= link_to_add_association 'Ajouter une action', f , :diag_actions, render_options: { render: '_diag_action_fields' } %>
       </div>
     </div>
 

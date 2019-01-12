@@ -11,13 +11,13 @@
   </div>
 
   <%= simple_form_for(@user_behaviour_diag, method: :put, url: wizard_path) do |f| %>
-      <p class="mt-4"><b>13. </b>Selon vous, par ordre de priorité, quelles sont les actions à mettre en place dans votre structure au niveau des déchets ? (rajouter des actions)</p>
+      <p class="mt-4"><b>13. </b>Selon vous, par ordre de priorité, quelles sont les actions à mettre en place dans votre structure au niveau des déchets : (ajouter des actions)</p>
     <div id='priority-action'>
       <%= f.simple_fields_for :priority_actions do |priority_action| %>
         <%= render 'priority_action_fields', f: priority_action %>
       <% end %>
       <div class='links'>
-        <%= link_to_add_association 'Rajouter une action', f , :priority_actions, render_options: { render: '_priority_action_fields' } %>
+        <%= link_to_add_association 'Ajouter une action', f , :priority_actions, render_options: { render: '_priority_action_fields' } %>
       </div>
     </div>
 

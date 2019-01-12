@@ -4,7 +4,7 @@ class CompanyBehaviourDiagsController < ApplicationController
 
   layout "connected"
 
-  steps :step_one, :step_two, :step_three
+  steps :step_one, :step_two, :step_three, :step_four
 
   def new
     @company = current_user.company

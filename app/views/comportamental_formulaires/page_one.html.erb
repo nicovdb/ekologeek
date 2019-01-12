@@ -1,7 +1,7 @@
 <div class="container bg-white">
   <h1 class="mt-5 mb-4 header text-primary text-center">DIAGNOSTIC COMPORTEMENTAL INDIVIDUEL</h1>
   <p class="mb-0">Certaines questions porteront sur vos pratiques sur votre lieu de travail ainsi qu'à votre domicile. L'intérêt étant de connaitre le potentiel de transmission de vos connaissances et pratiques personnel vers votre lieu du travail et inversement.
-Pour chacune des propositions suivantes, veuillez indiquer dans quelle mesure elle s'applique à vous ou dans quelle mesure vous en êtes d’accord, selonl’échelle suivante :</p>
+Pour chacune des propositions suivantes, veuillez indiquer dans quelle mesure elle s'applique à vous ou dans quelle mesure vous en êtes d’accord, selon l’échelle suivante :</p>
   <ul>
     <li>Pas du tout</li>
     <li>Un peu</li>
@@ -10,7 +10,7 @@ Pour chacune des propositions suivantes, veuillez indiquer dans quelle mesure el
     <li>Tout à fait</li>
     <li> Non concerné</li>
   </ul>
-
+ 
   <p class="text-center mt-4">Progression : <b>page 1 sur 5</b> </p>
   <div class="dots d-flex justify-content-center">
     <span class="blue"></span>
@@ -22,14 +22,14 @@ Pour chacune des propositions suivantes, veuillez indiquer dans quelle mesure el
   <h2 class="mt-4 mb-4 green-bg">Généralités</h2>
 
   <%= simple_form_for(@user_behaviour_diag, method: :put, url: wizard_path) do |f| %>
-    <p class="mt-4"><b>1. </b>Au travail, vous connaissez les consignes de tri des déchets de votre structure ?</p>
+    <p class="mt-4"><b>1. </b>Au travail, vous connaissez les consignes de tri des déchets de votre structure :</p>
     <%= f.collection_radio_buttons :work_sorting_order, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
         <%= input.text %>
       </label>
     <% end %>
-    <p class="mt-4"><b>2. </b>Au travail, vous appliquez les consignes de tri des déchets de votre structure. ?</p>
+    <p class="mt-4"><b>2. </b>Au travail, vous appliquez les consignes de tri des déchets de votre structure :</p>
     <%= f.collection_radio_buttons :work_sorting_applied, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
@@ -37,7 +37,7 @@ Pour chacune des propositions suivantes, veuillez indiquer dans quelle mesure el
       </label>
     <% end %>
 
-    <p class="mt-4"><b>3. </b>Au travail, vous pratiquez des gestes pour réduire votre production de déchets de fonctionnement ?</p>
+    <p class="mt-4"><b>3. </b>Au travail, vous pratiquez des gestes pour réduire votre production de déchets de fonctionnement :</p>
     <%= f.collection_radio_buttons :work_trash_reduction, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
@@ -50,7 +50,7 @@ Pour chacune des propositions suivantes, veuillez indiquer dans quelle mesure el
 
 
 
-    <p class="mt-4"><b>4. </b>Chez vous, vous connaissez les consignes de tri des déchets de votre territoire ?</p>
+    <p class="mt-4"><b>4. </b>Chez vous, vous connaissez les consignes de tri des déchets de votre territoire :</p>
     <%= f.collection_radio_buttons :home_sorting_order, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
@@ -58,7 +58,7 @@ Pour chacune des propositions suivantes, veuillez indiquer dans quelle mesure el
       </label>
     <% end %>
 
-    <p class="mt-4"><b>5. </b>Chez vous, vous appliquez les consignes de tri des déchets de votre territoire ?</p>
+    <p class="mt-4"><b>5. </b>Chez vous, vous appliquez les consignes de tri des déchets de votre territoire :</p>
     <%= f.collection_radio_buttons :home_sorting_applied, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
@@ -66,7 +66,7 @@ Pour chacune des propositions suivantes, veuillez indiquer dans quelle mesure el
       </label>
     <% end %>
 
-    <p class="mt-4"><b>6. </b>Chez vous, vous pratiquez des gestes pour réduire votre production de déchets ?</p>
+    <p class="mt-4"><b>6. </b>Chez vous, vous pratiquez des gestes pour réduire votre production de déchets :</p>
     <%= f.collection_radio_buttons :home_trash_reduction, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>

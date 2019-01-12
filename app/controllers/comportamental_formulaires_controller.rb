@@ -3,7 +3,7 @@ class ComportamentalFormulairesController < ApplicationController
 
   layout "connected"
 
-  steps :page_one, :page_two, :page_three, :page_four, :page_five
+  steps :page_one, :page_two, :page_three, :page_four, :page_five, :page_six
 
   def new
     @user = current_user

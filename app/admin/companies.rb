@@ -47,5 +47,19 @@ ActiveAdmin.register Company do
         column :admin
       end
     end
+
+    panel "Employees" do
+      table_for company.users do
+        column :civility
+        column :first_name
+        column :last_name
+        column :role
+        column :email
+        column :telephone
+        column :newsletter_ekg
+        column :newsletter_dzd
+        column :admin
+      end
+    end
   end
 end

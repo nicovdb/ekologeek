@@ -12,11 +12,13 @@
         <%= render "bins/form", trash: @trash, trashes: @trashes, bin: @bin %>
       </span>
 
+
       <div class="structur-array">
         <table class="my-4">
           <thead>
             <tr>
               <th> Type de bacs</th>
+              <th> N° du bac</th>
               <th>Partagé</th>
               <th> Volume (Litres)</th>
               <th> Fréquence de collecte habituelle</th>
@@ -30,6 +32,7 @@
           <% @bins.each do |bin| %>
           <tbody>
             <td><%= bin.bin_type.name  %></td>
+            <td><%= bin.id %></td>
             <td><%= bin.shared ? "Oui" : "Non" %></td>
             <td><%= bin.volume %>L</td>
             <td><%= bin.frequency_number %> <%= bin.frequency_periodicity %> <%= bin.frequency_day %> </td>
@@ -46,12 +49,10 @@
                                       data: { confirm: "Êtes-vous sûr ?"}
               %>
             </td>
-
           </tbody>
           <% end %>
         </table>
       </div>
-
     </div>
   </div>
 </div>

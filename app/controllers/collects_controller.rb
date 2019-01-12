@@ -33,6 +33,8 @@ class CollectsController < ApplicationController
 
   def index
 
+    @trash_diagnostic = current_user.company.trash_diagnostic
+
     if current_user.admin
       @collects = Collect.all.order(id: :desc)
     else
