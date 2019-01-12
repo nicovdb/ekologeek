@@ -1,4 +1,4 @@
-equire 'devise/hooks/trackable'
+# require 'devise/hooks/trackable'
 
 module Devise
   module Models
