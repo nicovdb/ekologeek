@@ -14,20 +14,20 @@
 
   <p class="mt-4"><b>14. </b>Au travail, pour quelle·s raison·s pratiquez-vous des actions liées aux déchets (tri, réduction…) :</p>
   <div class="form-group otherable">
-    <%= f.collection_check_boxes :app_reason_ids, AppReason.all, :id, :name do |o| %>
+    <%= f.collection_check_boxes :app_reason_ids, @app_reasons, :id, :name do |o| %>
     <div class="d-flex flex-column">
-      <label>
+      <label class="<%= o.text.split.first %> ">
         <%= o.check_box %>
         <%= o.text %>
       </label>
     </div>
     <% end %>
-    <%= f.input :autre_label, wrapper_html: { class: "autre-field "}, label:"Autre" %>
+    <%= f.input :autre_label, wrapper_html: { class: "autre-field"}, label: 'Autre' %>
   </div>
 
   <p class="mt-4"><b>15. </b>Au travail, pour quelle·s raison·s ne pratiquez-vous pas (ou pas plus) d’actions de tri ou réduction des déchets :</p>
     <div class="form-group otherable">
-      <%= f.collection_check_boxes :no_app_reason_ids, NoAppReason.all, :id, :name do |input| %>
+      <%= f.collection_check_boxes :no_app_reason_ids, @no_app_reasons, :id, :name do |input| %>
       <div class="d-flex flex-column">
         <label>
           <%= input.check_box %>
@@ -35,7 +35,7 @@
         </label>
       </div>
       <% end %>
-      <%= f.input :other_label, wrapper_html: { class: "other-field "}, label: "Autre" %>
+      <%= f.input :other_label, wrapper_html: { class: "other-field"}, label: 'Autre' %>
     </div>
 
     <div class="d-flex justify-content-around mb-5 mt-4">

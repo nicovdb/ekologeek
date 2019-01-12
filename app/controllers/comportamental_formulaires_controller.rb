@@ -16,8 +16,8 @@ class ComportamentalFormulairesController < ApplicationController
   def show
     @user = current_user
     @user_behaviour_diag = @user.user_behaviour_diag
-    @no_app_reasons = NoAppReason.public_only + [ OpenStruct.new({ id: 0, name: "Autre", other: true }) ]
-    @app_reasons = AppReason.public_only + [ OpenStruct.new({ id: 0, name: "Autre", autre: true }) ]
+    @no_app_reasons = NoAppReason.public_only + @user_behaviour_diag.no_app_reasons.select{ |reason| reason.public == false}
+    @app_reasons = AppReason.public_only + @user_behaviour_diag.app_reasons.select{ |reason| reason.public == false}
     @priority_action = PriorityAction.new(user_behaviour_diag_id: @user_behaviour_diag.id )
     # @priority_action.save
     @priority_actions = @user_behaviour_diag.priority_action_ids
