@@ -6,6 +6,7 @@ class ComportamentalFormulairesController < ApplicationController
   steps :page_one, :page_two, :page_three, :page_four, :page_five, :page_six
 
   def new
+
     @user = current_user
     @user_behaviour_diag = UserBehaviourDiag.new(user_id: @user.id)
     if @user_behaviour_diag.save
@@ -26,6 +27,7 @@ class ComportamentalFormulairesController < ApplicationController
   end
 
   def update
+
     @user = current_user
     @user_behaviour_diag = @user.user_behaviour_diag
     @priority_actions = @user_behaviour_diag.priority_action_ids
@@ -59,7 +61,6 @@ class ComportamentalFormulairesController < ApplicationController
         new_reason =  AppReason.create(reason: params.dig(:user_behaviour_diag, :autre_label))
         @user_behaviour_diag.app_reasons << new_reason
       end
-      byebug
       return render_wizard @user_behaviour_diag
 
     when :page_five
