@@ -7,6 +7,15 @@ class CollectsController < ApplicationController
   def new
     @collect = Collect.new
     @bins = current_user.bins
+    sql = "SELECT end_at, bins.id FROM collects
+          JOIN bins ON bins.id = collects.bin_id
+          JOIN companies ON companies.id = bins.company_id
+          WHERE companies.id = #{current_user.company.id }"
+    sql_result = ActiveRecord::Base.connection.execute(sql).to_a
+    grouped = sql_result.group_by{|collect| collect["id"]}
+    @collects_end = grouped.to_a.map do |group|
+      group[1].max_by {|element| element["end_at"].to_date }
+    end
   end
 
   def create
@@ -32,7 +41,6 @@ class CollectsController < ApplicationController
   end
 
   def index
-
     @trash_diagnostic = current_user.company.trash_diagnostic
 
     if current_user.admin

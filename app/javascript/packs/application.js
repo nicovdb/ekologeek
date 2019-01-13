@@ -1,11 +1,8 @@
 import "bootstrap";
-
 import '../../stylesheets/application.scss'
-
 import '../components/scroll.js';
 import '../components/anchor.js';
 import '../components/add-bin.js';
-
 import '../components/dropable.js';
 
 import Highcharts from "highcharts/highcharts.js";

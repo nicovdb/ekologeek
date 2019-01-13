@@ -4,7 +4,7 @@
     <p>Vous avez terminé ce formulaire de diagnostic. Vos réponses sont bien enregistrées.</p>
     <p>Merci beaucoup.</p>
     <p>Vous pouvez le modifier jusqu’au 10 février.</p>
-    <%= link_to "Retourner a la page DONNEES", donnees_path, class: "btn btn-primary" %>
+    <%= link_to "Retourner a la page DONNEES", donnees_path, class: "btn btn-primary bold" %>
     <% if Date.today < Date.new(2019, 02, 11) %>
       <%= link_to "Modifier mon formulaire", company_behaviour_diag_path(:step_one), class:"btn btn-outline-primary " %>
     <% end %>

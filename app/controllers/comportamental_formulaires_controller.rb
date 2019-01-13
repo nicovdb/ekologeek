@@ -109,7 +109,7 @@ class ComportamentalFormulairesController < ApplicationController
 
   def step_five_params
     params.require(:user_behaviour_diag).permit(
-        :favorable_reduction,
+        :want_to_help,
         :sexe,
         :age,
         :seniority

@@ -13,7 +13,6 @@
         <% if current_user.referent? && current_user.company.trash_diagnostic.nil? %>
           <p> <%= link_to "Diagnostic technique Structure", new_trash_diagnostic_path, class:"btn btn-primary bold" %></p>
         <% end %>
-
         <% if current_user.referent? && current_user.company.company_behaviours.empty? %>
           <%= link_to "Diagnostic comportemental Structure", new_company_behaviour_diag_path, class:"btn btn-primary bold" %>
         <% elsif current_user.referent? && Date.today < "15/02/2019".to_date %>
@@ -40,7 +39,7 @@
         <% if current_user.referent? %>
           <div class=" text-center mt-4">
             <%= link_to "Saisir un relevé", new_collect_path, class:"btn btn-primary bold" %>
-            <%= link_to "Gérer les bacs", new_bin_path, class:"btn btn-primary bold" %>
+            <%= link_to "Gérer les bacs", bins_path, class:"btn btn-outline-primary" %>
           </div>
         <% end %>
         <div class="structur-array">
@@ -140,6 +139,7 @@
       </div>
       <div id="structure"></div>
       <h2 class="green-bg mt-5">Votre structure dans le Défi</h2>
+      <%= link_to "Modifier", edit_trash_diagnostic_path(@trash_diagnostic), class: "btn btn-outline-primary ml-4" %>
       <div class="d-flex flex-column flex-lg-row justify-content-around align-items-center my-5">
         <div class="d-flex flex-column align-items-center">
           <p><b>Coup annuel des déchets</b></p>

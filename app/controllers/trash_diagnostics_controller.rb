@@ -16,6 +16,20 @@ class TrashDiagnosticsController < ApplicationController
     end
   end
 
+  def edit
+    @trash_diagnostic = TrashDiagnostic.find(params[:id])
+  end
+
+  def update
+    @trash_diagnostic = TrashDiagnostic.find(params[:id])
+    @trash_diagnostic.update_attributes(trash_diagnostic_params)
+    if @trash_diagnostic.save
+      redirect_to donnees_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def trash_diagnostic_params
