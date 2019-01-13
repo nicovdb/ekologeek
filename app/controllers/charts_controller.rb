@@ -10,7 +10,7 @@ class ChartsController < ApplicationController
                 JOIN companies ON companies.id = bins.company_id
                 JOIN bin_types ON bin_types.id = bins.bin_type_id
                 WHERE companies.id = #{current_user.company.id}"
-    @collects = ActiveRecord::Base.connection.execute(sql)
+    @collects = ActiveRecord::Base.connection.execute(sql).to_a
     @types_collects = @collects.group_by { |collect| collect["type"]}
     @series = @types_collects.map do |type_collects|
       data = type_collects[1].map do |type_collect|

@@ -3,10 +3,10 @@
     <div class="container-soutenir">
       <h1 class="header text-primary pt-5 text-center">Saisir un relevé</h1>
       <%= simple_form_for @collect do |f| %>
-
         <p><b>1.</b>Choisir un bac :</p>
         <p><em>Si vous n'avez pas encore créé le bac pour lequel vous souhaitez faire le relevé, créez le <%= link_to "ici", new_bin_path %></em></p>
         <%= f.input :bin_id, collection: @bins.map {|bin| [bin.bin_type.name, bin.id] } , label_method: :first, value_method: :last, label: false %>
+        <div id='collectDisplay' data-collects="<%= @collects_end.to_json %>"></div>
         <p><b>2.</b>Relevé du : </p>
         <%= f.input :start_at, label: false %>
         <p>au</p>
@@ -24,3 +24,18 @@
     </div>
   </div>
 </div>
+
+<script>
+  var input = document.getElementById("collect_bin_id");
+  var collectDisplay = document.getElementById("collectDisplay");
+  var list = JSON.parse(collectDisplay.dataset.collects);
+  console.log(list);
+
+  input.addEventListener("click", (e) => {
+    var binId = parseInt(e.target.value);
+    var lastCollect = list.find(element => element.id === binId);
+    var endDate = lastCollect.end_at;
+    console.log(endDate);
+    collectDisplay.innerHTML = `<p>La dernière collecte s'est finie le ${endDate}</p>`;
+  })
+</script>
