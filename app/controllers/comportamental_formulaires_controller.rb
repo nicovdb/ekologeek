@@ -29,6 +29,8 @@ class ComportamentalFormulairesController < ApplicationController
     @user = current_user
     @user_behaviour_diag = @user.user_behaviour_diag
     @priority_actions = @user_behaviour_diag.priority_action_ids
+    @no_app_reasons = NoAppReason.public_only + @user_behaviour_diag.no_app_reasons.select{ |reason| reason.public == false}
+    @app_reasons = AppReason.public_only + @user_behaviour_diag.app_reasons.select{ |reason| reason.public == false}
 
     case step
     when :page_one
@@ -48,15 +50,16 @@ class ComportamentalFormulairesController < ApplicationController
       @user_behaviour_diag.page_four = true
       form_params = step_four_params
       @user_behaviour_diag.update_attributes(form_params)
+
       if params.dig(:user_behaviour_diag, :other_label).present?
         new_reason =  NoAppReason.create(reason: params.dig(:user_behaviour_diag, :other_label))
         @user_behaviour_diag.no_app_reasons << new_reason
       end
-
       if params.dig(:user_behaviour_diag, :autre_label).present?
         new_reason =  AppReason.create(reason: params.dig(:user_behaviour_diag, :autre_label))
         @user_behaviour_diag.app_reasons << new_reason
       end
+      byebug
       return render_wizard @user_behaviour_diag
 
     when :page_five

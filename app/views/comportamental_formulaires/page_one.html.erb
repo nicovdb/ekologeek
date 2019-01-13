@@ -10,7 +10,7 @@ Pour chacune des propositions suivantes, veuillez indiquer dans quelle mesure el
     <li>Tout à fait</li>
     <li> Non concerné</li>
   </ul>
- 
+
   <p class="text-center mt-4">Progression : <b>page 1 sur 5</b> </p>
   <div class="dots d-flex justify-content-center">
     <span class="blue"></span>
@@ -29,12 +29,20 @@ Pour chacune des propositions suivantes, veuillez indiquer dans quelle mesure el
         <%= input.text %>
       </label>
     <% end %>
+    <% if @user_behaviour_diag.errors.include?(:work_sorting_order) %>
+      <p class="has-error">La question 1 est obligatoire</p>
+    <% end %>
+
+
     <p class="mt-4"><b>2. </b>Au travail, vous appliquez les consignes de tri des déchets de votre structure :</p>
     <%= f.collection_radio_buttons :work_sorting_applied, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
         <%= input.text %>
       </label>
+    <% end %>
+    <% if @user_behaviour_diag.errors.include?(:work_sorting_applied) %>
+      <p class="has-error">La question 2 est obligatoire</p>
     <% end %>
 
     <p class="mt-4"><b>3. </b>Au travail, vous pratiquez des gestes pour réduire votre production de déchets de fonctionnement :</p>
@@ -43,6 +51,9 @@ Pour chacune des propositions suivantes, veuillez indiquer dans quelle mesure el
         <%= input.radio_button %>
         <%= input.text %>
       </label>
+    <% end %>
+    <% if @user_behaviour_diag.errors.include?(:work_trash_reduction) %>
+      <p class="has-error">La question 3 est obligatoire</p>
     <% end %>
 
     <p class="mt-4"><b>3.1 </b>Dites nous en plus</p>

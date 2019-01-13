@@ -19,6 +19,10 @@
         <%= input.text %>
       </label>
     <% end %>
+    <% if @user_behaviour_diag.errors.include?(:context_knowledge) %>
+      <p class="has-error">La question 7 est obligatoire</p>
+    <% end %>
+
     <p class="mt-4"><b>7.1 </b>Dites nous en plus</p>
     <%= f.input :context_knowledge_comment,label: false, placeholder: "Réponse courte"%>
 
@@ -28,6 +32,9 @@
         <%= input.radio_button %>
         <%= input.text %>
       </label>
+    <% end %>
+    <% if @user_behaviour_diag.errors.include?(:concerned) %>
+      <p class="has-error">La question 8 est obligatoire</p>
     <% end %>
 
     <p class="mt-4"><b>9. </b>Vous êtes favorables à la réduction des déchets :</p>
@@ -52,6 +59,9 @@
         <%= input.radio_button %>
         <%= input.text %>
       </label>
+    <% end %>
+    <% if @user_behaviour_diag.errors.include?(:trash_reduction_hard) %>
+      <p class="has-error">La question 11 est obligatoire</p>
     <% end %>
 
     <p class="mt-4"><b>12. </b>La présence d’une personne ressource sur la question des déchets de fonctionnement dans votre structure vous semble inutile :</p>
