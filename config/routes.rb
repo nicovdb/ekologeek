@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   resources :bins, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :collects, only: [:new, :create, :edit, :update, :destroy]
   get "/donnees", to: "collects#index", as: "donnees"
-  resources :trash_diagnostics, only: [:new, :create]
+  resources :trash_diagnostics, only: [:new, :create, :edit, :update]
   resources :charts, only: [:index, :show], path: "tableau_de_bord"
 
   get "kilo_per_employee_per_day" => "charts#kilo_per_employee_per_day"
