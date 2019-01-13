@@ -31,7 +31,7 @@
   var list = JSON.parse(collectDisplay.dataset.collects);
   console.log(list);
 
-  input.addEventListener("click", (e) => {
+  input.addEventListener("change", (e) => {
     var binId = parseInt(e.target.value);
     var lastCollect = list.find(element => element.id === binId);
     var endDate = lastCollect.end_at;
