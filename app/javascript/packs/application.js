@@ -14,4 +14,3 @@ import "highcharts/css/highcharts.css";
 
 HighchartsMore(Highcharts);
 window.Highcharts = Highcharts;
-

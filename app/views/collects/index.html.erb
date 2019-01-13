@@ -38,7 +38,7 @@
         <h2 class="green-bg mt-5">Déchets de fonctionnement de votre structure</h2>
 
         <% if current_user.referent? %>
-          <div class="d-flex justify-content-around mt-4">
+          <div class=" text-center mt-4">
             <%= link_to "Saisir un relevé", new_collect_path, class:"btn btn-primary bold" %>
             <%= link_to "Gérer les bacs", new_bin_path, class:"btn btn-primary bold" %>
           </div>
@@ -93,12 +93,12 @@
           <% end %>
         </table>
         </div>
+        <div id="referent"></div>
         <% if current_user.referent? %>
           <h2 class="green-bg mt-5 mb-4">Utilisateur·ice·s de votre structure</h2>
           <p class= "text-center"><%= link_to "Ajouter un·e utilisateur·ice", new_user_path, class:"btn btn-primary mt-4 bold" %></p>
         <% else %>
           <h2 class="green-bg mt-5 mb-4">Référent·e et collaborateur·ice·s de votre structure</h2>
-          <div id="referent"></div>
           <p class="mb-0">Le·la référent·e de votre structure dans le cadre du Défi Zéro Déchet des Pro est : </p>
           <p class="mb-0 bold"><%= current_user.company.referent.user.first_name.capitalize %> <%= current_user.company.referent.user.last_name.upcase %></p>
           <p class="mb-0 bold"><%= current_user.company.referent.user.role.capitalize %></p>
@@ -140,7 +140,7 @@
       </div>
       <div id="structure"></div>
       <h2 class="green-bg mt-5">Votre structure dans le Défi</h2>
-      <div class="d-flex justify-content-around align-items-center my-5">
+      <div class="d-flex flex-column flex-lg-row justify-content-around align-items-center my-5">
         <div class="d-flex flex-column align-items-center">
           <p><b>Coup annuel des déchets</b></p>
           <div class="pill d-flex justify-content-center align-items-center">
