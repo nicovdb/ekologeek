@@ -2,6 +2,10 @@ class BinsController < ApplicationController
 
   layout "connected"
 
+  def index
+    @bins = current_user.company.bins
+  end
+
   def new
     @bin = Bin.new
     @trashes = Trash.where(display: true)

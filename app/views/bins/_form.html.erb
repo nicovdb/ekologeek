@@ -72,6 +72,7 @@
   <p><b>7.</b> Coût annuel (si disponible) ?</p>
   <%= f.input :cost, label: false %>
   <div class="d-flex justify-content-center mt-4 mb-5">
-    <%= f.button :submit, "Valider", class:"btn btn-primary bold" %>
+    <%= f.button :submit, "Valider", class:"btn btn-primary bold mr-2" %>
+    <%= link_to "Retour", bins_path, class: "btn btn-outline-primary ml-2" %>
   </div>
 <% end %>

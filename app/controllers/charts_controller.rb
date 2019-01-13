@@ -70,12 +70,16 @@ class ChartsController < ApplicationController
 
     #calculs de poids moyens pour recap par entreprise (pour admin)
     @total_weight = 0
+    @admin_residual_trash = 0
     @days_and_weight_per_company_per_person = @companies_collects.map {|company_collects|
       days = 0
       weight = 0
       company_collects[1].map { |company_collect|
         days += (company_collect["end_at"].to_date - company_collect["start_at"].to_date)
         weight += ((company_collect["end_at"].to_date - company_collect["start_at"].to_date) * company_collect["weight_person_day"])
+        if company_collect["type"] == "Ordures ménagères résiduelles (Bordeaux Métropole : bac noir)"
+          @admin_residual_trash += ((company_collect["end_at"].to_date - company_collect["start_at"].to_date) * company_collect["weight_person_day"])
+        end
       }
       @total_weight += weight
       [company_collects.first, days, weight]
