@@ -59,7 +59,12 @@ class CollectsController < ApplicationController
     @collect = Collect.find(params[:id])
     @collect.update_attributes(collect_params)
     if @collect.save
-      redirect_to donnees_path
+      @collect.weight_person_day = @collect.add_weight_person_day
+      if @collect.save
+        redirect_to donnees_path
+      else
+        render :edit
+      end
     else
       render :edit
     end
