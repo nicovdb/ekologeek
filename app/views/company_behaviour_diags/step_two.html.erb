@@ -28,6 +28,9 @@
         <%= input.text %>
       </label>
     <% end %>
+    <% if @company_behaviour.errors.include?(:actions_displayed) %>
+      <p class="has-error">La question 4 est obligatoire</p>
+    <% end %>
 
     <div>
       <p class="mt-4"><b>5.</b> Cet affichage est-il situé à des endroits stratégiques (à proximité des boites / poubelles / bacs...) ?</p>
@@ -36,6 +39,9 @@
           <%= input.radio_button  %>
           <%= input.text %>
         </label>
+      <% end %>
+      <% if @company_behaviour.errors.include?(:strategic_display) %>
+        <p class="has-error">La question 5 est obligatoire</p>
       <% end %>
       <div class="d-none dropable">
         <p class="mt-4"><b>5.1 </b> Dites nous en plus </p>
@@ -52,6 +58,9 @@
           <%= input.text %>
         </label>
       <% end %>
+      <% if @company_behaviour.errors.include?(:newbies_sensitized) %>
+        <p class="has-error">La question 6 est obligatoire</p>
+      <% end %>
       <div class="d-none dropable">
         <p class="mt-4"><b>6.1 </b> Dites nous en plus </p>
         <%= f.input :newbies_sensitized_comment, label: false, placeholder: "Réponse courte" %>
@@ -65,6 +74,9 @@
           <%= input.radio_button %>
           <%= input.text %>
         </label>
+      <% end %>
+      <% if @company_behaviour.errors.include?(:indicators_communicated) %>
+        <p class="has-error">La question 7 est obligatoire</p>
       <% end %>
       <div class="d-none dropable">
         <p class="mt-4"><b>7.1 </b> Dites nous en plus </p>
