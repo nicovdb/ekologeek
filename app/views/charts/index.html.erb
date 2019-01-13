@@ -32,8 +32,9 @@
         <% if current_user.admin %>
           <h4 class="text-center bold">TOUTES LES STRUCTURES</h4>
           <div id='adminchart' data-series="<%= @admin_series.to_json %>"></div>
+
           <!-- solution de secours à la place des totaux dans le graphique -->
-          <h2 class="green-bg my-4">Récapitulatif</h2>
+          <!-- <h2 class="green-bg my-4">Récapitulatif</h2>
           <div class="structur-array">
             <table class="mt-4">
               <thead>
@@ -47,7 +48,7 @@
               <% @days_and_weight_per_company_per_person.each do |company|  %>
                 <tbody>
                   <td><%= company[0] %></td>
-                  <td><%= (company[2] / company[1]).round %></td>
+                  <td><%= (company[2] / company[1]).round(2) %></td>
                   <td><%= company[1].to_i  %></td>
                   <td><%= company[2].round %> Kg</td>
                 </tbody>
@@ -59,7 +60,16 @@
                 <td><%= @total_weight.round %> Kg</td>
               </tbody>
             </table>
-          </div>
+          </div> -->
+
+           <% if @total_weight != 0 %>
+            <div class="d-flex justify-content-center align-items-center mt-4 percentage">
+              <div class="percente percente-red">
+                <%= (@admin_residual_trash / @total_weight * 100).round %>%
+              </div>
+              <p>d'ordures ménagères résiduelles sur la production totale de déchets de fonctionnement</p>
+            </div>
+          <% end %>
 
           <hr class="my-5">
 
@@ -81,14 +91,6 @@
         <!-- Ici s'affiche le graphique par entreprise, les données sont récupérées via data-series -->
         <% if !current_user.collects.empty? %>
           <div id="values"></div>
-          <% if @total_weight_per_company != 0 %>
-          <div class="d-flex justify-content-center align-items-center mt-4 percentage">
-            <div class="percente percente-red">
-              <%= (@residual_trash / @total_weight_per_company * 100).round %>%
-            </div>
-            <p>d'ordures ménagères résiduelles sur la production totale de déchets de fonctionnement</p>
-          </div>
-          <% end %>
         <% end %>
       <% end %>
     </div>

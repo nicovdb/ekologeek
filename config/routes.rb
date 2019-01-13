@@ -40,7 +40,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :bins, only: [:new, :create, :edit, :update, :destroy]
+  resources :bins, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :collects, only: [:new, :create, :edit, :update, :destroy]
   get "/donnees", to: "collects#index", as: "donnees"
   resources :trash_diagnostics, only: [:new, :create]
