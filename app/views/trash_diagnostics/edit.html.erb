@@ -1,0 +1,23 @@
+
+<div class="wrapper">
+  <div class="container">
+    <div class="container-soutenir">
+      <h1 class="header text-primary pt-5 text-center">DIAGNOSTIC</h1>
+      <%= simple_form_for @trash_diagnostic do |f| %>
+        <%= f.input :employees_nb, label: "Quel est le nombre de collaborateur·ice·s de votre structure ?" %>
+        <%= f.input :annual_cost, label: "Quel est le coût annuel global de l’ensemble des déchets de votre structure ?" %>
+        <p>Quel est votre objectif de réduction de déchets de fonctionnement (en %) entre le début et la fin du Défi ?</p>
+        <div class="row d-flex align-items-baseline">
+          <div class="col-xs-6 ml-3">
+            <%= f.input :reduction_objective, label: false %>
+          </div>
+          <div class="col-xs-6 ml-3">
+            %
+          </div>
+
+        </div>
+        <%= f.button :submit, "Valider", class:"btn btn-primary bold" %>
+      <% end %>
+    </div>
+  </div>
+</div>
