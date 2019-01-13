@@ -13,7 +13,7 @@
     <p class="mt-4"><b>1. </b>Dont vous-même, combien y a-t-il de collaborateur·rice·s participant·e·s au Défi ?</p>
     <%= f.input :participants_nb, collection: 1..500, label: false%>
 
-    <p class="mt-4"><b>2. </b>Quelles actions concrètes pour la gestion et/ou la réduction des déchets sont actuellement menées dans votre structure ?</p>
+    <p class="mt-4"><b>2. </b>Quelle·s action·s concrète·s pour la gestion et/ou la réduction des déchets est·sont actuellement menée·s dans votre structure ?</p>
     <div id='priority-action'>
       <%= f.simple_fields_for :diag_actions do |diag_action| %>
         <%= render 'diag_action_fields', f: diag_action %>

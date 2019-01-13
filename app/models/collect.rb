@@ -18,7 +18,7 @@ class Collect < ApplicationRecord
   end
 
   def check_correct_end_at_versus_today
-    if self.end_at >= Date.today
+    if self.end_at > Date.today
       errors.add(:end_at, "de relevé ne peut pas être supérieure à aujourd'hui")
     end
   end
