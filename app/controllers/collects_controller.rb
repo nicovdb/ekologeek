@@ -24,10 +24,10 @@ class CollectsController < ApplicationController
       if @collect.save
         redirect_to donnees_path
       else
-        render html: helpers.tag.strong('Not Found')
+        render :new
       end
     else
-      render html: helpers.tag.strong('Not Found')
+      render :new
     end
   end
 
