@@ -30,7 +30,7 @@ class BinsController < ApplicationController
       @bin.trashes << @new_trash
     end
     if @bin.save
-      redirect_to new_bin_path
+      redirect_to bins_path
     else
       render :new
     end
