@@ -75,7 +75,7 @@
                 <td><%= collect.end_at.strftime("%d/%m/%y") %></td>
                 <td><%= collect.filled_rate %>%</td>
                 <td><%= (collect.filled_rate / 100 * collect.bin.volume * collect.bin.bin_type.density).round %> Kg</td>
-                <td><%= collect.weight_person_day.round %> Kg </td>
+                <td><%= collect.weight_person_day.round(2) %> Kg </td>
                 <td><%= collect.comment %></td>
                 <% if current_user.referent? %>
                   <td><%= link_to "Modifier", edit_collect_path(collect), class: "btn btn-primary" %></td>
@@ -94,7 +94,7 @@
         </div>
         <div id="referent"></div>
         <% if current_user.referent? %>
-          <h2 class="green-bg mt-5 mb-4">Utilisateur·ice·s de votre structure</h2>
+          <h2 class="green-bg mt-5 mb-4">Collaborateur·ice·s de votre structure</h2>
           <p class= "text-center"><%= link_to "Ajouter un·e utilisateur·ice", new_user_path, class:"btn btn-primary mt-4 bold" %></p>
         <% else %>
           <h2 class="green-bg mt-5 mb-4">Référent·e et collaborateur·ice·s de votre structure</h2>
