@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_13_100841) do
+ActiveRecord::Schema.define(version: 2019_01_13_113848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -419,7 +419,7 @@ ActiveRecord::Schema.define(version: 2019_01_13_100841) do
     t.boolean "page_three", default: false
     t.boolean "page_four", default: false
     t.boolean "page_five", default: false
-    t.boolean "favorable_reduction"
+    t.string "favorable_reduction"
     t.string "crappy_reduction"
     t.string "sexe"
     t.integer "age"

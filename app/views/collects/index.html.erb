@@ -13,7 +13,6 @@
         <% if current_user.referent? && current_user.company.trash_diagnostic.nil? %>
           <p> <%= link_to "Diagnostic technique Structure", new_trash_diagnostic_path, class:"btn btn-primary bold" %></p>
         <% end %>
-
         <% if current_user.referent? && current_user.company.company_behaviours.empty? %>
           <%= link_to "Diagnostic comportemental Structure", new_company_behaviour_diag_path, class:"btn btn-primary bold" %>
         <% elsif current_user.referent? && Date.today < "15/02/2019".to_date %>
