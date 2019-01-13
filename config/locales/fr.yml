@@ -58,6 +58,8 @@ fr:
       form: Formulaires
       company: Entreprises
       referent: Référent
+      bin: Poubelle
+      bin_type: "Type de déchet"
     attributes:
       user:
         first_name: Prénom
@@ -148,6 +150,25 @@ fr:
         referent_willing_validation: "Rempli la 5e page"
         charte_validation: "Fini le questionnaire"
         confirmed_at: "Confirmé le"
+      bin:
+        bin_type_id: "Type de déchet"
+        frequency_number: "Fréquence"
+        frequency_periodicity: "Périodicité"
+        collector: "Collecteur"
+      collect:
+        end_at: date de fin
+        filled_rate: Taux de remplissage
+      priority_action:
+        priority_level: Niveau de priorité
+      company_behaviour:
+        participants_nb: Nombre de participant
+      diag_action:
+        action: Action
+        diag_action_comment: Descriptif de l'action
+      trash_diagnostic:
+        employees_nb: Nombre d'employé
+        annual_cost: Coût annuel
+        reduction_objective: Objectif
     errors:
       models:
         user:
@@ -174,7 +195,6 @@ fr:
               confirmation: ne correspond pas
             current_password:
               blank: "doit être rempli"
-
         company:
           attributes:
             name:
@@ -183,7 +203,6 @@ fr:
               blank: "doit être rempli"
             usage_acceptance:
               blank: "doit être rempli"
-
         form:
           attributes:
             company_employees_nb:
@@ -270,6 +289,58 @@ fr:
               blank: "doit être rempli"
             confidentiality:
               blank: "doit être rempli"
+        bin:
+          attributes:
+            bin_type_id:
+              blank: "doit être rempli"
+            volume:
+              blank: "doit être rempli"
+              not_a_number: "n'est pas un nombre"
+              not_an_integer: "n'est pas un entier"
+              greater_than_or_equal_to: "supérieur ou égale a 0"
+            frequency_number:
+              blank: "doit être rempli"
+            frequency_periodicity:
+              blank: "doit être rempli"
+            collector:
+              blank: "doit être rempli"
+        collect:
+          attributes:
+            filled_rate:
+              blank: "doit être rempli"
+        priority_action:
+          attributes:
+            action:
+              blank: "doit être rempli"
+            priority_level:
+              blank: "doit être rempli"
+        company_behaviour:
+          attributes:
+            participants_nb:
+              blank: "doit être rempli"
+        diag_action:
+          attributes:
+            action:
+              blank: "doit être rempli"
+            diag_action_comment:
+              blank: "doit être rempli"
+        trash_diagnostic:
+          attributes:
+            employees_nb:
+              blank: "doit être rempli"
+              not_a_number: "n'est pas un nombre"
+              greater_than_or_equal_to: "supérieur ou égale a 0"
+              not_an_integer: "doit être un entier"
+            annual_cost:
+              blank: "doit être rempli"
+              not_a_number: "n'est pas un nombre"
+              greater_than_or_equal_to: "supérieur ou égale a 0"
+              not_an_integer: "doit être un entier"
+            reduction_objective:
+              blank: "doit être rempli"
+              not_a_number: "n'est pas un nombre"
+              greater_than_or_equal_to: "supérieur ou égale a 10"
+              not_an_integer: "doit être un entier"
 
   active_admin:
    dashboard: "Tableau de bord"
