@@ -4,9 +4,9 @@
       <h1 class="header text-primary pt-5 text-center">Modifier</h1>
       <%= simple_form_for @collect do |f| %>
         <p>Période du relevé : début et fin</p>
-         <%= f.input :start_at, as: :string, label: false, input_html: {id: "range_start"} %>
+         <%= f.input :start_at, as: :string, label: false, input_html: {class: "datepicker"} %>
         <p>au</p>
-        <%= f.input :end_at, as: :string,  label: false, input_html: {id: "range_end"} %>
+        <%= f.input :end_at, as: :string,  label: false, input_html: {class: "datepicker"} %>
         <%= f.input :filled_rate, collection: [["0%", 0], ["25%", 25], ["50%", 50], ["75%", 75], ["100%", 100], ["125%", 125], ["150%", 150]], label_method: :first, value_method: :second, label: "Taux de remplissage du bac" %>
         <%= f.input :comment, label: "Commentaire" %>
         <%= f.button :submit, "Enregistrer les modifications", class: "btn btn-primary bold" %>
