@@ -33,74 +33,20 @@
         </div>
       </div>
       <h2 class="mt-5 mb-4 green-bg">Hors Bordeaux Métropole</h2>
-      <p class="text mb-0">Votre structure n'est pas située sur Bordeaux Métropole ? <b>Vous pouvez organiser un défi sur votre territoire</b> ! Ekolo[geek] vous accompagne et vous fournit les outils pour que vous le fassiez vous-même!</p>
+      <p class="text mb-5">Votre structure n'est pas située sur Bordeaux Métropole ? <b>Vous pouvez organiser un défi sur votre territoire</b> ! Ekolo[geek] vous accompagne et vous fournit les outils pour que vous le fassiez vous-même!</p>
 
-      <h2 class="mt-5 mb-4 green-bg">Formulaire d'inscription</h2>
+      <hr/>
 
-      <%= simple_form_for @company do |company| %>
-        <p class="mb-0">Veuillez compléter les informations ci-dessous afin de créer votre compte candidat:</p>
-        <p class="red">*Obligatoire</p>
+      <p class="text-center mt-5">Pour recevoir les actualités du Défi Zéro Déchet des Pros, inscrivez-vous à notre newsletter !</p>
+      <div class="newsletter">
+          <%= render "pages/newsletter"  %>
+        <p class="text-center m-0">Votre adresse de messagerie est uniquement utilisée pour vous envoyer les lettres d'information du Défi Zéro Déchet des Pro.</p>
+        <p class="text-center mb-5">Vous pouvez à tout moment utiliser le lien de désabonnement intégré dans la newsletter. <%= link_to "En savoir plus sur la gestion de vos données et vos droits", politique_path, class:"cool-link" %></p>
+      </div>
+      <hr/>
 
-        <h3>Structure</h3>
-        <div class="row">
-          <div class="col-12 col-md-6">
-            <%= company.input :name, placeholder: 'Nom de la structure*', label: false %>
-          </div>
-          <div class="col-12 col-md-6">
-            <%= company.input :town, prompt: 'Ville de Bordeaux Métropole*', collection: ["Ambarès-et-Lagrave", "Ambès", "Artigues-près-Bordeaux", "Bassens",
-              "Bègles", "Blanquefort", "Bordeaux", "Bouliac", "Bruges", "Carbon-Blanc",
-              "Cenon", "Eysines", "Floirac", "Gradignan", "Le Bouscat", "Le Haillan",
-              "Le Taillan-Médoc", "Lormont", "Martignas-sur-Jalle", "Mérignac",
-              "Parempuyre", "Pessac", "Saint-Aubin-de-Médoc", "Saint-Louis-de-Montferrand",
-              "Saint-Médard-en-Jalles", "Saint-Vincent-de-Paul", "Talence"], as: :select, label: false  %>
-          </div>
-        </div>
+      <p class="my-5">Si vous souhaitez participer à la prochaine édition du Défi Zéro Déchet des Pros (fin 2019), <%= link_to "contactez-nous", contact_path %> pour rester informé.e et faire partie des premiers participants.</p>
 
-        <h3>Référent·e</h3>
-        <%= company.simple_fields_for @user do |user|%>
-          <div class="row">
-            <div class="col-12 col-md-3">
-              <%= user.input :civility, prompt: 'Civilité*', collection: ["Mme", "M."], as: :select, label: false  %>
-            </div>
-            <div class="col-12 col-md-3">
-              <%= user.input :first_name, placeholder: 'Prénom*', label: false  %>
-            </div>
-            <div class="col-12 col-md-3">
-              <%= user.input :last_name, placeholder: 'NOM*', label: false  %>
-            </div>
-            <div class="col-12 col-md-3">
-              <%= user.input :role, placeholder: 'Fonction*', label: false  %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 col-md-3">
-              <%= user.input :telephone, placeholder: 'Téléphone*', label: false  %>
-            </div>
-            <div class="col-12 col-md-6">
-              <%= user.input :email, placeholder: 'Email*', label: false  %>
-            </div>
-            <div class="col-12 col-md-3 mb-4">
-              <%= user.input :password, placeholder: 'Mot de passe*', label: false  %>
-            </div>
-            <div class="col-12 ml-lg-3">
-              <%= user.input :newsletter_dzd, label: "Oui, je veux recevoir la newsletter du Défi Zéro Déchet des Pros" %>
-            </div>
-            <div class="col-12 ml-lg-3">
-              <%= user.input :newsletter_ekg, label: "Oui, je veux recevoir la newsletter mensuelle de l’#{link_to 'association Ekolo[geek]', partenaires_path, target: :blank, class:"cool-link"} (ex. contenu : actualités, recette de saison, Acte ekolo[geek]...)".html_safe %>
-            </div>
-          </div>
-        <% end %>
-        <div class="col-12 fsmb-0">
-          <%= company.input :usage_acceptance, label: "En créant un compte candidat, vous consentez à ce que les informations recueillies soient utilisées par l’association dans le but de sélectionner les établissements participants", class:"mb-0" %>
-         </div>
-         <p class="minus pl-35 mb-0">Conformément au règlement européen 2016/679 dit RGPD et à la loi du 6 janvier 1978 modifiée, vous disposez d’un droit d’accès, de rectification et d’opposition aux informations qui vous
-         concernent ainsi qu’un droit à la limitation du traitement de ces données, droits que vous pouvez exercer en vous adressant par courriel à pauline.r@ekologeek.com. Si vous estimez, après
-         nous avoir contactés, que vos droits sur vos données ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL.</p>
-        <div class="d-flex flex-column justify-content-center align-items-center pb-5">
-          <%= company.button :submit, "Créer un compte", class:"btn btn-primary text-white bold mt-5 mb-4" %>
-          <p class="green-bg bold">Vous allez recevoir un mail de confirmation</p>
-        </div>
-      <% end %>
     </div>
   <%= render 'shared/footer' %>
 </div>
