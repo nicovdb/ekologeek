@@ -34,7 +34,7 @@
           <div id='adminchart' data-series="<%= @admin_series.to_json %>"></div>
 
           <!-- solution de secours à la place des totaux dans le graphique -->
-          <!-- <h2 class="green-bg my-4">Récapitulatif</h2>
+          <h2 class="green-bg my-4">Récapitulatif</h2>
           <div class="structur-array">
             <table class="mt-4">
               <thead>
@@ -60,7 +60,7 @@
                 <td><%= @total_weight.round %> Kg</td>
               </tbody>
             </table>
-          </div> -->
+          </div>
 
            <% if @total_weight != 0 %>
             <div class="d-flex justify-content-center align-items-center mt-4 percentage">
