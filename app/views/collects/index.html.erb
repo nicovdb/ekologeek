@@ -95,7 +95,7 @@
         <div id="referent"></div>
         <% if current_user.referent? %>
           <h2 class="green-bg mt-5 mb-4">Collaborateur·ice·s de votre structure</h2>
-          <p class= "text-center"><%= link_to "Ajouter un·e utilisateur·ice", new_user_path, class:"btn btn-primary mt-4 bold" %></p>
+          <p class= "text-center"><%= link_to "Ajouter un·e collaborateur·ice", new_user_path, class:"btn btn-primary mt-4 bold" %></p>
         <% else %>
           <h2 class="green-bg mt-5 mb-4">Référent·e et collaborateur·ice·s de votre structure</h2>
           <p class="mb-0">Le·la référent·e de votre structure dans le cadre du Défi Zéro Déchet des Pro est : </p>
@@ -139,7 +139,9 @@
       </div>
       <div id="structure"></div>
       <h2 class="green-bg mt-5">Votre structure dans le Défi</h2>
-      <%= link_to "Modifier", edit_trash_diagnostic_path(@trash_diagnostic), class: "btn btn-outline-primary ml-4" %>
+      <% if current_user.referent? %>
+        <%= link_to "Modifier", edit_trash_diagnostic_path(@trash_diagnostic), class: "btn btn-outline-primary ml-4" %>
+      <% end %>
       <div class="d-flex flex-column flex-lg-row justify-content-around align-items-center my-5">
         <div class="d-flex flex-column align-items-center">
           <p><b>Coup annuel des déchets</b></p>
