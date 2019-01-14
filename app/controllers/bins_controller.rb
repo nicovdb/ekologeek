@@ -38,17 +38,28 @@ class BinsController < ApplicationController
 
   def edit
     @bin = Bin.find(params[:id])
-    @trashes = Trash.where(display: true)
+    @trashes = Trash.where(display: true) + @bin.trashes.select{ |trash| trash.display == false}
     @trash = Trash.new
     @bins = current_user.company.bins
   end
 
   def update
+    @trash = Trash.new
     @bin = Bin.find(params[:id])
-    @trashes = Trash.where(display: true)
+    @trashes = Trash.where(display: true) + @bin.trashes.select{ |trash| trash.display == false}
     @bin.update_attributes(bin_params)
+    unless params["bin"]["trash"]["name"].nil?
+      trash_name = params["bin"]["trash"]["name"]
+      if trash_name != ""
+        @new_trash = Trash.new(name: trash_name)
+        if @new_trash.save
+          @bin.trashes << @new_trash
+        end
+      end
+    end
+
     if @bin.save
-      redirect_to new_bin_path
+      redirect_to bins_path
     else
       render :edit
     end
@@ -57,7 +68,7 @@ class BinsController < ApplicationController
   def destroy
     @bin = Bin.find(params[:id])
     @bin.destroy
-    redirect_to new_bin_path
+    redirect_to bins_path
   end
 
   private

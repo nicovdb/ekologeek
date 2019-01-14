@@ -69,6 +69,10 @@
     <%= trash.input :name, label: "Autre déchet" %>
     <% end %>
   </div>
+  <% if bin.errors.include?(:trash_ids) %>
+    <p class="has-error">La question 6 est obligatoire</p>
+  <% end %>
+
   <p><b>7.</b> Coût annuel (si disponible) ?</p>
   <%= f.input :cost, label: false %>
   <div class="d-flex justify-content-center mt-4 mb-5">
