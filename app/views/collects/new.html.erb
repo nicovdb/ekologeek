@@ -6,12 +6,15 @@
         <p><b>1.</b>Choisir un bac :</p>
         <p><em>Si vous n'avez pas encore créé le bac pour lequel vous souhaitez faire le relevé, créez le <%= link_to "ici", new_bin_path %></em></p>
         <%= f.input :bin_id, collection: @bins.map {|bin| [bin.bin_type.name, bin.id] } , label_method: :first, value_method: :last, label: false %>
+        <% if @collect.errors.include?(:bin) %>
+          <p class="has-error">La question 1 est obligatoire</p>
+        <% end %>
 
         <div id='collectDisplay' data-collects="<%= @collects_end.to_json %>"></div>
         <p><b>2.</b>Relevé du : </p>
-        <%= f.input :start_at, as: :string, label: false, input_html: {id: "range_start"} %>
+        <%= f.input :start_at, as: :string, label: false, input_html: {class: "datepicker"} %>
         <p>au</p>
-        <%= f.input :end_at, as: :string,  label: false, input_html: {id: "range_end"} %>
+        <%= f.input :end_at, as: :string,  label: false, input_html: {class: "datepicker"} %>
         <p><b>3.</b>Taux de remplissage du bac</p>
         <%= f.input :filled_rate, collection: [["0%", 0], ["25%", 25], ["50%", 50], ["75%", 75], ["100%", 100], ["125%", 125], ["150%", 150]], label_method: :first, value_method: :second, label: false %>
         <p><b>4.</b>Commentaire</p>
