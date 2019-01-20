@@ -54,10 +54,13 @@ class CollectsController < ApplicationController
 
     if current_user.admin
       @collects = Collect.all.sort_by{ |collect| collect.company.name }
+      @users = User.all.sort_by { |user| user.company.name}
     else
       @collects = current_user.collects
+      @users = current_user.company.users
     end
-    @users = current_user.company.users
+
+
   end
 
   def edit

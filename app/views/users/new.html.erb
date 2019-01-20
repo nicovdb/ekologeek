@@ -4,6 +4,12 @@
   <h3 class= "pt-3 mt-5"></h3>
   <%= simple_form_for @user do |f|%>
     <div class="row">
+      <% if current_user.admin? %>
+        <div class="col-12">
+          <p>Structure</p>
+          <%= f.input :company_id, collection: Company.all.map { |company| [company.name, company.id] }, label_method: :first, value_method: :last, label: false %>
+        </div>
+      <% end %>
       <div class="col-12 col-md-3">
         <%= f.input :civility, prompt: 'Civilité*', collection: ["Mme", "M."], as: :select, label: false  %>
       </div>
