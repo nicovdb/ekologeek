@@ -1,18 +1,6 @@
 ActiveAdmin.register Bin do
-  form :partial => "form"
   config.filters = true
   actions :index, :show
-
-  permit_params :bin_type_id,
-                :shared,
-                :volume,
-                :cost,
-                :collector,
-                :trash_ids,
-                :frequency_number,
-                :frequency_periodicity,
-                :company_id,
-                trashes_attributes: [:id, :name]
 
   index do
     selectable_column
