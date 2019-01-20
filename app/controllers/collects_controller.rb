@@ -6,7 +6,12 @@ class CollectsController < ApplicationController
 
   def new
     @collect = Collect.new
-    @bins = current_user.bins
+    if current_user.admin?
+      @bins = Bin.all.sort_by{ |bin| bin.company.name}
+    else
+      @bins = current_user.bins
+    end
+
     sql = "SELECT end_at, bins.id FROM collects
           JOIN bins ON bins.id = collects.bin_id
           JOIN companies ON companies.id = bins.company_id
@@ -20,10 +25,14 @@ class CollectsController < ApplicationController
 
   def create
     @collect = Collect.new(collect_params)
-    @bins = current_user.bins
-    if @collect.end_at <= current_user.company.project.diagnostic_end_at
+    if current_user.admin?
+      @bins = Bin.all.sort_by{ |bin| bin.company.name}
+    else
+      @bins = current_user.bins
+    end
+    if !@collect.end_at.nil? && @collect.end_at <= @collect.bin.company.project.diagnostic_end_at
       @collect.status = "diagnostic"
-    elsif @collect.start_at >= current_user.company.project.bilan_start_at
+    elsif !@collect.start_at.nil? && @collect.start_at >= @collect.bin.company.project.bilan_start_at
       @collect.status = "bilan"
     else
       @collect.status = "suivi"
@@ -44,7 +53,7 @@ class CollectsController < ApplicationController
     @trash_diagnostic = current_user.company.trash_diagnostic
 
     if current_user.admin
-      @collects = Collect.all.order(id: :desc)
+      @collects = Collect.all.sort_by{ |collect| collect.company.name }
     else
       @collects = current_user.collects
     end

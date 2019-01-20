@@ -58,7 +58,7 @@ fr:
       form: Formulaires
       company: Entreprises
       referent: Référent
-      bin: Poubelle
+      bin: Bac
       bin_type: "Type de déchet"
     attributes:
       user:
@@ -156,7 +156,8 @@ fr:
         frequency_periodicity: "Périodicité"
         collector: "Collecteur"
       collect:
-        end_at: date de fin
+        start_at: Date de début
+        end_at: Date de fin
         filled_rate: Taux de remplissage
       priority_action:
         priority_level: Niveau de priorité
@@ -307,6 +308,10 @@ fr:
         collect:
           attributes:
             filled_rate:
+              blank: "doit être rempli"
+            start_at:
+              blank: "doit être rempli"
+            end_at:
               blank: "doit être rempli"
         priority_action:
           attributes:

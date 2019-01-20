@@ -4,7 +4,7 @@ class BinsController < ApplicationController
 
   def index
     if current_user.admin?
-      @bins = Bin.all.order(id: :desc)
+      @bins = Bin.all.sort_by { |bin| bin.company.name }
     else
       @bins = current_user.company.bins
     end
@@ -14,13 +14,11 @@ class BinsController < ApplicationController
     @bin = Bin.new
     @trashes = Trash.where(display: true)
     @trash = Trash.new
-    @bins = current_user.company.bins
   end
 
   def create
     @trash = Trash.new
     @trashes = Trash.where(display: true)
-    @bins = current_user.company.bins
     unless params["bin"]["trash"]["name"].nil?
       trash_name = params["bin"]["trash"]["name"]
       if trash_name != ""
@@ -46,7 +44,6 @@ class BinsController < ApplicationController
     @bin = Bin.find(params[:id])
     @trashes = Trash.where(display: true) + @bin.trashes.select{ |trash| trash.display == false}
     @trash = Trash.new
-    @bins = current_user.company.bins
   end
 
   def update
