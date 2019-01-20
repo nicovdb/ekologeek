@@ -3,20 +3,22 @@ class BinsController < ApplicationController
   layout "connected"
 
   def index
-    @bins = current_user.company.bins
+    if current_user.admin?
+      @bins = Bin.all.sort_by { |bin| bin.company.name }
+    else
+      @bins = current_user.company.bins
+    end
   end
 
   def new
     @bin = Bin.new
     @trashes = Trash.where(display: true)
     @trash = Trash.new
-    @bins = current_user.company.bins
   end
 
   def create
     @trash = Trash.new
     @trashes = Trash.where(display: true)
-    @bins = current_user.company.bins
     unless params["bin"]["trash"]["name"].nil?
       trash_name = params["bin"]["trash"]["name"]
       if trash_name != ""
@@ -25,7 +27,9 @@ class BinsController < ApplicationController
       end
     end
     @bin = Bin.new(bin_params)
-    @bin.company = current_user.company
+    if @bin.company_id.nil?
+      @bin.company = current_user.company
+    end
     if !@new_trash.nil?
       @bin.trashes << @new_trash
     end
@@ -40,7 +44,6 @@ class BinsController < ApplicationController
     @bin = Bin.find(params[:id])
     @trashes = Trash.where(display: true) + @bin.trashes.select{ |trash| trash.display == false}
     @trash = Trash.new
-    @bins = current_user.company.bins
   end
 
   def update
@@ -82,7 +85,7 @@ class BinsController < ApplicationController
                                 :frequency_periodicity,
                                 :frequency_day,
                                 :collector,
+                                :company_id,
                                 trash_ids: [])
   end
-
 end

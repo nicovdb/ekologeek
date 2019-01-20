@@ -108,12 +108,15 @@
           <table class="mt-4 mb-5 user-array">
             <thead>
               <tr class="text-center">
+                <% if current_user.admin? %>
+                  <th>Structure</th>
+                <% end %>
                 <th>Prénom</th>
                 <th>NOM</th>
                 <th>Fonction</th>
                 <th>Téléphone</th>
                 <th>Email</th>
-                <% if current_user.referent? %>
+                <% if current_user.referent? || current_user.admin? %>
                   <th>Nb de connexion</th>
                   <th>Dernière connexion</th>
                 <% end %>
@@ -121,12 +124,15 @@
             </thead>
             <% @users.each do |user| %>
             <tbody>
+              <% if current_user.admin? %>
+                <td><%= user.company.name %></td>
+              <% end %>
               <td><%= user.first_name.capitalize %></td>
               <td><%= user.last_name.upcase %></td>
               <td><%= user.role.capitalize %></td>
               <td><%= user.telephone %></td>
               <td><%= user.email %></td>
-              <% if current_user.referent? && user.current_sign_in_at.present? %>
+              <% if current_user.referent? && user.current_sign_in_at.present? || current_user.admin? && user.current_sign_in_at.present?  %>
                 <td><%= user.sign_in_count %></td>
                 <td><%= user.current_sign_in_at.strftime("%d-%m-%Y") %></td>
               <% elsif current_user.referent? %>

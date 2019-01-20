@@ -12,6 +12,9 @@
         <table class="my-4">
           <thead>
             <tr>
+              <% if current_user.admin? %>
+                <th> Structure </th>
+              <% end %>
               <th> Type de bacs</th>
               <th> N° du bac</th>
               <th>Partagé</th>
@@ -26,6 +29,9 @@
           </thead>
           <% @bins.each do |bin| %>
           <tbody>
+            <% if current_user.admin? %>
+              <td><%= bin.company.name  %></td>
+            <% end %>
             <td><%= bin.bin_type.name  %></td>
             <td><%= bin.id %></td>
             <td><%= bin.shared ? "Oui" : "Non" %></td>

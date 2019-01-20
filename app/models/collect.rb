@@ -1,5 +1,6 @@
 class Collect < ApplicationRecord
   belongs_to :bin
+  has_one :company, through: :bin
   validates :start_at, :end_at, :end_at, :filled_rate, presence: true
   validate :check_correct_end_at
   validate :check_correct_end_at_versus_today
@@ -12,13 +13,13 @@ class Collect < ApplicationRecord
   end
 
   def check_correct_end_at
-    if self.end_at.present? && self.start_at >= self.end_at
+    if self.end_at.present? && self.start_at.present? && self.start_at >= self.end_at
       errors.add(:end_at, "doit être supérieur à la date de début")
     end
   end
 
   def check_correct_end_at_versus_today
-    if self.end_at > Date.today
+    if self.end_at.present? && self.end_at > Date.today
       errors.add(:end_at, "de relevé ne peut pas être supérieure à aujourd'hui")
     end
   end

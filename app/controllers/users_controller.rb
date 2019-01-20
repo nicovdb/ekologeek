@@ -13,7 +13,10 @@ class UsersController < ApplicationController
     generated_password = Devise.friendly_token.first(10)
     @user.password = generated_password
 
-    @user.company = current_user.company
+    if @user.company_id.nil?
+      @user.company = current_user.company
+    end
+
     if @user.save
       @user.send_reset_password_instructions
       redirect_to donnees_path
@@ -82,7 +85,8 @@ class UsersController < ApplicationController
       :confirmation_sent_at,
       :password,
       :deleted,
-      :created_by_referent
+      :created_by_referent,
+      :company_id
     )
   end
 
