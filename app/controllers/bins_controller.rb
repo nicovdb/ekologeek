@@ -3,7 +3,11 @@ class BinsController < ApplicationController
   layout "connected"
 
   def index
-    @bins = current_user.company.bins
+    if current_user.admin?
+      @bins = Bin.all.order(id: :desc)
+    else
+      @bins = current_user.company.bins
+    end
   end
 
   def new
@@ -25,7 +29,9 @@ class BinsController < ApplicationController
       end
     end
     @bin = Bin.new(bin_params)
-    @bin.company = current_user.company
+    if @bin.company_id.nil?
+      @bin.company = current_user.company
+    end
     if !@new_trash.nil?
       @bin.trashes << @new_trash
     end
@@ -82,7 +88,7 @@ class BinsController < ApplicationController
                                 :frequency_periodicity,
                                 :frequency_day,
                                 :collector,
+                                :company_id,
                                 trash_ids: [])
   end
-
 end

@@ -1,4 +1,8 @@
 <%= simple_form_for bin, url: bins_path, method: :post do |f| %>
+  <% if current_user.admin? %>
+    <p>Choisissez une structure :</p>
+    <%= f.input :company_id, collection: Company.all.map { |company| [company.name, company.id]}, label_method: :first, value_method: :last, label: false  %>
+  <% end %>
 
   <p><b>1.</b> Choisissez un bac :</p>
   <%= f.input :bin_type_id, collection: BinType.all, label_method: :name, value_method: :id, label: false  %>

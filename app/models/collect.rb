@@ -1,5 +1,6 @@
 class Collect < ApplicationRecord
   belongs_to :bin
+  has_one :company, through: :bin
   validates :start_at, :end_at, :end_at, :filled_rate, presence: true
   validate :check_correct_end_at
   validate :check_correct_end_at_versus_today
