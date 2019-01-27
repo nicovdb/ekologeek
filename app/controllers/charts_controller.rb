@@ -11,6 +11,7 @@ class ChartsController < ApplicationController
                 JOIN bin_types ON bin_types.id = bins.bin_type_id
                 WHERE companies.id = #{current_user.company.id}"
     @collects = ActiveRecord::Base.connection.execute(sql).to_a
+    @companies_collects = @collects.group_by { |collect| collect["company"]}
     @types_collects = @collects.group_by { |collect| collect["type"]}
     @series = @types_collects.map do |type_collects|
       data = type_collects[1].map do |type_collect|
@@ -34,18 +35,18 @@ class ChartsController < ApplicationController
                 JOIN bin_types ON bin_types.id = bins.bin_type_id
                 WHERE projects.id = #{current_user.company.project.id}"
     @admin_collects = ActiveRecord::Base.connection.execute(admin_sql)
-    @companies_collects = @admin_collects.group_by { |collect| collect["company"]}
-    @admin_series = @companies_collects.map { |company_collects|
-      data = company_collects[1].map { |company_collect|
+    @types_collects = @admin_collects.group_by { |collect| collect["type"]}
+    @admin_series = @types_collects.map { |type_collects|
+      data = type_collects[1].map { |type_collect|
         {
-          x: (company_collect["start_at"].to_time.to_i * 1000 + 3600000),
-          x2: (company_collect["end_at"].to_time.to_i * 1000 + 3600000),
-          y: company_collect["weight_person_day"],
-          type: company_collect["type"]
+          x: (type_collect["start_at"].to_time.to_i * 1000 + 3600000),
+          x2: (type_collect["end_at"].to_time.to_i * 1000 + 3600000),
+          y: type_collect["weight_person_day"],
+          type: type_collect["company"]
         }
       }
       {
-        name: company_collects.first,
+        name: type_collects.first,
         data: data
       }
     }
