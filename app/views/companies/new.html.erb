@@ -1,132 +1,97 @@
 <div class="wrapper down">
     <div class="container bg-white container-padding my-5">
       <h1 class="header text-primary text-center pt-5 mt-5">S'inscrire</h1>
-      <h2 class="mt-5 mb-4 green-bg">Bordeaux Métropole</h2>
-      <div class="row">
-        <div class="col-lg-6 text d-flex flex-column justify-content-center">
-          <h3>Qui peut candidater ?</h3>
-          <p class="mb-0">Tout professionnel de Bordeaux Métropole (effectif ≥ 2 personnes). Pour ce
-          premier Défi Zéro Déchet des Pros, afin d'assurer un accompagnement de
-          qualité, nous accompagnerons 15 structures professionnelles (collectivités
-          et établissements publics, sociétés, associations...)</p>
-          <p>Chaque structure est représentée par un·e référent·e.</p>
-          <h3>Comment candidater ?</h3>
-          <p>En remplissant le formulaire ci-dessous, vous recevrez ensuite des
-          identifiants pour accéder à votre compte candidat. Vous pourrez alors
-          répondre à quelques questions sur un formulaire en ligne. Notre équipe est
-          à votre disposition pour vous aider.</p>
-          <h3>Calendrier :</h3>
-          <ul class="list bullet-custom mb-0">
-            <li>
-              <b>11 jan. 2019 :</b> Clôture des inscriptions
-            </li>
-            <li>
-              <b>14 jan. 2019 - 09H30 :</b> Lancement du Défi Zéro Déchet des Pros (rencontre collective des structures participantes)
-            </li>
-          </ul>
+      <p>La 1ère édition du Défi Zéro Déchet des Pros a débuté sur Bordeaux Métropole en janvier 2019 et se clôture en juin 2019, avec 10 structures participantes :</p>
+      <h2 class="mt-5 green-bg">Participants au projet</h2>
+      <div class=" d-flex justify-content-center my-5 officielle">
+        <%= image_tag "photo_officielle.jpg", height: 450 %>
+      </div>
+      <div class="row d-flex text-align-center justify-content-center pb-5">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-4 pr-2 d-flex align-items-center justify-content-center">
+          <%= link_to "https://175avocats.com/", target: :blank do %>
+          <%= image_tag "175avocats_or.png", height: 60 %>
+          <% end %>
         </div>
-
-        <div class="col-lg-6">
-          <div class="d-flex flex-column align-items-center h-100 mb-3">
-            <%= image_tag "carte.png", class:"header-padding-comment-image" %>
-          </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-4 pr-2 d-flex align-items-center justify-content-center">
+          <%= link_to "http://aremacs.com/", target: :blank do %>
+          <%= image_tag "aremacs.png", height: 40 %>
+          <% end %>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-4 px-4 pr-2 d-flex align-items-center justify-content-center">
+          <%= link_to "http://www.ensam.eu/", target: :blank do %>
+          <%= image_tag "arts-et-metiers.png", height: 40 %>
+          <% end %>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
+          <%= link_to "http://www.bel-air-musique.com/", target: :blank do %>
+          <%= image_tag "bel-air-musique.png", width: 60 %>
+          <% end %>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
+          <%= link_to "https://www.biocoop.fr/magasins-bio/Trouver-mon-magasin-Biocoop?department=1074", target: :blank do %>
+          <%= image_tag "biocoop.png", width: 60 %>
+          <% end %>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
+          <%= link_to "http://agence-bloom.fr/", target: :blank do %>
+          <%= image_tag "bloom.png", width: 60 %>
+          <% end %>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
+          <%= link_to "http://www.chloe-bodart.fr/", target: :blank do %>
+          <%= image_tag "chloe_bodart_construire.jpg", width: 60 %>
+          <% end %>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
+          <%= link_to "https://www.distriartisan.fr/", target: :blank do %>
+          <%= image_tag "distri_artisan.png", width: 100 %>
+          <% end %>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
+          <%= link_to "https://ekylibre.com/", target: :blank do %>
+          <%= image_tag "ekylibre.png", width: 60 %>
+          <% end %>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
+          <%= link_to "https://www.espaces-atypiques.com/bordeaux/", target: :blank do %>
+          <%= image_tag "espaces-atypiques.png", width: 100 %>
+          <% end %>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
+          <%= link_to "http://www.jhas.fr/", target: :blank do %>
+          <%= image_tag "JHAS.jpg", width: 100 %>
+          <% end %>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
+          <%= link_to "http://www.jla.fr/", target: :blank do %>
+          <%= image_tag "JLA.png", width: 100 %>
+          <% end %>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
+          <%= link_to "http://lalternativebordeaux.fr", target: :blank do %>
+          <%= image_tag "lalternative.png", width: 60 %>
+          <% end %>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
+          <%= link_to "http://www.lenno.fr/", target: :blank do %>
+          <%= image_tag "lenno.png", width: 60 %>
+          <% end %>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
+          <%= link_to "https://ess.bordeaux-metropole.fr/Actualites/Le-Point-commun-a-Bordeaux-un-lieu-d-entrepreneuriat-pour-une-societe-solidaire", target: :blank do %>
+          <%= image_tag "point-commun.png", width: 60 %>
+          <% end %>
         </div>
       </div>
-      <h2 class="mt-5 mb-4 green-bg">Hors Bordeaux Métropole</h2>
-      <p class="text mb-5">Votre structure n'est pas située sur Bordeaux Métropole ? <b>Vous pouvez organiser un défi sur votre territoire</b> ! Ekolo[geek] vous accompagne et vous fournit les outils pour que vous le fassiez vous-même!</p>
-
       <hr/>
-
       <p class="text-center mt-5">Pour recevoir les actualités du Défi Zéro Déchet des Pros, inscrivez-vous à notre newsletter !</p>
       <div class="newsletter">
           <%= render "pages/newsletter"  %>
         <p class="text-center m-0">Votre adresse de messagerie est uniquement utilisée pour vous envoyer les lettres d'information du Défi Zéro Déchet des Pro.</p>
         <p class="text-center mb-5">Vous pouvez à tout moment utiliser le lien de désabonnement intégré dans la newsletter. <%= link_to "En savoir plus sur la gestion de vos données et vos droits", politique_path, class:"cool-link" %></p>
       </div>
+      <b><p class="my-5">Si vous souhaitez participer à la prochaine édition du Défi Zéro Déchet des Pros (fin 2019), <%= link_to "contactez-nous", contact_path %> pour rester informé.e et faire partie des premiers participants.</p></b>
       <hr/>
-
-      <p class="my-5">Si vous souhaitez participer à la prochaine édition du Défi Zéro Déchet des Pros (fin 2019), <%= link_to "contactez-nous", contact_path %> pour rester informé.e et faire partie des premiers participants.</p>
-      <h2 class="mt-5 green-bg">Entreprises</h2>
-      <div class=" d-flex justify-content-center my-5 officielle">
-        <%= image_tag "photo_officielle.jpg", height: 350 %>
-      </div>
-      <div class="row d-flex text-align-center justify-content-center pb-5">
-        <div class="col-12 col-sm-6 col-lg-2 text-center mb-4 pr-2 d-flex align-items-center justify-content-center">
-          <%= link_to "https://175avocats.com/", target: :blank do %>
-          <%= image_tag "175avocats_or.png", height: 100 %>
-          <% end %>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-2 text-center mb-4 pr-2 d-flex align-items-center justify-content-center">
-          <%= link_to "http://aremacs.com/", target: :blank do %>
-          <%= image_tag "aremacs.png", height: 50 %>
-          <% end %>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-2 text-center mb-4 px-4 pr-2 d-flex align-items-center justify-content-center">
-          <%= link_to "http://www.ensam.eu/", target: :blank do %>
-          <%= image_tag "arts-et-metiers.png", height: 50 %>
-          <% end %>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
-          <%= link_to "http://www.bel-air-musique.com/", target: :blank do %>
-          <%= image_tag "bel-air-musique.png", width: 100 %>
-          <% end %>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
-          <%= link_to "https://www.biocoop.fr/magasins-bio/Trouver-mon-magasin-Biocoop?department=1074", target: :blank do %>
-          <%= image_tag "biocoop.png", width: 100 %>
-          <% end %>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
-          <%= link_to "http://agence-bloom.fr/", target: :blank do %>
-          <%= image_tag "bloom.png", width: 100 %>
-          <% end %>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
-          <%= link_to "http://www.chloe-bodart.fr/", target: :blank do %>
-          <%= image_tag "chloe_bodart_construire.jpg", width: 100 %>
-          <% end %>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
-          <%= link_to "https://www.distriartisan.fr/", target: :blank do %>
-          <%= image_tag "distri_artisan.png", width: 150 %>
-          <% end %>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
-          <%= link_to "https://ekylibre.com/", target: :blank do %>
-          <%= image_tag "ekylibre.png", width: 100 %>
-          <% end %>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
-          <%= link_to "https://www.espaces-atypiques.com/bordeaux/", target: :blank do %>
-          <%= image_tag "espaces-atypiques.png", width: 150 %>
-          <% end %>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
-          <%= link_to "http://www.jhas.fr/", target: :blank do %>
-          <%= image_tag "JHAS.jpg", width: 150 %>
-          <% end %>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
-          <%= link_to "http://www.jla.fr/", target: :blank do %>
-          <%= image_tag "JLA.png", width: 150 %>
-          <% end %>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
-          <%= link_to "http://lalternativebordeaux.fr", target: :blank do %>
-          <%= image_tag "lalternative.png", width: 100 %>
-          <% end %>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
-          <%= link_to "http://www.lenno.fr/", target: :blank do %>
-          <%= image_tag "lenno.png", width: 100 %>
-          <% end %>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-2 text-center mb-4 px-4 d-flex align-items-center justify-content-center">
-          <%= link_to "https://ess.bordeaux-metropole.fr/Actualites/Le-Point-commun-a-Bordeaux-un-lieu-d-entrepreneuriat-pour-une-societe-solidaire", target: :blank do %>
-          <%= image_tag "point-commun.png", width: 100 %>
-          <% end %>
-        </div>
-      </div>
     </div>
   <%= render 'shared/footer' %>
 </div>
