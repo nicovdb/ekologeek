@@ -1,13 +1,19 @@
 .percente {
   padding: 5px 40px;
   color: white;
+
   font-weight: bold;
   margin-right: 10px;
   font-size: 30px;
 }
 
+.percente-blue {
+  background-color: rgb(135, 180, 231);
+  color: black;
+}
+
 .percente-red {
-  background-color: $red;
+  background-color: #DA5552;
 }
 
 .percentage p {
