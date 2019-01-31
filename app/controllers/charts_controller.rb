@@ -11,7 +11,6 @@ class ChartsController < ApplicationController
                 JOIN bin_types ON bin_types.id = bins.bin_type_id
                 WHERE companies.id = #{current_user.company.id}"
     @collects = ActiveRecord::Base.connection.execute(sql).to_a
-    @companies_collects = @collects.group_by { |collect| collect["company"]}
     @types_collects = @collects.group_by { |collect| collect["type"]}
     @series = @types_collects.map do |type_collects|
       data = type_collects[1].map do |type_collect|
@@ -35,6 +34,7 @@ class ChartsController < ApplicationController
                 JOIN bin_types ON bin_types.id = bins.bin_type_id
                 WHERE projects.id = #{current_user.company.project.id}"
     @admin_collects = ActiveRecord::Base.connection.execute(admin_sql)
+    @companies_collects = @admin_collects.group_by { |collect| collect["company"]}
     @types_collects = @admin_collects.group_by { |collect| collect["type"]}
     @admin_series = @types_collects.map { |type_collects|
       data = type_collects[1].map { |type_collect|
