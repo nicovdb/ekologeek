@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :unknown]
+  before_action :set_user, only: [:show, :edit, :update, :unknown, :destroy]
   before_action :authenticate_user!, only: [:show, :edit, :update]
 
   layout "connected"
@@ -63,6 +63,11 @@ class UsersController < ApplicationController
   def destroy_cookies
     cookies.delete(:_ekologeek_session)
     redirect_to user_path(params["id"])
+  end
+
+  def destroy
+    @user.destroy
+    redirect_to donnees_path
   end
 
   private

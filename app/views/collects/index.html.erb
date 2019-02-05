@@ -119,6 +119,7 @@
                 <% if current_user.referent? || current_user.admin? %>
                   <th>Nb de connexion</th>
                   <th>Dernière connexion</th>
+                  <th>Supprimer</th>
                 <% end %>
               </tr>
             </thead>
@@ -135,6 +136,7 @@
               <% if current_user.referent? && user.current_sign_in_at.present? || current_user.admin? && user.current_sign_in_at.present?  %>
                 <td><%= user.sign_in_count %></td>
                 <td><%= user.current_sign_in_at.strftime("%d-%m-%Y") %></td>
+                <td><%= link_to "Supprimer", user_path(user), method: :delete, class: "btn btn-danger" %></td>
               <% elsif current_user.referent? %>
                 <td> - </td>
                 <td> - </td>

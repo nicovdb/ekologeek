@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   resources :result_comportamental_formulaires, only: [ :show, :new, :edit, :update ]
   resources :company_behaviour_diags, only: [ :show, :new, :edit, :update ]
 
-  resources :users, only: [:show, :edit, :update, :new, :create], path: "utilisateurs" do
+  resources :users, only: [:show, :edit, :update, :new, :create, :destroy], path: "utilisateurs" do
     member do
       patch "unknown"
       put "unknown"
