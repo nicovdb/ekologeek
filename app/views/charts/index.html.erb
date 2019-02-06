@@ -36,7 +36,7 @@
           <!-- solution de secours à la place des totaux dans le graphique -->
           <h2 class="green-bg my-4">Récapitulatif</h2>
           <div class="structur-array">
-            <table class="mt-4">
+            <table class="mt-4 fixed_headers">
               <thead>
                 <tr class="text-center">
                   <th> Structure</th>
@@ -45,19 +45,21 @@
                   <th> Poids total </th>
                 </tr>
               </thead>
-              <% @days_and_weight_per_company_per_person.each do |company|  %>
-                <tbody>
-                  <td><%= company[0] %></td>
-                  <td><%= (company[2] / company[1]).round(2) %></td>
-                  <td><%= company[1].to_i  %></td>
-                  <td><%= company[2].round %> Kg</td>
-                </tbody>
-              <% end %>
               <tbody>
-                <td>Total</td>
-                <td>-</td>
-                <td>-</td>
-                <td><%= @total_weight.round %> Kg</td>
+                <% @days_and_weight_per_company_per_person.each do |company|  %>
+                  <tr>
+                    <td><%= company[0] %></td>
+                    <td><%= (company[2] / company[1]).round(2) %></td>
+                    <td><%= company[1].to_i  %></td>
+                    <td><%= company[2].round %> Kg</td>
+                  </tr>
+                <% end %>
+                <tr>
+                  <td>Total</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td><%= @total_weight.round %> Kg</td>
+                </tr>
               </tbody>
             </table>
           </div>

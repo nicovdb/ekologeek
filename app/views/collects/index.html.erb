@@ -42,8 +42,7 @@
             <%= link_to "Gérer les bacs", bins_path, class:"btn btn-outline-primary" %>
           </div>
         <% end %>
-        <div class="structur-array">
-        <table class="mt-4">
+        <table class="mt-4 fixed_headers">
           <thead>
             <tr class="text-center">
               <% if current_user.admin %>
@@ -63,35 +62,35 @@
               <% end %>
             </tr>
           </thead>
-          <% @collects.each do |collect| %>
             <tbody>
-              <tr>
-                <% if current_user.admin %>
-                  <td> <%= collect.bin.company.name %></td>
-                <% end %>
-                <td><%= collect.bin.bin_type.name %></td>
-                <td><%= collect.bin.id %></td>
-                <td><%= collect.start_at.strftime("%d/%m/%y") %></td>
-                <td><%= collect.end_at.strftime("%d/%m/%y") %></td>
-                <td><%= collect.filled_rate %>%</td>
-                <td><%= (collect.filled_rate / 100 * collect.bin.volume * collect.bin.bin_type.density).round %> Kg</td>
-                <td><%= collect.weight_person_day.round(2) %> Kg </td>
-                <td><%= collect.comment %></td>
-                <% if current_user.referent? %>
-                  <td><%= link_to "Modifier", edit_collect_path(collect), class: "btn btn-primary" %></td>
-                  <td>
-                    <%= link_to "Supprimer", collect_path(collect),
-                                            method: :delete,
-                                            class: "btn btn-danger",
-                                            data: { confirm: "Êtes-vous sûr ?"}
-                    %>
+              <% @collects.each do |collect| %>
+                <tr>
+                  <% if current_user.admin %>
+                    <td> <%= collect.bin.company.name %></td>
+                  <% end %>
+                  <td><%= collect.bin.bin_type.name %></td>
+                  <td><%= collect.bin.id %></td>
+                  <td><%= collect.start_at.strftime("%d/%m/%y") %></td>
+                  <td><%= collect.end_at.strftime("%d/%m/%y") %></td>
+                  <td><%= collect.filled_rate %>%</td>
+                  <td><%= (collect.filled_rate / 100 * collect.bin.volume * collect.bin.bin_type.density).round %> Kg</td>
+                  <td><%= collect.weight_person_day.round(2) %> Kg </td>
+                  <td><%= collect.comment %></td>
+                  <% if current_user.referent? %>
+                    <td><%= link_to "Modifier", edit_collect_path(collect), class: "btn btn-primary" %></td>
+                    <td>
+                      <%= link_to "Supprimer", collect_path(collect),
+                                              method: :delete,
+                                              class: "btn btn-danger",
+                                              data: { confirm: "Êtes-vous sûr ?"}
+                      %>
                   </td>
                 <% end %>
               </tr>
-            </tbody>
-          <% end %>
+            <% end %>
+          </tbody>
         </table>
-        </div>
+
         <div id="referent"></div>
         <% if current_user.referent? %>
           <h2 class="green-bg mt-5 mb-4">Collaborateur·ice·s de votre structure</h2>
@@ -104,27 +103,28 @@
           <p class="mb-0 bold"><%= current_user.company.referent.user.telephone %></p>
           <p class="mb-0 bold"><%= current_user.company.referent.user.email %></p>
         <% end %>
-        <div class="structur-array">
-          <table class="mt-4 mb-5 user-array">
-            <thead>
-              <tr class="text-center">
-                <% if current_user.admin? %>
-                  <th>Structure</th>
-                <% end %>
-                <th>Prénom</th>
-                <th>NOM</th>
-                <th>Fonction</th>
-                <th>Téléphone</th>
-                <th>Email</th>
-                <% if current_user.referent? || current_user.admin? %>
-                  <th>Nb de connexion</th>
-                  <th>Dernière connexion</th>
-                  <th>Supprimer</th>
-                <% end %>
-              </tr>
-            </thead>
+
+        <table class="mt-4 mb-5 fixed_headers">
+          <thead>
+            <tr class="text-center">
+              <% if current_user.admin? %>
+                <th>Structure</th>
+              <% end %>
+              <th>Prénom</th>
+              <th>NOM</th>
+              <th>Fonction</th>
+              <th>Téléphone</th>
+              <th>Email</th>
+              <% if current_user.referent? || current_user.admin? %>
+                <th>Nb de connexion</th>
+                <th>Dernière connexion</th>
+                <th>Supprimer</th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody>
             <% @users.each do |user| %>
-            <tbody>
+              <tr>
               <% if current_user.admin? %>
                 <td><%= user.company.name %></td>
               <% end %>
@@ -147,10 +147,11 @@
                   <td><%= link_to "Supprimer", user_path(user), method: :delete, class: "btn btn-danger" %></td>
                 <% end %>
               <% end %>
-            </tbody>
+              </tr>
             <% end %>
-          </table>
-      </div>
+          </tbody>
+        </table>
+
       <div id="structure"></div>
       <h2 class="green-bg mt-5">Votre structure dans le Défi</h2>
       <% if current_user.referent? %>
