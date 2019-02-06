@@ -136,10 +136,16 @@
               <% if current_user.referent? && user.current_sign_in_at.present? || current_user.admin? && user.current_sign_in_at.present?  %>
                 <td><%= user.sign_in_count %></td>
                 <td><%= user.current_sign_in_at.strftime("%d-%m-%Y") %></td>
-                <td><%= link_to "Supprimer", user_path(user), method: :delete, class: "btn btn-danger" %></td>
               <% elsif current_user.referent? %>
                 <td> - </td>
                 <td> - </td>
+              <% end %>
+              <% if current_user.referent? || current_user.admin? %>
+                <% if user.referent? || user.admin? %>
+                  <td> - </td>
+                <% else %>
+                  <td><%= link_to "Supprimer", user_path(user), method: :delete, class: "btn btn-danger" %></td>
+                <% end %>
               <% end %>
             </tbody>
             <% end %>
