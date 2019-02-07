@@ -13,21 +13,21 @@
 <h2 class="green-bg my-4">Total par type de déchets</h2>
 
 <div class="pane pane--table1 mt-4">
-  <div class="pane-hScroll">
-    <table class="table table-striped table-hover">
+  <div class="pane-hScroll2">
+    <table class="table table-striped table-hover chart_array">
       <thead>
         <tr class="text-center">
           <th> Type de déchet</th>
-          <th> Kg/collaborateur/jour</th>
+          <th> Kg / collaborateur / jour</th>
           <th> Jours suivis </th>
           <th> Poids total </th>
         </tr>
       </thead>
     </table>
-    <div class="pane-vScroll">
-      <table class="table table-striped table-hover">
+    <div class="pane-vScroll2">
+      <table class="table table-striped table-hover chart_array">
         <tbody>
-          <% @days_and_weight_per_type_per_person.each do |type|  %>
+          <% @days_and_weight_per_type_per_person.each do |type| %>
             <tr>
               <td><%= type[0] %></td>
               <td><%= (type[2] / type[1]).round(2) %></td>
@@ -44,5 +44,6 @@
         </tbody>
       </table>
     </div>
+
   </div>
 </div>

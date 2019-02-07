@@ -48,19 +48,19 @@
               <thead >
                 <tr>
                   <% if current_user.admin %>
-                  <th><div class="fixed_table">Structure</div></th>
+                    <th>Structure</th>
                   <% end %>
-                  <th><div class="fixed_table">Type de bacs</div></th>
-                  <th><div class="fixed_table">N° du bac</div></th>
-                  <th><div class="fixed_table">Début de période de relevée</div></th>
-                  <th><div class="fixed_table">Fin de période de relevée</div></th>
-                  <th><div class="fixed_table">Taux de remplissage</div></th>
-                  <th><div class="fixed_table">Poids du bac</div></th>
-                  <th><div class="fixed_table">Poids du bac (/collaborateur·rice/jour moyen</div></th>
-                  <th><div class="fixed_table">Commentaire</div></th>
+                  <th>Type de bacs</th>
+                  <th>N° du bac</th>
+                  <th>Début de période de relevée</th>
+                  <th>Fin de période de relevée</th>
+                  <th>Taux de remplissage</th>
+                  <th>Poids du bac</th>
+                  <th class="lg">Poids du bac (/collaborateur·rice/jour moyen</th>
+                  <th>Commentaire</th>
                   <% if current_user.referent? %>
-                  <th><div class="fixed_table"></div></th>
-                  <th><div class="fixed_table"></div></th>
+                    <th></th>
+                    <th></th>
                   <% end %>
                 </tr>
               </thead>
@@ -79,7 +79,7 @@
                     <td><%= collect.end_at.strftime("%d/%m/%y") %></td>
                     <td><%= collect.filled_rate %>%</td>
                     <td><%= (collect.filled_rate / 100 * collect.bin.volume * collect.bin.bin_type.density).round %> Kg</td>
-                    <td><%= collect.weight_person_day.round(2) %> Kg </td>
+                    <td class="lg"><%= collect.weight_person_day.round(2) %> Kg </td>
                     <td><%= collect.comment %></td>
                     <% if current_user.referent? %>
                     <td><%= link_to "Modifier", edit_collect_path(collect), class: "btn btn-primary" %></td>
@@ -123,7 +123,7 @@
                   <th>NOM</th>
                   <th>Fonction</th>
                   <th>Téléphone</th>
-                  <th>Email</th>
+                  <th class="lg">Email</th>
                   <% if current_user.referent? || current_user.admin? %>
                     <th>Nb de connexion</th>
                     <th>Dernière connexion</th>
@@ -144,7 +144,7 @@
                       <td><%= user.last_name.upcase %></td>
                       <td><%= user.role.capitalize %></td>
                       <td><%= user.telephone %></td>
-                      <td><%= user.email %></td>
+                      <td class="lg"><%= user.email %></td>
                       <% if current_user.referent? && user.current_sign_in_at.present? || current_user.admin? && user.current_sign_in_at.present?  %>
                         <td><%= user.sign_in_count %></td>
                         <td><%= user.current_sign_in_at.strftime("%d-%m-%Y") %></td>

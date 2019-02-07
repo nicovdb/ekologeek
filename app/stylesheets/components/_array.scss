@@ -3,15 +3,29 @@ table {
   background: white;
   table-layout: fixed;
   width: 100%;
+
+  th, td {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    width: 160px;
+    text-align: center;
+    &.lg {
+      width: 300px;
+    }
+  }
 }
-th, td {
-  padding: 8px 16px;
-  border: 1px solid #ddd;
-  width: 300px;
-  text-align: center;
-  // overflow: hidden;
-  // text-overflow: ellipsis;
-  // white-space: nowrap;
+
+table.chart_array  {
+  th, td {
+    @media (max-width: $mobile) {
+      width: 50px;
+    }
+  }
+  th {
+    @media (max-width: $mobile) {
+      font-size: 0.5rem;
+    }
+  }
 }
 
 .pane {
