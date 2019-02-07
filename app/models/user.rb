@@ -15,12 +15,12 @@ class User < ApplicationRecord
 
   attr_accessor :created_by_referent
 
-  validates :civility, :first_name, :last_name, :role, :email, :telephone, :password, presence: true
+  validates :civility, :first_name, :last_name, :role, :email, :password, presence: true
 
   validates :telephone, format: {
     with: /\A(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})\z/,
     message: I18n.t('errors.phone_format')
-  }
+  }, allow_blank: true
 
   def send_on_create_confirmation_instructions
     if self.created_by_referent
