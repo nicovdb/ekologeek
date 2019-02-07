@@ -4,6 +4,7 @@ import '../components/scroll.js';
 import '../components/anchor.js';
 import '../components/add-bin.js';
 import '../components/dropable.js';
+import '../components/array.js';
 import "../plugins/flatpickr.js";
 
 import Highcharts from "highcharts/highcharts.js";

@@ -7,56 +7,63 @@
         <%= link_to "Ajouter un bac", new_bin_path, class: "btn btn-primary bold mr-2" %>
         <%= link_to "Retour", donnees_path, class: "btn btn-outline-primary ml-2" %>
       </div>
-
-      <div class="structur-array">
-        <table class="my-4">
-          <thead>
-            <tr>
-              <% if current_user.admin? %>
-                <th> Structure </th>
-              <% end %>
-              <th> Type de bacs</th>
-              <th> N° du bac</th>
-              <th>Partagé</th>
-              <th> Volume (Litres)</th>
-              <th> Fréquence de collecte habituelle</th>
-              <th> Prestataire de collecte</th>
-              <th>Déchets collectés</th>
-              <th>Coût annuel</th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-          <% @bins.each do |bin| %>
-          <tbody>
-            <% if current_user.admin? %>
-              <td><%= bin.company.name  %></td>
-            <% end %>
-            <td><%= bin.bin_type.name  %></td>
-            <td><%= bin.id %></td>
-            <td><%= bin.shared ? "Oui" : "Non" %></td>
-            <td><%= bin.volume %>L</td>
-            <td><%= bin.frequency_number %> <%= bin.frequency_periodicity %> <%= bin.frequency_day %> </td>
-            <td> <%= bin.collector.capitalize %> </td>
-            <td><% bin.trashes.each do |trash| %>
-              <% if bin.trashes.last == trash %>
-               <%= trash.name.capitalize %>
-              <% else %>
-               <%= trash.name.capitalize %>,
-              <% end %>
-            <% end %></td>
-            <td> <%= bin.cost %>€ </td>
-            <td><%= link_to "Modifier", edit_bin_path(bin), class: "btn btn-primary" %></td>
-            <td>
-              <%= link_to "Supprimer", bin_path(bin),
-                                      method: :delete,
-                                      class: "btn btn-danger",
-                                      data: { confirm: "Êtes-vous sûr ?"}
-              %>
-            </td>
-          </tbody>
-          <% end %>
-        </table>
+      <div class="pane pane--table1 mt-4">
+        <div class="pane-hScroll">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <% if current_user.admin? %>
+                  <th> Structure </th>
+                <% end %>
+                <th> Type de bacs</th>
+                <th> N° du bac</th>
+                <th>Partagé</th>
+                <th> Volume (Litres)</th>
+                <th> Fréquence de collecte habituelle</th>
+                <th> Prestataire de collecte</th>
+                <th>Déchets collectés</th>
+                <th>Coût annuel</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+          </table>
+          <div class="pane-vScroll">
+            <table class="table table-striped table-hover">
+              <tbody>
+                <% @bins.each do |bin| %>
+                  <tr>
+                    <% if current_user.admin? %>
+                      <td><%= bin.company.name  %></td>
+                    <% end %>
+                    <td><%= bin.bin_type.name  %></td>
+                    <td><%= bin.id %></td>
+                    <td><%= bin.shared ? "Oui" : "Non" %></td>
+                    <td><%= bin.volume %>L</td>
+                    <td><%= bin.frequency_number %> <%= bin.frequency_periodicity %> <%= bin.frequency_day %> </td>
+                    <td> <%= bin.collector.capitalize %> </td>
+                    <td><% bin.trashes.each do |trash| %>
+                      <% if bin.trashes.last == trash %>
+                       <%= trash.name.capitalize %>
+                      <% else %>
+                       <%= trash.name.capitalize %>,
+                      <% end %>
+                    <% end %></td>
+                    <td> <%= bin.cost %>€ </td>
+                    <td><%= link_to "Modifier", edit_bin_path(bin), class: "btn btn-primary" %></td>
+                    <td>
+                      <%= link_to "Supprimer", bin_path(bin),
+                                              method: :delete,
+                                              class: "btn btn-danger",
+                                              data: { confirm: "Êtes-vous sûr ?"}
+                      %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -1,29 +1,56 @@
-.structur-array {
-  overflow: scroll;
-  max-height: 600px;
-}
-
-th {
-  padding: 15px 20px;
-  background: $secondary;
-  color: white;
-}
-
-td:first-child {
-  font-weight: bold;
-}
-
-td {
-  text-align: center;
-}
-
-tbody:nth-child(even) {
-  background: #FFF;
-}
-tbody:nth-child(odd) {
-  background: #CCC;
-}
-
-table.user-array {
+table {
+  border-collapse: collapse;
+  background: white;
+  table-layout: fixed;
   width: 100%;
+
+  th, td {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    width: 160px;
+    text-align: center;
+    &.lg {
+      width: 300px;
+    }
+  }
+}
+
+table.chart_array  {
+  th, td {
+    @media (max-width: $mobile) {
+      width: 50px;
+    }
+  }
+  th {
+    @media (max-width: $mobile) {
+      font-size: 0.5rem;
+    }
+  }
+}
+
+.pane {
+  background: #eee;
+}
+.pane-hScroll {
+  overflow: auto;
+  width: 100%;
+  background: $green;
+}
+.pane-vScroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 200px;
+  background: white;
+}
+
+.pane-hScroll2 {
+  overflow: auto;
+  width: 100%;
+  background: $green;
+}
+.pane-vScroll2 {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 200px;
+  background: white;
 }
