@@ -167,6 +167,9 @@ fr:
         end_at: Date de fin
         filled_rate: Taux de remplissage
         company: Structure
+        bin_type: "Type de déchet"
+        density: "Densité"
+        employees_nb: "Collaborateurs"
       priority_action:
         priority_level: Niveau de priorité
       company_behaviour:
