@@ -9,6 +9,9 @@ ActiveAdmin.register Collect do
     id_column
     column (:bin_id) { |collect| collect.bin.company.name}
     column (:bin_id) { |collect| collect.bin.bin_type.name}
+    column (:bin_id) { |collect| collect.bin.volume}
+    column (:bin_id) { |collect| collect.bin.bin_type.density}
+    column (:bin_id) { |collect| collect.bin.company.trash_diagnostic.employees_nb}
     column :start_at
     column :end_at
     column :filled_rate
