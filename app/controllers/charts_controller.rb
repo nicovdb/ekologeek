@@ -13,18 +13,24 @@ class ChartsController < ApplicationController
     @collects = ActiveRecord::Base.connection.execute(sql).to_a
 
     #calcul du poids des déchets lors du diag pour 1 entreprise
-    @diag_collects = @collects.reject { |collect| collect["status"] != "diagnostic" }
+    @diag_collects = @collects.select { |collect| collect["status"] == "diagnostic" }
     @diag_collects_weight = 0
+    @diag_total_days = 0
     @diag_collects.each do |collect|
       @diag_collects_weight += (collect["end_at"].to_date - collect["start_at"].to_date) * collect["weight_person_day"]
+      @diag_total_days += collect["end_at"].to_date - collect["start_at"].to_date
     end
 
     #calcul du poids des déchets lors du suivi pour 1 entreprise
-    @current_collects = @collects.reject { |collect| collect["status"] != "suivi" }
+    @current_collects = @collects.select { |collect| collect["status"] == "suivi" }
     @current_collects_weight = 0
+    @current_total_days = 0
     @current_collects.each do |collect|
       @current_collects_weight += (collect["end_at"].to_date - collect["start_at"].to_date) * collect["weight_person_day"]
+      @current_total_days += collect["end_at"].to_date - collect["start_at"].to_date
     end
+
+    @weight_evolution = ((((@current_collects_weight / @current_total_days) - (@diag_collects_weight / @diag_total_days)) / (@current_collects_weight / @current_total_days))*100).round
 
     @types_collects = @collects.group_by { |collect| collect["type"]}
     @series = @types_collects.map do |type_collects|
@@ -40,6 +46,7 @@ class ChartsController < ApplicationController
         data: data
       }
     end
+
 
     #les données pour le graphique spécial admin avec toutes les structures
     admin_sql = "SELECT start_at, end_at, weight_person_day, companies.name AS company, bin_types.name AS type, status FROM collects
