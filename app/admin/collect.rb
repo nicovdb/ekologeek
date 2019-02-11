@@ -7,11 +7,11 @@ ActiveAdmin.register Collect do
   index do
     selectable_column
     id_column
-    column (:bin_id) { |collect| collect.bin.company.name}
-    column (:bin_id) { |collect| collect.bin.bin_type.name}
-    column (:bin_id) { |collect| collect.bin.volume}
-    column (:bin_id) { |collect| collect.bin.bin_type.density}
-    column (:bin_id) { |collect| collect.bin.company.trash_diagnostic.employees_nb}
+    column (:company) { |collect| collect.bin.company.name}
+    column (:bin_type) { |collect| collect.bin.bin_type.name}
+    column (:volume) { |collect| "#{collect.bin.volume}L"}
+    column (:density) { |collect| "#{(collect.bin.bin_type.density * 100).to_i}%"}
+    column (:employees_nb) { |collect| collect.bin.company.trash_diagnostic.employees_nb}
     column :start_at
     column :end_at
     column :filled_rate
@@ -27,6 +27,9 @@ ActiveAdmin.register Collect do
   csv do
     column (:bin_id) { |collect| collect.bin.company.name}
     column (:bin_id) { |collect| collect.bin.bin_type.name}
+    column (:bin_id) { |collect| "#{collect.bin.volume}L"}
+    column (:bin_id) { |collect| "#{(collect.bin.bin_type.density * 100).to_i}%"}
+    column (:bin_id) { |collect| collect.bin.company.trash_diagnostic.employees_nb}
     column :start_at
     column :end_at
     column :filled_rate
