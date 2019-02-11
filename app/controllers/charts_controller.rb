@@ -12,25 +12,7 @@ class ChartsController < ApplicationController
                 WHERE companies.id = #{current_user.company.id}"
     @collects = ActiveRecord::Base.connection.execute(sql).to_a
 
-    #calcul du poids des déchets lors du diag pour 1 entreprise
-    @diag_collects = @collects.select { |collect| collect["status"] == "diagnostic" }
-    @diag_collects_weight = 0
-    @diag_total_days = 0
-    @diag_collects.each do |collect|
-      @diag_collects_weight += (collect["end_at"].to_date - collect["start_at"].to_date) * collect["weight_person_day"]
-      @diag_total_days += collect["end_at"].to_date - collect["start_at"].to_date
-    end
-
-    #calcul du poids des déchets lors du suivi pour 1 entreprise
-    @current_collects = @collects.select { |collect| collect["status"] == "suivi" }
-    @current_collects_weight = 0
-    @current_total_days = 0
-    @current_collects.each do |collect|
-      @current_collects_weight += (collect["end_at"].to_date - collect["start_at"].to_date) * collect["weight_person_day"]
-      @current_total_days += collect["end_at"].to_date - collect["start_at"].to_date
-    end
-
-    @weight_evolution = ((((@current_collects_weight / @current_total_days) - (@diag_collects_weight / @diag_total_days)) / (@current_collects_weight / @current_total_days))*100).round
+    weight_evolution
 
     @types_collects = @collects.group_by { |collect| collect["type"]}
     @series = @types_collects.map do |type_collects|
@@ -56,6 +38,9 @@ class ChartsController < ApplicationController
                 JOIN bin_types ON bin_types.id = bins.bin_type_id
                 WHERE projects.id = #{current_user.company.project.id}"
     @admin_collects = ActiveRecord::Base.connection.execute(admin_sql)
+
+    admin_weight_evolution
+
     @companies_collects = @admin_collects.group_by { |collect| collect["company"]}
     @types_collects = @admin_collects.group_by { |collect| collect["type"]}
     @admin_series = @types_collects.map { |type_collects|
@@ -113,7 +98,7 @@ class ChartsController < ApplicationController
   def show
     @company = Company.find(params[:id])
 
-    sql = "SELECT start_at, end_at, weight_person_day, bin_types.name AS type FROM collects
+    sql = "SELECT start_at, end_at, weight_person_day, bin_types.name AS type, status FROM collects
                 JOIN bins ON bins.id = collects.bin_id
                 JOIN companies ON companies.id = bins.company_id
                 JOIN bin_types ON bin_types.id = bins.bin_type_id
@@ -153,6 +138,64 @@ class ChartsController < ApplicationController
     respond_to do |format|
       format.html {redirect_to chart_path(@company.id)}
       format.js
+    end
+
+    weight_evolution
+  end
+
+  private
+
+  def weight_evolution
+    #calcul du poids des déchets lors du diag pour 1 entreprise
+    @diag_collects = @collects.select { |collect| collect["status"] == "diagnostic" }
+    @diag_collects_weight = 0
+    @diag_total_days = 0
+    @diag_collects.each do |collect|
+      @diag_collects_weight += (collect["end_at"].to_date - collect["start_at"].to_date) * collect["weight_person_day"]
+      @diag_total_days += collect["end_at"].to_date - collect["start_at"].to_date
+    end
+
+    #calcul du poids des déchets lors du suivi pour 1 entreprise
+    @current_collects = @collects.select { |collect| collect["status"] == "suivi" }
+    @current_collects_weight = 0
+    @current_total_days = 0
+    @current_collects.each do |collect|
+      @current_collects_weight += (collect["end_at"].to_date - collect["start_at"].to_date) * collect["weight_person_day"]
+      @current_total_days += collect["end_at"].to_date - collect["start_at"].to_date
+    end
+
+    if @current_total_days != 0 || @diag_total_days != 0
+      @weight_evolution = ((((@current_collects_weight / @current_total_days) - (@diag_collects_weight / @diag_total_days)) / (@current_collects_weight / @current_total_days))*100).round
+    else
+      @weight_evolution = 0
+    end
+  end
+
+
+  def admin_weight_evolution
+    #calcul du poids des déchets lors du diag pour 1 entreprise
+
+    @diag_collects = @admin_collects.select { |collect| collect["status"] == "diagnostic" }
+    @diag_collects_weight = 0
+    @diag_total_days = 0
+    @diag_collects.each do |collect|
+      @diag_collects_weight += (collect["end_at"].to_date - collect["start_at"].to_date) * collect["weight_person_day"]
+      @diag_total_days += collect["end_at"].to_date - collect["start_at"].to_date
+    end
+
+    #calcul du poids des déchets lors du suivi pour 1 entreprise
+    @current_collects = @admin_collects.select { |collect| collect["status"] == "suivi" }
+    @current_collects_weight = 0
+    @current_total_days = 0
+    @current_collects.each do |collect|
+      @current_collects_weight += (collect["end_at"].to_date - collect["start_at"].to_date) * collect["weight_person_day"]
+      @current_total_days += collect["end_at"].to_date - collect["start_at"].to_date
+    end
+
+    if @current_total_days != 0 || @diag_total_days != 0
+      @admin_weight_evolution = ((((@current_collects_weight / @current_total_days) - (@diag_collects_weight / @diag_total_days)) / (@current_collects_weight / @current_total_days))*100).round
+    else
+      @admin_weight_evolution = 0
     end
   end
 end
