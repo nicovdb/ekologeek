@@ -5,12 +5,27 @@ class ChartsController < ApplicationController
   def index
     @companies = Company.all
     #données des séries pour le graphique récapitulatif de chaque structure
-    sql = "SELECT start_at, end_at, weight_person_day, bin_types.name AS type FROM collects
+    sql = "SELECT start_at, end_at, weight_person_day, bin_types.name AS type, status FROM collects
                 JOIN bins ON bins.id = collects.bin_id
                 JOIN companies ON companies.id = bins.company_id
                 JOIN bin_types ON bin_types.id = bins.bin_type_id
                 WHERE companies.id = #{current_user.company.id}"
     @collects = ActiveRecord::Base.connection.execute(sql).to_a
+
+    #calcul du poids des déchets lors du diag pour 1 entreprise
+    @diag_collects = @collects.reject { |collect| collect["status"] != "diagnostic" }
+    @diag_collects_weight = 0
+    @diag_collects.each do |collect|
+      @diag_collects_weight += (collect["end_at"].to_date - collect["start_at"].to_date) * collect["weight_person_day"]
+    end
+
+    #calcul du poids des déchets lors du suivi pour 1 entreprise
+    @current_collects = @collects.reject { |collect| collect["status"] != "suivi" }
+    @current_collects_weight = 0
+    @current_collects.each do |collect|
+      @current_collects_weight += (collect["end_at"].to_date - collect["start_at"].to_date) * collect["weight_person_day"]
+    end
+
     @types_collects = @collects.group_by { |collect| collect["type"]}
     @series = @types_collects.map do |type_collects|
       data = type_collects[1].map do |type_collect|
@@ -27,7 +42,7 @@ class ChartsController < ApplicationController
     end
 
     #les données pour le graphique spécial admin avec toutes les structures
-    admin_sql = "SELECT start_at, end_at, weight_person_day, companies.name AS company, bin_types.name AS type FROM collects
+    admin_sql = "SELECT start_at, end_at, weight_person_day, companies.name AS company, bin_types.name AS type, status FROM collects
                 JOIN bins ON bins.id = collects.bin_id
                 JOIN companies ON companies.id = bins.company_id
                 JOIN projects ON projects.id = companies.project_id
@@ -86,6 +101,7 @@ class ChartsController < ApplicationController
       [company_collects.first, days, weight]
     }
   end
+
 
   def show
     @company = Company.find(params[:id])
