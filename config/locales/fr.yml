@@ -155,7 +155,6 @@ fr:
         confirmed_at: "Confirmé le"
       bin:
         bin_type_id: "Type de déchet"
-        bin_type: "Type de déchet"
         frequency_number: "Fréquence"
         frequency_periodicity: "Périodicité"
         collector: "Collecteur"
