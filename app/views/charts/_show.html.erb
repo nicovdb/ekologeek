@@ -2,13 +2,21 @@
 <div id='companychart' data-series="<%= series.to_json %>"></div>
 
 <% if @total_weight_per_company != 0 %>
-  <div class="d-flex justify-content-center align-items-center my-4 percentage">
+  <div class="d-flex align-items-center my-4 percentage">
     <div class="percente percente-blue">
       <%= (@residual_trash / @total_weight_per_company * 100).round %>%
     </div>
     <p>d'ordures ménagères résiduelles sur la production totale de déchets de fonctionnement</p>
   </div>
 <% end %>
+
+
+<div class="d-flex align-items-center my-4 percentage">
+  <div class="percente percente-red">
+    <%= @weight_evolution %>%
+  </div>
+  <p>d'évolution depuis le diagnostic</p>
+</div>
 
 <h2 class="green-bg my-4">Total par type de déchets</h2>
 

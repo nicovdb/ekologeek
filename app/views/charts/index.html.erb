@@ -72,13 +72,20 @@
           </div>
 
            <% if @total_weight != 0 %>
-            <div class="d-flex justify-content-center align-items-center mt-4 percentage">
+            <div class="d-flex align-items-center mt-4 percentage">
               <div class="percente percente-blue">
                 <%= (@admin_residual_trash / @total_weight * 100).round %>%
               </div>
               <p>d'ordures ménagères résiduelles sur la production totale de déchets de fonctionnement</p>
             </div>
           <% end %>
+
+          <div class="d-flex align-items-center my-4 percentage">
+            <div class="percente percente-red">
+              <%= @admin_weight_evolution %>%
+            </div>
+            <p>d'évolution depuis le diagnostic</p>
+          </div>
 
           <hr class="my-5">
           <div class="dropdown">
