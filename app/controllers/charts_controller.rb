@@ -164,13 +164,16 @@ class ChartsController < ApplicationController
       @current_total_days += collect["end_at"].to_date - collect["start_at"].to_date
     end
 
-    if @current_total_days != 0 || @diag_total_days != 0 || @current_collects_weight != 0 || @diag_collects_weight != 0
-      @weight_evolution = ((((@current_collects_weight / @current_total_days) - (@diag_collects_weight / @diag_total_days)) / (@current_collects_weight / @current_total_days))*100).round
+    if @current_total_days != 0 && @diag_total_days != 0 && @current_collects_weight != 0 && @diag_collects_weight != 0
+      begin
+        @weight_evolution = ((((@current_collects_weight / @current_total_days) - (@diag_collects_weight / @diag_total_days)) / (@current_collects_weight / @current_total_days))*100).round
       rescue ZeroDivisionError
         @weight_evolution = 0
+      end
     else
       @weight_evolution = 0
     end
+
   end
 
 
@@ -194,7 +197,7 @@ class ChartsController < ApplicationController
       @current_total_days += collect["end_at"].to_date - collect["start_at"].to_date
     end
 
-    if @current_total_days != 0 || @diag_total_days != 0 || @current_collects_weight != 0 || @diag_collects_weight != 0
+    if @current_total_days != 0 && @diag_total_days != 0 && @current_collects_weight != 0 && @diag_collects_weight != 0
       @admin_weight_evolution = ((((@current_collects_weight / @current_total_days) - (@diag_collects_weight / @diag_total_days)) / (@current_collects_weight / @current_total_days))*100).round
     else
       @admin_weight_evolution = 0
