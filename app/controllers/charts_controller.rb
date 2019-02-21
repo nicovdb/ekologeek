@@ -165,11 +165,7 @@ class ChartsController < ApplicationController
     end
 
     if @current_total_days != 0 && @diag_total_days != 0 && @current_collects_weight != 0 && @diag_collects_weight != 0
-      begin
-        @weight_evolution = ((((@current_collects_weight / @current_total_days) - (@diag_collects_weight / @diag_total_days)) / (@current_collects_weight / @current_total_days))*100).round
-      rescue ZeroDivisionError
-        @weight_evolution = 0
-      end
+      @weight_evolution = ((((@current_collects_weight / @current_total_days) - (@diag_collects_weight / @diag_total_days)) / (@current_collects_weight / @current_total_days))*100).round
     else
       @weight_evolution = 0
     end
