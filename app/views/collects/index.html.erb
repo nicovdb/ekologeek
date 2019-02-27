@@ -87,7 +87,7 @@
                       <%= link_to "Supprimer", collect_path(collect),
                       method: :delete,
                       class: "btn btn-danger",
-                      data: { confirm: "Êtes-vous sûr ?"}
+                      data: { confirm: "Êtes-vous sûr de vouloir supprimer ce relevé ?"}
                       %>
                     </td>
                     <% end %>
@@ -156,7 +156,10 @@
                         <% if user.referent? || user.admin? %>
                           <td> - </td>
                         <% else %>
-                          <td><%= link_to "Supprimer", user_path(user), method: :delete, class: "btn btn-danger" %></td>
+                          <td><%= link_to "Supprimer", user_path(user),
+                            method: :delete,
+                            class: "btn btn-danger",
+                            data: { confirm: "Êtes-vous sûr de vouloir supprimer ce collaborateur ?"} %></td>
                         <% end %>
                       <% end %>
                     </tr>
