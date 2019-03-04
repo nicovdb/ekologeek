@@ -5,7 +5,7 @@
       <%= simple_form_for @collect do |f| %>
         <p><b>1.</b>Choisir un bac :</p>
         <p><em>Si vous n'avez pas encore créé le bac pour lequel vous souhaitez faire le relevé, créez le <%= link_to "ici", new_bin_path %></em></p>
-        <%= f.input :bin_id, collection: @bins.map {|bin| ["#{bin.company.name} - #{bin.bin_type.name} - #{bin.volume}L", bin.id] } , label_method: :first, value_method: :last, label: false %>
+        <%= f.input :bin_id, collection: @bins.map {|bin| ["#{bin.id}) - #{bin.company.name} - #{bin.bin_type.name} - #{bin.volume}L", bin.id] } , label_method: :first, value_method: :last, label: false %>
         <% if @collect.errors.include?(:bin) %>
           <p class="has-error">La question 1 est obligatoire</p>
         <% end %>

@@ -97,6 +97,4 @@ class CollectsController < ApplicationController
   def set_bins
     @bins = current_user.company.bins
   end
-
-
 end

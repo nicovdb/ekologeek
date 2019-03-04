@@ -94,5 +94,4 @@ class UsersController < ApplicationController
       :company_id
     )
   end
-
 end
