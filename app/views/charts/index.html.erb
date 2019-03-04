@@ -7,6 +7,10 @@
   <div class="container bg-white mb-5 pb-5">
     <div class="container-soutenir">
       <h1 class="header text-primary pt-5 text-center">TABLEAU DE BORD</h1>
+
+      <%= render "articles/preview", articles: @articles %>
+      <%= link_to "Voir tous les articles", articles_path %>
+
       <h2 class="green-bg my-4">Production de déchets de fonctionnement</h2>
 
 

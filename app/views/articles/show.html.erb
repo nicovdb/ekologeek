@@ -1,0 +1,21 @@
+<%= @article.author %>
+<%= @article.title %>
+
+<%= link_to "Modifier", edit_article_path(@article) %>
+<%= link_to "Supprimer", article_path(@article), method: :delete %>
+
+<h1>Commentaires</h1>
+
+<ul>
+  <div id="comments">
+    <% if @article.comments.blank? %>
+      <li> Il n'y a pas de commentaire pour cet article </li>
+    <% else %>
+      <% @article.comments.each do |comment| %>
+        <%= render 'comments/show', comment: comment %>
+      <% end %>
+    <% end %>
+  </div>
+</ul>
+
+<%= render 'comments/form', article: @article, comment: @comment %>

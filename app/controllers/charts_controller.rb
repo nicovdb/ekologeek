@@ -3,6 +3,7 @@ class ChartsController < ApplicationController
   layout "charts"
 
   def index
+    @articles = Article.published.last(3)
     @companies = Company.all
     #données des séries pour le graphique récapitulatif de chaque structure
     sql = "SELECT start_at, end_at, weight_person_day, bin_types.name AS type, status FROM collects

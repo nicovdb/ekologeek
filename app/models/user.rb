@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :bins, through: :company
   has_many :collects, through: :bins
   has_many :bin_types, through: :bins
+  has_many :articles
+  has_many :comments
 
   has_one :user_behaviour_diag, dependent: :destroy
   has_one :user_behaviour_result, dependent: :destroy
