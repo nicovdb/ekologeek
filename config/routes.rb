@@ -47,5 +47,10 @@ Rails.application.routes.draw do
   resources :charts, only: [:index, :show], path: "tableau_de_bord"
 
   get "kilo_per_employee_per_day" => "charts#kilo_per_employee_per_day"
+
+
+  resources :articles do
+    resources :comments, shallow: true
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

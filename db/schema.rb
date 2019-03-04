@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_04_133113) do
+ActiveRecord::Schema.define(version: 2019_03_04_134724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -304,6 +304,15 @@ ActiveRecord::Schema.define(version: 2019_03_04_133113) do
     t.index ["company_id"], name: "index_forms_on_company_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_likes_on_article_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "no_action_mades", force: :cascade do |t|
     t.string "action"
     t.bigint "user_behaviour_result_id"
@@ -570,6 +579,8 @@ ActiveRecord::Schema.define(version: 2019_03_04_133113) do
   add_foreign_key "form_trash_working_types", "forms"
   add_foreign_key "form_trash_working_types", "trash_working_types"
   add_foreign_key "forms", "companies"
+  add_foreign_key "likes", "articles"
+  add_foreign_key "likes", "users"
   add_foreign_key "no_action_mades", "user_behaviour_results"
   add_foreign_key "photos", "articles"
   add_foreign_key "priority_actions", "user_behaviour_diags"
