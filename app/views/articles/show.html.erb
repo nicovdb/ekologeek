@@ -9,7 +9,7 @@
 <ul>
   <div id="comments">
     <% if @article.comments.blank? %>
-      Be the first to leave a comment for this article
+      <li> Il n'y a pas de commentaire pour cet article </li>
     <% else %>
         <% @article.comments.each do |comment| %>
           <%= render 'comments/show', comment: comment %>
