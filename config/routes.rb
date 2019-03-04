@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root :to => 'pages#home'
 
   get '/pourquoi' => 'pages#pourquoi'
-  get '/comment' => 'pages#comment'
+  get '/comment' => 'pages#comment', as: "how"
   get '/soutenir' => 'pages#soutenir'
   get '/partenaires' => 'pages#partenaires'
   get '/plan' => 'pages#plan'
@@ -50,7 +50,7 @@ Rails.application.routes.draw do
 
 
   resources :articles do
-    resources :comments, shallow: true, as: "commentaires"
+    resources :comments, shallow: true
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -20,13 +20,20 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    @article = @comment.article
   end
 
   def update
+    @article = @comment.article
+    @comment.update_attributes(comment_params)
+    if @comment.save
+      redirect_to article_path(@article)
+    else
+      render :edit
+    end
   end
 
   def destroy
-    byebug
     @article = @comment.article
     @comment.destroy
     respond_to do |format|
