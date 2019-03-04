@@ -1,0 +1,6 @@
+<% articles.each do |article| %>
+  <%= link_to article_path(article) do %>
+    <%= article.author %>
+    <%= article.title %>
+  <% end %>
+<% end %>

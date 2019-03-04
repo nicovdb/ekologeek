@@ -1,0 +1,6 @@
+<li data-comment-id="<%= comment.id %>">
+  <p><%= comment.content %> - <%= comment.author %></p>
+  <% if comment.user == current_user %>
+    <%= link_to "Supprimer", commentaire_path(comment), method: :delete %>
+  <% end %>
+</li>
