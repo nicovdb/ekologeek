@@ -11,9 +11,9 @@
     <% if @article.comments.blank? %>
       <li> Il n'y a pas de commentaire pour cet article </li>
     <% else %>
-        <% @article.comments.each do |comment| %>
-          <%= render 'comments/show', comment: comment %>
-        <% end %>
+      <% @article.comments.each do |comment| %>
+        <%= render 'comments/show', comment: comment %>
+      <% end %>
     <% end %>
   </div>
 </ul>
