@@ -1,0 +1,7 @@
+<ul class='list-inline'>
+  <% tags.each do |tag| %>
+    <li class="list-inline-item mt-4">
+      <%= link_to tag, articles_path(tag: tag), class:"tag" %>
+    </li>
+  <% end %>
+</ul>

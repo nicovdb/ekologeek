@@ -27,6 +27,7 @@ gem "groupdate"
 gem "cocoon"
 gem 'jquery-rails'
 gem 'trix-rails', require: 'trix'
+gem 'acts-as-taggable-on', '~> 6.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
