@@ -2,3 +2,4 @@
 //= require cable
 //= require jquery
 //= require cocoon
+//= require trix

@@ -1,5 +1,6 @@
 <%= simple_form_for article do |f| %>
   <%= f.input :title %>
   <%= f.input :author %>
+  <%= f.input :content, as: :trix_editor %>
   <%= f.submit %>
 <% end %>

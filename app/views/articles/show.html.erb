@@ -1,5 +1,6 @@
 <%= @article.author %>
 <%= @article.title %>
+<%= @article.content.html_safe %>
 
 <div class="like-action">
   <% if @article.user_ids.include?(current_user.id) %>
