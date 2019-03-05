@@ -26,6 +26,7 @@ gem "chartkick"
 gem "groupdate"
 gem "cocoon"
 gem 'jquery-rails'
+gem 'trix-rails', require: 'trix'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
