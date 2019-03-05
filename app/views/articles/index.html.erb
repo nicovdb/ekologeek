@@ -1,4 +1,7 @@
-<%= render "preview", articles: @articles %>
+<div class="wrapper">
+  <div class="container mt-5">
+    <%= link_to "Créer un article", new_article_path, class:"btn btn-primary" %>
+    <%= render "preview", articles: @articles %>
 
-<%= link_to "Créer un article", new_article_path %>
-
+  </div>
+</div>
