@@ -1,0 +1,3 @@
+<%= link_to like_path(Like.find_by(user_id: current_user.id)), method: :delete, class: "like", remote: true do %>
+  <i class="fas fa-heart red"></i>
+<% end %>
