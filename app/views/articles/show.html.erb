@@ -1,6 +1,14 @@
 <%= @article.author %>
 <%= @article.title %>
 
+<div class="like-action">
+  <% if @article.user_ids.include?(current_user.id) %>
+    <%= render "likes/destroy" %>
+  <% else %>
+    <%= render "likes/create", article: @article %>
+  <% end %>
+</div>
+
 <%= link_to "Modifier", edit_article_path(@article) %>
 <%= link_to "Supprimer", article_path(@article), method: :delete %>
 
