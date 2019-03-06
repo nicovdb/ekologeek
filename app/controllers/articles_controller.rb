@@ -1,8 +1,15 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   layout "article"
+
   def index
-    @articles = Article.published
+    @tags = ActsAsTaggableOn::Tag.all.map { |tag| tag.name }
+
+    if params[:tag].present?
+      @articles = Article.tagged_with(params[:tag]).published
+    else
+      @articles = Article.published
+    end
   end
 
   def new
@@ -42,11 +49,10 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
 
-
   private
 
   def article_params
-    params.require(:article).permit(:author, :title, :subtitle, :cover, :content, :visibility)
+    params.require(:article).permit(:author, :title, :subtitle, :cover, :content, :visibility, :tag_list)
   end
 
   def set_article
