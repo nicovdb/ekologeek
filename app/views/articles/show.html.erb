@@ -1,30 +1,57 @@
-<%= @article.author %>
-<%= @article.title %>
-<%= @article.content.html_safe %>
+<div class="wrapper">
+  <div class="container">
+    <div class="container-ekologeek bg-white my-5 px-5 py-2">
+      <div class="banner" style="background-image: url('<%= image_path "economie.jpg" %>');"></div>
+      <div class="d-flex justify-content-end">
+        <% if current_user.admin? %>
+          <%= link_to "Modifier", edit_article_path(@article), class: "cool-link mx-3" %>
+          <%= link_to "Supprimer", article_path(@article), method: :delete, class: "cool-link" %>
+        <% end %>
+      </div>
+      <div class="article">
+        <h2 class=" my-5 text-center"><%= @article.title %></h2>
+        <h5><%= @article.subtitle %></h5>
+        <p><%= @article.content.html_safe %></p>
+        <div class="text-muted text-right">
+          Article écrit par : <b><%= @article.author %></b>
+        </div>
+      </div>
+      <div class="my-5 social-links">
+        <div class="d-flex align-items-center justify-content-between ">
+          <div class="d-flex align-items-center ml-3" >
+            <h3 class="mb-0">Partager cet article :</h3>
+            <div>
+              <%= link_to "https://www.instagram.com/ekologeek/", class:"footer-link mx-3", target:"_blank" do %>
+              <%= inline_svg "instagram.svg", width:"30" %>
+              <% end %>
+              <%= link_to "https://www.facebook.com/DefiZeroDechetdesPros/",class:"footer-link mx-3", target:"_blank" do %>
+              <%= inline_svg "facebook.svg", width:"30" %>
+              <% end %>
+              <%= link_to "https://www.youtube.com/user/ekologeek/",class:"footer-link mx-3", target:"_blank" do %>
+              <%= inline_svg "youtube.svg", width:"30" %>
+              <% end %>
+            </div>
+          </div>
+          <div class="d-flex align-items-center mr-3" >
+            <p class="mb-0 mx-3">N'oublier de liker cet article s'il vous a plus</p>
+            <div class="like-action">
+              <% if @article.user_ids.include?(current_user.id) %>
+              <%= render "likes/destroy" %>
+              <% else %>
+              <%= render "likes/create", article: @article %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <h4 class="green-bg my-5">Commentaires</h4>
+        <div id="comments">
+          <% @article.comments.each do |comment| %>
+          <%= render 'comments/show', comment: comment %>
+          <% end %>
+        </div>
 
-<div class="like-action">
-  <% if @article.user_ids.include?(current_user.id) %>
-    <%= render "likes/destroy" %>
-  <% else %>
-    <%= render "likes/create", article: @article %>
-  <% end %>
-</div>
-
-<%= link_to "Modifier", edit_article_path(@article) %>
-<%= link_to "Supprimer", article_path(@article), method: :delete %>
-
-<h1>Commentaires</h1>
-
-<ul>
-  <div id="comments">
-    <% if @article.comments.blank? %>
-      <li> Il n'y a pas de commentaire pour cet article </li>
-    <% else %>
-      <% @article.comments.each do |comment| %>
-        <%= render 'comments/show', comment: comment %>
-      <% end %>
-    <% end %>
+      <%= render 'comments/form', article: @article, comment: @comment %>
+      </div>
+    </div>
   </div>
-</ul>
-
-<%= render 'comments/form', article: @article, comment: @comment %>
+</div>

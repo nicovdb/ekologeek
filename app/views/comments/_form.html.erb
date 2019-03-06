@@ -1,5 +1,7 @@
-<%= simple_form_for([ article, comment ], remote: true) do |f| %>
+<div class="form-comment mx-sm-5">
+  <%= simple_form_for([ article, comment ], remote: true) do |f| %>
   <%= f.input :author %>
   <%= f.input :content %>
   <%= f.submit %>
-<% end %>
+  <% end %>
+</div>
