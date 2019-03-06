@@ -1,7 +1,18 @@
-<li data-comment-id="<%= comment.id %>">
-  <p><%= comment.content %> - <%= comment.author %></p>
-  <% if comment.user == current_user %>
-    <%= link_to "Modifier", edit_comment_path(comment) %>
-    <%= link_to "Supprimer", comment_path(comment), method: :delete, remote: true %>
-  <% end %>
-</li>
+
+<div class="message my-3" data-comment-id="<%= comment.id %>">
+  <div class="message-name">
+    <p><%= comment.author.titleize %></p>
+    <em><%= comment.created_at.strftime('%D') %></em>
+  </div>
+  <div class="message-body mt-2">
+    <p>
+      <%= comment.content %>
+    </p>
+  </div>
+  <div class="message-status">
+    <% if comment.mine?(current_user) %>
+      <%= link_to "Modifier", edit_comment_path(comment), class:"cool-link" %>
+      <%= link_to "Supprimer", comment_path(comment), method: :delete, remote: true, class:"cool-link" %>
+    <% end %>
+  </div>
+</div>
