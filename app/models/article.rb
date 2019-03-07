@@ -7,6 +7,8 @@ class Article < ApplicationRecord
   belongs_to :user
   acts_as_taggable_on :tags
 
+  enum visibility: {intern: 0, extern: 1, both: 2}
+
 
   scope :published, -> { where(published: true) }
 

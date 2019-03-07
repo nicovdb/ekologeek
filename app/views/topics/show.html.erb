@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="container-ekologeek bg-white my-5 px-5 py-2">
+      <%= @topic.content %>
+      <div id="answers">
+        <% @topic.answers.each do |answer| %>
+          <%= render 'answers/show', answer: answer %>
+        <% end %>
+      </div>
+
+      <%= render 'answers/form', topic: @topic, answer: @answer %>
+    </div>
+  </div>
+</div>
+
