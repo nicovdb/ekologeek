@@ -28,6 +28,9 @@ gem "cocoon"
 gem 'jquery-rails'
 gem 'trix-rails', require: 'trix'
 gem 'acts-as-taggable-on', '~> 6.0'
+gem "shrine"
+gem "shrine-cloudinary"
+gem "cloudinary"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
