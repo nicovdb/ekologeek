@@ -4,7 +4,7 @@
     <div class="col-12 col-sm-6 article">
       <%= link_to article_path(article) do %>
         <div class="card mb-3 h-100">
-          <%= image_tag "sendgrid.png", class: "card-img-top" %>
+          <%= cl_image_tag article.cover, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
           <div class="card-body">
             <h5 class="card-title text-center mb-1"><%= article.title %></h5>
             <p class="card-text text-center"><small class="text-muted">par <%= article.author.titleize %></small></p>
