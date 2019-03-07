@@ -344,7 +344,7 @@ ActiveRecord::Schema.define(version: 2019_03_07_101359) do
 
   create_table "photos", force: :cascade do |t|
     t.bigint "article_id"
-    t.text "image_data"
+    t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_photos_on_article_id"
