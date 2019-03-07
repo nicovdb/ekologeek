@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_05_171030) do
+ActiveRecord::Schema.define(version: 2019_03_07_101359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,16 @@ ActiveRecord::Schema.define(version: 2019_03_05_171030) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "answers", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "topic_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id"], name: "index_answers_on_topic_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
   create_table "app_reasons", force: :cascade do |t|
@@ -334,7 +344,7 @@ ActiveRecord::Schema.define(version: 2019_03_05_171030) do
 
   create_table "photos", force: :cascade do |t|
     t.bigint "article_id"
-    t.string "url"
+    t.text "image_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_photos_on_article_id"
@@ -413,6 +423,16 @@ ActiveRecord::Schema.define(version: 2019_03_05_171030) do
     t.string "name"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.bigint "user_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "project_id"
+    t.index ["project_id"], name: "index_topics_on_project_id"
+    t.index ["user_id"], name: "index_topics_on_user_id"
   end
 
   create_table "trash_bins", force: :cascade do |t|
@@ -571,6 +591,8 @@ ActiveRecord::Schema.define(version: 2019_03_05_171030) do
   end
 
   add_foreign_key "action_mades", "user_behaviour_results"
+  add_foreign_key "answers", "topics"
+  add_foreign_key "answers", "users"
   add_foreign_key "bins", "bin_types"
   add_foreign_key "bins", "companies"
   add_foreign_key "collects", "bins"
@@ -603,6 +625,7 @@ ActiveRecord::Schema.define(version: 2019_03_05_171030) do
   add_foreign_key "result_actions", "company_behaviours"
   add_foreign_key "result_not_made_reasons", "not_made_reasons"
   add_foreign_key "result_not_made_reasons", "user_behaviour_results"
+  add_foreign_key "topics", "users"
   add_foreign_key "trash_bins", "bins"
   add_foreign_key "trash_bins", "trashes"
   add_foreign_key "trash_diagnostics", "companies"

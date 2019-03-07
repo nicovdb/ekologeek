@@ -1,0 +1,6 @@
+ <div class="form-comment mx-sm-5">
+  <%= simple_form_for([ topic, answer ], remote: true) do |f| %>
+  <%= f.input :content %>
+  <%= f.submit %>
+  <% end %>
+</div>

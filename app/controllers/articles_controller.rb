@@ -1,14 +1,22 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
   layout "article"
 
   def index
     @tags = ActsAsTaggableOn::Tag.all.map { |tag| tag.name }
 
     if params[:tag].present?
-      @articles = Article.tagged_with(params[:tag]).published
+      if current_user.admin?
+        @articles = Article.tagged_with(params[:tag])
+      else
+        @articles = Article.tagged_with(params[:tag]).published
+      end
     else
-      @articles = Article.published
+      if current_user.admin?
+        @articles = Article.all
+      else
+        @articles = Article.published
+      end
     end
   end
 
@@ -18,8 +26,8 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.project = Project.last
     @article.user = current_user
+    @article.project = current_user.company.project
     if @article.save
       redirect_to article_path(@article)
     else
@@ -47,6 +55,16 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     redirect_to articles_path
+  end
+
+  def publish
+    @article.update(published: true)
+    redirect_to article_path(@article)
+  end
+
+  def unpublish
+    @article.update(published: false)
+    redirect_to article_path(@article)
   end
 
   private

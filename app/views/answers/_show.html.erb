@@ -1,0 +1,17 @@
+<div class="message my-3" data-answer-id="<%= answer.id %>">
+  <div class="message-name">
+    <p><%= answer.user.first_name.titleize %></p>
+    <em><%= answer.created_at.strftime('%D') %></em>
+  </div>
+  <div class="message-body mt-2">
+    <p>
+      <%= answer.content %>
+    </p>
+  </div>
+  <div class="message-status">
+    <% if answer.user == current_user %>
+      <%= link_to "Modifier", edit_answer_path(answer), class:"cool-link" %>
+      <%= link_to "Supprimer", answer_path(answer), method: :delete, remote: true, class:"cool-link" %>
+    <% end %>
+  </div>
+</div>

@@ -52,8 +52,16 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments, shallow: true
     resources :likes, only: [:create]
+    member do
+      post 'publish'
+      post 'unpublish'
+    end
   end
   resources :likes, only: [:destroy]
+
+  resources :topics do
+    resources :answers, shallow: true
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

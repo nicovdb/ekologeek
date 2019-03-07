@@ -9,12 +9,12 @@ class CommentsController < ApplicationController
     if @comment.save
       respond_to do |format|
         format.html { redirect_to article_path(@article) }
-        format.js  # <-- will render `app/views/reviews/create.js.erb`
+        format.js
       end
     else
       respond_to do |format|
         format.html { render 'articles/show' }
-        format.js  # <-- idem
+        format.js
       end
     end
   end
@@ -38,7 +38,7 @@ class CommentsController < ApplicationController
     @comment.destroy
     respond_to do |format|
       format.html { redirect_to article_path(@article) }
-      format.js  # <-- will render `app/views/reviews/create.js.erb`
+      format.js
     end
   end
 
