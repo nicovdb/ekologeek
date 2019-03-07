@@ -10,7 +10,7 @@
     </p>
   </div>
   <div class="message-status">
-    <% if comment.mine?(current_user) %>
+    <% if current_user && comment.mine?(current_user) %>
       <%= link_to "Modifier", edit_comment_path(comment), class:"cool-link" %>
       <%= link_to "Supprimer", comment_path(comment), method: :delete, remote: true, class:"cool-link" %>
     <% end %>
