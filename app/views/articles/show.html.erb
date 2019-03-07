@@ -19,7 +19,7 @@
       <div class="article">
         <h2 class=" my-5 text-center"><%= @article.title %></h2>
         <h5><%= @article.subtitle %></h5>
-        <p><%= @article.content.html_safe %></p>
+        <p><%= sanitize @article.content %></p>
         <div class="text-muted text-right">
           Article écrit par : <b><%= @article.author %></b>
         </div>
