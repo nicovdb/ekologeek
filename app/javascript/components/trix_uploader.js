@@ -11,6 +11,7 @@ function uploadAttachment(attachment) {
   form.append("Content-Type", file.type);
   form.append("photo[image]", file);
 
+  debugger
   // Create our XHR request
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "/photos.json", true);
