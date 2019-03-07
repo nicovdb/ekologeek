@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :bin_types, through: :bins
   has_many :articles
   has_many :comments
+  has_many :topics
+  has_many :answers
 
   has_one :user_behaviour_diag, dependent: :destroy
   has_one :user_behaviour_result, dependent: :destroy

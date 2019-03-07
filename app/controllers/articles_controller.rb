@@ -18,8 +18,8 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.project = Project.last
     @article.user = current_user
+    @article.project = current_user.company.project
     if @article.save
       redirect_to article_path(@article)
     else
