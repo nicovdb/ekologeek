@@ -1,15 +1,15 @@
-<div class="row mt-3 row-eq-height">
-
+<div class="row row-eq-height">
   <% articles.each do |article| %>
-    <div class="col-12 col-sm-6 article">
+    <div class="col-12 col-sm-6 col-lg-4  article">
       <%= link_to article_path(article) do %>
         <div class="card mb-3 h-100">
           <%= cl_image_tag article.cover, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
           <div class="card-body">
             <h5 class="card-title text-center mb-1"><%= article.title %></h5>
             <p class="card-text text-center"><small class="text-muted">par <%= article.author.titleize %></small></p>
-            <p class="card-text"><%= article.subtitle %></p>
-            <div class="counts">
+            <p class="card-text"><%= article.subtitle.truncate_words(15, omission: '...') %></p>
+            <div class="counts d-flex justify-content-between align-items-center my-3">
+              <%= link_to "voir plus", article_path(article), class:"btn btn-link m" %>
               <p class="mx-3 text-muted"><%= pluralize(article.comments.count, "commentaire", "commentaires") %></p>
               <p class="text-muted"><%= pluralize(article.likes.count, "like", "likes") %> </p>
             </div>
@@ -17,7 +17,5 @@
         </div>
       <% end %>
     </div>
-
   <% end %>
 </div>
-
