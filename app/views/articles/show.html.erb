@@ -4,7 +4,7 @@
 
       <%= link_to "retour", root_path, class: "btn btn-outline-primary" %>
 
-      <div class="banner" style="background-image: url('<%= image_path "economie.jpg" %>');"></div>
+      <div class="banner" style="background-image: url('<%= cl_image_path @article.cover, height: 300, width: 400, crop: :fill %>');"></div>
       <div class="d-flex justify-content-end">
         <% if current_user && current_user.admin? %>
           <% if @article.published? %>

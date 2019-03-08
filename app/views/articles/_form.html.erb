@@ -1,5 +1,7 @@
 <div class="container mt-5">
   <%= simple_form_for article do |f| %>
+    <%= f.input :cover %>
+    <%= f.input :cover_cache, as: :hidden %>
     <%= f.input :author %>
     <%= f.input :title %>
     <%= f.input :subtitle %>

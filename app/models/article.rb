@@ -6,6 +6,7 @@ class Article < ApplicationRecord
   belongs_to :project
   belongs_to :user
   acts_as_taggable_on :tags
+  mount_uploader :cover, CoverUploader
 
   enum visibility: {intern: 0, extern: 1, both: 2}
 

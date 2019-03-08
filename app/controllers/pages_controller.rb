@@ -22,7 +22,7 @@ class PagesController < ApplicationController
   end
 
   def home
-    @articles = Article.where(visibility: [:extern, :both], published: true).last(3)
+    @articles = Article.where(visibility: [:extern, :both], published: true).reverse.first(3)
   end
 
   private
