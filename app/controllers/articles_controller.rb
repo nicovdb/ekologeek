@@ -6,13 +6,13 @@ class ArticlesController < ApplicationController
     @tags = ActsAsTaggableOn::Tag.all.map { |tag| tag.name }
 
     if params[:tag].present?
-      if current_user.admin?
+      if current_user && current_user.admin?
         @articles = Article.tagged_with(params[:tag])
       else
         @articles = Article.tagged_with(params[:tag]).published
       end
     else
-      if current_user.admin?
+      if current_user && current_user.admin?
         @articles = Article.all
       else
         @articles = Article.published
