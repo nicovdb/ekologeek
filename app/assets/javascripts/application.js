@@ -3,3 +3,4 @@
 //= require jquery
 //= require cocoon
 //= require trix
+//= require social-share-button
