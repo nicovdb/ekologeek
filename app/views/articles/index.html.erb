@@ -5,7 +5,9 @@
       <%= link_to "Retour", root_path, class:"btn btn-link" %>
     </div>
     <%= render "tag", tags: @tags %>
-    <%= render "preview", articles: @articles %>
+    <%= render 'preview', articles: @articles %>
+    <%== pagy_bootstrap_nav(@pagy).html_safe %>
+
 
   </div>
 </div>
