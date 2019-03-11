@@ -222,7 +222,14 @@ fr:
         indicators_communicated_comment: 7.1 Précision
         daily_actions_diag: 8. Actions pratiquées
         step_three: Diagnostic fini
-
+      article:
+        cover: "Photo de couverture"
+        author: "Auteur"
+        title: "Titre"
+        subtitle: "Sous-titre"
+        visibility: "Affichage"
+        tag_list: "Tags"
+        content: "Contenu"
     errors:
       models:
         user:

@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container bg-white mt-5">
   <%= simple_form_for article do |f| %>
     <%= f.input :cover %>
     <%= f.input :cover_cache, as: :hidden %>
@@ -6,8 +6,9 @@
     <%= f.input :title %>
     <%= f.input :subtitle %>
     <%= f.input :visibility, collection: [[ "intern", "Interne"], [ "extern", "Externe"], [ "both", "Les 2"]], label_method: :second, value_method: :first %>
-    <%= f.input :tag_list %>
+    <%= f.input :tag_list, hint: "Séparer les tags par des virgules", placeholder: "Écologie, Environnement ..." %>
     <%= f.input :content, as: :trix_editor %>
     <%= f.submit %>
+    <%= link_to "retour", articles_path, class: "btn btn-link" %>
   <% end %>
 </div>
