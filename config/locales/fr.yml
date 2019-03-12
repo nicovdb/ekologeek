@@ -63,6 +63,8 @@ fr:
       bin: Bacs
       bin_type: "Type de déchet"
       collect: Collectes
+      topcs: Sujets
+      answer: Réponse
     attributes:
       user:
         first_name: Prénom
@@ -229,6 +231,10 @@ fr:
         subtitle: "Sous-titre"
         visibility: "Affichage"
         tag_list: "Tags"
+        content: "Contenu"
+      topic:
+        content: "Contenu"
+      answer:
         content: "Contenu"
     errors:
       models:
@@ -406,7 +412,14 @@ fr:
               not_a_number: "n'est pas un nombre"
               greater_than_or_equal_to: "supérieur ou égale a 10"
               not_an_integer: "doit être un entier"
-
+        topic:
+          attributes:
+            content:
+              blank: "doit être rempli"
+        answer:
+          attributes:
+            content:
+              blank: "doit être rempli"
   active_admin:
    dashboard: "Tableau de bord"
    dashboard_welcome:

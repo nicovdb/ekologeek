@@ -32,6 +32,7 @@ gem "shrine"
 gem "shrine-cloudinary"
 gem "cloudinary"
 gem 'carrierwave', '~> 1.2'
+gem 'pagy', '~> 2.0', '>= 2.0.1'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
