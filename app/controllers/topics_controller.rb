@@ -3,7 +3,7 @@ class TopicsController < ApplicationController
   layout "article"
 
   def index
-    @topics = Topic.all
+    @topics = Topic.all.order(:created_at).reverse
   end
 
   def new

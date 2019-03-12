@@ -63,6 +63,8 @@ fr:
       bin: Bacs
       bin_type: "Type de déchet"
       collect: Collectes
+      topcs: Sujets
+      answer: Réponse
     attributes:
       user:
         first_name: Prénom
@@ -222,6 +224,10 @@ fr:
         indicators_communicated_comment: 7.1 Précision
         daily_actions_diag: 8. Actions pratiquées
         step_three: Diagnostic fini
+      topic:
+        content: "Contenu"
+      answer:
+        content: "Contenu"
 
     errors:
       models:
@@ -399,7 +405,14 @@ fr:
               not_a_number: "n'est pas un nombre"
               greater_than_or_equal_to: "supérieur ou égale a 10"
               not_an_integer: "doit être un entier"
-
+        topic:
+          attributes:
+            content:
+              blank: "doit être rempli"
+        answer:
+          attributes:
+            content:
+              blank: "doit être rempli"
   active_admin:
    dashboard: "Tableau de bord"
    dashboard_welcome:

@@ -1,7 +1,17 @@
 <div class="wrapper">
-  <div class="container mt-5">
-    <%= link_to "Créer un sujet", new_topic_path, class:"btn btn-primary" %>
-    <%= render "preview", topics: @topics %>
+  <div class="container bg-white">
+    <div class="container-ekologeek  my-5 px-5 py-2">
+      <div class="my-5 d-md-flex d-flex-column justify-content-between align-items-center">
+        <h2 class="green-bg">Sujets</h2>
+        <div class="d-flex align-items-center my-2 m-md-0">
+          <%= link_to "Créer un sujet", new_topic_path, class:"btn btn-primary" %>
+          <%= link_to "Retour", root_path, class:"btn btn-link" %>
+        </div>
 
+      </div>
+      <div>
+        <%= render "preview", topics: @topics %>
+      </div>
+    </div>
   </div>
 </div>
