@@ -5,3 +5,8 @@
     overflow-x: scroll;
   }
 }
+
+.article img {
+  width: 100%;
+  object-fit: contain;
+}
