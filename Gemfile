@@ -15,7 +15,7 @@ gem 'font-awesome-sass', '~> 5.0.9'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
-gem 'webpacker'
+gem 'webpacker', '~> 3.6.x'
 gem 'inline_svg'
 gem 'sendgrid-ruby'
 gem 'wicked'
@@ -26,6 +26,13 @@ gem "chartkick"
 gem "groupdate"
 gem "cocoon"
 gem 'jquery-rails'
+gem 'trix-rails', require: 'trix'
+gem 'acts-as-taggable-on', '~> 6.0'
+gem "shrine"
+gem "shrine-cloudinary"
+gem "cloudinary"
+gem 'carrierwave', '~> 1.2'
+gem 'pagy', '~> 2.0', '>= 2.0.1'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -69,6 +69,14 @@
     </div>
 
     <hr/>
+    <div>
+
+      <h2 class="green-bg my-4">Actu</h2>
+    </div>
+    <%= link_to "Plus d'actu ", articles_path, class:"btn btn-primary" %>
+    <div>
+      <%= render "articles/preview", articles: @articles %>
+    </div>
 
     <h2 class="my-5 header text-primary text-center">PARTENAIRES</h2>
     <div class="row d-flex text-align-center justify-content-center">

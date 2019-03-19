@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="container-ekologeek bg-white my-5 px-5 py-2">
+      <h2 class="mt-5 mb-4 green-bg">Discution</h2>
+      <%= link_to "Retour", topics_path, class:"btn btn-link" %>
+      <h5>Question : <b><%= @topic.content %></b></h5>
+      <div id="answers">
+        <% @topic.answers.each do |answer| %>
+          <%= render 'answers/show', answer: answer %>
+        <% end %>
+      </div>
+
+      <%= render 'answers/form', topic: @topic, answer: @answer %>
+    </div>
+  </div>
+</div>

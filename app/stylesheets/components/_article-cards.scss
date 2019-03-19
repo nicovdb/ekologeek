@@ -1,0 +1,35 @@
+.article {
+  .card {
+    position: relative;
+  }
+
+  .counts {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-size: 12px;
+    p {
+      margin: 0;
+    }
+  }
+
+  .card-infos {
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .card-img-top {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+  }
+  .card-text {
+    margin-bottom: 30px;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}

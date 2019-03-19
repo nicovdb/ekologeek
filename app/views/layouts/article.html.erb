@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-50874223-2"></script>
+    <script>
+      window.dataLayer     = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-50874223-2');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Défi Zéro Déchet des Pros 2018 Bordeaux Métropole</title>
+    <meta name="description" content="Ekolo[geek] propose un accompagnement sur 6 mois et des ateliers pratiques aux entreprises de la métropole pour diminuer leurs déchets de fonctionnement, les inscriptions sont ouvertes">
+    <meta property="og:title" content="Défi Zéro Déchet des Pros 2018 Bordeaux Métropole">
+    <meta property="og:image" content="comportemental.jpg">
+    <meta property="og:description" content="Ekolo[geek] propose un accompagnement sur 6 mois et des ateliers pratiques aux entreprises de la métropole pour diminuer leurs déchets de fonctionnement, les inscriptions sont ouvertes">
+    <meta property="og:site_name" content="Défi Zéro Déchet des Pros"/>
+
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
+    <%= favicon_link_tag 'favicon.png' %>
+  </head>
+  <body>
+    <div class="wrapper">
+      <%= render 'shared/navbar_secondary_connected' %>
+      <%= render 'shared/navbar_connected' %>
+      <%= yield %>
+      <%= render 'shared/footer' %>
+      <%= javascript_include_tag 'application' %>
+      <%= javascript_pack_tag 'application' %>
+    </div>
+  </body>
+</html>

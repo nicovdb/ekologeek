@@ -1,0 +1,7 @@
+#trix-toolbar-1 {
+  @media (max-width: $mobile) {
+    // display: none;
+    width: 100%;
+    overflow-x: scroll;
+  }
+}

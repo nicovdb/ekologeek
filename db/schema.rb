@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_13_113848) do
+
+ActiveRecord::Schema.define(version: 2019_03_07_101359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,11 +50,37 @@ ActiveRecord::Schema.define(version: 2019_01_13_113848) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "answers", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "topic_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id"], name: "index_answers_on_topic_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
   create_table "app_reasons", force: :cascade do |t|
     t.string "reason"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "public", default: false
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.string "cover"
+    t.string "subtitle"
+    t.text "content"
+    t.boolean "published", default: false
+    t.integer "visibility"
+    t.string "author"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "project_id"
+    t.bigint "user_id"
+    t.index ["project_id"], name: "index_articles_on_project_id"
+    t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
   create_table "bin_types", force: :cascade do |t|
@@ -90,6 +117,17 @@ ActiveRecord::Schema.define(version: 2019_01_13_113848) do
     t.datetime "updated_at", null: false
     t.float "weight_person_day"
     t.index ["bin_id"], name: "index_collects_on_bin_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "article_id"
+    t.text "content"
+    t.string "author"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["article_id"], name: "index_comments_on_article_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -157,6 +195,15 @@ ActiveRecord::Schema.define(version: 2019_01_13_113848) do
     t.datetime "updated_at"
     t.index ["no_app_reason_id"], name: "index_diag_no_ap_reasons_on_no_app_reason_id"
     t.index ["user_behaviour_diag_id"], name: "index_diag_no_ap_reasons_on_user_behaviour_diag_id"
+  end
+
+  create_table "diag_no_app_reasons", force: :cascade do |t|
+    t.bigint "no_app_reason_id"
+    t.bigint "user_behaviour_diag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["no_app_reason_id"], name: "index_diag_no_app_reasons_on_no_app_reason_id"
+    t.index ["user_behaviour_diag_id"], name: "index_diag_no_app_reasons_on_user_behaviour_diag_id"
   end
 
   create_table "dispositives", force: :cascade do |t|
@@ -265,6 +312,15 @@ ActiveRecord::Schema.define(version: 2019_01_13_113848) do
     t.index ["company_id"], name: "index_forms_on_company_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_likes_on_article_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "no_action_mades", force: :cascade do |t|
     t.string "action"
     t.bigint "user_behaviour_result_id"
@@ -285,6 +341,14 @@ ActiveRecord::Schema.define(version: 2019_01_13_113848) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "public", default: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.bigint "article_id"
+    t.text "image_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_photos_on_article_id"
   end
 
   create_table "priority_actions", force: :cascade do |t|
@@ -335,6 +399,41 @@ ActiveRecord::Schema.define(version: 2019_01_13_113848) do
     t.datetime "updated_at", null: false
     t.index ["not_made_reason_id"], name: "index_result_not_made_reasons_on_not_made_reason_id"
     t.index ["user_behaviour_result_id"], name: "index_result_not_made_reasons_on_user_behaviour_result_id"
+  end
+
+  create_table "taggings", id: :serial, force: :cascade do |t|
+    t.integer "tag_id"
+    t.string "taggable_type"
+    t.integer "taggable_id"
+    t.string "tagger_type"
+    t.integer "tagger_id"
+    t.string "context", limit: 128
+    t.datetime "created_at"
+    t.index ["context"], name: "index_taggings_on_context"
+    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+    t.index ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+    t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy"
+    t.index ["taggable_id"], name: "index_taggings_on_taggable_id"
+    t.index ["taggable_type"], name: "index_taggings_on_taggable_type"
+    t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type"
+    t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
+  end
+
+  create_table "tags", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.integer "taggings_count", default: 0
+    t.index ["name"], name: "index_tags_on_name", unique: true
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.bigint "user_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "project_id"
+    t.index ["project_id"], name: "index_topics_on_project_id"
+    t.index ["user_id"], name: "index_topics_on_user_id"
   end
 
   create_table "trash_bins", force: :cascade do |t|
@@ -493,9 +592,12 @@ ActiveRecord::Schema.define(version: 2019_01_13_113848) do
   end
 
   add_foreign_key "action_mades", "user_behaviour_results"
+  add_foreign_key "answers", "topics"
+  add_foreign_key "answers", "users"
   add_foreign_key "bins", "bin_types"
   add_foreign_key "bins", "companies"
   add_foreign_key "collects", "bins"
+  add_foreign_key "comments", "articles"
   add_foreign_key "companies", "projects"
   add_foreign_key "company_behaviours", "companies"
   add_foreign_key "diag_actions", "company_behaviours"
@@ -503,6 +605,8 @@ ActiveRecord::Schema.define(version: 2019_01_13_113848) do
   add_foreign_key "diag_app_reasons", "user_behaviour_diags"
   add_foreign_key "diag_no_ap_reasons", "no_app_reasons"
   add_foreign_key "diag_no_ap_reasons", "user_behaviour_diags"
+  add_foreign_key "diag_no_app_reasons", "no_app_reasons"
+  add_foreign_key "diag_no_app_reasons", "user_behaviour_diags"
   add_foreign_key "form_company_know_hows", "company_know_hows"
   add_foreign_key "form_company_know_hows", "forms"
   add_foreign_key "form_dispositives", "dispositives"
@@ -512,13 +616,17 @@ ActiveRecord::Schema.define(version: 2019_01_13_113848) do
   add_foreign_key "form_trash_working_types", "forms"
   add_foreign_key "form_trash_working_types", "trash_working_types"
   add_foreign_key "forms", "companies"
+  add_foreign_key "likes", "articles"
+  add_foreign_key "likes", "users"
   add_foreign_key "no_action_mades", "user_behaviour_results"
+  add_foreign_key "photos", "articles"
   add_foreign_key "priority_actions", "user_behaviour_diags"
   add_foreign_key "referents", "companies"
   add_foreign_key "referents", "users"
   add_foreign_key "result_actions", "company_behaviours"
   add_foreign_key "result_not_made_reasons", "not_made_reasons"
   add_foreign_key "result_not_made_reasons", "user_behaviour_results"
+  add_foreign_key "topics", "users"
   add_foreign_key "trash_bins", "bins"
   add_foreign_key "trash_bins", "trashes"
   add_foreign_key "trash_diagnostics", "companies"
