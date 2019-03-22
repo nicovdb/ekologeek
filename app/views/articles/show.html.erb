@@ -25,24 +25,12 @@
         </div>
       </div>
       <div class="my-5 social-links">
+        <p>Partager</p>
         <div class="d-flex align-items-center justify-content-between ">
-          <div class="d-flex align-items-center ml-3" >
-            <h3 class="mb-0">Partager cet article :</h3>
-            <div>
-              <%= link_to "https://www.instagram.com/ekologeek/", class:"footer-link mx-3", target:"_blank" do %>
-              <%= inline_svg "instagram.svg", width:"30" %>
-              <% end %>
-              <%= link_to "https://www.facebook.com/DefiZeroDechetdesPros/",class:"footer-link mx-3", target:"_blank" do %>
-              <%= inline_svg "facebook.svg", width:"30" %>
-              <% end %>
-              <%= link_to "https://www.youtube.com/user/ekologeek/",class:"footer-link mx-3", target:"_blank" do %>
-              <%= inline_svg "youtube.svg", width:"30" %>
-              <% end %>
-            </div>
-          </div>
+          <%= social_share_button_tag(@article.title, image: @article.cover, desc: @article.subtitle) %>
           <% if current_user %>
             <div class="d-flex align-items-center mr-3" >
-              <p class="mb-0 mx-3">N'oublier de liker cet article s'il vous a plus</p>
+              <p class="mb-0 mx-3">N'oubliez pas de liker cet article s'il vous a plu</p>
               <div class="like-action">
                 <% if @article.user_ids.include?(current_user.id) %>
                   <%= render "likes/destroy" %>
