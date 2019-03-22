@@ -1,0 +1,12 @@
+#trix-toolbar-1 {
+  @media (max-width: $mobile) {
+    // display: none;
+    width: 100%;
+    overflow-x: scroll;
+  }
+}
+
+.article img {
+  width: 100%;
+  object-fit: contain;
+}

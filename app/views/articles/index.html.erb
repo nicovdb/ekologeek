@@ -1,8 +1,11 @@
 <div class="wrapper">
   <div class="container mt-5">
-    <%= link_to "Créer un article", new_article_path, class:"btn btn-primary" %>
+    <div class="d-flex mb-4">
+      <%= link_to "Créer un article", new_article_path, class:"btn btn-primary" %>
+      <%= link_to "Retour", root_path, class:"btn btn-link" %>
+    </div>
     <%= render "tag", tags: @tags %>
-    <%= render "preview", articles: @articles %>
-
+    <%= render 'preview', articles: @articles %>
+    <%== pagy_bootstrap_nav(@pagy).html_safe %>
   </div>
 </div>

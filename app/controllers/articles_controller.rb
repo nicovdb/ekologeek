@@ -8,14 +8,18 @@ class ArticlesController < ApplicationController
     if params[:tag].present?
       if current_user && current_user.admin?
         @articles = Article.tagged_with(params[:tag])
+        @pagy, @articles = pagy( @articles, items: 10)
       else
         @articles = Article.tagged_with(params[:tag]).published
+        @pagy, @articles = pagy( @articles, items: 10)
       end
     else
       if current_user && current_user.admin?
         @articles = Article.all
+        @pagy, @articles = pagy( @articles, items: 10)
       else
         @articles = Article.published
+        @pagy, @articles = pagy( @articles, items: 10)
       end
     end
   end
@@ -70,7 +74,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:author, :title, :subtitle, :cover, :content, :visibility, :tag_list)
+    params.require(:article).permit(:author, :title, :subtitle, :cover, :cover_cache, :content, :visibility, :tag_list)
   end
 
   def set_article
