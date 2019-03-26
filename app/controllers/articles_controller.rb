@@ -1,6 +1,15 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
-  layout "article"
+
+  layout :layout_by_resource
+
+  def layout_by_resource
+     if user_signed_in?
+       'article'
+     else
+       'home'
+     end
+   end
 
   def index
     @tags = ActsAsTaggableOn::Tag.all.map { |tag| tag.name }
