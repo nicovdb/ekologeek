@@ -4,12 +4,12 @@
       <h2 class="mt-5 mb-4 green-bg">Discussion</h2>
       <%= link_to "Retour", topics_path, class:"btn btn-link" %>
       <h5>Question : <b><%= @topic.content %></b></h5>
+      <%= cl_image_tag @topic.cover, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
       <div id="answers">
         <% @topic.answers.each do |answer| %>
           <%= render 'answers/show', answer: answer %>
         <% end %>
       </div>
-
       <%= render 'answers/form', topic: @topic, answer: @answer %>
     </div>
   </div>

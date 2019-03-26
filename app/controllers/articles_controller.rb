@@ -14,8 +14,6 @@ class ArticlesController < ApplicationController
   def index
     @tags = ActsAsTaggableOn::Tag.all.map { |tag| tag.name }
 
-@articles = Article.where(visibility: [:intern, :both], published: true).reverse.first(3)
-
     if params[:tag].present?
       if current_user && current_user.admin?
         @articles = Article.tagged_with(params[:tag])
