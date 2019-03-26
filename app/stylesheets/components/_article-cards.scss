@@ -1,18 +1,10 @@
 .article {
-  .card {
-    position: relative;
-  }
-
   .counts {
-    position: absolute;
-    bottom: 10px;
-    right: 20px;
     font-size: 12px;
     p {
       margin: 0;
     }
   }
-
   .card-infos {
     position: absolute;
     bottom: 10px;

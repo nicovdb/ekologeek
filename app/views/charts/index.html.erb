@@ -98,12 +98,18 @@
           <div id="values"></div>
         <% end %>
       <% end %>
-      <div>
-        <h2 class="green-bg my-4">Actu</h2>
-      </div>
-      <%= link_to "Plus d'actu ", articles_path, class:"btn btn-primary" %>
-      <div>
-        <%= render "articles/preview", articles: @articles %>
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          <div>
+            <div>
+              <h2 class="green-bg my-4">Actualités</h2>
+            </div>
+            <%= link_to "Plus d'actu ", articles_path, class:"btn btn-primary mb-3" %>
+            <div class="d-flex flex-column">
+              <%= render "articles/preview", articles: @articles %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
