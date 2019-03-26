@@ -42,8 +42,17 @@
           </div>
         <% end %>
       </li>
-      <li class="nav-item m-3 bold-link">
-        <%= link_to "FORUM", "/topics", class:"nav-link text-light-gray" %>
+
+      <li class="nav-item m-3 dropdown bold-link">
+        <a class="nav-link dropdown-toggle" href="/donnees" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          COMMUNICATION
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to "Actualités", articles_path, class:"anchor dropdown-item text-primary"%>
+          <%= link_to "Forum", topics_path, class:"anchor dropdown-item text-primary"%>
+          <%= link_to "Agenda", donnees_path(anchor: "structure"), class:"anchor dropdown-item text-primary"%>
+          <%= link_to "Documents", donnees_path(anchor: "referent"), class:"anchor dropdown-item text-primary"%>
+        </div>
       </li>
 
       <li class="nav-item m-3 bold-link">
