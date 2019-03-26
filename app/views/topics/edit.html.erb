@@ -1,1 +1,14 @@
-<%= render "form", topic: @topic %>
+<div class="wrapper">
+  <div class="container bg-white">
+    <div class="container-ekologeek  my-5 px-">
+      <h2 class="mt-5 mb-4 green-bg">Modifier un sujet</h2>
+      <%= link_to "Retour", topics_path, class:"btn btn-link" %>
+      <%= simple_form_for @topic do |f| %>
+        <%= f.input :cover %>
+        <%= f.input :cover_cache, as: :hidden %>
+        <%= f.input :content %>
+        <%= f.submit "Modifier" %>
+      <% end %>
+    </div>
+  </div>
+</div>
