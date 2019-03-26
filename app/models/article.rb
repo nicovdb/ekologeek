@@ -12,7 +12,6 @@ class Article < ApplicationRecord
 
   enum visibility: {intern: 0, extern: 1, both: 2}
 
-
   scope :published, -> { where(published: true) }
 
 
