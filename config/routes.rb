@@ -22,8 +22,9 @@ Rails.application.routes.draw do
   get 'charte_graphique', to: "pages#charte_graphique"
   get 'logo_RVB', to: "pages#logo_RVB"
   get 'cgv', to: "pages#cgv"
+  get 'documents', to: "pages#documents"
+  get 'agenda', to: "pages#agenda"
   get 'destroy_cookies/:id', to: "users#destroy_cookies", as: "destroy_cookies"
-
   get '/inscription', to: 'companies#new'
 
   resources :companies
