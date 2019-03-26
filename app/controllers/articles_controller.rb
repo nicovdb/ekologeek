@@ -5,21 +5,28 @@ class ArticlesController < ApplicationController
   def index
     @tags = ActsAsTaggableOn::Tag.all.map { |tag| tag.name }
 
+@articles = Article.where(visibility: [:intern, :both], published: true).reverse.first(3)
+
     if params[:tag].present?
       if current_user && current_user.admin?
         @articles = Article.tagged_with(params[:tag])
         @pagy, @articles = pagy( @articles, items: 10)
+      elsif current_user
+        @articles = Article.tagged_with(params[:tag]).where(visibility: [:intern, :both], published: true)
+        @pagy, @articles = pagy( @articles, items: 10)
       else
-        @articles = Article.tagged_with(params[:tag]).published
+        @articles = Article.tagged_with(params[:tag]).where(visibility: [:extern, :both], published: true)
         @pagy, @articles = pagy( @articles, items: 10)
       end
     else
       if current_user && current_user.admin?
         @articles = Article.all
         @pagy, @articles = pagy( @articles, items: 10)
-      else
-        @articles = Article.published
+      elsif current_user
+        @articles = Article.where(visibility: [:intern, :both], published: true)
         @pagy, @articles = pagy( @articles, items: 10)
+      else
+        @articles = Article.where(visibility: [:extern, :both], published: true)
       end
     end
   end
