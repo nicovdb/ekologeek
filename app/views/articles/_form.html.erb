@@ -8,7 +8,7 @@
     <%= f.input :visibility, collection: [[ "intern", "Interne"], [ "extern", "Externe"], [ "both", "Les 2"]], label_method: :second, value_method: :first %>
     <%= f.input :tag_list, hint: "Séparer les tags par des virgules", placeholder: "Écologie, Environnement ..." %>
     <%= f.input :content, as: :trix_editor %>
-    <%= f.submit %>
+    <%= f.submit "Soumettre" %>
     <%= link_to "retour", articles_path, class: "btn btn-link" %>
   <% end %>
 </div>
