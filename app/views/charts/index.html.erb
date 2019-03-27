@@ -104,9 +104,20 @@
             <div>
               <h2 class="green-bg my-4">Actualités</h2>
             </div>
-            <%= link_to "Plus d'actu ", articles_path, class:"btn btn-primary mb-3" %>
+            <%= link_to "Plus d'actualités ", articles_path, class:"btn btn-primary mb-3" %>
             <div class="d-flex flex-column">
               <%= render "articles/preview", articles: @articles %>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div>
+            <div>
+              <h2 class="green-bg my-4">Forum</h2>
+            </div>
+            <%= link_to "Plus de sujets", topics_path, class:"btn btn-primary mb-3" %>
+            <div class="d-flex flex-column">
+              <%= render "topics/preview", topics: @topics %>
             </div>
           </div>
         </div>

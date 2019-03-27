@@ -4,6 +4,7 @@ class ChartsController < ApplicationController
 
   def index
     @articles = Article.where(visibility: [:intern, :both], published: true).reverse.first(3)
+    @topics = Topic.all.reverse.first(3)
     @companies = Company.all
     #données des séries pour le graphique récapitulatif de chaque structure
     sql = "SELECT start_at, end_at, weight_person_day, bin_types.name AS type, status FROM collects

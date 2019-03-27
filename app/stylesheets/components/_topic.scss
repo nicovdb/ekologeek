@@ -1,4 +1,15 @@
-.topic-links {
+.card-topic-links {
   display: flex;
   flex-direction: column;
+  a {
+    font-size: 12px;
+  }
+}
+
+.card-text-topic {
+  margin: 0 5px;
+}
+
+.card-content-topic {
+  width: 100%;
 }
