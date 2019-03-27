@@ -8,7 +8,7 @@
     <div class="container-ekologeek bg-white my-5 px-5 py-2">
       <%= link_to "retour", articles_path, class: "btn btn-outline-primary" %>
       <div class="banner" style="background-image: url('<%= cl_image_path @article.cover, height: 300, width: 400, crop: :fill %>');"></div>
-      <div class="d-flex justify-content-end">
+      <div class="d-flex justify-content-end align-items-center mt-3">
         <% if current_user && current_user.admin? %>
           <% if @article.published? %>
             <%=  link_to "Dépublier", unpublish_article_path(@article), method: :post, class:"btn btn-danger" %>
