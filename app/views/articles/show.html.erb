@@ -30,7 +30,7 @@
       <div class="my-5 social-links">
         <p>Partager</p>
         <div class="d-flex align-items-center justify-content-between ">
-          <%= social_share_button_tag(@article.title, :image => cl_image_path(@article.cover), desc: @article.subtitle) %>
+          <%= social_share_button_tag(@article.title, :image => cl_image_path(@article.cover), desc: @article.subtitle, 'data-facebook-title' => @article.title) %>
           <% if current_user %>
             <div class="d-flex align-items-center mr-3" >
               <p class="mb-0 mx-3">N'oubliez pas de liker cet article s'il vous a plu</p>
