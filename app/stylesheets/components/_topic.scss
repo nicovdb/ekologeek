@@ -1,15 +1,31 @@
-.card-topic-links {
-  display: flex;
-  flex-direction: column;
-  a {
-    font-size: 12px;
+.topic-card {
+  padding: 20px;
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
+  margin-bottom: 30px;
+  .topic-card-name {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(200, 200, 200);
+    p {
+      margin: 0;
+    }
   }
-}
-
-.card-text-topic {
-  margin: 0 5px;
-}
-
-.card-content-topic {
-  width: 100%;
+  .time {
+    color: rgb(150, 150, 150);
+  }
+  .card-topic-links {
+    display: flex;
+    flex-direction: column;
+    a {
+      font-size: 12px;
+    }
+  }
+  .card-text-topic {
+    margin: 0 5px;
+  }
+  .card-content-topic {
+    width: 100%;
+  }
+  .name {
+    color: rgb(150, 150, 150);
+  }
 }
