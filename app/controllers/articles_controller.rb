@@ -34,6 +34,7 @@ class ArticlesController < ApplicationController
         @pagy, @articles = pagy( @articles, items: 10)
       else
         @articles = Article.where(visibility: [:extern, :both], published: true)
+        @pagy, @articles = pagy( @articles, items: 10)
       end
     end
   end
