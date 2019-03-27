@@ -1,9 +1,17 @@
 .article {
+  .card-index {
+    position: relative
+  }
   .counts {
     font-size: 12px;
     p {
       margin: 0;
     }
+  }
+  .counts-index {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
   }
   .card-infos {
     position: absolute;
