@@ -6,6 +6,7 @@ class ChartsController < ApplicationController
     @articles = Article.where(visibility: [:intern, :both], published: true).reverse.first(3)
     @topics = Topic.all.reverse.first(3)
     @companies = Company.all
+
     #données des séries pour le graphique récapitulatif de chaque structure
     sql = "SELECT start_at, end_at, weight_person_day, bin_types.name AS type, status FROM collects
                 JOIN bins ON bins.id = collects.bin_id
@@ -14,22 +15,8 @@ class ChartsController < ApplicationController
                 WHERE companies.id = #{current_user.company.id}"
     @collects = ActiveRecord::Base.connection.execute(sql).to_a
 
+    series_by_day
     weight_evolution
-
-    @types_collects = @collects.group_by { |collect| collect["type"]}
-    @series = @types_collects.map do |type_collects|
-      data = type_collects[1].map do |type_collect|
-        {
-          x: (type_collect["start_at"].to_time.to_i * 1000 + 3600000),
-          x2: (type_collect["end_at"].to_time.to_i * 1000 + 3600000),
-          y: type_collect["weight_person_day"]
-        }
-      end
-      {
-        name: type_collects.first,
-        data: data
-      }
-    end
 
 
     #les données pour le graphique spécial admin avec toutes les structures
@@ -40,26 +27,11 @@ class ChartsController < ApplicationController
                 JOIN bin_types ON bin_types.id = bins.bin_type_id
                 WHERE projects.id = #{current_user.company.project.id}"
     @admin_collects = ActiveRecord::Base.connection.execute(admin_sql)
-
-    admin_weight_evolution
-
     @companies_collects = @admin_collects.group_by { |collect| collect["company"]}
     @types_collects = @admin_collects.group_by { |collect| collect["type"]}
-    @admin_series = @types_collects.map { |type_collects|
-      data = type_collects[1].map { |type_collect|
-        {
-          x: (type_collect["start_at"].to_time.to_i * 1000 + 3600000),
-          x2: (type_collect["end_at"].to_time.to_i * 1000 + 3600000),
-          y: type_collect["weight_person_day"],
-          type: type_collect["company"]
-        }
-      }
-      {
-        name: type_collects.first,
-        data: data
-      }
-    }
 
+    series_by_day_admin
+    admin_weight_evolution
 
     #calculs de poids moyens pour recap par type pour une entreprise
     @total_weight_per_company = 0
@@ -107,19 +79,8 @@ class ChartsController < ApplicationController
                 WHERE companies.id = #{@company.id}"
     @collects = ActiveRecord::Base.connection.execute(sql)
     @types_collects = @collects.group_by { |collect| collect["type"]}
-    @series = @types_collects.map do |type_collects|
-      data = type_collects[1].map do |type_collect|
-        {
-          x: (type_collect["start_at"].to_time.to_i * 1000 + 3600000),
-          x2: (type_collect["end_at"].to_time.to_i * 1000 + 3600000),
-          y: type_collect["weight_person_day"]
-        }
-      end
-      {
-        name: type_collects.first,
-        data: data
-      }
-    end
+
+    series_by_day
 
     @total_weight_per_company = 0
     @residual_trash = 0
@@ -199,6 +160,111 @@ class ChartsController < ApplicationController
       @admin_weight_evolution = ((((@current_collects_weight / @current_total_days) - (@diag_collects_weight / @diag_total_days)) / (@current_collects_weight / @current_total_days))*100).round
     else
       @admin_weight_evolution = 0
+    end
+  end
+
+  def series_by_day_admin
+    @collects_per_day_admin = []
+    @admin_collects.to_a.each do |collect|
+      days = collect["end_at"].to_date - collect["start_at"].to_date
+      start_at = collect["start_at"].to_date
+      days.to_i.times do
+        @collects_per_day_admin << {"start_at"=>start_at.to_s,
+          "end_at"=>start_at.to_s,
+          "weight_person_day"=>collect["weight_person_day"],
+          "type"=>collect["type"]}
+        start_at += 1
+      end
+    end
+
+    @collects_per_day_sums_admin = []
+    @grouped_collects_admin = @collects_per_day_admin.group_by {|collect| collect["type"]}
+    @grouped_collects_admin.each do |type_collects|
+      type_collects[1].group_by {|type_collect| type_collect["start_at"]}.each do |day|
+        if day[1].count == 1
+          @collects_per_day_sums_admin << day[1]
+        else
+          total_weight = day[1].sum {|date| date["weight_person_day"]}
+          @collects_per_day_sums_admin << [{"start_at"=> day[1][0]["start_at"],
+            "end_at"=>day[1][0]["end_at"],
+            "weight_person_day"=> total_weight,
+            "type"=> day[1][0]["type"]
+          }]
+        end
+      end
+    end
+
+    @collects_per_day_sums_admin = @collects_per_day_sums_admin.flatten.group_by {|collect| collect["type"]}
+
+    @series_admin = @collects_per_day_sums_admin.map do |type_collects|
+      data = type_collects[1].map do |type_collect|
+        {
+          x: (type_collect["start_at"].to_time.to_i * 1000 + 3600000),
+          y: type_collect["weight_person_day"]
+        }
+      end
+      {
+        name: type_collects.first,
+        data: data
+      }
+    end
+    @series_admin.each do |serie|
+      serie[:data].sort_by! do |data|
+        data[:x]
+      end
+    end
+  end
+
+  def series_by_day
+    @collects_per_day = []
+
+    @collects.each do |collect|
+      days = collect["end_at"].to_date - collect["start_at"].to_date
+      start_at = collect["start_at"].to_date
+      days.to_i.times do
+        @collects_per_day << {"start_at"=>start_at.to_s,
+          "end_at"=>start_at.to_s,
+          "weight_person_day"=>collect["weight_person_day"],
+          "type"=>collect["type"]}
+        start_at += 1
+      end
+    end
+
+    @collects_per_day_sums = []
+    @grouped_collects = @collects_per_day.group_by {|collect| collect["type"]}
+    @grouped_collects.each do |type_collects|
+      type_collects[1].group_by {|type_collect| type_collect["start_at"]}.each do |day|
+        if day[1].count == 1
+          @collects_per_day_sums << day[1]
+        else
+          total_weight = day[1].sum {|date| date["weight_person_day"]}
+          @collects_per_day_sums << [{"start_at"=> day[1][0]["start_at"],
+            "end_at"=>day[1][0]["end_at"],
+            "weight_person_day"=> total_weight,
+            "type"=> day[1][0]["type"]
+          }]
+        end
+      end
+    end
+
+    @collects_per_day_sums = @collects_per_day_sums.flatten.group_by {|collect| collect["type"]}
+
+    @series = @collects_per_day_sums.map do |type_collects|
+      data = type_collects[1].map do |type_collect|
+        {
+          x: (type_collect["start_at"].to_time.to_i * 1000 + 3600000),
+          y: type_collect["weight_person_day"]
+        }
+      end
+      {
+        name: type_collects.first,
+        data: data
+      }
+    end
+    @series.each do |serie|
+      serie[:data].sort_by! do |data|
+        data[:x]
+      end
     end
   end
 end
