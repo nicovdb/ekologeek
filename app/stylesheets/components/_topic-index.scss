@@ -1,0 +1,24 @@
+.topics {
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 3px;
+  padding: 0 15px;
+  a {
+    border-bottom: 1px solid rgb(200, 200, 200);
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  a {
+    text-decoration: none;
+  }
+  .topic-index-text {
+    color: $black;
+    margin: 0;
+  }
+  .topic-index-time {
+    font-size: 10px;
+  }
+  .topic-index-info {
+    flex: 0 0 150px;
+  }
+}

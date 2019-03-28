@@ -33,3 +33,22 @@
     color: black;
   }
 }
+
+.article-index {
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 3px;
+  padding: 0 15px;
+  .card-article-title {
+    color: $primary;
+  }
+  a {
+    text-decoration: none;
+  }
+  .article-border-bottom {
+    border-bottom: 1px solid rgb(200, 200, 200);
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+}
