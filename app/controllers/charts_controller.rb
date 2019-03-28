@@ -33,8 +33,6 @@ class ChartsController < ApplicationController
     series_by_day_admin
     admin_weight_evolution
 
-
-
     #calculs de poids moyens pour recap par type pour une entreprise
     @total_weight_per_company = 0
     @residual_trash = 0
@@ -210,6 +208,11 @@ class ChartsController < ApplicationController
         data: data
       }
     end
+    @series_admin.each do |serie|
+      serie[:data].sort_by! do |data|
+        data[:x]
+      end
+    end
   end
 
   def series_by_day
@@ -257,6 +260,11 @@ class ChartsController < ApplicationController
         name: type_collects.first,
         data: data
       }
+    end
+    @series.each do |serie|
+      serie[:data].sort_by! do |data|
+        data[:x]
+      end
     end
   end
 end
