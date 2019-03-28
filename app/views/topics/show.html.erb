@@ -8,6 +8,10 @@
           <div>
             <b><%= @topic.user.last_name.upcase %></b> <span class="name m-0"><%= @topic.user.first_name.capitalize %></span>
             <p>Structure : <%= @topic.user.company.name %></p>
+            <% if @topic.mine?(current_user) %>
+              <%= link_to "Modifier", edit_topic_path(@topic), class:"btn cool-link" %>
+              <%= link_to "Supprimer", topic_path(@topic), method: :delete, class:"btn cool-link" %>
+            <% end %>
           </div>
           <div >
             <div class="time"> <em>publié il y a</em> <b><%= time_ago_in_words @topic.created_at %></b></div>

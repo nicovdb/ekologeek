@@ -12,13 +12,6 @@
   .time {
     color: rgb(150, 150, 150);
   }
-  .card-topic-links {
-    display: flex;
-    flex-direction: column;
-    a {
-      font-size: 12px;
-    }
-  }
   .card-text-topic {
     margin: 0 5px;
   }
@@ -27,5 +20,13 @@
   }
   .name {
     color: rgb(150, 150, 150);
+  }
+}
+
+.card-topic-links {
+  display: flex;
+  flex-direction: column;
+  a {
+    font-size: 12px;
   }
 }
