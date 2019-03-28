@@ -25,7 +25,7 @@
         <!-- graph reprenant tout seulement pour les admin-->
         <% if current_user.admin %>
           <h4 class="text-center bold">TOUTES LES STRUCTURES</h4>
-          <div id='adminchart' data-series="<%= @admin_series.to_json %>"></div>
+          <div id='adminchart' data-series="<%= @series_admin.to_json %>"></div>
 
           <!-- solution de secours à la place des totaux dans le graphique -->
           <h2 class="green-bg my-4">Récapitulatif</h2>
@@ -152,7 +152,7 @@
     if (adminChartDisplay) {
       Highcharts.chart('adminchart', {
         chart: {
-          type: 'xrange',
+          type: 'line',
           styledMode: true
         },
         title: {
@@ -188,7 +188,7 @@
 
     Highcharts.chart('companychart', {
       chart: {
-        type: 'xrange',
+        type: 'line',
         styledMode: true
       },
       title: {
