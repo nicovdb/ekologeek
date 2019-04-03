@@ -1,34 +1,58 @@
 <div class="wrapper">
   <div class="container">
-    <div class="container-ekologeek bg-white my-5 px-5 py-2">
-      <h2 class="mt-5 mb-4 green-bg">Discussion</h2>
-      <%= link_to "Retour", topics_path, class:"btn btn-link" %>
-      <div class="topic-card card">
-        <div class="topic-card-name d-flex justify-content-between align-items-center">
-          <div>
-            <b><%= @topic.user.last_name.upcase %></b> <span class="name m-0"><%= @topic.user.first_name.capitalize %></span>
-            <p>Structure : <%= @topic.user.company.name %></p>
-            <% if @topic.mine?(current_user) %>
-              <%= link_to "Modifier", edit_topic_path(@topic), class:"btn cool-link" %>
-              <%= link_to "Supprimer", topic_path(@topic), method: :delete, class:"btn cool-link" %>
-            <% end %>
-          </div>
-          <div >
-            <div class="time"> <em>publié il y a</em> <b><%= time_ago_in_words @topic.created_at %></b></div>
-            <div class="time"><b><%= @topic.answers.count %></b> <em>commentaires</em> </div>
-          </div>
+    <div class="container-ekologeek bg-white my-5 px-5 pb-5">
+      <h1 class="header text-primary text-center pt-5 mt-5 mb-5">forum - message</h1>
+      <% if @topic.cover.present? %>
+        <div style="max-width: 400px; max-height: 300px; margin: auto;">
+          <%= cl_image_tag @topic.cover, width: 400, height: 300, crop: :fit, class: "card-img-top topic-photo-card" %>
         </div>
-        <div class="text-center">
-          <h5 class="my-5"><b><%= @topic.content %></b></h5>
-        </div>
-        <%= cl_image_tag @topic.cover, width: 400, height: 300, crop: :scale, class: "card-img-top topic-photo-card" %>
-        <div id="answers">
-          <% @topic.answers.each do |answer| %>
-          <%= render 'answers/show', answer: answer %>
+      <% end %>
+
+      <div class="row mt-4">
+        <div class="col-12 col-sm-4 col-md-3">
+          <div class="text-center green-bg mb-2">
+            <p class="name m-0"> <b><%= "#{@topic.user.first_name.capitalize} #{@topic.user.last_name.upcase}".truncate(19, omission: '...') %> </b></p>
+            <div class="time minus"><%= "#{time_ago_in_words @topic.created_at} -  #{@topic.user.company.name}".truncate(24, omission: '...') %></div>
+          </div>
+          <% if @topic.mine?(current_user) %>
+            <div class="d-flex justify-content-center mb-2">
+              <%= link_to "Modifier", edit_topic_path(@topic), class:"tag mr-1" %>
+              <%= link_to "Supprimer", topic_path(@topic), method: :delete, class:"tag ml-1" %>
+            </div>
           <% end %>
         </div>
+        <div class="col-12 col-sm-8 col-md-9">
+          <div class="card p-3 mb-3">
+            <%= @topic.content %>
+          </div>
+        </div>
+
+        <% @topic.answers.each do |answer| %>
+          <div class="col-12 col-sm-4 col-md-3">
+            <div class="text-center green-bg mb-2">
+              <p class="name m-0"> <b><%= "#{answer.user.first_name.capitalize} #{answer.user.last_name.upcase}".truncate(19, omission: '...') %> </b></p>
+              <div class="time minus"><%= "#{time_ago_in_words answer.created_at} -  #{answer.user.company.name}".truncate(24, omission: '...') %></div>
+            </div>
+            <% if answer.user == current_user %>
+              <div class="d-flex justify-content-center mb-2">
+                <%= link_to "Modifier", edit_answer_path(answer), class:"tag mr-1" %>
+                <%= link_to "Supprimer", answer_path(answer), method: :delete, class:"tag ml-1" %>
+              </div>
+            <% end %>
+          </div>
+          <div class="col-12 col-sm-8 col-md-9">
+            <div class="card p-3 mb-3">
+              <%= answer.content %>
+            </div>
+          </div>
+        <% end %>
+        <div id="answers" class="col-12 offset-sm-4 offset-md-3 col-sm-8 col-md-9">
+          <%= render 'answers/form', topic: @topic, answer: @answer %>
+        </div>
       </div>
-      <%= render 'answers/form', topic: @topic, answer: @answer %>
+
+      <%= link_to "Page Forum", topics_path, class:"btn btn-primary" %>
+
     </div>
   </div>
 </div>
