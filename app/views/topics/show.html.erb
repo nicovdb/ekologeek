@@ -10,7 +10,7 @@
 
       <div class="row mt-4">
         <div class="col-12 col-sm-4 col-md-3">
-          <div class="text-center green-bg mb-2">
+          <div class="text-center green-bg mb-2 w-100">
             <p class="name m-0"> <b><%= "#{@topic.user.first_name.capitalize} #{@topic.user.last_name.upcase}".truncate(19, omission: '...') %> </b></p>
             <div class="time minus"><%= "#{time_ago_in_words @topic.created_at} -  #{@topic.user.company.name}".truncate(24, omission: '...') %></div>
           </div>
@@ -29,7 +29,7 @@
 
         <% @topic.answers.each do |answer| %>
           <div class="col-12 col-sm-4 col-md-3">
-            <div class="text-center green-bg mb-2">
+            <div class="text-center green-bg mb-2 w-100">
               <p class="name m-0"> <b><%= "#{answer.user.first_name.capitalize} #{answer.user.last_name.upcase}".truncate(19, omission: '...') %> </b></p>
               <div class="time minus"><%= "#{time_ago_in_words answer.created_at} -  #{answer.user.company.name}".truncate(24, omission: '...') %></div>
             </div>

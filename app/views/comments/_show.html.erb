@@ -1,18 +1,17 @@
-
-<div class="message my-3" data-comment-id="<%= comment.id %>">
-  <div class="message-name">
-    <p><%= comment.author.titleize %></p>
-    <em><%= comment.created_at.strftime('%D') %></em>
+<div class="col-12 col-sm-4 col-md-3">
+  <div class="text-center green-bg mb-2 w-100">
+    <p class="name m-0"> <b><%= comment.author.upcase.truncate(19, omission: '...') %> </b></p>
+    <div class="time minus"><%= "#{time_ago_in_words comment.created_at} -  #{comment.user.company.name}".truncate(24, omission: '...') %></div>
   </div>
-  <div class="message-body mt-2">
-    <p>
-      <%= comment.content %>
-    </p>
-  </div>
-  <div class="message-status">
-    <% if current_user && comment.mine?(current_user) %>
-      <%= link_to "Modifier", edit_comment_path(comment), class:"cool-link" %>
-      <%= link_to "Supprimer", comment_path(comment), method: :delete, remote: true, class:"cool-link" %>
-    <% end %>
+  <% if comment.user == current_user %>
+    <div class="d-flex justify-content-center mb-2">
+      <%= link_to "Modifier", edit_comment_path(comment), class:"tag mr-1" %>
+      <%= link_to "Supprimer", comment_path(comment), method: :delete, class:"tag ml-1" %>
+    </div>
+  <% end %>
+</div>
+<div class="col-12 col-sm-8 col-md-9">
+  <div class="card p-3 mb-3">
+    <%= comment.content %>
   </div>
 </div>

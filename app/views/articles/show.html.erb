@@ -5,9 +5,9 @@
   <div class="wrapper">
 <% end %>
   <div class="container">
-    <div class="container-ekologeek bg-white my-5 px-5 py-2">
-      <%= link_to "retour", articles_path, class: "btn btn-outline-primary" %>
-      <div class="banner" style="background-image: url('<%= cl_image_path @article.cover, height: 300, width: 400, crop: :fill %>');"></div>
+    <div class="container-ekologeek bg-white my-5 px-5 pb-5">
+       <h1 class="header text-primary text-center pt-5 mt-5 mb-5">actualités - article</h1>
+      <div class="banner" style="background-image: url('<%= cl_image_path @article.cover, height: 300, width: 400, crop: :fit %>');"></div>
       <div class="d-flex justify-content-end align-items-center mt-3">
         <% if current_user && current_user.admin? %>
           <% if @article.published? %>
@@ -20,15 +20,19 @@
         <% end %>
       </div>
       <div class="article">
-        <h2 class=" my-5 text-center"><%= @article.title %></h2>
-        <h5><%= @article.subtitle %></h5>
+        <h2 class="green-bg my-4"><%= @article.title %></h2>
+        <p><em><%= @article.created_at.strftime('%d %B %Y') %></em></p>
         <p><%= sanitize @article.content %></p>
-        <div class="text-muted text-right">
-          Article écrit par : <b><%= @article.author %></b>
-        </div>
+        <ul class='list-inline'>
+          <li class="list-inline-item"><b>Catégories: </b></li>
+          <% @article.tags.each do |tag| %>
+            <li class="list-inline-item tag"><%= tag %></li>
+          <% end %>
+        </ul>
       </div>
-      <div class="my-5 social-links">
-        <p>Partager</p>
+
+      <div class="social-links mb-5">
+        <p><b>Partager:</b></p>
         <div class="d-flex align-items-center justify-content-between ">
           <%= social_share_button_tag(@article.title, :image => cl_image_path(@article.cover), desc: @article.title, 'data-linkedin-title' => @article.title) %>
           <% if current_user %>
@@ -44,15 +48,22 @@
             </div>
           <% end %>
         </div>
-        <h4 class="green-bg my-5">Commentaires</h4>
-        <div id="comments">
-          <% @article.comments.each do |comment| %>
-          <%= render 'comments/show', comment: comment %>
-          <% end %>
-        </div>
-
-      <%= render 'comments/form', article: @article, comment: @comment %>
       </div>
+
+      <hr/>
+
+      <h5 class="text-center bold my-5">COMMENTAIRES</h5>
+      <div class="row">
+        <% @article.comments.each do |comment| %>
+          <%= render 'comments/show', comment: comment %>
+        <% end %>
+        <div id="comments">
+        </div>
+        <div class="col-12 offset-sm-4 offset-md-3 col-sm-8 col-md-9">
+          <%= render 'comments/form', article: @article, comment: @comment %>
+        </div>
+      </div>
+      <%= link_to "Page Actualités", articles_path, class: "btn btn-primary" %>
     </div>
   </div>
 </div>
