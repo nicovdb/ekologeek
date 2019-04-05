@@ -6,6 +6,9 @@
   }
   .card-title {
     color: $primary;
+    &:hover {
+      color: $secondary;
+    }
   }
   .counts {
     font-size: 12px;
@@ -31,6 +34,7 @@
   }
   .card-text {
     margin-bottom: 30px;
+    line-height: 100%;
   }
 
   a {
