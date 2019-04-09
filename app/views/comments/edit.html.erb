@@ -1,6 +1,8 @@
-<%= simple_form_for(@comment) do |f| %>
-  <%= f.input :author %>
-  <%= f.input :content %>
-  <%= f.submit %>
-<% end %>
 
+<div class="container bg-white mt-5 h-100">
+  <h1 class="header text-primary text-center pt-5 mt-5 mb-5">Modifier mon commentaire</h1>
+  <%= simple_form_for(@comment) do |f| %>
+    <%= f.input :content %>
+    <%= f.submit "modifier", class:"btn btn-primary bold"%>
+  <% end %>
+</div>

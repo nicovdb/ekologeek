@@ -6,12 +6,12 @@
           <%= cl_image_tag article.cover, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
           <div class="card-body">
             <div class="text-center mb-2">
-              <em class="text-muted minus"><%= article.created_at.strftime('%d %B %Y') %></em>
+              <em class="text-muted article-date-texte"><%=l(article.created_at, format: :long )%></em>
             </div>
             <h5 class="card-title mb-1"><b><%= article.title.upcase %></b></h5>
             <p class="card-text"><%= article.subtitle.truncate_words(15, omission: '...') %></p>
             <div class="counts counts-index d-flex justify-content-between align-items-center my-3">
-              <p class="mx-3 text-muted"><%= pluralize(article.comments.count, "commentaire", "commentaires") %></p>
+              <p class="mx-3 text-muted blue mr-2"><b><%= article.comments.count%><i class="fas fa-comment-alt ml-2"></i></b></p>
               <p class="text-muted"><%= article.likes.count%><i class="fas fa-heart red ml-2"></i> </p>
             </div>
           </div>

@@ -1,11 +1,13 @@
 .article {
   margin: 10px 0;
   .card-index {
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
     position: relative
   }
   .card-title {
     color: $primary;
+  }
+  .article-date-texte {
+    font-size: 14px;
   }
   .counts {
     font-size: 12px;
@@ -15,7 +17,7 @@
   }
   .counts-index {
     position: absolute;
-    bottom: 10px;
+    bottom: 20px;
     right: 20px;
   }
   .card-infos {
@@ -25,7 +27,7 @@
     justify-content: space-between;
   }
   .card-img-top {
-    height: 250px;
+    max-height: 200px;
     width: 100%;
     object-fit: cover;
   }

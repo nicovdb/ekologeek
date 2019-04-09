@@ -106,6 +106,7 @@ fr:
       collect: Collectes
       topcs: Sujets
       answer: Réponse
+      comment: commentaire
     attributes:
       user:
         first_name: Prénom
@@ -275,8 +276,11 @@ fr:
         content: "Contenu"
       topic:
         content: "Contenu"
+        cover: "Bannière"
       answer:
         content: "Contenu"
+      comment:
+        content: Commentaire
     errors:
       models:
         user:
@@ -457,6 +461,8 @@ fr:
           attributes:
             content:
               blank: "doit être rempli"
+            cover:
+              blank: "doit être rempli"
         answer:
           attributes:
             content:
@@ -608,5 +614,5 @@ fr:
     phone_format: incorrect -> format 0678375394
   time:
     formats:
-      long: "%Y-%m-%d %H:%M:%S"
+      long: '%A %d %B %Y'
       short: "%Y-%m-%d"

@@ -1,8 +1,6 @@
 <%= simple_form_for([ article, comment ], remote: true) do |f| %>
   <%= f.input :content, label: false, placeholder: "Votre commentaire..." %>
-  <%= f.input :author, label: false, placeholder: "Auteur" %>
   <div class="d-flex justify-content-end">
-    <%= f.submit "Envoyer", class:"btn btn-primary" %>
+    <%= f.submit "Envoyer", class:"btn btn-primary bold" %>
   </div>
 <% end %>
-

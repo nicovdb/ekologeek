@@ -4,7 +4,7 @@
       <%= link_to article_path(article) do %>
         <div class="h-100">
           <div class="card-article-body pt-2 py-2">
-            <h6 class="card-article-title mb-1"><b><%= article.title.upcase.truncate_words(8, omission: '...') %></b></h6>
+            <h6 class="card-article-title my-2"><b><%= article.title.upcase.truncate_words(8, omission: '...') %></b></h6>
             <p class="card-article-text text-muted mb-0"><%= article.subtitle.truncate_words(15, omission: '...') %></p>
           </div>
         </div>
