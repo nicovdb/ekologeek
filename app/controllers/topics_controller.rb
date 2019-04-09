@@ -31,6 +31,7 @@ class TopicsController < ApplicationController
   end
 
   def update
+    byebug
     @topic.update_attributes(topic_params)
     if @topic.save
       redirect_to topic_path(@topic)
