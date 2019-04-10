@@ -95,6 +95,7 @@ fr:
         other: "%{count} s "
   activerecord:
     models:
+      article: Article
       user: Utilisateurs
       form: Formulaires d'inscription
       user_behaviour_diag: Diagnostic collaborateurs
@@ -283,6 +284,26 @@ fr:
         content: Commentaire
     errors:
       models:
+        article:
+          attributes:
+            cover:
+              blank: "doit être rempli"
+            author:
+              blank: "doit être rempli"
+            title:
+              blank: "doit être rempli"
+            subtitle:
+              blank: "doit être rempli"
+            visibility:
+              blank: "doit être rempli"
+            tag_list:
+              blank: "doit être rempli"
+            content:
+              blank: "doit être rempli"
+        comment:
+          attributes:
+            content:
+              blank: "doit être rempli"
         user:
           attributes:
             first_name:

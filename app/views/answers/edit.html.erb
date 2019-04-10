@@ -1,5 +1,8 @@
-<%= simple_form_for(@answer) do |f| %>
-  <%= f.input :content %>
-  <%= f.submit %>
-<% end %>
-
+<div class="container bg-white">
+  <h2 class="mt-5 mb-4 green-bg">Modifier une réponse</h2>
+  <%= link_to "Retour", topic_path(@answer.topic), class:"btn btn-link" %>
+  <%= simple_form_for(@answer) do |f| %>
+    <%= f.input :content %>
+    <%= f.submit "Modifier", class:"btn btn-primary bold" %>
+  <% end %>
+</div>
