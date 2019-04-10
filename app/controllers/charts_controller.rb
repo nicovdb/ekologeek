@@ -124,6 +124,22 @@ class ChartsController < ApplicationController
       end
     end
 
+    @day_group = @collects_per_day_admin.group_by {|collect| collect["start_at"]}
+
+    @day_group.each do |day|
+      day[1].map! {|collect| collect["weight_person_day"]}
+    end
+
+    data = []
+    @day_group.each do |day|
+      data << {
+        x: (day.first.to_time.to_i * 1000 + 3600000),
+        y: day[1].sum
+      }
+    end
+
+    @serie_total = {name: "Total", data: data}
+
     @collects_per_day_sums_admin = []
     @grouped_collects_admin = @collects_per_day_admin.group_by {|collect| collect["type"]}
     @grouped_collects_admin.each do |type_collects|
@@ -142,7 +158,6 @@ class ChartsController < ApplicationController
     end
 
     @collects_per_day_sums_admin = @collects_per_day_sums_admin.flatten.group_by {|collect| collect["type"]}
-
     @series_admin = @collects_per_day_sums_admin.map do |type_collects|
       data = type_collects[1].map do |type_collect|
         {
@@ -155,6 +170,9 @@ class ChartsController < ApplicationController
         data: data
       }
     end
+
+    @series_admin << @serie_total
+
     @series_admin.each do |serie|
       serie[:data].sort_by! do |data|
         data[:x]
