@@ -616,3 +616,7 @@ fr:
     formats:
       long: '%A %d %B %Y'
       short: "%Y-%m-%d"
+  pagy:
+    nav:
+      prev: < Préc.
+      next: Suiv. >

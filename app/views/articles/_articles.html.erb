@@ -3,7 +3,11 @@
     <div class="col-12 col-sm-6 col-lg-4  article">
       <%= link_to article_path(article) do %>
         <div class="card card-index mb-3 h-100">
-          <%= cl_image_tag article.cover, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
+          <% if article.cover.present? %>
+            <%= cl_image_tag article.cover, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
+          <% else %>
+            <%= image_tag "default.jpg", height: 300, width: 400, class: "card-img-top" %>
+          <% end %>
           <div class="card-body">
             <div class="text-center mb-2">
               <em class="text-muted article-date-texte"><%=l(article.created_at, format: :long )%></em>

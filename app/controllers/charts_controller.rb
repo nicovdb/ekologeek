@@ -32,40 +32,8 @@ class ChartsController < ApplicationController
 
     series_by_day_admin
     admin_weight_evolution
+    admin_residual_trash
 
-    #calculs de poids moyens pour recap par type pour une entreprise
-    @total_weight_per_company = 0
-    @residual_trash = 0
-    @days_and_weight_per_type_per_person = @types_collects.map {|type_collects|
-      days = 0
-      weight = 0
-      type_collects[1].map { |type_collect|
-        days += (type_collect["end_at"].to_date - type_collect["start_at"].to_date)
-        weight += ((type_collect["end_at"].to_date - type_collect["start_at"].to_date) * type_collect["weight_person_day"])
-      }
-      @total_weight_per_company += weight
-      if type_collects.first == "Ordures ménagères résiduelles (Bordeaux Métropole : bac noir)"
-        @residual_trash = weight
-      end
-      [type_collects.first, days, weight]
-    }
-
-    #calculs de poids moyens pour recap par entreprise (pour admin)
-    @total_weight = 0
-    @admin_residual_trash = 0
-    @days_and_weight_per_company_per_person = @companies_collects.map {|company_collects|
-      days = 0
-      weight = 0
-      company_collects[1].map { |company_collect|
-        days += (company_collect["end_at"].to_date - company_collect["start_at"].to_date)
-        weight += ((company_collect["end_at"].to_date - company_collect["start_at"].to_date) * company_collect["weight_person_day"])
-        if company_collect["type"] == "Ordures ménagères résiduelles (Bordeaux Métropole : bac noir)"
-          @admin_residual_trash += ((company_collect["end_at"].to_date - company_collect["start_at"].to_date) * company_collect["weight_person_day"])
-        end
-      }
-      @total_weight += weight
-      [company_collects.first, days, weight]
-    }
   end
 
 
@@ -81,28 +49,7 @@ class ChartsController < ApplicationController
     @types_collects = @collects.group_by { |collect| collect["type"]}
 
     series_by_day
-
-    @total_weight_per_company = 0
-    @residual_trash = 0
-    @days_and_weight_per_type_per_person = @types_collects.map {|type_collects|
-      days = 0
-      weight = 0
-      type_collects[1].map { |type_collect|
-        days += (type_collect["end_at"].to_date - type_collect["start_at"].to_date)
-        weight += ((type_collect["end_at"].to_date - type_collect["start_at"].to_date) * type_collect["weight_person_day"])
-      }
-      @total_weight_per_company += weight
-      if type_collects.first == "Ordures ménagères résiduelles (Bordeaux Métropole : bac noir)"
-        @residual_trash = weight
-      end
-      [type_collects.first, days, weight]
-    }
-
-    respond_to do |format|
-      format.html {redirect_to chart_path(@company.id)}
-      format.js
-    end
-
+    residual_trash
     weight_evolution
   end
 
@@ -177,6 +124,22 @@ class ChartsController < ApplicationController
       end
     end
 
+    @day_group = @collects_per_day_admin.group_by {|collect| collect["start_at"]}
+
+    @day_group.each do |day|
+      day[1].map! {|collect| collect["weight_person_day"]}
+    end
+
+    data = []
+    @day_group.each do |day|
+      data << {
+        x: (day.first.to_time.to_i * 1000 + 3600000),
+        y: day[1].sum
+      }
+    end
+
+    @serie_total = {name: "Total", data: data}
+
     @collects_per_day_sums_admin = []
     @grouped_collects_admin = @collects_per_day_admin.group_by {|collect| collect["type"]}
     @grouped_collects_admin.each do |type_collects|
@@ -195,7 +158,6 @@ class ChartsController < ApplicationController
     end
 
     @collects_per_day_sums_admin = @collects_per_day_sums_admin.flatten.group_by {|collect| collect["type"]}
-
     @series_admin = @collects_per_day_sums_admin.map do |type_collects|
       data = type_collects[1].map do |type_collect|
         {
@@ -208,6 +170,9 @@ class ChartsController < ApplicationController
         data: data
       }
     end
+
+    @series_admin << @serie_total
+
     @series_admin.each do |serie|
       serie[:data].sort_by! do |data|
         data[:x]
@@ -265,6 +230,64 @@ class ChartsController < ApplicationController
       serie[:data].sort_by! do |data|
         data[:x]
       end
+    end
+  end
+
+  def admin_residual_trash
+    @total_weight_per_company = 0
+    @residual_trash = 0
+    @days_and_weight_per_type_per_person = @types_collects.map {|type_collects|
+      days = 0
+      weight = 0
+      type_collects[1].map { |type_collect|
+        days += (type_collect["end_at"].to_date - type_collect["start_at"].to_date)
+        weight += ((type_collect["end_at"].to_date - type_collect["start_at"].to_date) * type_collect["weight_person_day"])
+      }
+      @total_weight_per_company += weight
+      if type_collects.first == "Ordures ménagères résiduelles (Bordeaux Métropole : bac noir)"
+        @residual_trash = weight
+      end
+      [type_collects.first, days, weight]
+    }
+
+    #calculs de poids moyens pour recap par entreprise (pour admin)
+    @total_weight = 0
+    @admin_residual_trash = 0
+    @days_and_weight_per_company_per_person = @companies_collects.map {|company_collects|
+      days = 0
+      weight = 0
+      company_collects[1].map { |company_collect|
+        days += (company_collect["end_at"].to_date - company_collect["start_at"].to_date)
+        weight += ((company_collect["end_at"].to_date - company_collect["start_at"].to_date) * company_collect["weight_person_day"])
+        if company_collect["type"] == "Ordures ménagères résiduelles (Bordeaux Métropole : bac noir)"
+          @admin_residual_trash += ((company_collect["end_at"].to_date - company_collect["start_at"].to_date) * company_collect["weight_person_day"])
+        end
+      }
+      @total_weight += weight
+      [company_collects.first, days, weight]
+    }
+  end
+
+  def residual_trash
+    @total_weight_per_company = 0
+    @residual_trash = 0
+    @days_and_weight_per_type_per_person = @types_collects.map {|type_collects|
+      days = 0
+      weight = 0
+      type_collects[1].map { |type_collect|
+        days += (type_collect["end_at"].to_date - type_collect["start_at"].to_date)
+        weight += ((type_collect["end_at"].to_date - type_collect["start_at"].to_date) * type_collect["weight_person_day"])
+      }
+      @total_weight_per_company += weight
+      if type_collects.first == "Ordures ménagères résiduelles (Bordeaux Métropole : bac noir)"
+        @residual_trash = weight
+      end
+      [type_collects.first, days, weight]
+    }
+
+    respond_to do |format|
+      format.html {redirect_to chart_path(@company.id)}
+      format.js
     end
   end
 end

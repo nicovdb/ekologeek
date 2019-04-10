@@ -7,7 +7,11 @@
   <div class="container">
     <div class="container bg-white my-5 px-5 pb-5">
       <h1 class="header text-primary text-center pt-5 mt-5 mb-5">actualités - article</h1>
-      <div class="banner" style="background-image: url('<%= cl_image_path @article.cover, height: 300, width: 400, crop: :fit %>');"></div>
+      <% if @article.cover.present? %>
+        <div class="banner" style="background-image: url('<%= cl_image_path @article.cover, height: 300, width: 400, crop: :fit %>');"></div>
+      <% else %>
+        <div class="banner" style="background-image: url('<%= image_path("default.jpg")%>') ; background-size: cover ; background-position: center"></div>
+      <% end %>
       <div class="d-flex justify-content-end align-items-center mt-3">
         <% if current_user && current_user.admin? %>
           <% if @article.published? %>
@@ -15,8 +19,8 @@
           <% else %>
             <%=  link_to "Publier", publish_article_path(@article), method: :post, class:"btn btn-primary" %>
           <% end %>
-          <%= link_to "Modifier", edit_article_path(@article), class: "cool-link mx-3" %>
-          <%= link_to "Supprimer", article_path(@article), method: :delete, class: "cool-link" %>
+          <%= link_to "Modifier", edit_article_path(@article), class: "cool-link mx-3", data: { confirm: "Vous devrez rajouter des virgules entre chaque tag"} %>
+          <%= link_to "Supprimer", article_path(@article), method: :delete, class: "cool-link", data: { confirm: "Êtes-vous sûr de vouloir supprimer cet article ?"} %>
         <% end %>
       </div>
       <div class="article">
@@ -34,7 +38,11 @@
       <div class="social-links mb-5">
         <p><b>Partager:</b></p>
         <div class="d-flex align-items-center justify-content-between ">
-          <%= social_share_button_tag(@article.title, :image => cl_image_path(@article.cover), desc: @article.title, 'data-linkedin-title' => @article.title) %>
+          <% if @article.cover.present? %>
+            <%= social_share_button_tag(@article.title, :image => cl_image_path(@article.cover), desc: @article.title, 'data-linkedin-title' => @article.title) %>
+          <% else %>
+            <%= social_share_button_tag(@article.title, :image => image_path("default.jpg"), desc: @article.title, 'data-linkedin-title' => @article.title) %>
+          <% end %>
           <% if current_user %>
             <div class="d-flex align-items-center mr-3" >
               <p class="mb-0 mx-3">N'oubliez pas de liker cet article s'il vous a plu</p>
