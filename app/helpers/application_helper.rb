@@ -14,4 +14,12 @@ module ApplicationHelper
     image_tag attachments[image].url, **options
   end
 
+  # def cover_here?(article)
+  #   if article.cover.present?
+  #     cl_image_tag article.cover, height: 300, width: 400, crop: :fit
+  #   else
+  #     image_tag 'default.jpg'
+  #   end
+  # end
+
 end

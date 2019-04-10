@@ -56,43 +56,43 @@ fr:
     distance_in_words:
       about_x_hours:
         one:  une heure
-        other: "%{count} heures"
+        other: "%{count} h "
       about_x_months:
         one:  un mois
-        other: "%{count} mois"
+        other: "%{count} M "
       about_x_years:
         one: un an
-        other: "%{count} ans"
+        other: "%{count} a "
       almost_x_years:
         one: un an
-        other: "%{count} ans"
-      half_a_minute: 30 minutes
+        other: "%{count} a "
+      half_a_minute: 30 m
       less_than_x_minutes:
         zero: une minute
         one: une minute
-        other: "%{count} minutes"
+        other: "%{count} m "
       less_than_x_seconds:
         zero: une seconde
         one: une seconde
-        other: "%{count} secondes"
+        other: "%{count} s "
       over_x_years:
         one: un an
-        other: "%{count} ans"
+        other: "%{count} a "
       x_days:
         one: 1 jour
-        other: "%{count} jours"
+        other: "%{count} j "
       x_minutes:
         one: 1 minute
-        other: "%{count} minutes"
+        other: "%{count} m "
       x_months:
         one: 1 mois
-        other: "%{count} mois"
+        other: "%{count} M "
       x_years:
         one: un an
-        other: "%{count} ans"
+        other: "%{count} a "
       x_seconds:
         one: 1 seconde
-        other: "%{count} secondes"
+        other: "%{count} s "
   activerecord:
     models:
       user: Utilisateurs
@@ -106,6 +106,7 @@ fr:
       collect: Collectes
       topcs: Sujets
       answer: Réponse
+      comment: commentaire
     attributes:
       user:
         first_name: Prénom
@@ -275,8 +276,11 @@ fr:
         content: "Contenu"
       topic:
         content: "Contenu"
+        cover: "Bannière"
       answer:
         content: "Contenu"
+      comment:
+        content: Commentaire
     errors:
       models:
         user:
@@ -457,6 +461,8 @@ fr:
           attributes:
             content:
               blank: "doit être rempli"
+            cover:
+              blank: "doit être rempli"
         answer:
           attributes:
             content:
@@ -608,5 +614,5 @@ fr:
     phone_format: incorrect -> format 0678375394
   time:
     formats:
-      long: "%Y-%m-%d %H:%M:%S"
+      long: '%A %d %B %Y'
       short: "%Y-%m-%d"

@@ -1,13 +1,21 @@
 <div class="wrapper">
   <div class="container bg-white">
     <div class="container-ekologeek  my-5 px-">
-      <h2 class="mt-5 mb-4 green-bg">Modifier un sujet</h2>
+      <h2 class="mt-5 mb-4 green-bg">Modifier un message</h2>
       <%= link_to "Retour", topics_path, class:"btn btn-link" %>
       <%= simple_form_for @topic do |f| %>
-        <%= f.input :cover %>
+      <label>
+        Télécharger une image <br>
+        <div class="btn btn-primary">Selectionner une image</div>
+        <%= f.input :cover, input_html: { class: 'd-none', id:"my-file"  }, label: false  %>
         <%= f.input :cover_cache, as: :hidden %>
+      </label>
+      <div id="preview" class="d-none">
+        <img  width="200px" src="#">
+        <a href="#" class="remove">&times;</a>
+      </div>
         <%= f.input :content %>
-        <%= f.submit "Modifier" %>
+        <%= f.submit "Modifier", class:"btn btn-primary bold" %>
       <% end %>
     </div>
   </div>
