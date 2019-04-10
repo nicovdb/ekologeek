@@ -19,8 +19,8 @@
           <% else %>
             <%=  link_to "Publier", publish_article_path(@article), method: :post, class:"btn btn-primary" %>
           <% end %>
-          <%= link_to "Modifier", edit_article_path(@article), class: "cool-link mx-3" %>
-          <%= link_to "Supprimer", article_path(@article), method: :delete, class: "cool-link" %>
+          <%= link_to "Modifier", edit_article_path(@article), class: "cool-link mx-3", data: { confirm: "Vous devrez rajouter des virgules entre chaque tag"} %>
+          <%= link_to "Supprimer", article_path(@article), method: :delete, class: "cool-link", data: { confirm: "Êtes-vous sûr de vouloir supprimer cet article ?"} %>
         <% end %>
       </div>
       <div class="article">
