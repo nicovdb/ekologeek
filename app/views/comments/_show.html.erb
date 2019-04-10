@@ -1,7 +1,12 @@
 <div class="col-12 col-sm-4 col-md-3">
   <div class="green-bg mb-2 w-100">
-    <p class="name m-0"> <b><%= comment.user.first_name.upcase%> <%= comment.user.last_name.titleize.truncate(2, omission: '.')%> </b></p>
-    <div class="time minus"><%= "#{time_ago_in_words comment.created_at} -  #{comment.user.company.name}".truncate(24, omission: '...') %></div>
+    <% if comment.user.present? %>
+      <p class="name m-0"> <b><%= comment.user.first_name.upcase%> <%= comment.user.last_name.titleize.truncate(2, omission: '.')%> </b></p>
+      <div class="time minus"><%= "#{time_ago_in_words comment.created_at} -  #{comment.user.company.name}".truncate(24, omission: '...') %></div>
+    <% else %>
+      <p class="name m-0"> <b><%= comment.author.upcase%> </b></p>
+      <div class="time minus"><%= "#{time_ago_in_words comment.created_at}" %></div>
+    <% end %>
   </div>
   <% if comment.user == current_user %>
     <div class="d-flex justify-content-center mb-5 mt-2">
