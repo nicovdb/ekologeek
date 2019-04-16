@@ -1,4 +1,3 @@
-
 <% unless user_signed_in? %>
   <div class="wrapper down">
 <% else %>
@@ -8,7 +7,7 @@
     <div class="container bg-white my-5 px-5 pb-5">
       <h1 class="header text-primary text-center pt-5 mt-5 mb-5">actualités - article</h1>
       <% if @article.cover.present? %>
-        <div class="banner" style="background-image: url('<%= cl_image_path @article.cover, height: 300, width: 400, crop: :fit %>');"></div>
+        <div class="banner" style="background-image: url('<%= cl_image_path @article.cover, height: 500, width: 1000, crop: :fit %>');"></div>
       <% else %>
         <div class="banner" style="background-image: url('<%= image_path("default.jpg")%>') ; background-size: cover ; background-position: center"></div>
       <% end %>
