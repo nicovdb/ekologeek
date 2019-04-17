@@ -72,9 +72,7 @@
       <div class="text-center">
 
         <%= link_to "Page Actualités", articles_path, class: "btn btn-primary bold" %>
-        <% if @article.id != @articles.last.id %>
-          <%= link_to "next", article_path(@article.next) %>
-        <% end %>
+
       </div>
     </div>
   </div>
