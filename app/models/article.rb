@@ -14,5 +14,13 @@ class Article < ApplicationRecord
 
   scope :published, -> { where(published: true) }
 
+  def next
+    Article.published("id > ?", id).order(id: :asc).limit(1).first
+  end
+
+  def prev
+    Article.published("id < ?", id).order(id: :desc).limit(1).first
+  end
+
 
 end
