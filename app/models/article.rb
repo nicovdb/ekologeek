@@ -10,16 +10,22 @@ class Article < ApplicationRecord
 
   validates :author, :title, :subtitle, :content, :visibility, presence: true
 
-  enum visibility: {intern: 0, extern: 1, both: 2}
+  enum visibility: { intern: 0, extern: 1, both: 2 }
 
   scope :published, -> { where(published: true) }
 
+  scope :visibles, -> { published.where(visibility: :both) }
+
+  def to_param
+    "#{id} #{title}".parameterize
+  end
+
   def next
-    Article.published("id > ?", id).order(id: :asc).limit(1).first
+    Article.visibles.where("created_at > ?", created_at).order(created_at: :asc).take
   end
 
   def prev
-    Article.published("id < ?", id).order(id: :desc).limit(1).first
+    Article.visibles.where("created_at < ?", created_at).order(created_at: :desc).take
   end
 
 
