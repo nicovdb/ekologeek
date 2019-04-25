@@ -70,8 +70,13 @@
         </div>
       </div>
       <div class="text-center">
-
+        <% unless @prev.nil? %>
+          <%= link_to "Précédent", article_path(@prev, articles: @articles), class: 'btn btn-primary bold' %>
+        <% end %>
         <%= link_to "Page Actualités", articles_path, class: "btn btn-primary bold" %>
+        <% unless @next.nil? %>
+          <%= link_to "Suivant", article_path(@next, articles: @articles), class: 'btn btn-primary bold' %>
+        <% end %>
       </div>
     </div>
   </div>

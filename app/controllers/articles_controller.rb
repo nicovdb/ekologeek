@@ -57,6 +57,21 @@ class ArticlesController < ApplicationController
   def show
     @comments = @article.comments
     @comment = Comment.new
+    @articles = params[:articles]
+
+    if @articles.nil?
+      @articles = Article.where(visibility: [:intern, :both], published: true).map do |article|
+        article.id.to_s
+      end
+    end
+
+    if @articles.index(params[:id]) == 0
+      @prev = nil
+    else
+      @prev = @articles[@articles.index(params[:id]) - 1]
+    end
+
+    @next = @articles[@articles.index(params[:id]) + 1]
   end
 
   def edit
