@@ -10,11 +10,9 @@ class ArticlesController < ApplicationController
        'home'
      end
    end
-
   def index
     tag
   end
-
   def new
     @article = Article.new
   end
@@ -69,13 +67,13 @@ class ArticlesController < ApplicationController
 
     if params[:tag].present?
       if current_user && current_user.admin?
-        @articles = Article.tagged_with(params[:tag])
+        @articles = Article.all.tagged_with(params[:tag])
         @pagy, @articles = pagy( @articles, items: 9)
       elsif current_user
-        @articles = Article.tagged_with(params[:tag]).where(visibility: [:intern, :both], published: true)
+        @articles = Article.visibles.tagged_with(params[:tag])
         @pagy, @articles = pagy( @articles, items: 9)
       else
-        @articles = Article.tagged_with(params[:tag]).where(visibility: [:extern, :both], published: true)
+        @articles = Article.visibles_ext.tagged_with(params[:tag])
         @pagy, @articles = pagy( @articles, items: 9)
       end
     else
@@ -83,10 +81,10 @@ class ArticlesController < ApplicationController
         @articles = Article.all
         @pagy, @articles = pagy( @articles, items: 9)
       elsif current_user
-        @articles = Article.where(visibility: [:intern, :both], published: true)
+        @articles = Article.visibles
         @pagy, @articles = pagy( @articles, items: 9)
       else
-        @articles = Article.where(visibility: [:extern, :both], published: true)
+        @articles = Article.visibles_ext
         @pagy, @articles = pagy( @articles, items: 9)
       end
     end

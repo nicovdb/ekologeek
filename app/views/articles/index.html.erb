@@ -7,8 +7,12 @@
 <% end %>
     <h1 class="header text-primary text-center pt-5 mt-5 mb-5">Actualités</h1>
     <div class="mb-4">
+    <% if current_user && current_user.admin? %>
       <%= link_to "Créer un article", new_article_path, class:"btn btn-primary bold" %>
       <%= link_to "Retour", root_path, class:"btn btn-link" %>
+    <% else %>
+      <%= link_to "Retour", root_path, class:"btn btn-primary" %>
+    <% end %>
     </div>
     <span><b>Catégories :</b></span>
     <%= render "tag", tags: @tags %>

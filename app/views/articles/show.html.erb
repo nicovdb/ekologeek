@@ -69,19 +69,27 @@
           <%= render 'comments/form', article: @article, comment: @comment %>
         </div>
       </div>
-      <div class="text-center">
-        <% if @article.prev %>
-          <%= link_to "précédent", article_path(@article.prev), class:"btn btn-link" %>
-        <% end %>
-
-
-        <%= link_to "Page Actualités", articles_path, class: "btn btn-primary bold" %>
-
-        <% if @article.next %>
-          <%= link_to "suivant", article_path(@article.next), class:"btn btn-link" %>
-        <% end %>
-
-      </div>
+      <% if user_signed_in? %>
+        <div class="text-center">
+          <% if @article.prev %>
+            <%= link_to "précédent", article_path(@article.prev), class:"btn btn-link" %>
+          <% end %>
+          <%= link_to "Page Actualités", articles_path, class: "btn btn-primary bold" %>
+          <% if @article.next %>
+            <%= link_to "suivant", article_path(@article.next), class:"btn btn-link" %>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="text-center">
+          <% if @article.prev_ext %>
+            <%= link_to "précédent", article_path(@article.prev_ext), class:"btn btn-link" %>
+          <% end %>
+          <%= link_to "Page Actualités", articles_path, class: "btn btn-primary bold" %>
+          <% if @article.next_ext %>
+            <%= link_to "suivant", article_path(@article.next_ext), class:"btn btn-link" %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

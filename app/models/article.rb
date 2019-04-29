@@ -15,6 +15,7 @@ class Article < ApplicationRecord
   scope :published, -> { where(published: true) }
 
   scope :visibles, -> { published.where(visibility: :both) }
+  scope :visibles_ext, -> { published.where(visibility: :extern) }
 
   def to_param
     "#{id} #{title}".parameterize
@@ -26,6 +27,14 @@ class Article < ApplicationRecord
 
   def prev
     Article.visibles.where("created_at < ?", created_at).order(created_at: :desc).take
+  end
+
+  def next_ext
+    Article.visibles_ext.where("created_at > ?", created_at).order(created_at: :asc).take
+  end
+
+  def prev_ext
+    Article.visibles_ext.where("created_at < ?", created_at).order(created_at: :desc).take
   end
 
 
