@@ -65,7 +65,7 @@ class ArticlesController < ApplicationController
   private
 
   def tag
-    @tags = ActsAsTaggableOn::Tag.all.map { |tag| tag.name }
+    @tags = []
 
     if params[:tag].present?
       if current_user && current_user.admin?
@@ -90,6 +90,11 @@ class ArticlesController < ApplicationController
         @pagy, @articles = pagy( @articles, items: 9)
       end
     end
+
+    @articles.each do |article|
+      article.tag_list.each { |tag| @tags << tag }
+    end
+
   end
 
   def article_params
