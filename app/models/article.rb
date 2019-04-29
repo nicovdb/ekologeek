@@ -14,8 +14,8 @@ class Article < ApplicationRecord
 
   scope :published, -> { where(published: true) }
 
-  scope :visibles, -> { published.where(visibility: :both) }
-  scope :visibles_ext, -> { published.where(visibility: :extern) }
+  scope :visibles, -> { published.where(visibility: :both).or(published.where(visibility: :intern)) }
+  scope :visibles_ext, -> { published.where(visibility: :extern).or(published.where(visibility: :both)) }
 
   def to_param
     "#{id} #{title}".parameterize

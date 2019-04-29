@@ -4,15 +4,17 @@ class ArticlesController < ApplicationController
   layout :layout_by_resource
 
   def layout_by_resource
-     if user_signed_in?
-       'article'
-     else
-       'home'
-     end
-   end
+    if user_signed_in?
+      'article'
+    else
+      'home'
+    end
+  end
+
   def index
     tag
   end
+
   def new
     @article = Article.new
   end
