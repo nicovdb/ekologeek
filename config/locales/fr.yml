@@ -275,6 +275,7 @@ fr:
         visibility: "Affichage"
         tag_list: "Tags"
         content: "Contenu"
+        publish_date: "Date de publication"
       topic:
         content: "Contenu"
         cover: "Bannière"

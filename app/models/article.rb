@@ -36,6 +36,4 @@ class Article < ApplicationRecord
   def prev_ext
     Article.visibles_ext.where("created_at < ?", created_at).order(created_at: :desc).take
   end
-
-
 end

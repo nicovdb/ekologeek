@@ -24,7 +24,11 @@
       </div>
       <div class="article">
         <h2 class="green-bg my-4"><%= @article.title %></h2>
+        <% if @article.publish_date.present? %>
+          <p><em><%=  l(@article.publish_date, format: :long) %></em></p>
+        <% else %>
         <p><em><%=  l(@article.created_at, format: :long) %></em></p>
+        <% end %>
         <p><%= sanitize @article.content %></p>
         <ul class='list-inline'>
           <li class="list-inline-item"><b>Catégories: </b></li>
@@ -56,9 +60,7 @@
           <% end %>
         </div>
       </div>
-
       <hr/>
-
       <h5 class="text-center bold mb-3 mt-5">COMMENTAIRES</h5>
       <div class="row">
         <% @article.comments.each do |comment| %>

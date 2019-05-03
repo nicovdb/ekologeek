@@ -4,6 +4,7 @@
     <%= f.input :cover_cache, as: :hidden %>
     <%= f.input :author %>
     <%= f.input :title %>
+    <%= f.input :publish_date %>
     <%= f.input :subtitle, hint: "Seuls les 20 premiers mots seront affichés" %>
     <%= f.input :visibility, collection: [[ "intern", "Interne"], [ "extern", "Externe"], [ "both", "Interne & Externe"]], label_method: :second, value_method: :first %>
     <%= f.input :tag_list, label:"Catégories", hint: "Séparer les catégories par des virgules", placeholder: "Écologie, Environnement ..." %>
