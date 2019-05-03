@@ -51,6 +51,9 @@
   padding: 0 15px;
   .card-article-title {
     color: $primary;
+    &:hover {
+      color: rgb(17, 115, 136);
+    }
   }
   a {
     text-decoration: none;
