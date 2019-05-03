@@ -22,7 +22,7 @@
           <%= link_to "Supprimer", article_path(@article), method: :delete, class: "cool-link", data: { confirm: "Êtes-vous sûr de vouloir supprimer cet article ?"} %>
         <% end %>
       </div>
-      <div class="article">
+      <div class="article link-articles">
         <h2 class="green-bg my-4"><%= @article.title %></h2>
         <% if @article.publish_date.present? %>
           <p><em><%=  l(@article.publish_date, format: :long) %></em></p>

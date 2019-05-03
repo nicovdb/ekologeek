@@ -6,7 +6,7 @@
   .card-title {
     color: $primary;
     &:hover {
-      color: $secondary;
+      color: rgb(17, 115, 136);
     }
   }
   .article-date-texte {
@@ -40,10 +40,7 @@
   }
   a {
     text-decoration: none;
-    color: $primary;
-    &:hover {
-      color: rgb(17, 115, 136);
-    }
+    color: $black;
   }
 }
 .article-index {
@@ -65,4 +62,14 @@
       border-bottom: none;
     }
   }
+}
+
+.link-articles {
+  a {
+    color: $primary;
+    &:hover {
+      color: rgb(17, 115, 136);
+    }
+  }
+
 }
