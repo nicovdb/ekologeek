@@ -16,8 +16,8 @@
           </div>
           <% if @topic.mine?(current_user) %>
             <div class="d-flex justify-content-center mb-2">
-              <%= link_to "Modifier", edit_topic_path(@topic), class:"tag mr-1" %>
-              <%= link_to "Supprimer", topic_path(@topic), method: :delete, class:"tag ml-1" %>
+              <%= link_to "Modifier", edit_topic_path(@topic), class:"tag mr-1 bold" %>
+              <%= link_to "Supprimer", topic_path(@topic), method: :delete, class:"tag ml-1 bold" %>
             </div>
           <% end %>
         </div>
@@ -35,8 +35,8 @@
             </div>
             <% if answer.user == current_user %>
               <div class="d-flex justify-content-center mb-2">
-                <%= link_to "Modifier", edit_answer_path(answer), class:"tag mr-1" %>
-                <%= link_to "Supprimer", answer_path(answer), method: :delete, class:"tag ml-1" %>
+                <%= link_to "Modifier", edit_answer_path(answer), class:"tag mr-1 bold" %>
+                <%= link_to "Supprimer", answer_path(answer), method: :delete, class:"tag ml-1 bold" %>
               </div>
             <% end %>
           </div>
@@ -50,8 +50,9 @@
           <%= render 'answers/form', topic: @topic, answer: @answer %>
         </div>
       </div>
-
-      <%= link_to "Page Forum", topics_path, class:"btn btn-primary" %>
+      <div class=" text-center">
+        <%= link_to "Page Forum", topics_path, class:"btn btn-primary bold" %>
+      </div>
 
     </div>
   </div>
