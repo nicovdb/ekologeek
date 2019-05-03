@@ -98,7 +98,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:author, :title, :subtitle, :cover, :cover_cache, :content, :visibility, :tag_list)
+    params.require(:article).permit(:author, :title, :subtitle, :cover, :cover_cache, :content, :visibility, :tag_list, :publish_date)
   end
 
   def set_article

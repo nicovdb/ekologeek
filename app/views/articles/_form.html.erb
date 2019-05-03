@@ -4,9 +4,10 @@
     <%= f.input :cover_cache, as: :hidden %>
     <%= f.input :author %>
     <%= f.input :title %>
+    <%= f.input :publish_date %>
     <%= f.input :subtitle, hint: "Seuls les 20 premiers mots seront affichés" %>
     <%= f.input :visibility, collection: [[ "intern", "Interne"], [ "extern", "Externe"], [ "both", "Interne & Externe"]], label_method: :second, value_method: :first %>
-    <%= f.input :tag_list, label:"Catégories", hint: "Séparer les tags par des virgules", placeholder: "Écologie, Environnement ..." %>
+    <%= f.input :tag_list, label:"Catégories", hint: "Séparer les catégories par des virgules", placeholder: "Écologie, Environnement ..." %>
     <%= f.input :content, as: :trix_editor %>
     <%= f.submit "Soumettre", class:"btn btn-primary bold" %>
     <%= link_to "retour", articles_path, class: "btn btn-link" %>

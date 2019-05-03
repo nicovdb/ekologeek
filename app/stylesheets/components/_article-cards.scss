@@ -6,7 +6,7 @@
   .card-title {
     color: $primary;
     &:hover {
-      color: $secondary;
+      color: rgb(17, 115, 136);
     }
   }
   .article-date-texte {
@@ -38,19 +38,20 @@
     margin-bottom: 30px;
     line-height: 100%;
   }
-
   a {
     text-decoration: none;
-    color: black;
+    color: $black;
   }
 }
-
 .article-index {
   border: 1px solid rgb(200, 200, 200);
   border-radius: 3px;
   padding: 0 15px;
   .card-article-title {
     color: $primary;
+    &:hover {
+      color: rgb(17, 115, 136);
+    }
   }
   a {
     text-decoration: none;
@@ -59,6 +60,15 @@
     border-bottom: 1px solid rgb(200, 200, 200);
     &:last-child {
       border-bottom: none;
+    }
+  }
+}
+
+.link-articles {
+  a {
+    color: $primary;
+    &:hover {
+      color: rgb(17, 115, 136);
     }
   }
 

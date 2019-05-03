@@ -1,7 +1,7 @@
 <% topics.each do |topic| %>
   <%= link_to topic_path(topic) do %>
-    <div class="topic-index mb-2 h-100">
-      <div class="pt-2 d-flex align-items-center ">
+    <div class="topic-index mb-2 ">
+      <div class="pt-2 d-flex align-items-center topics-height">
         <div class="topic-index-info">
           <b><%= "#{topic.user.first_name.capitalize} #{topic.user.last_name.upcase}".truncate(18, omission: '...') %></b>
           <div class="topic-index-time"><%= time_ago_in_words topic.created_at %> - <%= topic.user.company.name %></div>

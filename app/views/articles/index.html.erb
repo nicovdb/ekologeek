@@ -17,6 +17,10 @@
     <span><b>Catégories :</b></span>
     <%= render "tag", tags: @tags %>
     <%= render 'articles', articles: @articles %>
-    <%== pagy_bootstrap_nav(@pagy).html_safe %>
+
+    <% if @pagy.count >= 10 %>
+      <%== pagy_bootstrap_nav(@pagy).html_safe %>
+    <% end %>
+
   </div>
 </div>
