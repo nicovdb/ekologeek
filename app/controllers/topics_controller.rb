@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
 
   def index
     @topics = Topic.all.order(:created_at).reverse
-    @pagy, @topics = pagy_array( @topics, items: 10)
+    @pagy, @topics = pagy_array( @topics, items: 9)
   end
 
   def new
