@@ -8,7 +8,7 @@
           <div class="topic-index-time"><i class="fas fa-comment-alt mr-1"></i><b><%= topic.answers.count %></b></div>
         </div>
         <div class="d-flex align-items-center justify-content-between card-content-topic">
-          <p class="topic-index-text flex-grow text-muted"><%= topic.content.truncate_words(15, omission: '...') %></p>
+          <p class="topic-index-text flex-grow text-muted"><%= sanitize topic.content.truncate_words(15, omission: '...') %></p>
         </div>
       </div>
     </div>

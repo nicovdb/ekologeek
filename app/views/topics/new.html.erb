@@ -14,7 +14,7 @@
           <img  width="200px" src="#">
           <a href="#" class="remove">&times;</a>
         </div>
-        <%= f.input :content %>
+        <%= f.input :content, as: :trix_editor %>
         <%= f.submit "Créer un sujet", class:"btn btn-primary bold" %>
       <% end %>
     </div>

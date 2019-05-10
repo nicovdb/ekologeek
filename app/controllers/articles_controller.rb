@@ -69,24 +69,24 @@ class ArticlesController < ApplicationController
 
     if params[:tag].present?
       if current_user && current_user.admin?
-        @articles = Article.all.tagged_with(params[:tag])
+        @articles = Article.all.tagged_with(params[:tag]).order(publish_date: :desc)
         @pagy, @articles = pagy( @articles, items: 9)
       elsif current_user
-        @articles = Article.visibles.tagged_with(params[:tag])
+        @articles = Article.visibles.tagged_with(params[:tag]).order(publish_date: :desc)
         @pagy, @articles = pagy( @articles, items: 9)
       else
-        @articles = Article.visibles_ext.tagged_with(params[:tag])
+        @articles = Article.visibles_ext.tagged_with(params[:tag]).order(publish_date: :desc)
         @pagy, @articles = pagy( @articles, items: 9)
       end
     else
       if current_user && current_user.admin?
-        @articles = Article.all
+        @articles = Article.all.order(publish_date: :desc)
         @pagy, @articles = pagy( @articles, items: 9)
       elsif current_user
-        @articles = Article.visibles
+        @articles = Article.visibles.order(publish_date: :desc)
         @pagy, @articles = pagy( @articles, items: 9)
       else
-        @articles = Article.visibles_ext
+        @articles = Article.visibles_ext.order(publish_date: :desc)
         @pagy, @articles = pagy( @articles, items: 9)
       end
     end
