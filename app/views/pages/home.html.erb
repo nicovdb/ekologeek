@@ -51,23 +51,31 @@
     </div>
 
     <hr/>
-    <div class="d-flex justify-content-center align-items-center mt-5">
-      <p class=" mb-0">Inscrivez-vous sur notre page facebook :</p>
-      <div class="facebook">
-        <%= link_to "https://www.facebook.com/DefiZeroDechetdesPros/",class:"footer-link mx-3", target:"_blank" do %>
-        <%= inline_svg "facebook.svg", width:"20" %>
-        <% end %>
+
+    <div class="row mt-5">
+      <div class="col-12 col-lg-6">
+        <h2 class="blue text-center"><b>Nous suivre:</b></h2>
+        <div class="social-medias mt-4">
+          <div>
+            <p> <%= link_to "https://www.linkedin.com/company/defi-zero-dechet-pro/" do %>
+              <i class="fab fa-linkedin"></i> DefiZeroDechetdesPros
+            <% end %> </p>
+            <p> <%= link_to "https://www.facebook.com/DefiZeroDechetdesPros/", target: :blank do %>
+              <i class="fab fa-facebook-square"></i> Défi Zéro Déchet des Professionnels
+            <% end %> </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <h2 class="blue text-center"><b>Inscription à la Newsletter:</b></h2>
+        <div class="newsletter">
+          <%= render "newsletter"  %>
+          <p class="text-center m-0">Votre adresse de messagerie est uniquement utilisée pour vous envoyer les lettres d'information du Défi Zéro Déchet des Pro.</p>
+          <p class="text-center mb-5">Vous pouvez à tout moment utiliser le lien de désabonnement intégré dans la newsletter. <%= link_to "En savoir plus sur la gestion de vos données et vos droits", politique_path, class:"cool-link" %></p>
+        </div>
       </div>
     </div>
-    <div class="text-center mt-5"><strong>ou</strong></div>
-
-
-    <div class="newsletter">
-      <%= render "newsletter"  %>
-      <p class="text-center m-0">Votre adresse de messagerie est uniquement utilisée pour vous envoyer les lettres d'information du Défi Zéro Déchet des Pro.</p>
-      <p class="text-center mb-5">Vous pouvez à tout moment utiliser le lien de désabonnement intégré dans la newsletter. <%= link_to "En savoir plus sur la gestion de vos données et vos droits", politique_path, class:"cool-link" %></p>
-    </div>
-
     <hr/>
     <div>
       <h2 class="green-bg my-4">Actualités</h2>

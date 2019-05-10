@@ -2,13 +2,14 @@ ActiveAdmin.register Company do
   config.filters = true
   actions :index, :show, :edit, :update
 
-  permit_params :name, :town, :project_id, :accepted, :created_at
+  permit_params :name, :town, :project_id, :accepted, :created_at, :participants
 
   index do
     selectable_column
     id_column
       column :name
       column :town
+      column (:participants){ |company| company.trash_diagnostic.employees_nb}
       column :form
       column :accepted
       column :created_at
@@ -22,6 +23,7 @@ ActiveAdmin.register Company do
   csv do
     column :name
     column :town
+    column (:participants){ |company| company.trash_diagnostic.employees_nb}
     column :accepted
     column :created_at
   end
@@ -30,6 +32,7 @@ ActiveAdmin.register Company do
     attributes_table do
       row :name
       row :town
+      row (:participants){ |company| company.trash_diagnostic.employees_nb}
       row :form
       row :accepted
     end

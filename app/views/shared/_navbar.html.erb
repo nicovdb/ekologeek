@@ -17,55 +17,26 @@
 
       <li class="nav-item m-3 dropdown bold-link">
         <% if mobile_device == "mobile" %>
-          <a class="nav-link dropdown-toggle" href="/pourquoi" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            POURQUOI
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            LE DÉFI
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "Réduire nos déchets pros", pourquoi_path(anchor: "pourquoi1"), class:"anchor dropdown-item text-primary"%>
-            <%= link_to "Participer au Défi Zéro Déchet des pros", pourquoi_path(anchor: "pourquoi2"), class:"anchor dropdown-item text-primary"%>
+            <%= link_to "Pourquoi ?", pourquoi_path, class:"anchor dropdown-item text-primary"%>
+            <%= link_to "Comment ?", how_path, class:"anchor dropdown-item text-primary"%>
+            <%= link_to "Qui sommes-nous ?", partenaires_path, class:"anchor dropdown-item text-primary"%>
+            <%= link_to "Actualités", "/articles", class:"anchor dropdown-item text-primary"%>
           </div>
         <% else %>
           <a class="nav-link dropdown-toggle" href="/pourquoi" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
-            POURQUOI
+            LE DÉFI
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "Réduire nos déchets pros", pourquoi_path(anchor: "pourquoi1"), class:"anchor dropdown-item text-primary"%>
-            <%= link_to "Participer au Défi Zéro Déchet des pros", pourquoi_path(anchor: "pourquoi2"), class:"anchor dropdown-item text-primary"%>
+            <%= link_to "Pourquoi ?", pourquoi_path, class:"anchor dropdown-item text-primary"%>
+            <%= link_to "Comment ?", how_path, class:"anchor dropdown-item text-primary"%>
+            <%= link_to "Qui sommes-nous ?", partenaires_path, class:"anchor dropdown-item text-primary"%>
+            <%= link_to "Actualités", "/articles", class:"anchor dropdown-item text-primary"%>
           </div>
         <% end %>
-      </li>
-
-      <li class="nav-item m-3 dropdown bold-link">
-        <% if mobile_device == "mobile" %>
-
-          <a class="nav-link dropdown-toggle" href="/comment" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            COMMENT
-          </a>
-
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "Objectifs du Défi Zéro Déchet des pros", how_path(anchor: "comment1"), class:"anchor dropdown-item text-primary"%>
-            <%= link_to "Les déchets concernés", how_path(anchor: "comment2"), class:"anchor dropdown-item text-primary" %>
-            <%= link_to "Les structures éligibles", how_path(anchor: "comment2"), class:"anchor dropdown-item text-primary" %>
-            <%= link_to "Comment ça se passe ?", how_path(anchor: "comment4"), class:"anchor dropdown-item text-primary" %>
-            <%= link_to "Planning", how_path(anchor: "comment5"), class:"anchor dropdown-item text-primary" %>
-            <%= link_to "Combien ça coûte ?", how_path(anchor: "comment6"), class:"anchor dropdown-item text-primary" %>
-          </div>
-
-        <% else %>
-          <a class="nav-link dropdown-toggle" href="/comment" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
-            COMMENT
-          </a>
-
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "Objectifs du Défi Zéro Déchet des pros", how_path(anchor: "comment1"), class:"anchor dropdown-item text-primary"%>
-            <%= link_to "Les déchets concernés", how_path(anchor: "comment2"), class:"anchor dropdown-item text-primary" %>
-            <%= link_to "Les structures éligibles", how_path(anchor: "comment2"), class:"anchor dropdown-item text-primary" %>
-            <%= link_to "Comment ça se passe ?", how_path(anchor: "comment4"), class:"anchor dropdown-item text-primary" %>
-            <%= link_to "Planning", how_path(anchor: "comment5"), class:"anchor dropdown-item text-primary" %>
-            <%= link_to "Combien ça coûte ?", how_path(anchor: "comment6"), class:"anchor dropdown-item text-primary" %>
-          </div>
-        <% end %>
-
       </li>
 
       <li class="nav-item m-3 bold-link">
