@@ -2,7 +2,7 @@ ActiveAdmin.register Company do
   config.filters = true
   actions :index, :show, :edit, :update
 
-  permit_params :name, :town, :project_id, :accepted, :created_at
+  permit_params :name, :town, :project_id, :accepted, :created_at, :participants
 
   index do
     selectable_column

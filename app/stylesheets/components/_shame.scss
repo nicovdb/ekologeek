@@ -244,3 +244,19 @@ p.minus {
   max-width: 90vw;
   object-fit: contain;
 }
+
+.social-medias {
+  display: flex;
+  justify-content: center;
+
+  a:hover {
+    text-decoration: none;
+    color: rgb(17, 115, 136);
+  }
+
+  i {
+    font-size: 32px;
+    margin-right: 8px;
+
+  }
+}
