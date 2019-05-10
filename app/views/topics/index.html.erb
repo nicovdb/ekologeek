@@ -23,7 +23,7 @@
                   <em class="minus text-blue mr-2"><%= l(topic.created_at, format: :long ) %></em>
                   <span class="topic-index-time text-blue minus ml-2"><i class="fas fa-comment-alt mr-1"></i><%= topic.answers.count %></span>
                 </div>
-                <p class="mb-0"><%= topic.content.truncate_words(15, omission: '...') %></p>
+                <p class="mb-0"><%= sanitize topic.content.truncate_words(15, omission: '...') %></p>
               </div>
             </div>
           <% end %>
