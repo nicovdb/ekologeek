@@ -1,0 +1,21 @@
+<div class="container bg-white">
+  <h1 class="mt-5 mb-4 header text-primary text-center">BILAN COMPORTEMENTAL DE LA STRUCTURE</h1>
+
+  <p class="text-center mt-4">Progression : <b>page 1 sur 3</b> </p>
+  <div class="dots d-flex justify-content-center">
+    <span class="blue"></span>
+    <span class=""></span>
+    <span class=""></span>
+  </div>
+  <h2 class="mt-4 mb-4 green-bg">Généralités</h2>
+
+  <%= simple_form_for(@company_behaviour, method: :put, url: wizard_path) do |f| %>
+    <p class="mt-4"><b>1. </b>Dont vous-même, combien y a-t-il de collaborateur·rice·s participant·e·s au Défi ?</p>
+    <%= f.input :participants_nb, collection: 1..500, label: false%>
+
+    <div class="d-flex justify-content-end mb-5 mt-4">
+      <%= f.button :submit, "Suivant >", class:"btn btn-primary bold" %>
+    </div>
+  <% end %>
+
+</div>
