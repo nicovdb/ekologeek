@@ -1,12 +1,12 @@
 <div class="container bg-white">
   <h1 class="mt-5 mb-4 header text-primary text-center">BILAN COMPORTEMENTAL DE LA STRUCTURE</h1>
   <div class="text-center h-100 mt-5 ">
-    <p>Vous avez terminé ce formulaire de diagnostic. Vos réponses sont bien enregistrées.</p>
+    <p>Vous avez terminé ce formulaire de bilan. Vos réponses sont bien enregistrées.</p>
     <p>Merci beaucoup.</p>
-    <p>Vous pouvez le modifier jusqu’au 10 février.</p>
+    <p>Vous pouvez le modifier jusqu’au 11 juin.</p>
     <%= link_to "Retourner à la page DONNÉES", donnees_path, class: "btn btn-primary bold" %>
-    <% if Date.today < Date.new(2019, 02, 11) %>
-      <%= link_to "Modifier mon formulaire", company_behaviour_diag_path(:step_one), class:"btn btn-outline-primary " %>
+    <% if Date.today < Date.new(2019, 06, 11) %>
+      <%= link_to "Modifier mes réponses", company_behaviour_result_path(:step_one), class:"btn btn-outline-primary " %>
     <% end %>
   </div>
 </div>
