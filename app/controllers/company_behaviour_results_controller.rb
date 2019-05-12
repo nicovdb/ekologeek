@@ -51,8 +51,7 @@ class CompanyBehaviourResultsController < ApplicationController
 
   def step_one_params
     params.require(:company_behaviour).permit(
-      :participants_nb,
-      result_actions_attributes: {}
+      :participants_nb
     )
   end
 
@@ -72,9 +71,7 @@ class CompanyBehaviourResultsController < ApplicationController
   end
 
   def step_three_params
-    params.require(:company_behaviour).permit(
-      :daily_actions_diag
-    )
+    params.require(:company_behaviour).permit!
   end
 
 
