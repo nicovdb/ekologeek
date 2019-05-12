@@ -5,23 +5,25 @@
       <h1 class="header text-primary pt-5 text-center">DONNÉES</h1>
       <h2 class="green-bg mt-5">Diagnostics</h2>
 
-      <p class='mb-0 mt-4'>Les diagnostics doivent nécessairement être réalisés avant le 10 février 2019. Au-delà de cette date, ils ne seront plus modifiables.</p>
       <div id="dechets"></div>
-      <div class="text-center">
+      <div class="text-center mt-4">
         <% if current_user.referent? && current_user.company.trash_diagnostic.nil? %>
           <p> <%= link_to "Diagnostic technique Structure", new_trash_diagnostic_path, class:"btn btn-primary bold" %></p>
         <% end %>
-        <% if current_user.referent? && current_user.company.company_behaviours.empty? || current_user.admin  %>
+        <% if current_user.referent? && current_user.company.company_behaviours.empty?  %>
           <%= link_to "Diagnostic comportemental Structure", new_company_behaviour_diag_path, class:"btn btn-primary bold" %>
         <% elsif current_user.referent? && Date.today < "15/02/2019".to_date %>
           <%= link_to "Diagnostic comportemental Structure", company_behaviour_diag_path(:step_one), class:"btn btn-primary bold" %>
+        <% elsif current_user.referent? && Date.today > current_user.company.project.bilan_start_at && current_user.company.company_behaviours.count == 1 %>
+          <%= link_to "Bilan comportemental Structure", new_company_behaviour_result_path, class:"btn btn-primary bold" %>
+        <% elsif current_user.referent? && Date.today > current_user.company.project.bilan_start_at && current_user.company.company_behaviours.count == 2 %>
+          <%= link_to "Bilan comportemental Structure", company_behaviour_result_path(:step_one), class:"btn btn-primary bold" %>
         <% end %>
 
         <% if !current_user.company.trash_diagnostic.nil? %>
-
           <% if current_user.user_behaviour_diag.nil?  %>
             <%= link_to "Diagnostic comportemental Collaborateur·rice", new_comportamental_formulaire_path, class:"btn btn-primary bold" %>
-          <% elsif Date.today < "15/02/2019".to_date || current_user.admin %>
+          <% elsif Date.today < "15/02/2019".to_date  %>
             <%= link_to "Diagnostic comportemental Collaborateur·rice", comportamental_formulaire_path(:page_one), class:"btn btn-primary bold" %>
           <% end %>
 
@@ -31,7 +33,6 @@
             <%= link_to "Bilan comportemental Collaborateur·rice", result_comportamental_formulaire_path(:start), class:"btn btn-primary bold" %>
           <% end %>
         </div>
-
 
         <h2 class="green-bg mt-5">Déchets de fonctionnement de votre structure</h2>
 

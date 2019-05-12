@@ -4,6 +4,7 @@ class CompanyBehaviour < ApplicationRecord
   accepts_nested_attributes_for :diag_actions, reject_if: :all_blank, allow_destroy: true
 
   has_many :result_actions, dependent: :destroy
+  accepts_nested_attributes_for :result_actions, reject_if: :all_blank, allow_destroy: true
 
   validates :participants_nb, presence: true, if: :step_one?
   validates :actions_displayed,

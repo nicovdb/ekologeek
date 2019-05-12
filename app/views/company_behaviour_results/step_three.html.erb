@@ -1,0 +1,40 @@
+<div class="container bg-white">
+  <h1 class="mt-5 mb-4 header text-primary text-center">BILAN COMPORTEMENTAL DE LA STRUCTURE</h1>
+
+  <p class="text-center mt-4">Progression : <b>page 3 sur 3</b> </p>
+  <div class="dots d-flex justify-content-center">
+    <span class="blue"></span>
+    <span class="blue"></span>
+    <span class="blue"></span>
+  </div>
+  <h2 class="mt-4 mb-4 green-bg">Généralités</h2>
+
+  <%= simple_form_for(@company_behaviour, method: :put, url: wizard_path) do |f| %>
+
+
+    <p class="mt-4"><b>7. </b>Quelle·s action·s concrète·s pour la gestion et/ou la réduction des déchets est·sont actuellement menée·s dans votre structure ?</p>
+    <div id='priority-action'>
+      <%= f.simple_fields_for :result_actions do |result_action| %>
+        <%= render 'result_action_fields', f: result_action %>
+      <% end %>
+      <div class='links pl-4'>
+        <%= link_to_add_association 'Ajouter une action', f , :result_actions, render_options: { render: '_result_action_fields' } %>
+      </div>
+    </div>
+
+    <p class="mt-4"><b>8.</b> Selon vous, en tant que référent·e, combien d’actions nouvellement mises en place par votre structure sont pratiquées par vos collaborateur·rice·s au quotidien ?</p>
+    <%= f.collection_radio_buttons :daily_actions_diag, ["Aucune action", "Très peu d’action", "Quelques actions", "La majorité des actions", "Toutes les actions", " Non communiqué"], :to_s, :to_s do |input| %>
+      <label class="mx-2 mb-3">
+        <%= input.radio_button %>
+        <%= input.text %>
+      </label>
+    <% end %>
+
+    <div class="d-flex justify-content-around mb-5 mt-4">
+      <%= link_to "< Précédent", previous_wizard_path, class:"btn btn-primary bold" %>
+      <%= f.button :submit, "Valider", class:"btn btn-primary bold" %>
+    </div>
+
+  <% end %>
+
+</div>

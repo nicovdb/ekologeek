@@ -1,0 +1,31 @@
+<div class='nested-fields pl-4'>
+  <p>- Nouvelle action</p>
+    <%= f.input :name, label: "Intitulé de l'action" %>
+    <%= f.input :comment, label: "Décrivez brièvement votre action"%>
+    <p class="mt-4">Sur quel·s flux agit cette action ?</p>
+    <%= f.collection_check_boxes :trash_ids, Trash.all, :id, :name do |input| %>
+      <label class="mx-2 mb-3">
+        <%= input.check_box %>
+        <%= input.text %>
+      </label>
+    <% end %>
+
+    <p class="mt-4"> Quel est l'état d'avancement de cette action ?</p>
+    <%= f.collection_radio_buttons :state, ["En conception / discussion", "En cours de déploiement / préparation (technique, humaine, financière)", "Abandonnée", "Appliquée"], :to_s, :to_s do |input| %>
+      <label class="mx-2 mb-3">
+        <%= input.radio_button %>
+        <%= input.text %>
+      </label>
+    <% end %>
+    <%= f.input :state_comment, placeholder: "Dites-nous en plus...", label: false%>
+    <p class="mt-4"> À quel niveau cette action agit ?</p>
+    <%= f.collection_radio_buttons :domain, ["Prévention / réduction des déchets", "Tri des déchets", "Traitements des déchets (incinération, enfouissement, recyclage, compostage...)"], :to_s, :to_s do |input| %>
+      <label class="mx-2 mb-3">
+        <%= input.radio_button %>
+        <%= input.text %>
+      </label>
+    <% end %>
+    <%= f.input :domain_comment, placeholder: "Dites-nous en plus...", label: false%>
+    <%= f.input :employees_making_nb, label: "Combien de collaborateur·rice·s adoptent cette action ?"%>
+    <%= link_to_remove_association "Supprimer l'action", f %>
+</div>
