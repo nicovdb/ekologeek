@@ -12,7 +12,7 @@
   <h2 class="mt-4 mb-4 green-bg">Généralités</h2>
 
   <%= simple_form_for(@user_behaviour_result, method: :put, url: wizard_path) do |f| %>
-    <p class="mt-4"><b>3. </b>Parmi les actions mises en place dans votre structure depuis le début du Défi Zéro Déchet des Pros, quelle·s est·sont celle·s que vous ne pratiquez pas personnellement ?</p>
+    <p class="mt-4"><b>4. </b>Parmi les actions mises en place dans votre structure depuis le début du Défi Zéro Déchet des Pros, quelle·s est·sont celle·s que vous ne pratiquez pas personnellement ?</p>
     <div id='priority-action'>
       <%= f.simple_fields_for :no_action_mades do |no_action_made| %>
         <%= render 'no_action_made_fields', f: no_action_made %>
@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <p class="mt-4"><b>4. </b>Pour quelle·s raison·s ne le·s pratiquez-vous pas ?</p>
+    <p class="mt-4"><b>5. </b>Pour quelle·s raison·s ne le·s pratiquez-vous pas ?</p>
       <div class="form-group otherable">
         <%= f.collection_check_boxes :not_made_reason_ids, NotMadeReason.all, :id, :name do |input| %>
           <label>
@@ -32,7 +32,7 @@
         <% end %>
         <%= f.input :other_label, wrapper_html: { class: "other-field "}, label: "Autre" %>
       </div>
-      <p class="mt-4"><b>4.1 </b> Dites nous en plus </p>
+      <p class="mt-4"><b>5.1 </b> Dites nous en plus </p>
       <%= f.input :actions_not_made_comment, label: false, placeholder: "Réponse courte" %>
 
     <div class="d-flex justify-content-around mb-5 mt-4">

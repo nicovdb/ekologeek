@@ -11,10 +11,9 @@
     <span class="blue"></span>
     <span class=""></span>
   </div>
-  <h2 class="mt-4 mb-4 green-bg">?</h2>
 
   <%= simple_form_for(@user_behaviour_result, method: :put, url: wizard_path) do |f| %>
-    <p class="mt-4"><b>11. </b>Vous avez connaissance du contexte des déchets (enjeux, problématiques…) ?</p>
+    <p class="mt-4"><b>12. </b>Vous avez connaissance du contexte des déchets (enjeux, problématiques…) ?</p>
     <%= f.collection_radio_buttons :context_knowledge, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
@@ -22,10 +21,10 @@
       </label>
     <% end %>
 
-    <p class="mt-4"><b>11.1 </b>Dites nous en plus</p>
+    <p class="mt-4"><b>12.1 </b>Dites nous en plus</p>
     <%= f.input :context_knowledge_comment,label: false, placeholder: "Réponse courte"%>
 
-    <p class="mt-4"><b>12. </b>Vous vous sentez concerné·e par la thématique des déchets ?</p>
+    <p class="mt-4"><b>13. </b>Vous vous sentez concerné·e par la thématique des déchets ?</p>
     <%= f.collection_radio_buttons :concerned, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
@@ -33,10 +32,10 @@
       </label>
     <% end %>
 
-    <p class="mt-4"><b>12.1 </b>Dites nous en plus</p>
+    <p class="mt-4"><b>13.1 </b>Dites nous en plus</p>
     <%= f.input :concerned_comment,label: false, placeholder: "Réponse courte"%>
 
-    <p class="mt-4"><b>13. </b>Vous êtes favorables à la réduction des déchets ?</p>
+    <p class="mt-4"><b>14. </b>Vous êtes favorables à la réduction des déchets ?</p>
     <%= f.collection_radio_buttons :favorable_reduction, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
@@ -44,7 +43,7 @@
       </label>
     <% end %>
 
-    <p class="mt-4"><b>14. </b>La réduction des déchets vous semble embêtante ?</p>
+    <p class="mt-4"><b>15. </b>La réduction des déchets vous semble embêtante ?</p>
     <%= f.collection_radio_buttons :crappy_reduction, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
@@ -52,24 +51,24 @@
       </label>
     <% end %>
 
-    <p class="mt-4"><b>15. </b>La réduction des déchets de fonctionnement sur votre lieu du travail vous semble difficile ?</p>
+    <p class="mt-4"><b>16. </b>La réduction des déchets de fonctionnement sur votre lieu du travail vous semble difficile ?</p>
     <%= f.collection_radio_buttons :trash_reduction_hard, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
         <%= input.text %>
       </label>
     <% end %>
-    <p class="mt-4"><b>15.1 </b>Dites nous en plus</p>
+    <p class="mt-4"><b>16.1 </b>Dites nous en plus</p>
     <%= f.input :trash_reduction_hard_comment, label: false, placeholder: "Réponse courte"%>
 
-    <p class="mt-4"><b>16. </b>La présence d’une personne ressource sur la question des déchets de fonctionnement dans votre structure vous semble inutile ?</p>
+    <p class="mt-4"><b>17. </b>La présence d’une personne ressource sur la question des déchets de fonctionnement dans votre structure vous semble inutile ?</p>
     <%= f.collection_radio_buttons :dedicated_employee, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
         <%= input.text %>
       </label>
     <% end %>
-    <p class="mt-4"><b>16.1 </b>Dites nous en plus</p>
+    <p class="mt-4"><b>17.1 </b>Dites nous en plus</p>
     <%= f.input :dedicated_employee_comment, label: false, placeholder: "Réponse courte"%>
 
     <div class="d-flex justify-content-around mb-5 mt-4">

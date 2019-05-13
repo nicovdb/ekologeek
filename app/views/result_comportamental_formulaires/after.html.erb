@@ -1,15 +1,5 @@
 <div class="container bg-white">
   <h1 class="mt-5 mb-4 header text-primary text-center">BILAN COMPORTEMENTAL INDIVIDUEL</h1>
-  <p class="mb-0">Certaines questions porteront sur vos pratiques sur votre lieu de travail ainsi qu'à votre domicile. L'intérêt étant de connaitre le potentiel de transmission de vos connaissances et pratiques personnel vers votre lieu du travail et inversement.
-Pour chacune des propositions suivantes, veuillez indiquer dans quelle mesure elle s'applique à vous ou dans quelle mesure vous en êtes d’accord, selon l’échelle suivante :</p>
-  <ul>
-    <li>Pas du tout</li>
-    <li>Un peu</li>
-    <li>Moyennement</li>
-    <li>Beaucoup</li>
-    <li>Tout à fait</li>
-    <li> Non concerné</li>
-  </ul>
 
   <p class="text-center mt-4">Progression : <b>page 6 sur 6</b> </p>
   <div class="dots d-flex justify-content-center">
@@ -22,7 +12,7 @@ Pour chacune des propositions suivantes, veuillez indiquer dans quelle mesure el
   </div>
 
   <%= simple_form_for(@user_behaviour_result, method: :put, url: wizard_path) do |f| %>
-    <p class="mt-4"><b>17. </b>Après la clôture du Défi, au travail, vous continuerez à pratiquer les actions mises en place durant le Défi Zéro Déchet des Pros ?</p>
+    <p class="mt-4"><b>18. </b>Après la clôture du Défi, au travail, vous continuerez à pratiquer les actions mises en place durant le Défi Zéro Déchet des Pros ?</p>
     <%= f.collection_radio_buttons :work_continue, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
@@ -30,10 +20,10 @@ Pour chacune des propositions suivantes, veuillez indiquer dans quelle mesure el
       </label>
     <% end %>
 
-    <p class="mt-4"><b>17.1 </b>Dites nous en plus</p>
+    <p class="mt-4"><b>18.1 </b>Dites nous en plus</p>
     <%= f.input :work_continue_comment,label: false, placeholder: "Réponse courte"%>
 
-    <p class="mt-4"><b>18. </b>Après la clôture du Défi, chez vous, vous continuerez à pratiquer les actions mises en place durant le Défi Zéro Déchet des Pros ?</p>
+    <p class="mt-4"><b>19. </b>Après la clôture du Défi, chez vous, vous continuerez à pratiquer les actions mises en place durant le Défi Zéro Déchet des Pros ?</p>
     <%= f.collection_radio_buttons :home_continue, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
@@ -41,10 +31,10 @@ Pour chacune des propositions suivantes, veuillez indiquer dans quelle mesure el
       </label>
     <% end %>
 
-    <p class="mt-4"><b>18.1 </b>Dites nous en plus</p>
+    <p class="mt-4"><b>19.1 </b>Dites nous en plus</p>
     <%= f.input :home_continue_comment,label: false, placeholder: "Réponse courte"%>
 
-    <p class="mt-4"><b>19. </b>Après la clôture du Défi, vous serez prêt·e à accompagner vos collaborateur·ice·s dans la pratique du tri et la réduction des déchets ?</p>
+    <p class="mt-4"><b>20. </b>Après la clôture du Défi, vous serez prêt·e à accompagner vos collaborateur·ice·s dans la pratique du tri et la réduction des déchets ?</p>
     <%= f.collection_radio_buttons :accompanier, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
@@ -52,12 +42,12 @@ Pour chacune des propositions suivantes, veuillez indiquer dans quelle mesure el
       </label>
     <% end %>
 
-    <p class="mt-4"><b>19.1 </b>Dites nous en plus</p>
+    <p class="mt-4"><b>20.1 </b>Dites nous en plus</p>
     <%= f.input :accompanier_comment,label: false, placeholder: "Réponse courte"%>
 
     <div class="d-flex justify-content-around mb-5 mt-4">
       <%= link_to "< Précédent", previous_wizard_path, class:"btn btn-primary bold" %>
-      <%= f.button :submit, "Suivant >", class:"btn btn-primary bold" %>
+      <%= f.button :submit, "Valider", class:"btn btn-primary bold" %>
     </div>
 
   <% end %>
