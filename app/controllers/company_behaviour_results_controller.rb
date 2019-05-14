@@ -4,7 +4,7 @@ class CompanyBehaviourResultsController < ApplicationController
 
   layout "connected"
 
-  steps :step_one, :step_two, :step_three, :step_four
+  steps :step_one, :step_two, :step_three, :actions, :end
 
   def new
     @company = current_user.company
@@ -20,6 +20,7 @@ class CompanyBehaviourResultsController < ApplicationController
     @company_behaviour = @company.company_behaviours.last
     @result_action = ResultAction.new(company_behaviour_id: @company_behaviour )
     @result_actions = @company_behaviour.result_action_ids
+    @counter = 1
 
     render_wizard
   end

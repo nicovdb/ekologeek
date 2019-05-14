@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_03_140316) do
+ActiveRecord::Schema.define(version: 2019_05_14_130448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -544,7 +544,7 @@ ActiveRecord::Schema.define(version: 2019_05_03_140316) do
     t.text "work_continue_comment"
     t.string "home_continue"
     t.text "home_continue_comment"
-    t.string "accompanier"
+    t.string "accompanier_sort_ready"
     t.text "accompanier_comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -557,6 +557,17 @@ ActiveRecord::Schema.define(version: 2019_05_03_140316) do
     t.string "actions_not_made_comment"
     t.string "favorable_reduction"
     t.string "crappy_reduction"
+    t.string "home_sorting_order"
+    t.string "home_sorting_applied"
+    t.string "home_trash_reduction"
+    t.text "home_trash_reduction_comment"
+    t.string "accompanier_sort_want"
+    t.string "accompanier_reduction_ready"
+    t.string "accompanier_reduction_want"
+    t.string "accompanier_sort_ready_comment"
+    t.string "accompanier_sort_want_comment"
+    t.string "accompanier_reduc_ready_comment"
+    t.string "accompanier_reduc_want_comment"
     t.index ["user_id"], name: "index_user_behaviour_results_on_user_id"
   end
 

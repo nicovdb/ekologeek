@@ -12,7 +12,7 @@
   <h2 class="mt-4 mb-4 green-bg">Généralités</h2>
 
   <%= simple_form_for(@user_behaviour_result, method: :put, url: wizard_path) do |f| %>
-    <p class="mt-4"><b>4. </b>Parmi les actions mises en place dans votre structure depuis le début du Défi Zéro Déchet des Pros, quelle·s est·sont celle·s que vous ne pratiquez pas personnellement ?</p>
+    <p class="mt-4"><b>4. </b>Parmi les actions mises en place dans votre structure depuis le début du Défi Zéro Déchet des Pros, quelle·s est·sont celle·s que <b>vous ne pratiquez pas</b> personnellement ?</p>
     <div id='priority-action'>
       <%= f.simple_fields_for :no_action_mades do |no_action_made| %>
         <%= render 'no_action_made_fields', f: no_action_made %>

@@ -1,0 +1,24 @@
+<div class="container bg-white">
+  <h1 class="mt-5 mb-4 header text-primary text-center">BILAN COMPORTEMENTAL DE LA STRUCTURE</h1>
+
+  <h2 class="mt-4 mb-4 green-bg">Récapitulatif des actions</h2>
+  <% if @company_behaviour.result_actions.empty? %>
+    <p>Vous n'avez mis en place aucune action pendant le Défi Zéro Déchet des Pros</p>
+  <% else %>
+    <% @company_behaviour.result_actions.each do |action| %>
+      <p><b><%= @counter %>. <%= action.name.upcase %> </b> :
+        <ul>
+          <li>Etat d'avancement : <%= action.state %></li>
+          <li>Nombre de salariés participants : <%= action.employees_making_nb %></li>
+        </ul>
+      </p>
+      <% @counter += 1 %>
+    <% end %>
+  <% end %>
+
+  <div class="d-flex justify-content-around mb-5 mt-5">
+    <%= link_to "< Précédent", previous_wizard_path, class:"btn btn-primary bold" %>
+    <%= link_to "Valider", "end", class:"btn btn-primary bold" %>
+  </div>
+
+</div>
