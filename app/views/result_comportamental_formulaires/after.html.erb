@@ -12,7 +12,7 @@
   </div>
 
   <%= simple_form_for(@user_behaviour_result, method: :put, url: wizard_path) do |f| %>
-    <p class="mt-4"><b>18. </b>Après la clôture du Défi, au travail, vous continuerez à pratiquer les actions mises en place durant le Défi Zéro Déchet des Pros ?</p>
+    <p class="mt-4"><b>18. </b>Après la clôture du Défi, <b>au travail</b>, vous continuerez à pratiquer les actions mises en place dans votre structure que vous avez pratiqué PERSONNELLEMENT durant le Défi Zéro Déchet des Pros.</p>
     <%= f.collection_radio_buttons :work_continue, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
@@ -23,7 +23,7 @@
     <p class="mt-4"><b>18.1 </b>Dites nous en plus</p>
     <%= f.input :work_continue_comment,label: false, placeholder: "Réponse courte"%>
 
-    <p class="mt-4"><b>19. </b>Après la clôture du Défi, chez vous, vous continuerez à pratiquer les actions mises en place durant le Défi Zéro Déchet des Pros ?</p>
+    <p class="mt-4"><b>19. </b>Après la clôture du Défi, <b>chez vous</b>, vous continuerez à pratiquer les actions mises en place dans votre structure que vous avez pratiqué PERSONNELLEMENT durant le Défi Zéro Déchet des Pros.</p>
     <%= f.collection_radio_buttons :home_continue, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
@@ -34,8 +34,8 @@
     <p class="mt-4"><b>19.1 </b>Dites nous en plus</p>
     <%= f.input :home_continue_comment,label: false, placeholder: "Réponse courte"%>
 
-    <p class="mt-4"><b>20. </b>Après la clôture du Défi, vous serez prêt·e à accompagner vos collaborateur·ice·s dans la pratique du tri et la réduction des déchets ?</p>
-    <%= f.collection_radio_buttons :accompanier, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
+    <p class="mt-4"><b>20. </b>Après la clôture du Défi, vous vous sentez prêt·e à accompagner vos collaborateur·ice·s dans la pratique du tri des déchets.</p>
+    <%= f.collection_radio_buttons :accompanier_sort_ready, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
         <%= input.text %>
@@ -43,7 +43,40 @@
     <% end %>
 
     <p class="mt-4"><b>20.1 </b>Dites nous en plus</p>
-    <%= f.input :accompanier_comment,label: false, placeholder: "Réponse courte"%>
+    <%= f.input :accompanier_sort_ready_comment,label: false, placeholder: "Réponse courte"%>
+
+    <p class="mt-4"><b>21. </b>Après la clôture du Défi, vous souhaitez accompagner vos collaborateur·ice·s dans la pratique du tri des déchets.</p>
+    <%= f.collection_radio_buttons :accompanier_sort_want, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
+      <label class="mx-2 mb-3">
+        <%= input.radio_button %>
+        <%= input.text %>
+      </label>
+    <% end %>
+
+    <p class="mt-4"><b>21.1 </b>Dites nous en plus</p>
+    <%= f.input :accompanier_sort_want_comment,label: false, placeholder: "Réponse courte"%>
+
+    <p class="mt-4"><b>22. </b>Après la clôture du Défi, vous vous sentez prêt·e à accompagner vos collaborateur·ice·s dans la pratitque de la réduction des déchets.</p>
+    <%= f.collection_radio_buttons :accompanier_reduction_ready, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
+      <label class="mx-2 mb-3">
+        <%= input.radio_button %>
+        <%= input.text %>
+      </label>
+    <% end %>
+
+    <p class="mt-4"><b>22.1 </b>Dites nous en plus</p>
+    <%= f.input :accompanier_reduc_ready_comment,label: false, placeholder: "Réponse courte"%>
+
+    <p class="mt-4"><b>23. </b>Après la clôture du Défi, vous souhaitez accompagner vos collaborateur·ice·s dans la pratique de la réduction des déchets.</p>
+    <%= f.collection_radio_buttons :accompanier_reduction_want, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
+      <label class="mx-2 mb-3">
+        <%= input.radio_button %>
+        <%= input.text %>
+      </label>
+    <% end %>
+
+    <p class="mt-4"><b>23.1 </b>Dites nous en plus</p>
+    <%= f.input :accompanier_reduc_want_comment,label: false, placeholder: "Réponse courte"%>
 
     <div class="d-flex justify-content-around mb-5 mt-4">
       <%= link_to "< Précédent", previous_wizard_path, class:"btn btn-primary bold" %>

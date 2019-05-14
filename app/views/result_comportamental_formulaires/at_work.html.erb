@@ -13,7 +13,7 @@
   <h2 class="mt-4 mb-4 green-bg">Généralités</h2>
 
   <%= simple_form_for(@user_behaviour_result, method: :put, url: wizard_path) do |f| %>
-    <p class="mt-4"><b>6. </b>Au travail, vous connaissez les consignes de tri des déchets de votre structure ?</p>
+    <p class="mt-4"><b>6. </b>Actuellement, au travail, vous connaissez les consignes de tri des déchets de votre structure ?</p>
     <%= f.collection_radio_buttons :work_sorting_order, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
@@ -21,7 +21,7 @@
       </label>
     <% end %>
 
-    <p class="mt-4"><b>7. </b>Au travail, vous appliquez les consignes de tri des déchets de votre structure ?</p>
+    <p class="mt-4"><b>7. </b>Actuellement, au travail, vous appliquez les consignes de tri des déchets de votre structure ?</p>
     <%= f.collection_radio_buttons :work_sorting_applied, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
@@ -29,7 +29,7 @@
       </label>
     <% end %>
 
-    <p class="mt-4"><b>8. </b>Au travail, vous pratiquez des gestes pour réduire votre production de déchets de fonctionnement ?</p>
+    <p class="mt-4"><b>8. </b>Actuellement, au travail, vous pratiquez des gestes pour réduire votre production de déchets de fonctionnement ?</p>
     <%= f.collection_radio_buttons :work_trash_reduction, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
@@ -39,35 +39,31 @@
     <p class="mt-4"><b>8.1 </b>Dites nous en plus</p>
     <%= f.input :work_trash_reduction_comment, label: false, placeholder: "Réponse courte" %>
 
-    <p class="mt-4"><b>9. </b>Au travail, vous pratiquez nouvellement des actions mises en place durant le Défi Zéro Déchet des Pros ?</p>
-    <%= f.collection_radio_buttons :new_actions, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
+    <p class="mt-4"><b>9. </b>Actuellement, chez vous, vous connaissez les consignes de tri des déchets de votre structure ?</p>
+    <%= f.collection_radio_buttons :home_sorting_order, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
         <%= input.text %>
       </label>
     <% end %>
-    <p class="mt-4"><b>9.1 </b>Dites nous en plus</p>
-    <%= f.input :new_actions_comment, label: false, placeholder: "Réponse courte" %>
 
-    <p class="mt-4"><b>10. </b>Au travail, vous pratiquez nouvellement des actions mises en place durant le Défi Zéro Déchet des Pros ?</p>
-    <%= f.collection_radio_buttons :more_actions, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
+    <p class="mt-4"><b>10. </b>Actuellement, chez vous, vous appliquez les consignes de tri des déchets de votre structure ?</p>
+    <%= f.collection_radio_buttons :home_sorting_applied, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
         <%= input.text %>
       </label>
     <% end %>
-    <p class="mt-4"><b>10.1 </b>Dites nous en plus</p>
-    <%= f.input :more_actions_comment, label: false, placeholder: "Réponse courte" %>
 
-    <p class="mt-4"><b>11. </b>Au travail, vous pratiquez mieux des actions mises en place durant le Défi Zéro Déchet des Pros ?</p>
-    <%= f.collection_radio_buttons :better_actions, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
+    <p class="mt-4"><b>11. </b>Actuellement, chez vous, vous pratiquez des gestes pour réduire votre production de déchets de fonctionnement ?</p>
+    <%= f.collection_radio_buttons :home_trash_reduction, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
         <%= input.text %>
       </label>
     <% end %>
     <p class="mt-4"><b>11.1 </b>Dites nous en plus</p>
-    <%= f.input :better_actions_comment, label: false, placeholder: "Réponse courte" %>
+    <%= f.input :home_trash_reduction_comment, label: false, placeholder: "Réponse courte" %>
 
     <div class="d-flex justify-content-around mb-5 mt-4">
       <%= link_to "< Précédent", previous_wizard_path, class:"btn btn-primary bold" %>

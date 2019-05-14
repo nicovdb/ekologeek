@@ -93,12 +93,10 @@ class ResultComportamentalFormulairesController < ApplicationController
       :work_sorting_applied,
       :work_trash_reduction,
       :work_trash_reduction_comment,
-      :new_actions,
-      :new_actions_comment,
-      :more_actions,
-      :more_actions_comment,
-      :better_actions,
-      :better_actions_comment,
+      :home_sorting_order,
+      :home_sorting_applied,
+      :home_trash_reduction,
+      :home_trash_reduction_comment
     )
   end
 
@@ -123,8 +121,14 @@ class ResultComportamentalFormulairesController < ApplicationController
       :work_continue_comment,
       :home_continue,
       :home_continue_comment,
-      :accompanier,
-      :accompanier_comment
+      :accompanier_sort_ready,
+      :accompanier_sort_ready_comment,
+      :accompanier_sort_want,
+      :accompanier_sort_want_comment,
+      :accompanier_reduction_ready,
+      :accompanier_reduc_ready_comment,
+      :accompanier_reduction_want,
+      :accompanier_reduc_want_comment
       )
   end
 end
