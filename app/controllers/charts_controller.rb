@@ -86,7 +86,7 @@ class ChartsController < ApplicationController
 
     #calcul de l'évolution
     if @diag_collects_weight != 0 && last_collect_weight != 0
-      @weight_evolution = (((@diag_collects_weight - last_collect_weight)/@diag_collects_weight) *100).round
+      @weight_evolution = (((last_collect_weight - @diag_collects_weight)/@diag_collects_weight) *100).round
     else
       @weight_evolution = 0
     end
@@ -126,7 +126,7 @@ class ChartsController < ApplicationController
 
     #calcul de l'évolution
     if @diag_collects_weight != 0 && last_collect_weight != 0
-      @admin_weight_evolution = (((@diag_collects_weight - last_collect_weight)/@diag_collects_weight) *100).round
+      @admin_weight_evolution = (((last_collect_weight - @diag_collects_weight)/@diag_collects_weight) *100).round
     else
       @admin_weight_evolution = 0
     end
