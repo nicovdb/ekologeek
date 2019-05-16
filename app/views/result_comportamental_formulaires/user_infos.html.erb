@@ -1,0 +1,36 @@
+<div class="container bg-white">
+  <h1 class="mt-5 mb-4 header text-primary text-center">BILAN COMPORTEMENTAL INDIVIDUEL</h1>
+
+  <p class="text-center mt-4">Progression : <b>page 7 sur 7</b> </p>
+  <div class="dots d-flex justify-content-center">
+    <span class="blue"></span>
+    <span class="blue"></span>
+    <span class="blue"></span>
+    <span class="blue"></span>
+    <span class="blue"></span>
+    <span class="blue"></span>
+    <span class="blue"></span>
+  </div>
+
+  <%= simple_form_for(@user_behaviour_result, method: :put, url: wizard_path) do |f| %>
+    <p class="mt-4"><b>17. </b>Vous êtes :</p>
+    <%= f.collection_radio_buttons :sex, ["Un homme", "Une femme", "Je ne souhaite pas le préciser"], :to_s, :to_s do |input| %>
+      <label class="mx-2 mb-3">
+        <%= input.radio_button %>
+        <%= input.text %>
+      </label>
+    <% end %>
+
+    <p class="mt-4"><b>18. </b>Votre âge :</p>
+    <%= f.input :age, collection: 18..70, label: false %>
+
+    <p class="mt-4"><b>19. </b>Depuis combien d'années travaillez-vous dans votre structure :</p>
+    <%= f.input :seniority, collection: 0..50, label: false %>
+
+    <div class="d-flex justify-content-around mb-5 mt-4">
+      <%= link_to "< Précédent", previous_wizard_path, class:"btn btn-primary bold" %>
+      <%= f.button :submit, "Valider", class:"btn btn-primary bold" %>
+    </div>
+
+  <% end %>
+</div>
