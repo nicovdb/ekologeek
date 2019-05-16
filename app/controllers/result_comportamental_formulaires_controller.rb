@@ -3,7 +3,7 @@ class ResultComportamentalFormulairesController < ApplicationController
 
   layout "connected"
 
-  steps :start, :action, :no_action, :at_work, :your_behaviour, :after
+  steps :start, :action, :no_action, :at_work, :your_behaviour, :after, :user_infos
 
   def new
     @user = current_user
@@ -58,6 +58,9 @@ class ResultComportamentalFormulairesController < ApplicationController
     when :after
       @user_behaviour_result.page_six = true
       form_params = after_params
+
+    when :user_infos
+      form_params = user_infos_params
     end
 
     @user_behaviour_result.update_attributes(form_params)
@@ -129,6 +132,14 @@ class ResultComportamentalFormulairesController < ApplicationController
       :accompanier_reduc_ready_comment,
       :accompanier_reduction_want,
       :accompanier_reduc_want_comment
+      )
+  end
+
+  def user_infos_params
+    params.require(:user_behaviour_result).permit(
+      :sex,
+      :age,
+      :seniority
       )
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_14_130448) do
+ActiveRecord::Schema.define(version: 2019_05_16_081310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -155,7 +155,7 @@ ActiveRecord::Schema.define(version: 2019_05_14_130448) do
     t.text "indicators_communicated_comment"
     t.string "daily_actions_diag"
     t.string "status"
-    t.string "actions_nb_result"
+    t.integer "actions_nb_result"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "step_one", default: false
@@ -568,6 +568,9 @@ ActiveRecord::Schema.define(version: 2019_05_14_130448) do
     t.string "accompanier_sort_want_comment"
     t.string "accompanier_reduc_ready_comment"
     t.string "accompanier_reduc_want_comment"
+    t.integer "age"
+    t.string "sex"
+    t.string "seniority"
     t.index ["user_id"], name: "index_user_behaviour_results_on_user_id"
   end
 
