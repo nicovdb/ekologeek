@@ -14,4 +14,6 @@ class UserBehaviourResult < ApplicationRecord
   accepts_nested_attributes_for :no_action_mades, reject_if: :all_blank, allow_destroy: true
 
   validates :starting_month, presence: true, if: :page_one?
+  validates :work_sorting_order, :work_sorting_applied, :work_trash_reduction, :home_sorting_order, :home_sorting_applied, :home_trash_reduction, presence: true, if: :page_four?
+  validates :context_knowledge, :concerned, :favorable_reduction, :crappy_reduction, :trash_reduction_hard, :dedicated_employee, presence: true, if: :page_five?
 end

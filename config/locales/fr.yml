@@ -267,6 +267,7 @@ fr:
         indicators_communicated_comment: 7.1 Précision
         daily_actions_diag: 8. Actions pratiquées
         step_three: Diagnostic fini
+        actions_nb_result: 7. Nombre d'actions
       article:
         cover: "Photo de couverture"
         author: "Auteur"
@@ -455,6 +456,8 @@ fr:
         company_behaviour:
           attributes:
             participants_nb:
+              blank: "doit être rempli"
+            actions_nb_result:
               blank: "doit être rempli"
         diag_action:
           attributes:

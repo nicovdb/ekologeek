@@ -18,6 +18,9 @@
         <%= input.text %>
       </label>
     <% end %>
+    <% if @company_behaviour.errors.include?(:employees_sensitized) %>
+      <p class="has-error">La question 2 est obligatoire</p>
+    <% end %>
     <p class="mt-4"><b>2.1 </b> Dites nous en plus </p>
     <%= f.input :employees_sensitized_comment, label: false, placeholder: "Réponse courte" %>
 

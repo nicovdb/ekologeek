@@ -12,4 +12,24 @@ class CompanyBehaviour < ApplicationRecord
             :newbies_sensitized,
             :indicators_communicated,
             presence: true, if: :step_two?
+  validates :employees_sensitized, presence: true, if: :result_step_two?
+  validates :actions_nb_result, :daily_actions_diag, presence: true, if: :result_step_three?
+
+  def result_step_two?
+    if self.step_two? && self.result
+      true
+    else
+      false
+    end
+  end
+
+  def result_step_three?
+    if self.step_three? && self.result
+      true
+    else
+      false
+    end
+  end
+
 end
+

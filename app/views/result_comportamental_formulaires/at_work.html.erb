@@ -21,6 +21,9 @@
         <%= input.text %>
       </label>
     <% end %>
+    <% if @user_behaviour_result.errors.include?(:work_sorting_order) %>
+      <p class="has-error">La question 6 est obligatoire</p>
+    <% end %>
 
     <p class="mt-4"><b>7. </b>Actuellement, au travail, vous appliquez les consignes de tri des déchets de votre structure.</p>
     <%= f.collection_radio_buttons :work_sorting_applied, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
@@ -28,6 +31,9 @@
         <%= input.radio_button %>
         <%= input.text %>
       </label>
+    <% end %>
+    <% if @user_behaviour_result.errors.include?(:work_sorting_applied) %>
+      <p class="has-error">La question 7 est obligatoire</p>
     <% end %>
 
     <p class="mt-4"><b>8. </b>Actuellement, au travail, vous pratiquez des gestes pour réduire votre production de déchets de fonctionnement.</p>
@@ -37,23 +43,33 @@
         <%= input.text %>
       </label>
     <% end %>
+    <% if @user_behaviour_result.errors.include?(:work_trash_reduction) %>
+      <p class="has-error">La question 8 est obligatoire</p>
+    <% end %>
+
     <p class="mt-4"><b>8.1 </b>Dites nous en plus</p>
     <%= f.input :work_trash_reduction_comment, label: false, placeholder: "Réponse courte" %>
 
-    <p class="mt-4"><b>9. </b>Actuellement, chez vous, vous connaissez les consignes de tri des déchets de votre structure.</p>
+    <p class="mt-4"><b>9. </b>Actuellement, chez vous, vous connaissez les consignes de tri des déchets de votre territoire.</p>
     <%= f.collection_radio_buttons :home_sorting_order, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
         <%= input.text %>
       </label>
     <% end %>
+    <% if @user_behaviour_result.errors.include?(:home_sorting_order) %>
+      <p class="has-error">La question 9 est obligatoire</p>
+    <% end %>
 
-    <p class="mt-4"><b>10. </b>Actuellement, chez vous, vous appliquez les consignes de tri des déchets de votre structure.</p>
+    <p class="mt-4"><b>10. </b>Actuellement, chez vous, vous appliquez les consignes de tri des déchets de votre territoire.</p>
     <%= f.collection_radio_buttons :home_sorting_applied, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>
         <%= input.text %>
       </label>
+    <% end %>
+    <% if @user_behaviour_result.errors.include?(:home_sorting_applied) %>
+      <p class="has-error">La question 10 est obligatoire</p>
     <% end %>
 
     <p class="mt-4"><b>11. </b>Actuellement, chez vous, vous pratiquez des gestes pour réduire votre production de déchets.</p>
@@ -62,6 +78,9 @@
         <%= input.radio_button %>
         <%= input.text %>
       </label>
+    <% end %>
+    <% if @user_behaviour_result.errors.include?(:home_trash_reduction) %>
+      <p class="has-error">La question 11 est obligatoire</p>
     <% end %>
     <p class="mt-4"><b>11.1 </b>Dites nous en plus</p>
     <%= f.input :home_trash_reduction_comment, label: false, placeholder: "Réponse courte" %>

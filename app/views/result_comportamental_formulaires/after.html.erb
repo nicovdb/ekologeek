@@ -57,7 +57,7 @@
     <p class="mt-4"><b>21.1 </b>Dites nous en plus</p>
     <%= f.input :accompanier_sort_want_comment,label: false, placeholder: "Réponse courte"%>
 
-    <p class="mt-4"><b>22. </b>Après la clôture du Défi, vous vous sentez prêt·e à accompagner vos collaborateur·ice·s dans la pratitque de la réduction des déchets.</p>
+    <p class="mt-4"><b>22. </b>Après la clôture du Défi, vous vous sentez prêt·e à accompagner vos collaborateur·ice·s dans la pratique de la réduction des déchets.</p>
     <%= f.collection_radio_buttons :accompanier_reduction_ready, ["Pas du tout", "Un peu", "Moyennement", "Beaucoup",  "Tout à fait", "Non concerné"], :to_s, :to_s do |input| %>
       <label class="mx-2 mb-3">
         <%= input.radio_button %>

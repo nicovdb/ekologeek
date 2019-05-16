@@ -34,6 +34,7 @@ class CompanyBehaviourResultsController < ApplicationController
     case step
     when :step_one
       @company_behaviour.step_one = true
+      @company_behaviour.result = true
       form_params = step_one_params
     when :step_two
       @company_behaviour.step_two = true
