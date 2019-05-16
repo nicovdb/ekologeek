@@ -30,6 +30,10 @@ Pour chacune des propositions suivantes, veuillez indiquer dans quelle mesure el
         <%= input.text %>
       </label>
     <% end %>
+    <% if @user_behaviour_result.errors.include?(:starting_month) %>
+      <p class="has-error">La question 1 est obligatoire</p>
+    <% end %>
+
     <div class="d-flex justify-content-end mb-5 mt-4">
       <%= f.button :submit, "Suivant >", class:"btn btn-primary bold" %>
     </div>

@@ -12,4 +12,6 @@ class UserBehaviourResult < ApplicationRecord
 
   has_many :no_action_mades, inverse_of: :user_behaviour_result, dependent: :destroy
   accepts_nested_attributes_for :no_action_mades, reject_if: :all_blank, allow_destroy: true
+
+  validates :starting_month, presence: true, if: :page_one?
 end
