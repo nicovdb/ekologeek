@@ -13,6 +13,9 @@
 
     <p class="mt-4"><b>7. </b>Combien d’action·s a·ont été mis·es en place dans votre structure depuis le début du Défi ZD des Pros ?</p>
     <%= f.input :actions_nb_result, label: false, placeholder: "Nombre d'actions" %>
+    <% if @company_behaviour.errors.include?(:actions_nb_result) %>
+      <p class="has-error">La question 7 est obligatoire</p>
+    <% end %>
 
     <p class="mt-4"><b>8. </b>Quelle·s est·sont-elle·s ?</p>
     <div id='priority-action'>
@@ -30,6 +33,9 @@
         <%= input.radio_button %>
         <%= input.text %>
       </label>
+    <% end %>
+    <% if @company_behaviour.errors.include?(:daily_actions_diag) %>
+      <p class="has-error">La question 9 est obligatoire</p>
     <% end %>
 
     <div class="d-flex justify-content-around mb-5 mt-4">

@@ -59,77 +59,76 @@ class ChartsController < ApplicationController
     #calcul du poids des déchets lors du diag pour 1 entreprise
     @diag_collects = @collects.select { |collect| collect["status"] == "diagnostic" }
     @diag_collects_weight = 0
-    # @diag_total_days = 0
+    @diag_total_days = 0
     @diag_collects.each do |collect|
       @diag_collects_weight += (collect["end_at"].to_date - collect["start_at"].to_date) * collect["weight_person_day"]
-      # @diag_total_days += collect["end_at"].to_date - collect["start_at"].to_date
+      @diag_total_days += collect["end_at"].to_date - collect["start_at"].to_date
     end
 
     #calcul du poids des déchets lors du suivi pour 1 entreprise
-    # @current_collects = @collects.select { |collect| collect["status"] == "suivi" }
-    # @current_collects_weight = 0
-    # @current_total_days = 0
-    # @current_collects.each do |collect|
-    #   @current_collects_weight += (collect["end_at"].to_date - collect["start_at"].to_date) * collect["weight_person_day"]
-    #   @current_total_days += collect["end_at"].to_date - collect["start_at"].to_date
-    # end
+    @current_collects = @collects.select { |collect| collect["status"] == "suivi" }
+    @current_collects_weight = 0
+    @current_total_days = 0
+    @current_collects.each do |collect|
+      @current_collects_weight += (collect["end_at"].to_date - collect["start_at"].to_date) * collect["weight_person_day"]
+      @current_total_days += collect["end_at"].to_date - collect["start_at"].to_date
+    end
 
-    # if @current_total_days != 0 && @diag_total_days != 0 && @current_collects_weight != 0 && @diag_collects_weight != 0
-    #   @weight_evolution = ((((@current_collects_weight / @current_total_days) - (@diag_collects_weight / @diag_total_days)) / (@current_collects_weight / @current_total_days))*100).round
-    # else
-    #   @weight_evolution = 0
-    # end
-
-    #poids de la dernière collecte
-    last_collect = current_user.company.collects.sort { |a, b| [a['end_at'], a['id']] <=> [b['end_at'], b['id']] }.last
-    last_collect_weight = (last_collect["end_at"] - last_collect["start_at"]) * last_collect["weight_person_day"]
-
-    #calcul de l'évolution
-    if @diag_collects_weight != 0 && last_collect_weight != 0
-      @weight_evolution = (((last_collect_weight - @diag_collects_weight)/@diag_collects_weight) *100).round
+    if @current_total_days != 0 && @diag_total_days != 0 && @current_collects_weight != 0 && @diag_collects_weight != 0
+      @weight_evolution = ((((@current_collects_weight / @current_total_days) - (@diag_collects_weight / @diag_total_days)) / (@current_collects_weight / @current_total_days))*100).round
     else
       @weight_evolution = 0
     end
+
+    # #poids de la dernière collecte
+    # last_collect = current_user.company.collects.sort { |a, b| [a['end_at'], a['id']] <=> [b['end_at'], b['id']] }.last
+    # last_collect_weight = (last_collect["end_at"] - last_collect["start_at"]) * last_collect["weight_person_day"]
+
+    # #calcul de l'évolution
+    # if @diag_collects_weight != 0 && last_collect_weight != 0
+    #   @weight_evolution = (((last_collect_weight - @diag_collects_weight)/@diag_collects_weight) *100).round
+    # else
+    #   @weight_evolution = 0
+    # end
 
   end
 
 
   def admin_weight_evolution
     #calcul du poids des déchets lors du diag pour 1 entreprise
-
     @diag_collects = @admin_collects.select { |collect| collect["status"] == "diagnostic" }
     @diag_collects_weight = 0
-    # @diag_total_days = 0
+    @diag_total_days = 0
     @diag_collects.each do |collect|
       @diag_collects_weight += (collect["end_at"].to_date - collect["start_at"].to_date) * collect["weight_person_day"]
-      # @diag_total_days += collect["end_at"].to_date - collect["start_at"].to_date
+      @diag_total_days += collect["end_at"].to_date - collect["start_at"].to_date
     end
 
     #calcul du poids des déchets lors du suivi pour 1 entreprise
-    # @current_collects = @admin_collects.select { |collect| collect["status"] == "suivi" }
-    # @current_collects_weight = 0
-    # @current_total_days = 0
-    # @current_collects.each do |collect|
-    #   @current_collects_weight += (collect["end_at"].to_date - collect["start_at"].to_date) * collect["weight_person_day"]
-    #   @current_total_days += collect["end_at"].to_date - collect["start_at"].to_date
-    # end
+    @current_collects = @admin_collects.select { |collect| collect["status"] == "suivi" }
+    @current_collects_weight = 0
+    @current_total_days = 0
+    @current_collects.each do |collect|
+      @current_collects_weight += (collect["end_at"].to_date - collect["start_at"].to_date) * collect["weight_person_day"]
+      @current_total_days += collect["end_at"].to_date - collect["start_at"].to_date
+    end
 
-    # if @current_total_days != 0 && @diag_total_days != 0 && @current_collects_weight != 0 && @diag_collects_weight != 0
-    #   @admin_weight_evolution = ((((@current_collects_weight / @current_total_days) - (@diag_collects_weight / @diag_total_days)) / (@current_collects_weight / @current_total_days))*100).round
-    # else
-    #   @admin_weight_evolution = 0
-    # end
-
-   #poids de la dernière collecte
-    last_collect = Collect.all.sort { |a, b| [a['end_at'], a['id']] <=> [b['end_at'], b['id']] }.last
-    last_collect_weight = (last_collect["end_at"] - last_collect["start_at"]) * last_collect["weight_person_day"]
-
-    #calcul de l'évolution
-    if @diag_collects_weight != 0 && last_collect_weight != 0
-      @admin_weight_evolution = (((last_collect_weight - @diag_collects_weight)/@diag_collects_weight) *100).round
+    if @current_total_days != 0 && @diag_total_days != 0 && @current_collects_weight != 0 && @diag_collects_weight != 0
+      @admin_weight_evolution = ((((@current_collects_weight / @current_total_days) - (@diag_collects_weight / @diag_total_days)) / (@current_collects_weight / @current_total_days))*100).round
     else
       @admin_weight_evolution = 0
     end
+
+   #poids de la dernière collecte
+    # last_collect = Collect.all.sort { |a, b| [a['end_at'], a['id']] <=> [b['end_at'], b['id']] }.last
+    # last_collect_weight = (last_collect["end_at"] - last_collect["start_at"]) * last_collect["weight_person_day"]
+
+    # #calcul de l'évolution
+    # if @diag_collects_weight != 0 && last_collect_weight != 0
+    #   @admin_weight_evolution = (((last_collect_weight - @diag_collects_weight)/@diag_collects_weight) *100).round
+    # else
+    #   @admin_weight_evolution = 0
+    # end
 
 
 
