@@ -7,7 +7,7 @@ ActiveAdmin.register UserBehaviourResult do
   index do
     selectable_column
     id_column
-    column :company
+    column (:company){ |form| form.user.company }
     column :user
     column :starting_month
     column (:action_mades){ |form| form.action_mades.map { |action| action.action }}
@@ -54,7 +54,7 @@ ActiveAdmin.register UserBehaviourResult do
 
   show do
     attributes_table do
-      row :company
+      row (:company){ |form| form.user.company }
       row :user
       row :starting_month
       row (:action_mades){ |form| form.action_mades.map { |action| action.action }}
@@ -100,8 +100,8 @@ ActiveAdmin.register UserBehaviourResult do
   end
 
   csv do
-    column :company
-    column :user
+    column (:company){ |form| form.user.company.name }
+    column (:user) { |form| form.user.name }
     column :starting_month
     column (:action_mades){ |form| form.action_mades.map { |action| action.action }}
     column :actions_made_reasons
