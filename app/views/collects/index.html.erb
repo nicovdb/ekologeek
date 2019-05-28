@@ -14,7 +14,7 @@
           <%= link_to "Diagnostic comportemental Structure", new_company_behaviour_diag_path, class:"btn btn-primary bold" %>
         <% elsif current_user.referent? && Date.today < current_user.company.project.diagnostic_end_at %>
           <%= link_to "Diagnostic comportemental Structure", company_behaviour_diag_path(:step_one), class:"btn btn-primary bold" %>
-        <% elsif current_user.referent? && Date.today > current_user.company.project.bilan_start_at %>
+        <% elsif current_user.referent? && Date.today > current_user.company.project.bilan_start_at && (current_user.company.company_behaviours.last.nil? || current_user.company.company_behaviours.last.created_at <= current_user.company.project.diagnostic_end_at) %>
           <%= link_to "Bilan comportemental Structure", new_company_behaviour_result_path, class:"btn btn-primary bold" %>
         <% elsif current_user.referent? && Date.today > current_user.company.project.bilan_start_at %>
           <%= link_to "Bilan comportemental Structure", company_behaviour_result_path(:step_one), class:"btn btn-primary bold" %>

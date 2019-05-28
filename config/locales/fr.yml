@@ -296,7 +296,14 @@ fr:
         age: 25. Age
         seniority: 26. Ancienneté
         page_six: Diagnostic fini
-
+      result_action:
+        # name: Action
+        # comment:
+        # state:
+        # state_comment:
+        # domain:
+        # domain_comment:
+        # employees_making_nb:
       company_behaviour:
         company: Structure
         participants_nb: 1. Nombre de participant
