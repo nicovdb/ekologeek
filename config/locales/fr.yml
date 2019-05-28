@@ -297,29 +297,29 @@ fr:
         seniority: 26. Ancienneté
         page_six: Diagnostic fini
       result_action:
-        # name: Action
-        # comment:
-        # state:
-        # state_comment:
-        # domain:
-        # domain_comment:
-        # employees_making_nb:
+        name: Intitulé
+        comment: Description
+        state: Etat d'avancement
+        state_comment: Commentaire
+        domain: Niveau d'action
+        domain_comment: Commentaire
+        employees_making_nb: Nb. collab. participants
       company_behaviour:
         company: Structure
-        participants_nb: 1. Nombre de participant
-        diag_actions: 2. Actions
-        employees_sensitized: 3. Sensibilisation
-        employees_sensitized_comment: 3.1 Précision
-        actions_displayed: 4. Affichage
-        strategic_display: 5. Emplacement stratégique
-        strategic_display_comment: 5.1 Précision
-        newbies_sensitized: 6. Information
-        newbies_sensitized_comment: 6.1 Précision
-        indicators_communicated: 7. Indicateurs communiqués
-        indicators_communicated_comment: 7.1 Précision
-        daily_actions_diag: 8. Actions pratiquées
-        step_three: Diagnostic fini
-        actions_nb_result: 7. Nombre d'actions
+        participants_nb: Nombre de participant
+        diag_actions: Actions
+        employees_sensitized: Sensibilisation
+        employees_sensitized_comment: Précision
+        actions_displayed: Affichage
+        strategic_display: Emplacement stratégique
+        strategic_display_comment: Précision
+        newbies_sensitized: Information
+        newbies_sensitized_comment: Précision
+        indicators_communicated: Indicateurs communiqués
+        indicators_communicated_comment: Précision
+        daily_actions_diag: Actions pratiquées
+        actions_nb_result: Nombre d'actions
+        step_three: Formulaire fini
       article:
         cover: "Photo de couverture"
         author: "Auteur"

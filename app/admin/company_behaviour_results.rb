@@ -49,7 +49,7 @@ ActiveAdmin.register CompanyBehaviour, :as => 'Bilan Structure' do
   end
   #
   csv do
-    column :company
+    column (:company) {|form| form.company.name}
     column :participants_nb
     column :employees_sensitized
     column :employees_sensitized_comment
