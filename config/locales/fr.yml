@@ -99,7 +99,8 @@ fr:
       user: Utilisateurs
       form: Formulaires d'inscription
       user_behaviour_diag: Diagnostic collaborateurs
-      company_behaviour: Diagnostic structure
+      user_behaviour_result: Bilan collaborateurs
+      company_behaviour: Diag/bilan structure
       company: Entreprises
       referent: Référent
       bin: Bacs
@@ -252,22 +253,73 @@ fr:
         age: 18. Age
         seniority: 19. Ancienneté
         page_five: Diagnostic fini
+      user_behaviour_result:
+        company: Structure
+        user: Utilisateur
+        starting_month: 1. Mois de départ
+        action_mades: 2. Actions mises en place
+        actions_made_reasons: 3. Raisons
+        no_action_mades: 4. Actions non mises en place
+        not_made_reasons: 5. Raisons
+        actions_not_made_comment: 5.1 Commentaire
+        work_sorting_order: 6. Consignes de tri
+        work_sorting_applied: 7. Application
+        work_trash_reduction: 8. Réduction des déchets
+        work_trash_reduction_comment: 8.1 Commmentaire
+        home_sorting_order: 9. Consigne de tri (maison)
+        home_sorting_applied: 10. Application (maison)
+        home_trash_reduction: 11. Geste de réduction
+        home_trash_reduction_comment: 11.1 Précisions
+        context_knowledge: 12. Contexte
+        context_knowledge_comment: 12.1 Précisions
+        concerned: 13. Concerné
+        concerned_comment: 13.1 Commentaire
+        favorable_reduction: 14. Favorable
+        crappy_reduction: 15. Embêtant
+        trash_reduction_hard: 16. Compliqué
+        trash_reduction_hard_comment: 16.1 Commentaire
+        dedicated_employee: 17. Personne ressource inutile
+        dedicated_employee_comment: 17.1 Commentaire
+        work_continue: 18. Continue au travail
+        work_continue_comment: 18.1 Commentaire
+        home_continue: 19. Continue à la maison
+        home_continue_comment: 19.1 Commentaire
+        accompanier_sort_ready: 20. Prêt à accompagner Tri
+        accompanier_sort_ready_comment: 20.1 Commentaire
+        accompanier_sort_want: 21. Volonté d'accompagner Tri
+        accompanier_sort_want_comment: 21.1 Commentaire
+        accompanier_reduction_ready: 22. Prêt à accompagner Réduction
+        accompanier_reduc_ready_comment: 22.1 Commentaire
+        accompanier_reduction_want: 23. Volonté d'accompagner Réduction
+        accompanier_reduc_want_comment: 23.1 Commentaire
+        sex: 24. Sexe
+        age: 25. Age
+        seniority: 26. Ancienneté
+        page_six: Diagnostic fini
+      result_action:
+        name: Intitulé
+        comment: Description
+        state: Etat d'avancement
+        state_comment: Commentaire
+        domain: Niveau d'action
+        domain_comment: Commentaire
+        employees_making_nb: Nb. collab. participants
       company_behaviour:
         company: Structure
-        participants_nb: 1. Nombre de participant
-        diag_actions: 2. Actions
-        employees_sensitized: 3. Sensibilisation
-        employees_sensitized_comment: 3.1 Précision
-        actions_displayed: 4. Affichage
-        strategic_display: 5. Emplacement stratégique
-        strategic_display_comment: 5.1 Précision
-        newbies_sensitized: 6. Information
-        newbies_sensitized_comment: 6.1 Précision
-        indicators_communicated: 7. Indicateurs communiqués
-        indicators_communicated_comment: 7.1 Précision
-        daily_actions_diag: 8. Actions pratiquées
-        step_three: Diagnostic fini
-        actions_nb_result: 7. Nombre d'actions
+        participants_nb: Nombre de participant
+        diag_actions: Actions
+        employees_sensitized: Sensibilisation
+        employees_sensitized_comment: Précision
+        actions_displayed: Affichage
+        strategic_display: Emplacement stratégique
+        strategic_display_comment: Précision
+        newbies_sensitized: Information
+        newbies_sensitized_comment: Précision
+        indicators_communicated: Indicateurs communiqués
+        indicators_communicated_comment: Précision
+        daily_actions_diag: Actions pratiquées
+        actions_nb_result: Nombre d'actions
+        step_three: Formulaire fini
       article:
         cover: "Photo de couverture"
         author: "Auteur"

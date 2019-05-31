@@ -31,5 +31,12 @@ class CompanyBehaviour < ApplicationRecord
     end
   end
 
+  def self.diag
+    CompanyBehaviour.where("created_at <= :diag_end_at", {diag_end_at: "2019/02/14"})
+  end
+
+  def self.bilan
+    CompanyBehaviour.where("created_at >= :bilan_start_at", {bilan_start_at: "2019/05/15"})
+  end
 end
 

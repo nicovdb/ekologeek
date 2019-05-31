@@ -1,5 +1,6 @@
-ActiveAdmin.register CompanyBehaviour do
+ActiveAdmin.register CompanyBehaviour, :as => 'Diagnostic Structure' do
   config.filters = true
+  scope :diag, default: true
   actions :index, :show
 
   filter :step_three, as: :check_boxes
