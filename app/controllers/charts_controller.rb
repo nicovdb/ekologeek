@@ -33,6 +33,7 @@ class ChartsController < ApplicationController
     series_by_day_admin
     admin_weight_evolution
     admin_residual_trash
+    bilan_results
 
   end
 
@@ -54,6 +55,154 @@ class ChartsController < ApplicationController
   end
 
   private
+
+  def bilan_results
+    #mis chaque collecte au jour le jour par entreprise
+    collects_per_day_companies = []
+    @companies_collects.each do |company_collects|
+      collects_per_day_company = []
+      company_collects.last.each do |collect|
+        days = collect["end_at"].to_date - collect["start_at"].to_date
+        start_at = collect["start_at"].to_date
+        days.to_i.times do
+          collects_per_day_company << {"start_at"=>start_at.to_s,
+            "weight_person_day"=>collect["weight_person_day"],
+            "type"=>collect["type"]
+          }
+          start_at += 1
+        end
+      end
+      collects_per_day_companies << {company_collects.first => collects_per_day_company}
+    end
+
+    #calcul poids résiduel
+    collects_per_type_companies = []
+    @companies_collects.each do |company_collects|
+      collects_per_type_company = []
+      company_collects.last.each do |collect|
+        days = collect["end_at"].to_date - collect["start_at"].to_date
+        weight = collect["weight_person_day"] * days
+        collects_per_type_company << {
+          "weight"=>weight,
+          "type"=>collect["type"],
+          "status"=>collect["status"]
+        }
+      end
+      collects_per_type_companies << {company_collects.first => collects_per_type_company}
+    end
+
+    bilan_results = []
+    collects_per_type_companies.each do |company|
+      residual_weight_diag = 0
+      total_weight_diag = 0
+      residual_weight_bilan = 0
+      total_weight_bilan = 0
+      company.values.first.each do |collect|
+        if collect["status"] == "diagnostic"
+          total_weight_diag += collect["weight"]
+          if collect["type"] == "Ordures ménagères résiduelles (Bordeaux Métropole : bac noir)"
+            residual_weight_diag += collect["weight"]
+          end
+        elsif collect["status"] == "bilan"
+          total_weight_bilan += collect["weight"]
+          if collect["type"] == "Ordures ménagères résiduelles (Bordeaux Métropole : bac noir)"
+            residual_weight_bilan += collect["weight"]
+          end
+        end
+      end
+
+      if total_weight_diag == 0 && total_weight_bilan == 0
+        bilan_results << {
+          company.first.first => {
+            residual_diag: 0,
+            residual_bilan: 0
+          }
+        }
+      elsif total_weight_diag == 0
+        bilan_results << {
+          company.first.first => {
+            residual_diag: 0,
+            residual_bilan: residual_weight_bilan/total_weight_bilan *100
+          }
+        }
+      elsif total_weight_bilan == 0
+        bilan_results << {
+          company.first.first => {
+            residual_diag: residual_weight_diag/total_weight_diag *100,
+            residual_bilan: 0
+          }
+        }
+      else
+        bilan_results << {
+          company.first.first => {
+            residual_diag: residual_weight_diag/total_weight_diag *100,
+            residual_bilan: residual_weight_bilan/total_weight_bilan *100
+          }
+        }
+      end
+    end
+
+    #total par jour et par entreprise
+    collects_per_day_companies_grouped = []
+    collects_per_day_companies.each do |company|
+      collects_per_day_companies_grouped << {
+        company.first.first => company.values.first.group_by {|collect| collect["start_at"]}
+      }
+    end
+
+    collects_per_day_companies_grouped.each do |company|
+      company.values.first.each do |day|
+        day[1].map! { |collect| collect["weight_person_day"] }
+      end
+    end
+
+    #poids par collab par jour diagnostic et bilan par entreprise
+    collects_per_day_companies_grouped.each do |company|
+      diagnostic_weight = 0
+      diagnostic_days = 0
+      bilan_weight = 0
+      bilan_days = 0
+      company.values.first.each do |day|
+        if day.first.to_date <= current_user.company.project.diagnostic_end_at
+          diagnostic_weight += day.last.first
+          diagnostic_days += 1
+        elsif day.first.to_date >= current_user.company.project.bilan_start_at
+          bilan_weight += day.last.first
+          bilan_days += 1
+        end
+      end
+      if bilan_days == 0 && diagnostic_days == 0
+        bilan_results << {
+          company.first.first => {
+            "diagnostic": 0,
+            "bilan": 0
+          }
+        }
+      elsif bilan_days == 0
+        bilan_results << {
+          company.first.first => {
+            "diagnostic": diagnostic_weight/diagnostic_days,
+            "bilan": 0
+          }
+        }
+      elsif diagnostic_days == 0
+        bilan_results << {
+          company.first.first => {
+            "diagnostic": 0,
+            "bilan": bilan_weight/bilan_days
+          }
+        }
+      else
+        bilan_results << {
+          company.first.first => {
+            "diagnostic": diagnostic_weight/diagnostic_days,
+            "bilan": bilan_weight/bilan_days
+          }
+        }
+      end
+    end
+    @bilan_results_done = bilan_results.group_by {|result| result.keys}
+  end
 
   def weight_evolution
     #calcul du poids des déchets lors du diag pour 1 entreprise

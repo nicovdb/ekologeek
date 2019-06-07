@@ -7,6 +7,10 @@
   <div class="container bg-white mb-5 pb-5">
     <div class="container-soutenir">
       <h1 class="header text-primary pt-5 text-center">TABLEAU DE BORD</h1>
+      <h2 class="green-bg my-4">Classement</h2>
+
+
+
       <h2 class="green-bg my-4">Production de déchets de fonctionnement</h2>
       <!-- possibilité de saisir un relevé si on est référent mais pas admin -->
       <% if current_user.referent? && current_user.company.trash_diagnostic.nil? %>
