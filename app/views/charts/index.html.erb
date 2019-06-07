@@ -7,9 +7,57 @@
   <div class="container bg-white mb-5 pb-5">
     <div class="container-soutenir">
       <h1 class="header text-primary pt-5 text-center">TABLEAU DE BORD</h1>
-      <h2 class="green-bg my-4">Classement</h2>
-
-
+      <% if current_user.admin %>
+        <h2 class="green-bg my-4">Classement</h2>
+        <div class="pane pane--table1 mt-4">
+          <div class="pane-hScroll">
+            <table class="table table-striped table-hover">
+              <thead >
+                <tr>
+                  <th>Structure</th>
+                  <th>Diagnostic</th>
+                  <th>Bilan</th>
+                  <th>Évolution</th>
+                  <th>Résiduel Diag</th>
+                  <th>Résiduel Bilan</th>
+                  <th>Évolution résiduel</th>
+                </tr>
+              </thead>
+            </table>
+            <div class="pane-vScroll">
+              <table class="table table-striped table-hover">
+                <tbody>
+                  <% @bilan_results_done.each do |company| %>
+                  <tr>
+                    <td><%= company.first.first%></td>
+                    <td><%= (company.last.last.values.first[:diagnostic] * 1000).round %> g/collab/j</td>
+                    <td><%= (company.last.last.values.first[:bilan]* 1000).round %> g/collab/j</td>
+                    <td>
+                      <%= if company.last.last.values.first[:diagnostic] != 0
+                            (((company.last.last.values.first[:bilan] - company.last.last.values.first[:diagnostic]) / company.last.last.values.first[:diagnostic]) *100).round
+                          else
+                            0
+                          end
+                      %>%
+                    </td>
+                    <td><%= company.last.first.values.first[:residual_diag].round %>%</td>
+                    <td><%= company.last.first.values.first[:residual_bilan].round %>%</td>
+                    <td>
+                      <%= if company.last.first.values.first[:residual_diag] != 0
+                        (((company.last.first.values.first[:residual_bilan] - company.last.first.values.first[:residual_diag]) / company.last.first.values.first[:residual_diag]) *100).round
+                      else
+                        0
+                      end
+                      %>%
+                    </td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      <% end %>
 
       <h2 class="green-bg my-4">Production de déchets de fonctionnement</h2>
       <!-- possibilité de saisir un relevé si on est référent mais pas admin -->
