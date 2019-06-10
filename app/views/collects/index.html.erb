@@ -36,6 +36,7 @@
 
         <h2 class="green-bg mt-5">Déchets de fonctionnement de votre structure</h2>
 
+
         <% if current_user.referent? %>
           <div class=" text-center mt-4">
             <%= link_to "Saisir un relevé", new_collect_path, class:"btn btn-primary bold" %>
@@ -111,6 +112,7 @@
           <p class="mb-0 bold"><%= current_user.company.referent.user.telephone %></p>
           <p class="mb-0 bold"><%= current_user.company.referent.user.email %></p>
         <% end %>
+        
         <div class="pane pane--table1 mt-4">
           <div class="pane-hScroll2">
             <table class="table table-striped table-hover">

@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2019_05_16_150802) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
+    t.string "cover"
     t.string "subtitle"
     t.text "content"
     t.boolean "published", default: false
@@ -77,7 +78,6 @@ ActiveRecord::Schema.define(version: 2019_05_16_150802) do
     t.datetime "updated_at", null: false
     t.bigint "project_id"
     t.bigint "user_id"
-    t.string "cover"
     t.date "publish_date"
     t.index ["project_id"], name: "index_articles_on_project_id"
     t.index ["user_id"], name: "index_articles_on_user_id"
@@ -345,10 +345,10 @@ ActiveRecord::Schema.define(version: 2019_05_16_150802) do
   end
 
   create_table "photos", force: :cascade do |t|
+    t.bigint "article_id"
     t.text "image_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "article_id"
     t.index ["article_id"], name: "index_photos_on_article_id"
   end
 
@@ -635,6 +635,7 @@ ActiveRecord::Schema.define(version: 2019_05_16_150802) do
   add_foreign_key "likes", "articles"
   add_foreign_key "likes", "users"
   add_foreign_key "no_action_mades", "user_behaviour_results"
+  add_foreign_key "photos", "articles"
   add_foreign_key "priority_actions", "user_behaviour_diags"
   add_foreign_key "referents", "companies"
   add_foreign_key "referents", "users"
