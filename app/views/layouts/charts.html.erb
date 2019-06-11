@@ -26,10 +26,10 @@
     <div class="wrapper">
       <%= render 'shared/navbar_secondary_connected' %>
       <%= render 'shared/navbar_connected' %>
-      <%= javascript_include_tag 'application' %>
-      <%= javascript_pack_tag 'application' %>
       <%= yield %>
       <%= render 'shared/footer' %>
+      <%= javascript_include_tag 'application' %>
+      <%= javascript_pack_tag 'application' %>
     </div>
   </body>
 </html>
