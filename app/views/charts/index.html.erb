@@ -35,18 +35,18 @@
                     <td><%= (company.last.last.values.first[:bilan]* 1000).round %> g/collab/j</td>
                     <td>
                       <% if company.last.last.values.first[:diagnostic] != 0 %>
-                        <%= (((company.last.last.values.first[:bilan] - company.last.last.values.first[:diagnostic]) / company.last.last.values.first[:diagnostic]) *100).round %>
+                        <%= (((company.last.last.values.first[:bilan] - company.last.last.values.first[:diagnostic]) / company.last.last.values.first[:diagnostic]) *100).round %>%
                       <% else %>
-                        <p>0</p>
+                        <p>0%</p>
                       <% end %>
                     </td>
                     <td><%= company.last.first.values.first[:residual_diag].round %>%</td>
                     <td><%= company.last.first.values.first[:residual_bilan].round %>%</td>
                     <td>
                       <% if company.last.first.values.first[:residual_diag] != 0 %>
-                        <%= (((company.last.first.values.first[:residual_bilan] - company.last.first.values.first[:residual_diag]) / company.last.first.values.first[:residual_diag]) *100).round %>
+                        <%= (((company.last.first.values.first[:residual_bilan] - company.last.first.values.first[:residual_diag]) / company.last.first.values.first[:residual_diag]) *100).round %>%
                       <% else %>
-                        <p>0</p>
+                        <p>0%</p>
                       <% end %>
                     </td>
                   </tr>
