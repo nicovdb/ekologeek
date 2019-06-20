@@ -7,6 +7,21 @@
   <div class="container bg-white mb-5 pb-5">
     <div class="container-soutenir">
       <h1 class="header text-primary pt-5 text-center">TABLEAU DE BORD</h1>
+
+      <h2 class="green-bg my-4">Ma structure dans le Défi</h2>
+      <p>Classement général: <%= @results.find {|company| company[:company] == current_user.company.name}[:total_rank] %>ème</p>
+      <p>Réduction des déchets: <%= @results.find {|company| company[:company] == current_user.company.name}[:trash_reduction] %>%</p>
+      <p><%= @results.find {|company| company[:company] == current_user.company.name}[:trash_reduction_rank] %>ème</p>
+      <p>Changement du comportement: <%= @results.find {|company| company[:company] == current_user.company.name}[:behaviour_change] %>/5</p>
+      <p><%= @results.find {|company| company[:company] == current_user.company.name}[:behaviour_rank] %>ème</p>
+
+      <h2 class="green-bg my-4">Les gagnants du Défi</h2>
+      <p>Classement général: <%= @results.find {|company| company[:total_rank] == 1}[:company] %></p>
+      <p>Réduction des déchets: <%= @results.find {|company| company[:trash_reduction_rank] == 1}[:trash_reduction] %>%</p>
+      <p><%= @results.find {|company| company[:trash_reduction_rank] == 1}[:company] %></p>
+      <p>Changement du comportement: <%= @results.find {|company| company[:behaviour_rank] == 1}[:behaviour_change] %>/5</p>
+      <p><%= @results.find {|company| company[:behaviour_rank] == 1}[:company] %></p>
+
       <% if current_user.admin %>
         <h2 class="green-bg my-4">Classement</h2>
 

@@ -34,6 +34,7 @@ class ChartsController < ApplicationController
     admin_weight_evolution
     admin_residual_trash
     bilan_results
+    results
 
   end
 
@@ -481,5 +482,26 @@ class ChartsController < ApplicationController
       format.html {redirect_to chart_path(@company.id)}
       format.js
     end
+  end
+
+  def results
+    @results = [
+      {
+        company: "Ekolo[geek]",
+        total_rank: 1,
+        trash_reduction: -43,
+        trash_reduction_rank: 1,
+        behaviour_change: 3.2,
+        behaviour_rank: 6
+      },
+      {
+        company: "Le Wagon",
+        total_rank: 4,
+        trash_reduction: -50,
+        trash_reduction_rank: 2,
+        behaviour_change: 3.1,
+        behaviour_rank: 1
+      }
+    ]
   end
 end
