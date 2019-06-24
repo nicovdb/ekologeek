@@ -484,14 +484,6 @@ class ChartsController < ApplicationController
     end
   end
 
-  def finition(number)
-    if number == 1
-      "1er"
-    else
-      "#{number}ème"
-    end
-  end
-
   def results
     @results = [
       {
