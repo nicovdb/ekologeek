@@ -8,19 +8,97 @@
     <div class="container-soutenir">
       <h1 class="header text-primary pt-5 text-center">TABLEAU DE BORD</h1>
 
-      <h2 class="green-bg my-4">Ma structure dans le Défi</h2>
-      <p>Classement général: <%= @results.find {|company| company[:company] == current_user.company.name}[:total_rank] %>ème</p>
-      <p>Réduction des déchets: <%= @results.find {|company| company[:company] == current_user.company.name}[:trash_reduction] %>%</p>
-      <p><%= @results.find {|company| company[:company] == current_user.company.name}[:trash_reduction_rank] %>ème</p>
-      <p>Changement du comportement: <%= @results.find {|company| company[:company] == current_user.company.name}[:behaviour_change] %>/5</p>
-      <p><%= @results.find {|company| company[:company] == current_user.company.name}[:behaviour_rank] %>ème</p>
+      <% if @results.find {|company| company[:id] == current_user.company.id} %>
+        <h2 class="green-bg my-4">Ma structure dans le Défi</h2>
+        <div class="row">
+          <div class="col-12 col-sm-4">
+            <div class="result-blue">
+              Classement général
+            </div>
+            <div class="result-green">
+              <div class="big-number">
+                <%= @results.find {|company| company[:id] == current_user.company.id}[:total_rank] %>
+              </div>
+              <% if @results.find {|company| company[:id] == current_user.company.id}[:total_rank] == 1 %>
+                <span class="maxeme">er</span>
+              <% else %>
+                <span class="maxeme">ème</span>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4">
+            <div class="result-outline-blue">
+              Réduction des déchets
+            </div>
+            <div class="result-outline-green">
+              <div class="big-number">
+                <%= @results.find {|company| company[:id] == current_user.company.id}[:trash_reduction] %>%
+              </div>
+              <p><%= @results.find {|company| company[:id] == current_user.company.id}[:trash_reduction_rank] %>
+                <% if @results.find {|company| company[:id] == current_user.company.id}[:trash_reduction_rank] == 1 %>
+                  <span class="minieme">er</span>
+                <% else %>
+                  <span class="minieme">ème</span>
+                <% end %>
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4">
+            <div class="result-outline-blue">
+              Changement du comportement
+            </div>
+            <div class="result-outline-green">
+              <div class="big-number">
+                <%= @results.find {|company| company[:id] == current_user.company.id}[:behaviour_change] %>/5
+              </div>
+              <p><%= @results.find {|company| company[:id] == current_user.company.id}[:behaviour_rank] %>
+              <% if @results.find {|company| company[:id] == current_user.company.id}[:behaviour_rank] == 1 %>
+                <span class="minieme">er</span>
+              <% else %>
+                <span class="minieme">ème</span>
+              <% end %>
+            </p>
+            </div>
+          </div>
+        </div>
+      <% end %>
 
       <h2 class="green-bg my-4">Les gagnants du Défi</h2>
-      <p>Classement général: <%= @results.find {|company| company[:total_rank] == 1}[:company] %></p>
-      <p>Réduction des déchets: <%= @results.find {|company| company[:trash_reduction_rank] == 1}[:trash_reduction] %>%</p>
-      <p><%= @results.find {|company| company[:trash_reduction_rank] == 1}[:company] %></p>
-      <p>Changement du comportement: <%= @results.find {|company| company[:behaviour_rank] == 1}[:behaviour_change] %>/5</p>
-      <p><%= @results.find {|company| company[:behaviour_rank] == 1}[:company] %></p>
+      <div class="row">
+        <div class="col-12 col-sm-4">
+          <div class="result-blue">
+            <p>Classement général</p>
+            <i class="fas fa-trophy big-number"></i>
+          </div>
+          <div class="result-green">
+            <%= @results.find {|company| company[:total_rank] == 1}[:company].capitalize %>
+          </div>
+        </div>
+        <div class="col-12 col-sm-4">
+          <div class="result-outline-blue">
+            <p>Réduction des déchets</p>
+            <i class="fas fa-trophy big-number"></i>
+          </div>
+          <div class="result-outline-green">
+            <div class="big-number">
+              <%= @results.find {|company| company[:trash_reduction_rank] == 1}[:trash_reduction] %>%
+            </div>
+            <%= @results.find {|company| company[:trash_reduction_rank] == 1}[:company].capitalize %>
+          </div>
+        </div>
+        <div class="col-12 col-sm-4">
+          <div class="result-outline-blue">
+            <p>Changement du comportement</p>
+            <i class="fas fa-trophy big-number"></i>
+          </div>
+          <div class="result-outline-green">
+            <div class="big-number">
+              <%= @results.find {|company| company[:behaviour_rank] == 1}[:behaviour_change] %>/5
+            </div>
+            <%= @results.find {|company| company[:behaviour_rank] == 1}[:company].capitalize %>
+          </div>
+        </div>
+      </div>
 
       <% if current_user.admin %>
         <h2 class="green-bg my-4">Classement</h2>

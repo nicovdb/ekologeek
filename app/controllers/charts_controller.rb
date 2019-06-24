@@ -484,24 +484,161 @@ class ChartsController < ApplicationController
     end
   end
 
+  def finition(number)
+    if number == 1
+      "1er"
+    else
+      "#{number}ème"
+    end
+  end
+
   def results
     @results = [
       {
-        company: "Ekolo[geek]",
+        company: "Biocoop Bordeaux Pasteur",
+        id: 28,
+        total_rank: 9,
+        trash_reduction: 0,
+        trash_reduction_rank: 9,
+        behaviour_change: 0,
+        behaviour_rank: 9
+      },
+      {
+        company: 'BIOCOOP CESTAS "DES GRAINS DE BLE 3 "',
+        id: 34,
+        total_rank: 5,
+        trash_reduction: 0,
+        trash_reduction_rank: 7,
+        behaviour_change: 2.1,
+        behaviour_rank: 5
+      },
+      {
+        company: "175 JP ",
+        id: 69,
+        total_rank: 8,
+        trash_reduction: -20,
+        trash_reduction_rank: 5,
+        behaviour_change: 1.5,
+        behaviour_rank: 8
+      },
+      {
+        company: "Regroupement d'entreprises Charles Domercq ",
+        id: 70,
+        total_rank: 2,
+        trash_reduction: -37,
+        trash_reduction_rank: 2,
+        behaviour_change: 2.7,
+        behaviour_rank: 3
+      },
+      {
+        company: "Arts et Métiers",
+        id: 71,
+        total_rank: 4,
+        trash_reduction: -27,
+        trash_reduction_rank: 4,
+        behaviour_change: 2,
+        behaviour_rank: 7
+      },
+      {
+        company: "association jeunesse habitat solidaire",
+        id: 72,
         total_rank: 1,
-        trash_reduction: -43,
+        trash_reduction: -48,
         trash_reduction_rank: 1,
-        behaviour_change: 3.2,
+        behaviour_change: 4.4,
+        behaviour_rank: 1
+      },
+      {
+        company: "AREMACS",
+        id: 75,
+        total_rank: 5,
+        trash_reduction: -6,
+        trash_reduction_rank: 6,
+        behaviour_change: 2,
         behaviour_rank: 6
       },
       {
+        company: "Le Point Commun",
+        id: 107,
+        total_rank: 5,
+        trash_reduction: +51,
+        trash_reduction_rank: 8,
+        behaviour_change: 2.5,
+        behaviour_rank: 4
+      },
+      {
+        company: "Fiddaquitaine",
+        id: 111,
+        total_rank: 2,
+        trash_reduction: -33,
+        trash_reduction_rank: 3,
+        behaviour_change: 3.2,
+        behaviour_rank: 2
+      },
+      {
         company: "Le Wagon",
-        total_rank: 4,
-        trash_reduction: -50,
-        trash_reduction_rank: 2,
-        behaviour_change: 3.1,
-        behaviour_rank: 1
+        id: 1,
+        total_rank: 10,
+        trash_reduction: -0,
+        trash_reduction_rank: 10,
+        behaviour_change: 0,
+        behaviour_rank: 10
+      },
+      {
+        company: "Le Wagon",
+        id: 20,
+        total_rank: 10,
+        trash_reduction: -0,
+        trash_reduction_rank: 10,
+        behaviour_change: 0,
+        behaviour_rank: 10
+      },
+      {
+        company: "Le Wagon",
+        id: 21,
+        total_rank: 10,
+        trash_reduction: -0,
+        trash_reduction_rank: 10,
+        behaviour_change: 0,
+        behaviour_rank: 10
+      },
+      {
+        company: "Le Wagon",
+        id: 22,
+        total_rank: 10,
+        trash_reduction: -0,
+        trash_reduction_rank: 10,
+        behaviour_change: 0,
+        behaviour_rank: 10
+      },
+      {
+        company: "Ekolo[geek]",
+        id: 23,
+        total_rank: 10,
+        trash_reduction: -0,
+        trash_reduction_rank: 10,
+        behaviour_change: 0,
+        behaviour_rank: 10
+      },
+      {
+        company: "Ekolo[geek]",
+        id: 24,
+        total_rank: 10,
+        trash_reduction: -0,
+        trash_reduction_rank: 10,
+        behaviour_change: 0,
+        behaviour_rank: 10
+      },
+      {
+        company: "Ekolo[geek]",
+        id: 25,
+        total_rank: 10,
+        trash_reduction: -0,
+        trash_reduction_rank: 10,
+        behaviour_change: 0,
+        behaviour_rank: 10
       }
+
     ]
   end
 end
