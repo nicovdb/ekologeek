@@ -1,0 +1,61 @@
+.result-blue {
+  background-color: $blue;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  padding: 12px;
+  margin-bottom: 8px;
+}
+
+.result-green {
+  background-color: $green;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  padding: 12px;
+  margin-bottom: 15px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.result-outline-blue {
+  color: $blue;
+  border: 1px solid $blue;
+  text-align: center;
+  font-weight: bold;
+  padding: 12px;
+  margin-bottom: 8px;
+}
+
+.result-outline-green {
+  color: $green;
+  border: 1px solid $green;
+  text-align: center;
+  font-weight: bold;
+  padding: 12px;
+  margin-bottom: 15px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.big-number {
+  font-size: 40px;
+}
+
+.minieme {
+  font-size: 8px;
+  position: relative;
+  top: -6px;
+  left: -2px;
+}
+
+.maxeme {
+  font-size: 14px;
+  position: relative;
+  top: -6px;
+}
