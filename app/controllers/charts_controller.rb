@@ -518,7 +518,7 @@ class ChartsController < ApplicationController
         id: 70,
         total_rank: 2,
         trash_reduction: -37,
-        trash_reduction_rank: 2,
+        trash_reduction_rank: 1,
         behaviour_change: 2.7,
         behaviour_rank: 3
       },
@@ -530,15 +530,6 @@ class ChartsController < ApplicationController
         trash_reduction_rank: 4,
         behaviour_change: 2,
         behaviour_rank: 7
-      },
-      {
-        company: "association jeunesse habitat solidaire",
-        id: 72,
-        total_rank: 1,
-        trash_reduction: -48,
-        trash_reduction_rank: 1,
-        behaviour_change: 4.4,
-        behaviour_rank: 1
       },
       {
         company: "AREMACS",
@@ -565,7 +556,16 @@ class ChartsController < ApplicationController
         trash_reduction: -33,
         trash_reduction_rank: 3,
         behaviour_change: 3.2,
-        behaviour_rank: 2
+        behaviour_rank: 1
+      },
+      {
+        company: "Association jeunesse habitat solidaire",
+        id: 72,
+        total_rank: 1,
+        trash_reduction: -48,
+        trash_reduction_rank: 1,
+        behaviour_change: 4.4,
+        behaviour_rank: 1
       },
       {
         company: "Le Wagon",

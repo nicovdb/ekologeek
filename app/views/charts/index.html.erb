@@ -71,7 +71,7 @@
             <i class="fas fa-trophy big-number"></i>
           </div>
           <div class="result-green">
-            <%= @results.find {|company| company[:total_rank] == 1}[:company].capitalize %>
+            <%= @results.find {|company| company[:total_rank] == 1}[:company] %>
           </div>
         </div>
         <div class="col-12 col-sm-4">
@@ -83,7 +83,7 @@
             <div class="big-number">
               <%= @results.find {|company| company[:trash_reduction_rank] == 1}[:trash_reduction] %>%
             </div>
-            <%= @results.find {|company| company[:trash_reduction_rank] == 1}[:company].capitalize %>
+            <%= @results.find {|company| company[:trash_reduction_rank] == 1}[:company] %>
           </div>
         </div>
         <div class="col-12 col-sm-4">
@@ -95,7 +95,7 @@
             <div class="big-number">
               <%= @results.find {|company| company[:behaviour_rank] == 1}[:behaviour_change] %>/5
             </div>
-            <%= @results.find {|company| company[:behaviour_rank] == 1}[:company].capitalize %>
+            <%= @results.find {|company| company[:behaviour_rank] == 1}[:company] %>
           </div>
         </div>
       </div>
