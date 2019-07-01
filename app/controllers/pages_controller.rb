@@ -21,10 +21,6 @@ class PagesController < ApplicationController
     send_file "#{Rails.root}/app/assets/documents/cgv.pdf", type: "application/pdf", x_sendfile: true
   end
 
-  def home
-    @articles = Article.where(visibility: [:extern, :both], published: true).reverse.first(3)
-  end
-
   private
 
   def pages_layout
