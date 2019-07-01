@@ -81,7 +81,7 @@
       <h2 class="green-bg my-4">Actualités</h2>
     </div>
     <div class="d-flex flex-column">
-      <%= render "articles/preview", articles: Article.visibles_ext.last(3).reverse %>
+      <%= render "articles/preview", articles: Article.visibles_ext.sort_by { |article| article.publish_date }.last(3).reverse %>
     </div>
     <div class="text-center mt-4">
       <%= link_to "Plus d'actualités ", articles_path, class:"btn btn-primary mb-3 bold" %>
