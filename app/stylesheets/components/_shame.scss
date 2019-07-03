@@ -1,3 +1,12 @@
+a.blue {
+  color: $blue !important;
+}
+
+.btn-bg-blue {
+  background-color: $blue !important;
+  color: white;
+}
+
 .container {
   background: $light-gray;
   height: 100%;
