@@ -20,6 +20,20 @@
   justify-content: center;
 }
 
+.result-green-inscription {
+  background-color: $green;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  padding: 12px;
+  margin-bottom: 15px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .result-outline-blue {
   color: $blue;
   border: 1px solid $blue;
