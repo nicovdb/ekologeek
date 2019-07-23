@@ -7,7 +7,7 @@
         vous : pour convaincre votre direction utilisez nos arguments page « Pourquoi » et découvrez toutes nos infos pratiques sur la page
         « Comment ». Pour tout le reste :</p>
         <div class="text-center mt-4">
-          <%= link_to "Contactez-nous", contact_path, class:"btn-lg btn-bg-blue text-white text-decoration-none" %>
+          <%= link_to "Contactez-nous", contact_path, class:"btn-lg btn-bg-blue text-white text-decoration-none bold" %>
         </div>
 
       <h2 class="mt-5 green-bg">La Cérémonie de clôture édition 2019</h2>
@@ -18,38 +18,36 @@
       <div class="row">
         <div class="col-12 col-sm-4">
           <div class="result-blue">
-            <p>Catégotie reduction des déchets</p>
+            <p>Catégorie réduction des déchets</p>
             <i class="fas fa-trophy big-number"></i>
           </div>
           <div class="result-green-inscription">
             <div class="big-number">
-              <p class="m-0">-57%</p>
+              <p class="m-0">-37%</p>
             </div>
-            <p class="m-0">structure</p>
+            <p class="m-0">Regroupement d'entreprises Charles Domercq</p>
           </div>
 
         </div>
         <div class="col-12 col-sm-4">
-          <div class="result-outline-blue">
-            <p>Catégorie reduction des déchets</p>
+          <div class="result-blue">
+            <p>Catégorie changement du comportement</p>
             <i class="fas fa-trophy big-number"></i>
           </div>
-          <div class="result-outline-green">
+          <div class="result-green-inscription">
             <div class="big-number">
-              <p class="m-0">4,7/5</p>
+              <p class="m-0">3,2/5</p>
             </div>
-            <p class="m-0">structure</p>
+            <p class="m-0">Fidaquitaine</p>
           </div>
         </div>
         <div class="col-12 col-sm-4">
-          <div class="result-outline-blue">
+          <div class="result-blue">
             <p>Toutes catégories confondues</p>
             <i class="fas fa-trophy big-number"></i>
           </div>
-          <div class="result-outline-green">
-            <div class="big-number">
-              <p class="m-0">Stucture</p>
-            </div>
+          <div class="result-green">
+            <p class="m-0">Association jeunesse habitat solidaire</p>
           </div>
         </div>
       </div>
@@ -59,7 +57,7 @@
           <div class="card my-3 bg-primary">
             <%= link_to "https://175avocats.com/", target: :blank, class:"inscription_link" do %>
             <div class="card-header text-center text-decoration-none text-white ">
-              <h6 class="m-0" class="m-0">Regroupement 175JP</h6>
+              <h6 class="m-0 p-2 bold">Regroupement 175JP</h6>
             </div>
             <div class="text-center bg-white">
               <%= image_tag "175avocats_or.png", height: 60, class:"my-1" %>
@@ -75,7 +73,7 @@
           <div class="card my-3 bg-secondary">
             <%= link_to "http://aremacs.com/", target: :blank, class:"inscription_link" do %>
             <div class="card-header text-center text-decoration-none text-white">
-              <h6 class="m-0">AREMACS</h6>
+              <h6 class="p-2 m-0 bold">AREMACS</h6>
             </div>
             <div class="text-center bg-white">
               <%= image_tag "aremacs.png", height: 60, class:"my-1" %>
@@ -88,10 +86,10 @@
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-4 ">
-          <div class="card my-3 bg-light">
+          <div class="card my-3 bg-grey">
             <%= link_to "http://www.ensam.eu/", target: :blank, class:"inscription_link" do %>
-            <div class="card-header text-center text-decoration-none">
-              <h6 class="m-0">ENSAM</h6>
+            <div class="card-header text-center text-decoration-none text-white">
+              <h6 class="p-2 m-0 bold">ENSAM</h6>
             </div>
             <div class="text-center bg-white">
               <%= image_tag "arts-et-metiers.png", height: 60, class:"my-1" %>
@@ -104,10 +102,10 @@
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-4 ">
-          <div class="card my-3 bg-light">
+          <div class="card my-3 bg-grey">
             <%= link_to "http://www.bel-air-musique.com/", target: :blank, class:"inscription_link" do %>
-            <div class="card-header text-center text-decoration-none">
-              <h6 class="m-0">Regroupement Charles Domerq</h6>
+            <div class="card-header text-center text-decoration-none text-white">
+              <h6 class="p-2 m-0 bold">Regroupement Charles Domerq</h6>
             </div>
             <div class="text-center bg-white">
               <%= image_tag "bel-air-musique.png", width: 60, height: 60, class:"my-1" %>
@@ -123,7 +121,7 @@
           <div class="card my-3 bg-primary">
             <%= link_to "https://www.biocoop.fr/magasins-bio/Trouver-mon-magasin-Biocoop/Nouvelle-Aquitaine2/Gironde/DES-GRAINS-DE-BLE-3", target: :blank, class:"inscription_link" do %>
             <div class="card-header text-center text-decoration-none text-white">
-              <h6 class="m-0">Biocoop Cestas</h6>
+              <h6 class="p-2 m-0 bold">Biocoop Cestas</h6>
             </div>
             <div class="text-center bg-white">
               <%= image_tag "biocoop.png", width: 60, height: 60, class:"my-1" %>
@@ -139,13 +137,13 @@
           <div class="card my-3 bg-secondary">
             <%= link_to "https://www.biocoop.fr/magasins-bio/Trouver-mon-magasin-Biocoop/Nouvelle-Aquitaine2/Gironde/BORDEAUX-PASTEUR", target: :blank, class:"inscription_link" do %>
             <div class="card-header text-center text-decoration-none text-white">
-              <h6 class="m-0">Biocoop Pasteur</h6>
+              <h6 class="p-2 m-0 bold">Biocoop Pasteur</h6>
             </div>
             <div class="text-center bg-white">
               <%= image_tag "biocoop.png", width: 60, height: 60, class:"my-1" %>
             </div>
             <div class="card-body">
-              <p class="card-text m-0 text-center text-decoration-none">alimentation biologique et ecoproduits</p>
+              <p class="card-text m-0 text-center text-decoration-none text-white">alimentation biologique et ecoproduits</p>
               <p class="m-0 text-center text-decoration-none">< 10 salarié·e·s</p>
             </div>
             <% end %>
@@ -155,7 +153,7 @@
           <div class="card my-3 bg-secondary">
             <%= link_to "http://agence-bloom.fr/", target: :blank, class:"inscription_link" do %>
             <div class="card-header text-center text-decoration-none text-white">
-              <h6 class="m-0">Regroupement 175JP</h6>
+              <h6 class="p-2 m-0 bold">Regroupement 175JP</h6>
             </div>
             <div class="text-center bg-white">
               <%= image_tag "bloom.png", width: 60, class:"my-1" %>
@@ -168,10 +166,10 @@
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-4 ">
-          <div class="card my-3 bg-light">
+          <div class="card my-3 bg-grey">
             <%= link_to "http://www.chloe-bodart.fr/", target: :blank, class:"inscription_link" do %>
-            <div class="card-header text-center text-decoration-none">
-              <h6 class="m-0">Regroupement 175JP</h6>
+            <div class="card-header text-center text-decoration-none text-white">
+              <h6 class="p-2 m-0 bold">Regroupement 175JP</h6>
             </div>
             <div class="text-center bg-white">
               <%= image_tag "chloe_bodart_construire.jpg", width: 60, class:"my-1" %>
@@ -187,7 +185,7 @@
           <div class="card my-3 bg-primary">
             <%= link_to "https://www.distriartisan.fr/", target: :blank, class:"inscription_link" do %>
             <div class="card-header text-center text-decoration-none text-white">
-              <h6 class="m-0">Regroupement 175JP</h6>
+              <h6 class="p-2 m-0 bold">Regroupement 175JP</h6>
             </div>
               <div class="d-flex justify-content-center align-items-center bg-white" style="height: 70px;">
                 <%= image_tag "distri_artisan.png", width: 100, class:"my-1" %>
@@ -203,7 +201,7 @@
           <div class="card my-3 bg-primary">
             <%= link_to "https://ekylibre.com/", target: :blank, class:"inscription_link" do %>
             <div class="card-header bg-primary text-center text-decoration-none text-white">
-              <h6 class="m-0">Regroupement Charles Domerq</h6>
+              <h6 class="p-2 m-0 bold">Regroupement Charles Domerq</h6>
             </div>
               <div class="d-flex justify-content-center align-items-center bg-white" style="height: 70px;">
                 <%= image_tag "ekylibre.png", width: 100, class:"my-1" %>
@@ -219,7 +217,7 @@
           <div class="card my-3 bg-secondary">
           <%= link_to "https://www.espaces-atypiques.com/bordeaux/", target: :blank, class:"inscription_link" do %>
             <div class="card-header text-center text-decoration-none text-white">
-              <h6 class="m-0">Regroupement 175JP</h6>
+              <h6 class="p-2 m-0 bold">Regroupement 175JP</h6>
             </div>
               <div class="d-flex justify-content-center align-items-center bg-white" style="height: 70px;">
                 <%= image_tag "espaces-atypiques.png", width: 100, class:"my-1" %>
@@ -232,10 +230,10 @@
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-4 ">
-          <div class="card my-3 bg-light">
+          <div class="card my-3 bg-grey">
           <%= link_to "http://www.jhas.fr/", target: :blank, class:"inscription_link" do %>
-            <div class="card-header text-center text-decoration-none">
-              <h6 class="m-0">Association Jeunesse Habitat Solidaire</h6>
+            <div class="card-header text-center text-decoration-none text-white">
+              <h6 class="p-2 m-0 bold">Association Jeunesse Habitat Solidaire</h6>
             </div>
               <div class="d-flex justify-content-center align-items-center bg-white" style="height: 70px;">
                 <%= image_tag "JHAS.jpg", width: 100, class:"my-1" %>
@@ -248,10 +246,10 @@
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-4 ">
-          <div class="card my-3 bg-light">
+          <div class="card my-3 bg-grey">
           <%= link_to "http://www.jla.fr/", target: :blank, class:"inscription_link" do %>
-            <div class="card-header text-center text-decoration-none">
-              <h6 class="m-0">Regroupement 175JP</h6>
+            <div class="card-header text-center text-decoration-none text-white">
+              <h6 class="p-2 m-0 bold">Regroupement 175JP</h6>
             </div>
               <div class="d-flex justify-content-center align-items-center bg-white" style="height: 70px;">
                 <%= image_tag "JLA.png", width: 100, class:"my-1" %>
@@ -267,7 +265,7 @@
           <div class="card my-3 bg-primary">
           <%= link_to "http://lalternativebordeaux.fr", target: :blank, class:"inscription_link" do %>
             <div class="card-header text-center text-decoration-none text-white">
-              <h6 class="m-0">Regroupement Charles Domerq</h6>
+              <h6 class="p-2 m-0 bold">Regroupement Charles Domerq</h6>
             </div>
               <div class="text-center bg-white">
                 <%= image_tag "lalternative.png", width: 60, class:"my-1" %>
@@ -283,7 +281,7 @@
           <div class="card my-3 bg-secondary">
           <%= link_to "https://www.fidaquitaine.com/", target: :blank, class:"inscription_link" do %>
             <div class="card-header text-center text-decoration-none text-white">
-              <h6 class="m-0">Fidaquitaine</h6>
+              <h6 class="p-2 m-0 bold">Fidaquitaine</h6>
             </div>
               <div class="d-flex justify-content-center align-items-center bg-white" style="height: 70px;">
                 <%= image_tag "fidaquitaine.png", width: 60, class:"my-1" %>
@@ -299,7 +297,7 @@
           <div class="card my-3 bg-secondary">
           <%= link_to "https://ess.bordeaux-metropole.fr/Actualites/Le-Point-commun-a-Bordeaux-un-lieu-d-entrepreneuriat-pour-une-societe-solidaire", target: :blank, class:"inscription_link" do %>
             <div class="card-header text-center text-decoration-none text-white">
-              <h6 class="m-0">Regroupement Le Point Commun</h6>
+              <h6 class="p-2 m-0 bold">Regroupement Le Point Commun</h6>
             </div>
               <div class="text-center bg-white">
                 <%= image_tag "point-commun.png", width: 100, class:"my-1" %>
@@ -312,10 +310,10 @@
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-4 ">
-          <div class="card my-3 bg-light">
+          <div class="card my-3 bg-grey">
           <%= link_to "https://www.facebook.com/pg/RPB-Architecture-2285529905024123/", target: :blank, class:"inscription_link" do %>
-            <div class="card-header text-center text-decoration-none">
-              <h6 class="m-0">Regroupement Charles Domerq</h6>
+            <div class="card-header text-center text-decoration-none text-white">
+              <h6 class="p-2 m-0 bold">Regroupement Charles Domerq</h6>
             </div>
               <div class="text-center bg-white" >
                 <%= image_tag "RPB.jpg", width: 60, class:"my-1" %>
@@ -331,7 +329,7 @@
           <div class="card my-3 bg-primary">
           <%= link_to "https://www.penaud-jean.com/", target: :blank, class:"inscription_link" do %>
             <div class="card-header text-center text-decoration-none text-white">
-              <h6 class="m-0">Regroupement Charles Domerq</h6>
+              <h6 class="p-2 m-0 bold">Regroupement Charles Domerq</h6>
             </div>
               <div class="d-flex justify-content-center align-items-center bg-white" style="height: 70px;" >
                 <%= image_tag "penaud_jean.png", width: 100, class:"my-1" %>
@@ -347,7 +345,7 @@
           <div class="card my-3 bg-primary">
           <%= link_to "http://selva-maugin.com/", target: :blank, class:"inscription_link" do %>
             <div class="card-header text-center text-decoration-none text-white">
-              <h6 class="m-0">Regroupement 175JP</h6>
+              <h6 class="p-2 m-0 bold">Regroupement 175JP</h6>
             </div>
               <div class="d-flex justify-content-center align-items-center bg-white" style="height: 70px;" >
                 <%= image_tag "default.jpg", width: 100, class:"my-1" %>
@@ -363,7 +361,7 @@
           <div class="card my-3 bg-secondary">
           <%= link_to "http://www.ls-landscapes.com/contacts", target: :blank, class:"inscription_link" do %>
             <div class="card-header text-center text-decoration-none text-white">
-              <h6 class="m-0">Regroupement 175JP</h6>
+              <h6 class="p-2 m-0 bold">Regroupement 175JP</h6>
             </div>
               <div class="d-flex justify-content-center align-items-center bg-white" style="height: 70px;" >
                 <%= image_tag "ls_landscape.png", width: 60, class:"my-1" %>
@@ -376,10 +374,10 @@
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-4 ">
-          <div class="card my-3 bg-light">
+          <div class="card my-3 bg-grey">
           <%= link_to "https://atis-asso.org/", target: :blank, class:"inscription_link" do %>
-            <div class="card-header text-center text-decoration-none">
-              <h6 class="m-0">Regroupement Le Point Commun</h6>
+            <div class="card-header text-center text-decoration-none text-white">
+              <h6 class="p-2 m-0 bold">Regroupement Le Point Commun</h6>
             </div>
               <div class="d-flex justify-content-center align-items-center bg-white" style="height: 70px;" >
                 <%= image_tag "atis.png", width: 70, class:"my-1" %>
@@ -392,10 +390,10 @@
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-4 ">
-          <div class="card my-3 bg-light">
+          <div class="card my-3 bg-grey">
           <%= link_to "http://www.cress-na.org/", target: :blank, class:"inscription_link" do %>
-            <div class="card-header text-center text-decoration-none">
-              <h6 class="m-0">Regroupement Le Point Commun</h6>
+            <div class="card-header text-center text-decoration-none text-white">
+              <h6 class="p-2 m-0 bold">Regroupement Le Point Commun</h6>
             </div>
               <div class="d-flex justify-content-center align-items-center bg-white" style="height: 70px;" >
                 <%= image_tag "cress.png", width: 100, class:"my-1" %>
@@ -411,7 +409,7 @@
           <div class="card my-3 bg-primary">
           <%= link_to "https://jadopteunprojet.com/", target: :blank, class:"inscription_link" do %>
             <div class="card-header text-center text-decoration-none text-white">
-              <h6 class="m-0">Regroupement Le Point Commun</h6>
+              <h6 class="p-2 m-0 bold">Regroupement Le Point Commun</h6>
             </div>
               <div class="d-flex justify-content-center align-items-center bg-white" style="height: 70px;" >
                 <%= image_tag "jadopteunprojet.png", width: 100, class:"my-1" %>
@@ -427,7 +425,7 @@
           <div class="card my-3 bg-secondary">
           <%= link_to "https://www.lanef.com/", target: :blank, class:"inscription_link" do %>
             <div class="card-header text-center text-decoration-none text-white">
-              <h6 class="m-0">Regroupement Le Point Commun</h6>
+              <h6 class="p-2 m-0 bold">Regroupement Le Point Commun</h6>
             </div>
               <div class="d-flex justify-content-center align-items-center bg-white" style="height: 70px;" >
                 <%= image_tag "la_nef.png", width: 70, class:"my-1" %>
@@ -443,7 +441,7 @@
           <div class="card my-3 bg-primary">
           <%= link_to "http://lautrentreprise.fr/", target: :blank, class:"inscription_link" do %>
             <div class="card-header text-center text-decoration-none text-white">
-              <h6 class="m-0">Regroupement Le Point Commun</h6>
+              <h6 class="p-2 m-0 bold">Regroupement Le Point Commun</h6>
             </div>
               <div class="d-flex justify-content-center align-items-center bg-white" style="height: 70px;" >
                 <%= image_tag "autre_entreprise.png", width: 120, class:"my-1" %>
