@@ -31,7 +31,7 @@ gem 'acts-as-taggable-on', '~> 6.0'
 gem "shrine"
 gem "shrine-cloudinary"
 gem "cloudinary"
-gem 'carrierwave', '~> 1.2'
+gem 'carrierwave', '~> 1.3'
 gem 'social-share-button'
 gem 'pagy', '~> 2.0', '>= 2.0.1'
 
